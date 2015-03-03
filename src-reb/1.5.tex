@@ -1,0 +1,64 @@
+\def\Z{{\bf Z}}
+{\bf Hartshorne, Chapter 1.5}
+Answers to exercises. \hfill REB 1994
+\item{5.1a} This is the tacnode. The singular points
+are the points with $x^2=x^4+y^4$, $2x=4x^3$, and $4y^3=0$,
+so (at least in characteristic 0) the only singular point is
+$(0,0)$.
+\item{5.1b} This is the node; singular point is $(0,0)$. 
+\item{5.1c} This is the cusp; singular point is $(0,0)$. 
+\item{5.1d} This is the triple point; singular point is $(0,0)$. 
+\item{5.2} The singular points of $f(x,y,z)=0$ are
+given by $f=0$, ${\partial f\over \partial x}=0$,
+${\partial f\over \partial y}=0$, and ${\partial f\over \partial z}=0$.
+\item{5.2a} This is the pinch point; singular points
+are where $xy^2=z^2$, $y^2=0$, $2xy=0$, and $2z=0$,
+which is the line $y=z=0$. 
+\item{5.2b} This is the conical double point; singular points
+are where $x^2+y^2=z^2$, $2x=0$, $2y=0$, and $2z=0$,
+which is the point $(0,0,0)$. 
+\item{5.2c} This is the double line; singular points
+are where $xy+x^3+y^3=0$, $y+3x^2=0$, $x+3y^2=0$, and $0=0$,
+which is the line $x=y=0$. 
+\item{5.3a} If $P$ is a point on $Y$ then $P$
+ is a nonsingular point of $Y$ is equivalent to saying that one of
+${\partial f\over \partial x}$, ${\partial f\over
+\partial y}$ are nonzero at $P$, which is equivalent to saying that
+$f$ has a term of degree 1 in $x$ and $y$, which is equivalent to
+saying that $\mu_P(Y)=1$.
+\item{5.3b} The singularities in 1a, 1b, and 1c have multiplicity 2,
+and 1d has multiplicity 3. 
+\item{5.4a}  $f$ and $g$ both vanish at only a finite number of points,
+so we can find a polynomial $h(y)$ which 
+vanishes whenever $f$ and $g$ both vanish, so $h^n\in (f,g)$
+for some $n$, so we can assume $n=1$. The submodules of 
+$O_P/(f,g)$ correspond to ideals of $O_P$ containing 
+$f$ and $g$, so it is sufficient to show that
+$k[x,y]/(f,g)$ is finite dimensional (as its dimension
+is at least the length of $O_P/(f,g)$). But if we have
+polynomials $h_1(x)$ and $h_2(y)$ of degrees $m$ and $n$
+in $(f,g)$ then $k[x,y]/(f,g)$ has dimension at most that
+of $k[x,y]/(h_1,h_2)$ which is $mn$ which is finite. 
+\item{5.4b} Put $P=(0,0)$ and take any line $L$ not in
+the tangent cone of $Y$. We can assume that $L$ is the
+line $y=0$, so the terms of lowest degree in $f$ 
+contain $x^m$ (where $m$ is the multiplicity of $Y$ at $P$). 
+Then $O_P/(f,g)=O_P/(y,x^m+\cdots)=O_Q/(x^m+\cdots)$
+which has length $m$ (where $O_Q$ is the local ring
+of $Q=0\in A^1$). 
+\item{5.4c} We can assume that $L$ is $y=0$. If $z\ne 0$,
+the equation of the curve $Y$ is $f(x)+y(*)=0$ where
+$f$ if a polynomial in $x$ of some degree $n$. Then if $x$
+is a root of $f$ of multiplicity $m$, we have $(L.Y)_(x,0)=m$,
+so the sums of the intersection multiplicities 
+along the x axis is the number of roots of $f$ which is 
+$n$. On the other hand, at the point $(0:1:0)$ the intersection
+multiplicity is $d-n$ as the equation for
+$f$ is locally $z^{d-n}+\cdots +x(*)=0$. So the sum of
+all intersection multiplicities is $n+d-n=d$. 
+\item{5.5} If the characteristic $p$ does not divide $d$ 
+we can use $x^d+y^d+z^d=0$ Otherwise we can use $xy^{d-1} +
+yz^{d-1}+zx^{d-1}=0$.
+
+
+\bye

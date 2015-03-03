@@ -1,0 +1,267 @@
+%\documentclass[11pt]{article}          % required in all documents
+\documentclass[11pt]{amsart}          % required in all documents
+\usepackage{epsfig}                     % a package to include PS figures
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\newcommand{\tuborg}{\left\{\begin{array}{ll}}
+\newcommand{\sluttuborg}{\end{array}\right.}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calZ}{\mathcal{Z}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\cal}{\mathcal}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\ord}{{\rm ord}}
+\newcommand{\coker}{{\rm coker}}
+\newcommand{\codim}{{\rm codim}}
+\newcommand{\supp}{{\rm Supp}}
+\newcommand{\rat}{{\rm Rat}}
+\newcommand{\spec}{{\rm Spec}}
+\newcommand{\tor}{{\rm Tor}}
+\newcommand{\stor}{{\underline{\rm Tor}}}
+\newcommand{\p}{\partial}
+\newcommand{\proj}{{\rm Proj}}
+\newcommand{\fr}{{\rm Frac}}
+\newcommand{\ann}{{\rm Ann}}
+\newcommand{\ass}{{\rm Ass}}
+\newcommand{\pic}{{\rm Pic}}
+\newcommand{\ext}{{\rm Ext}}
+\newcommand{\shom}{{\underline{\rm Hom}}}
+\newcommand{\sext}{{\underline{\rm Ext}}}
+\newcommand{\ilim}{{\underset{\longleftarrow}{\lim}}}
+\newcommand{\dlim}{{\underset{\longrightarrow}{\lim}}}
+\newcommand{\sym}{{\rm Sym}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defi}[thm]{Definition} 
+\newtheorem{eg}[thm]{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem*{remark}{Remark}
+\newtheorem{remark2}[thm]{Remark}
+\newtheorem*{phil}{Philosophy}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{metaconj}[thm]{Metaconjecture}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{question}[thm]{Question}
+\newtheorem{application}[thm]{Application}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{thm}.\arabic{equation}}
+\renewcommand{\div}{{\rm div}}
+\renewcommand{\hom}{{\rm Hom}}
+
+\setlength{\textwidth}{6in}             % Space saving measures
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.5in}
+\renewcommand{\baselinestretch}{1}
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+   
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}                                    
+
+\begin{document}
+
+\begin{center}
+\bf
+\large Robin Hartshorne's Algebraic Geometry Solutions
+\end{center}
+\begin{center}
+by Jinhyun Park
+\end{center}
+\vskip0.5cm
+
+\section*{Chapter II Section 2 Schemes}
+
+\subsection*{2.1}\textbf{Let $A$ be a ring, let $X = \spec (A)$, let $f \in A$ and let $D(f) \subset X$ be the open complement of $V((f))$. Show that the locally ringed space $(D(f), \calO_X |_{D(f)} )$ is isomorphic to $\spec (A_f)$.}
+
+\begin{proof} From a basic commutative algebra, we know that prime ideals in $A_S$, for a multiplicative set $S$ of $A$, correspond to prime ideals of $A$ which do not intersect $S$. In particular, $A_f = A_S$ for $S = \{ 1, f, f^2, \cdots, \}$ so that prime ideals of $A_f$ correspond to prime ideals of $A$ not containing $f$. This shows that the underlying topological spaces are homeomorphic. For the morphism of structure sheaves, Prop. 2.2 -(b) gives the answer. This proves the assertion. \end{proof}
+
+\subsection*{2.2}\textbf{Let $(X, \calO_X)$ be a scheme, and let $U \subset X$ be any open subset. Show that $(U, \calO_{X} |_U)$ is a scheme. We call this the {\it induced scheme structure} on the open set $U$, and we refer to $(U, \calO_X |_U)$ as an {\it open subscheme} of $X$.}
+
+\begin{proof}By the remark on p. 71 above the Prop. 2.2., affine subschemes of $X$ form a basis for the topology of $X$. Thus, for any open $U \subset X$ there is an affine open subscheme $Y \subset U$, thus, by definition, $(U, \calO_X |_U)$ is a scheme.\end{proof}
+
+\subsection*{2.3}\textbf{ {\it Reduced Schemes.} A scheme $(X, \calO_X)$ is {\it reduced} if for every open set $U \subset X$, the ring $\calO_X (U)$ has no nilpotent elements.}
+\begin{enumerate}
+\item [(a)] \textbf{Show that $(X, \calO_X)$ is reduced if and only if for every $P \in X$, the local ring $\calO_{X, P}$ has no nilpotent elements.}
+
+\begin{proof}($\Rightarrow$) Assume not, i.e. there is $P \in X$ and $0 \not = f \in \calO_{X, P}$ such that $f^m = 0$ for some $m \in \mathbb{N}$. Then there is an open set $V \ni P$ and $g \in \calO_{X } (V)$ which represents $f$. But, then $g^m = 0$ which is a contradiction.
+
+($\Leftarrow$) Assume that for some open $V \subset X$, there is nonzero $g \in \calO_X (V)$ such that $g^m=0$. Then, there is $P \in V$ for which the image $f \in \calO_{X,P}$ of $g$ is nonzero and $f^m = 0$, which is a contradiction.\end{proof}
+
+\item [(b)] \textbf{Let $(X, \calO_X)$ be a scheme. Let $(\calO_X)_{{\rm red}}$ be the sheaf associated to the presheaf $U \mapsto \calO_X (U)_{\mbox{red}}$, where for any ring $A$, we denote by $A_{{\rm red}}$ the quotient of $A$ by its ideal of nilpotent elements. Show that $(X, (\calO_X)_{{\rm red}})$ is a scheme. We call it the {\it reduced scheme} associated to $X$, and denote it by $X_{{\rm red}}$. How that there is a morphism of schemes $X_{{\rm red}} \to X$, which is a homeomorphism on the underlying topological spaces.}
+
+\begin{claim} $(X, (\calO_X)_{{\rm red}})$ is a scheme.\end{claim}
+\begin{proof}For any affine schemes $V \subset U \subset X$, $(\calO_X |_U) _{{\rm red}} (V) = (\calO_X)_{{\rm red}} |_U (V)$, so, the rest is obvious.\end{proof}
+
+\begin{claim} There is a morphism of schemes $X _{\rm red} \to X$ which is a homeomorphism on the underlying spaces.\end{claim}
+\begin{proof}Just define $f: X_{\rm red} \to X$ to be the identity map on the underlying spaces. We define $f^{\sharp}: \calO_X \to f_* (\calO_X)_{\rm red}$ to be $$f^{\sharp} (U): \calO_X (U) \to \calO_X (U) / \mathfrak{nilrad}(\calO_X (U))$$ for any open subset $U \subset X$.\end{proof}
+
+\item [(c)] \textbf{Let $f: X \to Y$ be a morphism of schemes, and assume that $X$ is reduced. Show that there is a unique morphism $g: X \to Y_{{\rm red}}$ such that $f$ is obtained by composing $g$ with the natural map $Y_{{\rm red}} \to Y$.}
+
+\begin{proof}Define $g: X \to Y_{\rm red}$ as follows. As a map on underlying spaces, $g = f$. As a morphism of sheaves, $g^{\sharp}: (\calO_Y)_{\rm red} \to g_* \calO_X = g_* (\calO_X)_{\rm red}$ is defined from $f^{\sharp}: \calO_Y \to f_* \calO_X$ by taking $g^{\sharp} = (f^{\sharp})_{\rm red}$. This is possible because a nilpotent is sent to a nilpotent so that a nilradical is sent to a nilradical.\end{proof}
+\end{enumerate}
+
+\subsection*{2.4}\textbf{Let $A$ be a ring and let $(X, \calO_X)$ be a scheme. Given a morphism $f: X \to \spec (A)$, we have an associated map on sheaves $f^{\sharp} : \calO_{\spec (A)} \to f_* \calO_X$. Taking global sections we obtaion a homomorphism $A \to \Gamma(X, \calO_X)$. Thus there is a natural map 
+$$ \alpha: \hom _{\mathfrak{Sch}} (X, \spec (A) ) \to \hom_{\mathfrak{Rings}} (A, \Gamma (X, \calO_X)).$$ Show that $\alpha$ is bijective (cf. (I, 3.5) for an analogous statement about varieties). }
+
+\begin{proof}Let $\phi: A \to \Gamma(X, \calO_X)$ be a ring homomorphism. We want to construct a natural morphism of schemes which corresponds to $\phi$. 
+
+Notice that for any affine open $U \subset X$, we have $A \overset{\phi}{\to} \Gamma(X, \calO_X) \overset{\rho^U _X}{\to} \Gamma(U, \calO_X)$ from which we can obtain $\phi_U ^* = \spec (\rho_X ^U \circ \phi): U \simeq \spec (\Gamma (U, \calO_X)) \to \spec(A)$. The question is whether they glue together nicely so that we can we can actually obtain a map from $X$ to $\spec (A)$. But, this is easy: for two affine open sets $U$ and $V$ and any affine open subset $W \subset U \cap V$, the restiction maps $\rho$ are transitive so that
+$$\rho_X ^W =\rho_U ^W \circ \rho_X ^{U} = \rho_V ^W \circ \rho _X ^W$$
+and $\spec$ is contravariant functorial so that the morphism of schemes $$\phi_U ^* |_W  = \spec( \rho_X ^U \circ \phi)\circ \spec(\rho_U ^W) = \spec(\rho_U ^W \circ \rho_X ^U \circ \phi) = \spec (\rho_X ^W \circ \phi) = \phi_W ^*$$ and by symmetry, $\phi_V ^* |_W = \phi_W ^*$. Thus, by collecting $\{ \phi_U^*\} _{U \subset X}$, we have $\phi^* : X \to \spec (A)$. That these two procedures are inverse to each other is obvious.\end{proof}
+
+\subsection*{2.5}\textbf{Describe $\spec (\mathbb{Z})$, and show that it is a final object for the category of schemes, i.e., each scheme $X$ admits a unique morphism to $\spec (\mathbb{Z})$.}
+\begin{proof} $\spec (\mathbb{Z}) = \{ (0) \} \cup \{ (p)| p \mbox{:prime number} \}$ with $(0)$, not closed and $(p)$ are closed points. This is a dimension $1$ scheme. On the other hand, take $A= \mathbb{Z}$ in Ex. 2.4. Then,
+$\hom_{\mathfrak{Rings}} (\mathbb{Z}, \Gamma(X, \calO_X))$ has only one element, namely, the ring homomorphism sending $1$ to $1$. This corresponds to a unique morphism of schemes $X \to \spec (\mathbb{Z})$, thus, it is a final object for the category of schemes.\end{proof}
+
+\subsection*{2.6} \textbf{Describe the spectrum of the zero ring, and show that it is an initial object for the category of schemes. (According to our conventions, all ring homomorphisms must take $1$ to $1$. Since $0 = 1$ in the zero ring, we see that each ring $R$ admits a unique homomorphism to the zero ring, but that there is no homomorphism from the zero ring to $R$ unless $0 = 1$ in $R$.)}
+
+\begin{proof}For $A=0$, $\spec (A) = \phi$. On the other hand, for any scheme $X$, any ring homomorphism $\Gamma(X, \calO_X) \to 0$ is $0$. Hence, by Ex. 2.4, there is a unique morphism of schemes $\spec (0) \to X$, namely, the inclusion of empty set to $X$. Hence, $\spec (0)$ is an initial object in the category of schemes.\end{proof}
+
+\subsection*{2.7} \textbf{Let $X$ be a scheme. For any $x \in X$, let $\calO_x$ be the local ring at $x$, and $\mathfrak{m}_x$ its maximal ideal. We define the {\it residue field} of $x$ on $X$ to be the field $k(x) = \calO_x / \mathfrak{m}_x$. Now let $K$ be any field. Show that to give a morphism of $\spec (K)$ to $X$ is equivalent to give a point $x \in X$ and an inclusion map $k(x) \to K$.}
+
+\begin{proof}($\Rightarrow$) Let $(\eta, \eta^{\sharp}): \spec (K) \to X$ be a morphism of schemes. As a map on topological spaces, since $\spec (K)$ consists of a single point $\{*\}$, there is a unique point $x \in X$ with $x:= \eta (*)$.
+
+Now, from $\eta^{\sharp}$, we obtain a local homomorphism $\eta^{\sharp} _* : \calO_{X, x} \to \calO_{\spec (K), *} = K$, thus, the map of their residue fields
+$$\overline{\eta^{\sharp} _*} : k(x)  = \frac{\calO_{X,x}}{\mathfrak{m}_{X, x}} \to \frac{\calO_{\spec (K), *}}{\mathfrak{m}_{\spec (K), *}} = \frac{K}{0} = K.$$ This is injective because $k(x)$ is a field.
+
+\noindent ($\Leftarrow$) Conversely, suppose that $x \in X$ and an embedding $k(x) \hookrightarrow K$ are given. We have the obvious map on topological spaces $\eta: \spec (K) \to X$ defined to be $* \mapsto x$, thus, we need to construct $\eta^{\sharp} : \calO_X \to \eta_{*} \calO_{\spec (K)}$. But, this is easy:
+
+\begin{enumerate}
+\item [ ] If $x \in U \subset X$, then, $\eta^{\sharp} (U): \calO_X (U) \to \left( \eta_* \calO_{\spec (K)} \right) (U) = K$ is defined to be the composition of maps
+$$\calO_{X } (U) \to \calO_{X, x} \to \calO_{X,x} / \mathfrak{m}_{X, x} = k(x) \hookrightarrow K.$$
+
+\item [ ] If $x \not \in U \subset X$, we let $\eta^{\sharp} (U) = 0$, where the target is the zero ring. 
+\end{enumerate}
+
+Thus, we constructed the desired morphism of schemes $(\eta, \eta^{\sharp}) : \spec (K) \to X$. This finishes the proof.\end{proof}
+
+\subsection*{2.8}\textbf{Let $X$ be a scheme. For any point $x \in X$, we define the {\it Zariski tangent space} $T_x$ to $X$ at $x$ to be the dual of the $k(x)$-vector space $\mathfrak{m}_x / \mathfrak{m} _x ^2$. Now assume that $X$ is a scheme over a field $k$, and let $k[\epsilon] / \epsilon^2$ be the {\it ring of dual numbers} over $k$. Show that to give a $k$-morphism of $\spec \left( k[\epsilon]/ \epsilon^2 \right)$ to $X$ is equivalent to giving a point $x \in X$, {\it rational over } $k$ (i.e., such that $k(x) = k$), and an element of $T_x$.}
+
+\begin{proof} Notice first that as a topological space, $\spec \left( k [ \epsilon]/ \epsilon^2 \right)$ is a single point $\{ * \}$ with residue field $k(*) = k$.
+
+\noindent ($\Rightarrow$) Let $(\eta, \eta^{\sharp}) \in \mathfrak{Mor}_{k-\mathfrak{sch}}\left( \spec \left( k[\epsilon] / \epsilon^2 \right) , X \right)$ be given. Let $x = \eta(*)$. Since $\eta$ is a $k$-morphism, and $k(*) = k$, we must have $k (x) = k$ and $x$ is a rational point.
+
+On the other hand, we have a $k$-algebra {\it local} homomorphism $\eta^{\sharp} _* : \calO_{X, x} \to \calO_{\spec \left( k[\epsilon] / \epsilon^2 \right) , * }  = k [ \epsilon] / \epsilon^2=:k[\overline{\epsilon}]$, thus, $\eta^{\sharp} _* (\mathfrak{m} _{X, x}) \subset (\overline{\epsilon})$. But, since $(\overline{\epsilon}^2) = 0$, we have $\eta^{\sharp} _* ( \mathfrak{m} _{X, x} ^2 ) \subset (\overline{\epsilon}^2) = 0$, thus we get a $k$-vector space homomorphism
+$$ \eta^{\sharp} _* : \mathfrak{m}_{X, x} / \mathfrak{m} _{X, x} ^2 \to (\overline{\epsilon})\simeq k,$$ where the last map is an isomorphism of $k$-vector spaces.
+
+Thus, we obtained a $k$-rational point $x\in X$ and $\eta^{\sharp} _* \in \hom_k \left( \mathfrak{m} _x/ \mathfrak{m} _x ^2 , k \right) = T_x$ as desired.
+
+\noindent ($\Leftarrow$) Conversely, suppose that we have a $k$-rational point $x \in X$ and a $k$-linear map $\xi \in \hom_k \left( \mathfrak{m}_x / \mathfrak{m}_x ^2 , k \right)$. Out of this data, we will define an element $(\eta, \eta^{\sharp}) \in \mathfrak{Mor}_{k-\mathfrak{sch}} \left( \spec \left( k [ \epsilon] / \epsilon^2 \right), X \right)$.
+
+First, as a map of topological spaces, just define $\eta (*) = x$. Let's define $\eta^{\sharp}$.
+\begin{enumerate}
+\item [ ] If $x \not \in U \subset X$, define $\eta^{\sharp} (U) : \calO_X (U) \to \left( \eta_* \calO_{\spec \left( k [\epsilon] /\epsilon^2 \right)} \right)(U) = 0$ to be $0$.
+
+\item [ ]If $x \in U \subset X$, notice that since $x$ is a $k$-rational point, we first have a decomposition $\calO_{X, x} = k \oplus \mathfrak{m}_{X, x}$. Then, using this, define $\eta^{\sharp} (U)$ as the composition of maps
+$$\calO_X (U) \to \calO_{X, x} = k \oplus \mathfrak{m}_{X, x}\overset{\alpha}{\to} k[\epsilon] / \epsilon^2 = \left( \eta_* \calO_{\spec \left( k[\epsilon] / \epsilon^2 \right) }\right) (U)$$ where the second map $\alpha$ sends $(a,b) \mapsto a + \xi (\overline{b}) \overline{\epsilon}$, where $\overline{b}$ denotes its image in $\mathfrak{m}_x / \mathfrak{m}_{x} ^2$. This proves the assertion.\end{enumerate}\end{proof}
+
+\subsection*{2.9.}\textbf{If $X$ is a topological space, and $Z$ an irreducible closed subset of $X$, a {\it generic point} for $Z$ is a point $\zeta$ such that $Z = \{ \zeta \} ^-$. If $X$ is a scheme, show that every (nonempty) irreducible closed subset has a unique generic point.}
+
+\begin{proof}Choose an affine open subset $V \subset X$, $V \simeq \spec (A)$, with $V \cap Z \not = \phi$.
+
+\begin{claim}[1] $ Z = \overline{V \cap Z}$ where the closure is taken in $X$.
+\end{claim} Set theoretically, $Z = \overline{V \cap Z} \cup (Z \cap (X- V))$. But, since $Z$ is irreducible and $Z \cap (X-V)$ is a proper subset of $Z$, this claim is true.
+
+\begin{claim}[2] $V \cap Z$ is irreducible. \end{claim} If not, there are two proper closed subsets $F_1, F_2$ of $Z$ such that $V \cap Z = (V \cap F_1) \cup (V \cap F_2)$ so that $Z = (Z \cap F_1) \cup (Z \cap F_2) \cup (Z \cap (X- V))$ which contradicts the irreducibility of $Z$.
+
+\vskip0.2cm
+
+Thus, $V\cap Z$ is an irreducible closed subset of an affine variety $V$, i.e. there is a point $x$ corresponding to a prime ideal of $A$ such that $V \cap Z = \{ x \} ^-$, where the closure here is taken in $V$. Hence, by extending the closure in $X$, by Claim (1), $Z = \overline{V \cap Z} = \{ x \} ^-$, which shows the existence of a generic point.
+
+If there are two generic points $x_1, x_2$, then, $x_1 \in \{ x_2 \}^-$. Thus, if we choose an affine open subset $V$ containing $x_2$, $x_1$ must lie in $V$ as well, and for two prime ideals $p_1, p_2$ corresponding to $x_1, x_2$, $p_1 \supset p_2$. But, by interchanging the roles of $x_1$ and $x_2$, we also have $p_1 \subset p_2$, which means, $x_1 = x_2$. Hence there is a unique generic point.\end{proof}
+
+\subsection*{2.10.} \textbf{Describe $\spec (\mathbb{R} [x] )$. How does its topological space compare to the set $\mathbb{R}$? to $\mathbb{C}$?}
+
+\begin{proof}See my solutions for Atiyah-MacDonald's {\it Introduction to commutative algebra} Chapter 1.\end{proof}
+
+\subsection*{2.11.} \textbf{Let $k = \mathbb{F}_p$ be the finite field with $p$ elements. Describe $k[x]$. What are the residue fields of its points? How many points are there with a given residue field?}
+
+\begin{proof}First of all, what are $\spec (k[x])$? $(0)$ is the generic point and $(f)$ are closed points, when $f$ are nonzero irreducible polynomials. It is in general not very easy to enumerate all irreducible polynomials. But, we can count the number of them, which will be done in the sequel.
+
+When $\xi = (0)$, $k[x]_{\xi} = k(x)$ and $\mathfrak{m}_\xi = 0$, thus, the residue field is same as the fraction field so that $k(\xi) = k(x)$. When $\xi= (f)$, where $f$ is an irreducible polynomial of degree $n \geq 1$, then, $k[x]_\xi = \left\{ \frac{h}{g} | f \not | g \right\}$, $\mathfrak{m} _{\xi} = \left\{ \frac{h}{g} | f \not | g , f | h \right\}$ so that
+$$k[x] _{\xi} / \mathfrak{m} _{\xi} \simeq \left( k[x] / (f) \right) _{\xi} \simeq k[x] / (f) \simeq \mathbb{F} _{p^n}.$$
+
+So, $\mathbb{F}_p [x]$ and $\mathbb{F}_{p^n}, n \geq 1$ are all possible residue fields. Obviously only the generic point can have $k[x]$ as the residue field. 
+
+To compute the number of points which have a specific $\mathbb{F}_{p^n}$ as its residue field is equivalent to count the number of monic irreducible polynomials of degree $n$ over $\mathbb{F}_p$. To do so, we will use the collection of all maps from $\spec \left(F_n:=\mathbb{F}_{p^n}\right)$ to $\spec (k[x])$.
+
+If $\xi= (f)\not = 0$ with $\deg f = m$ is a $F_n$-rational point, then it means, the image of $f\in k(\xi) = k[x]/(f) \hookrightarrow F_n$ is an element of $F_n$.  In particular, $m | n$ and there are $m$ distinct embeddings coming from various conjugates. Conversely, each nonzero element of $F_n$ is a root of a unique monic irreducible polynomial of degree $m$ dividing $n$. Hence each irreducible monic polynomial of degree $m$, $m | n$ determines $m$ elements of $F_n$ and each element of $F_n$ is also determined by an irreducible monic polynomial.
+
+So, let $S_n$ be the number of monic irreducible polynomials. Let $T_n = n S_n$. Then, $$\sum_{m | n } T_m = p ^n.$$ To solve this equation, we use the M\"obius inversion formulae: if $g(n) = \sum_{d|n} f(d)$, then, $f(n) = \sum_{d|n} \mu (d) g\left( \frac{n}{d} \right)$ where $$\mu(n) = \tuborg 1 & \mbox{ n = 1 } \\ 0 & n \mbox{ is not square free.} \\ (-1)^k & n = p_1 \cdots p_k \mbox{: distinct primes} \sluttuborg.$$ (See any reasonable number theory book.)
+
+Hence, $$S_n = \frac{1}{n} \sum_{d |n} \mu(d) \left( p^{\frac{n}{d}} \right)$$ is the number of monic irreducible polynomials of degree $n$ over $\mathbb{F}_p$, which is equal to the number of points of $\spec (k[x])$ whose residue field is exactly $\mathbb{F}_{p^n}$.\end{proof}
+
+\subsection*{2.12.}\textbf{{\it Glueing Lemma.} Generalize the glueing procedure described in the text (2.3.5) as follows. Let $\{ X_i \}$ be a family of schemes (possibly infinite). For each $i \not = j$, suppose given an open subset $U_{ij} \subset X_i$, and let it have the induced scheme structure (Ex. 2.2). Suppose also given for each $i \not = j$ an isomorphism of schemes $\phi_{ij}: U_{ij} \to U_{ji}$ such that (1) for each $i, j$, $\phi_{ji} = \phi_{ij} ^{-1}$, and (2) for each $i, j, k$, $\phi_{ij} (U_{ij} \cap U_{ik}) = U_{ji} \cap U_{jk}$, and $\phi_{ik} = \phi_{jk} \circ \phi_{ij}$ on $U_{ij} \cap U_{ik}$. Then show that there is a scheme $X$, together with morphisms $\psi_i : X_i \to X$ for each $i$, such that (1) $\psi_i$ is an isomorphism of $X_i$ onto an open subscheme of $X$, (2) the $\psi_i (X_i)$ cover $X$, (3) $\psi_i (U_{ij}) = \psi_i (X_i ) \cap \psi_j (X_j)$ and (4) $\psi_i = \psi_j \circ \phi_{ij}$ on $U_{ij}$. We say that $X$ is obtained by {\it glueing} the schemes $X_i$ along the isomorphisms $\phi_{ij}$. An interesting special case is when the family $X_i$ is arbitrary, but the $U_{ij}$ and $\phi_{ij}$ are all empty. Then the scheme $X$ is called the {\it disjoint union} of the $X_i$, and is denoted $\coprod X_i$.}
+
+\begin{proof} Obvious. \end{proof}
+
+\subsection*{2.13.}\textbf{A topological space is {\it quasi-compact} if every open cover has a finite subcover.}
+\begin{enumerate}
+\item [(a)] \textbf{Show that a topological space is noetherian (I, $\S 1$) if and only if every open subset is quasi-compact.}
+
+\begin{proof}($\Rightarrow$) By Ex. I-1.7-(c), any open subset is noetherian, hence, by Ex. I-1.7-(b), it is quasi-compact.
+
+($\Leftarrow$) let $U_1 \subset U_2 \cdots$ be an ascending chain of open subsets of $X$. Let $U = \bigcup_i U_i$. By assumption, $U$ is quasi-compact so that $U = \bigcup_{i=1} ^r U_i$ for some $r$. Then, $U_r = U_{r+1} = \cdots$ so that $X$ is noetherian.\end{proof}
+
+\item [(b)] \textbf{If $X$ is an affine scheme, show that $sp (X)$ is quasi-compact, but not in general noetherian. We say that $X$ is {\it quasi-compact} is $sp(X)$ is.}
+
+\begin{proof}Let $X = \spec (A)$. We know that for $g \in A$, $D(g) \simeq \spec (A_g)$ form a basis for $X$. Hence, $\spec (A) = \bigcup _{g \in A} D(g)$ which means $V(1) = V \left( \sum_{g \in A} (g) \right)$, which means $1 \in \sum_{g \in A} (g)$, thus, $1 = \sum_{i=1} ^r c_i g_i$ for some $c_i \in A$ and $g_i \in A$. But, then it means $\spec (A) = \bigcup_{i=1} ^r D(g_i)$. Hence $\spec(A)$ is quasi-compact. 
+
+For $A = k[x_1, x_2, \cdots ]$, $\spec (A)$ is not noetherian.\end{proof}
+
+\item [(c)] \textbf{If $A$ is a noetherian ring, show that $sp(\spec (A))$ is a noetherian topological space.}
+
+\begin{proof}Let $V(a_1) \supset V(a_2) \supset \cdots$ be a descending chain of closed subsets of $\spec (A)$. Then, $\sqrt{a_1} \subset \sqrt{a_2} \subset \cdots$. Since $A$ is noetherian, for all sufficiently large $N$, $\sqrt{a_N} = \sqrt{a_{N+1}} = \cdots$. Hence, by applying $V ( \ )$ again and noting that $V(a_i) = V(\sqrt{ a_i})$, $V(a_N) = V(a_{N+1}) = \cdots$. Hence $\spec(A)$ is noetherian.\end{proof}
+
+\item [(d)] \textbf{Give an example to show that $sp (\spec (A))$ can be noetherian even when $A$ is not.}
+\begin{proof} ?\end{proof}
+\end{enumerate}
+
+\subsection*{2.14.}
+
+\subsection*{2.15.}
+
+\subsection*{2.16.}
+
+\subsection*{2.17.}
+
+\subsection*{2.18.}
+
+\subsection*{2.19.}
+
+\end{document}
+

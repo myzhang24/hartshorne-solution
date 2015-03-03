@@ -1,0 +1,318 @@
+\documentclass[12pt]{article}
+\author{William A. Stein}
+\title{Algebraic Geometry Homework}
+
+\font\grmn=eufm10 scaled \magstep 1
+
+\newcommand{\gp}{p} 
+\newcommand{\ga}{a} 
+\newcommand{\so}{\mathcal{O}}
+
+\newtheorem{prob}{Problem}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\ov}{\overline{\varphi}}
+\renewcommand{\phi}{\varphi}
+\newcommand{\fh}{f^{\#}}
+\newcommand{\proj}{Proj \hspace{.01in}}
+\newcommand{\spec}{Spec \hspace{.01in}}
+\newcommand{\proof}{\mbox{\sc Proof.\hspace{.1in}}}
+
+\date{April 4, 1996}
+
+\begin{document}
+\maketitle
+
+\section{Solutions}
+
+\begin{prob}[II.2.14(a)] 
+Let $S$ be a graded ring. Show that $\proj S=\emptyset$ 
+iff every element of $S_{+}$ is nilpotent.
+\end{prob}
+\proof This is equivalent to showing that the nilradical of $S$ is equal
+to the intersection of all homogenous primes of $S$. Indeed, if every
+element of $S_{+}$ is nilpotent then every homogenous prime contains 
+$S_{+}$ so $\proj S=\emptyset$. Conversely, if $\proj S=\emptyset$, then
+every homogenous prime contains $S_{+}$ so the nilradical of $S$ contains
+$S_{+}$ so that every element of $S_{+}$ is nilpotent. 
+
+It remains to show that the intersection of all homogenous primes of $S$
+is the nilradical of $S$. Using Zorn's lemma we can show that if $I$ is
+a proper homogenous ideal then there is at least one maximal homogenous
+ideal containing $I$. (The proof preceeds just as on page 2 of Matsumura
+except one notes that the union of a chain of {\em homogenous} ideals
+is homogeneous. If $I_1 \subset I_2 \subset \cdots$ is a chain of
+homogeneous ideals, then $\cup_{n=1}^{\infty} I_n$ is an ideal and
+if $x\in\cup_{n=1}^{\infty} I_n$ then $x\in I_n$ for some $n$, so the 
+homogenous components of $x$ are in $I_n$, so they are in 
+$\cup_{n=1}^{\infty} I_n$, so $\cup_{n=1}^{\infty} I_n$ is
+homogeneous.)
+  
+\begin{theorem}
+Let $T$ be a multiplicative set and $I$ a homogeneous ideal disjoint
+from $T$; then there exists a homogeneous prime ideal containing 
+$I$ and disjoint from $T$.
+\end{theorem}
+\proof
+Using Zorn's lemma we see that the set of homogeneous ideals disjoint
+from $T$ and containing $I$ contains a maximal element, say $P$. Then
+$P$ is prime. For if $x\notin P$, $y\notin P$ are homogenous, then
+$P+(x)$ and $P+(y)$ are both homogenous and so they meet $T$, so their
+product also meets $T$. However,
+$$(P+(x))(P+(y))\subset P+(xy)$$
+so $xy\notin P$ since $P$ does not meet $T$. 
+
+\begin{theorem}
+The nilradical of $S$ is the intersection of the homogeneous primes
+of $S$.
+\end{theorem}
+\proof
+Suppose $x$ is in the nilradical of $S$ so that $x$ is nilpotent, say
+$x^n=0$. If $I$ is a homogenous prime then $x^n=0\in I$ so, by induction,
+$x\in I$. Conversely, suppose $x$ is not nilpotent. Then 
+$T=\{1,x,x^2,\ldots\}$ is a multiplicative set disjoint from $(0)$. So,
+by the above theorem, there is a homogeneous prime ideal containing
+$(0)$ disjoint from $T$. Thus $x$ is not in the intersection of all 
+homogeneous prime ideals of $S$. 
+
+\begin{prob}[II.2.14(b)] Let $\varphi:S\rightarrow T$ be a graded homomorphism
+of graded rings. Let 
+$U=\{\gp \in \proj T : \gp \not\supseteq \varphi(S_{+})\}.$
+Show that $U$ is an open subset of $\proj T$, and show that 
+$\varphi$ determines a natural morphism $f:U\rightarrow\proj S$.
+\end{prob}
+\proof
+$U$ is open because
+$\proj T - U = \{\gp \in \proj T:\gp \supseteq \varphi(S_{+})\} 
+=\{\gp \in \proj T : \gp \supseteq T\varphi(S_{+})\} 
+=V(T\varphi(S_{+}))$
+and the ideal $T\varphi(S_{+})$ is homogenous because it is generated
+by the homogeneous elements $\{\varphi(f):f\in S_{+} \mbox{ is homogeneous}\}$.
+
+The natural morphism $f:U-\proj S$ is defined as follows. As a map on 
+topological spaces we specify that, for $x\in U$, $f(x)=\varphi^{-1}(x)$. 
+Because of the way $U$ was chosen and since $\varphi$ is homogeneous
+$f$ maps $U$ into $\proj S$, so $f$ is well-defined. If $V(\ga)$ is
+a closed subset of $\proj S$ with $\ga$ homogeneous, then
+$f^{-1}(V(\ga))=\{\gp\in U:\varphi^{-1}(\gp)\supseteq \ga\}
+=\{\gp\in U:\gp \supseteq\varphi(\ga)\}=V(T\varphi(\ga)).$
+As above, $T\varphi(\ga)$ is homogeneous so $f^{-1}(V(\ga))$ is
+closed so $f$ is continuous.
+
+To define the associated map $f^{\#}:\so_{\proj S} \rightarrow
+f_{*}\so_{U}$ of sheaves let $V\subset \proj S$ be open. Then an
+element of $\so_{\proj S}(V)$ is a map 
+$s:V\rightarrow\bigsqcup_{p \in V}S_{(p)}$ such that $s$ is 
+locally a quotient of elements of $S$. We specify that
+$f^{\#}(s)=\varphi \circ s\circ f:f^{-1}(V)\rightarrow
+\bigsqcup_{p\in f^{-1}(V)} T_{(p)}$. To see that 
+$f^{\#}(s)\in f_{*}\so(V)$ we must check that it is locally
+a quotient. So suppose $\gp\in f^{-1}(V).$ Let $W\subset V$ be
+an open neighborhood of $f(\gp)$ on which $s$ is represented
+as a quotient. Then $f^{\#}(s)$ is represented as a quotient on
+the open set $f^{-1}(W)$, as required. Since $f^{\#}$ respects
+the restriction maps we see that $f$ is a morphism.
+
+\begin{prob}[II.2.14(c)]
+$f$ can be an isomorphism even when $\varphi$ is not. For example,
+suppose that $\varphi_d:S_d\rightarrow T_d$ is an isomorphism
+for all $d\geq d_0$. Show that $U=\proj T$ and the morphism 
+$f:\proj T\rightarrow \proj S$ is an isomorphism. 
+\end{prob}
+\proof
+To see that $U=\proj T$ note that if $\gp \in \proj T$ but
+$\gp \notin U$ then $\gp \supseteq \varphi(S_{+})$. In particular,
+$\gp \supseteq \bigoplus_{d\geq d_0} T_d$, so 
+$\gp \supseteq (T_{+})^d$ so, since $\gp$ is prime,
+$\gp \supseteq T_{+}$, a contradiction. 
+
+
+Let $\{g_{\alpha}\}$ be a set of generators of $T_{+}$. Then
+$\cup_{\alpha}D_T(g_{\alpha})=
+\cup_{\alpha}\{x\in\proj T : g_{\alpha} \notin x\}=\proj T$
+since every prime in $\proj T$ must omit some $g_\alpha$. 
+Since $g_{\alpha}\notin{}x$ iff $g_{\alpha}^{d_0}\notin{}x$ for
+$x$ prime, we may replace the $g_{\alpha}$ by elements of
+$T_{\geq d_0}$ and still have a cover of $\proj T$ by distinguished
+open sets. 
+
+Our strategy is as follows. We first show that 
+$f|_{D_T(g_{\alpha})}:D_T(g_{\alpha})\rightarrow{}D_S(\varphi^{-1}
+(g_{\alpha})$ is an isomorphism for each $\alpha$ and then show that 
+the open sets $D_S(\varphi^{-1}(g_{\alpha}))$ cover $\proj S$. 
+Then showing that $f$ is injective completes the proof.
+
+Let $g=g_{\alpha}$ be one of our $g_{\alpha}$. 
+By Proposition 2.5, $D_T(g)\cong\spec T_{(g)}$
+and so $f'=f|_{D_T(g)}$ is a morphism of affine schemes
+$f':\spec T_g\rightarrow\spec S_{(\varphi^{-1}(g))}$.
+This map is induced by $\ov:S_{(\varphi^{-1}(g))}
+\rightarrow{}T_{(g)}$ where $\ov$ is 
+the localization of the ring homomorphism
+$\varphi:S\rightarrow T$.
+So we just need to verify that $\ov$ is an isomorphism.
+Suppose $\ov(a/b)=0$. Then $\ov(a\phi^{-1}(g)/b\phi^{-1}(g))=\ov(a/b)=0$
+so $\phi(a\phi^{-1}(g))/\phi(b\phi^{-1}(g))=0$ in $T_{(g)}$ so
+there is $n$ such that $g^n\phi(a\phi^{-1}(g))=0$ in $T$ so
+$\phi(a\phi^{-1}(g^{n+1})=0$. Thus $a\phi^{-1}(g)^{n+1}=0$ since
+$\phi$ is an isomorphism in high enough degree. Thus 
+$a=0$ in $S_{(\phi^{-1}(g))}$, so $a/b=0$ in $S_{(\phi^{-1}(g))}$.
+This shows that $\ov$ is injective. To see that $\ov$ is surjective
+let $a/g^n\in T_{(g)}$. Then $\phi^{-1}(ag)/\phi^{-1}(g^{n+1})$ is
+a well-defined element of $S_{(\phi^{-1}(g))}$ and
+$\ov(\phi^{-1}(ag)/\phi^{-1}(g^{n+1}))=ag/g^{n+1}=a/g^n$, 
+which shows that $\ov$ is surjective.  
+
+Next we verify that $\cup_{g_{\alpha}}D_S(\phi^{-1}(g_{\alpha})=\proj S$. 
+Suppose $x\notin D_S(\phi^{-1}(g_{\alpha})$ for all $\alpha$. Then
+$\phi^{-1}(g_{\alpha})\in x$ for each $\alpha$, so, since we may assume
+that the $g_{\alpha}$ generate $T_{\geq d_0}$, and $x$ is prime, 
+$\phi^{-1}(T_{\geq d_0}) \subseteq x$, a contradiction since 
+$S_{+}\not\subseteq x$.  
+
+Next we show that the induced map $f:\proj T \rightarrow \proj S$
+is injective. Let $p, q \in \proj T$ and suppose $f(p)=f(q)$. 
+Then $\varphi^{-1}(p)=\varphi^{-1}(q)$ so, since $\varphi$ is an
+isomorphism, for $d\geq d_0$ we see that $p\cap T_d=q\cap T_d$.
+So if $a\in p$ is homogeneous then $a^n \in p\cap T_d$ for
+some $n$ and $d\geq d_0$. So $a^n\in q\cap T_d$ so $a^n\in q$
+so $a\in q$. Likewise $a\in q$ implies $a\in p$. Thus
+$p=q$ so $f$ is injective. 
+
+Finally, no solution is complete without an actual example of a
+map $\varphi:S\rightarrow{}T$ which satisfies the hypothesis
+of the theorem. Let $T=k[x,y]$ and let $S=T_0 + T_2 + \cdots$ and
+let $\varphi:S\hookrightarrow T$ be the inclusion map. Then 
+$\varphi$ is graded and an isomorphism for $d\geq 2$. But $\varphi$
+is not an isomorphism.
+
+\begin{prob}[II.2.14(d)] 
+Let $V$ be a projective variety with homogeneous coordinate
+ring $S$. Show that $t(V)\cong \proj S$. 
+\end{prob}
+\proof
+Define $f:t(V)\rightarrow\proj S$ by $f$ takes a point
+$x\in t(V)$ to its homogeneous ideal $I(x) \in \proj S$.  
+By exercise I.2.4 $f$ is injective and surjective hence a
+bijection. Furthermore, $x\supseteq{}y$ iff $f(x)\subseteq{}f(y)$
+so $f$ and $f^{-1}$ send closed sets to closed sets hence
+$f$ is a homeomorphism. 
+
+To define $\fh$ let $U$ be an open subset of $\proj S$. Then we
+must define $\fh$ so that (notation as in the proof of
+proposition 2.6)
+$\fh:\so_{\proj S}(U)\rightarrow f_{*}\so_{t(V)}(U)
+=\so_{t(V)}(f^{-1}(U))=\so_V(\alpha^{-1}(f^{-1}(U)))$.
+Let $s\in\proj_S(U)$. Then $s$ can locally be represented
+in the form $g/h$ where $g,h \in S$ have the same degree and
+$h$ is nonzero on the appropriate subset of $V$. Thus
+$s$ naturally defines an element of $\so_V(\alpha^{-1}(f^{-1}(U)))$ 
+and any element of $\so_V(\alpha^{-1}(f^{-1}(U)))$ defines an
+element of $\so_{\proj S}(U).$ Thus $\fh$ is an isomorphism. 
+[I'm glossing over a lot of details!] 
+ 
+\begin{prob}[II.2.16(a)]
+Let $X$ be a scheme, let $f\in\Gamma(X,\so_X)$, and define $X_f$ to
+be the subset of points $x\in{}X$ such that the stalk $f_x$ of $f$
+at $x$ is not contained in the maximal ideal $m_x$ of the local
+ring $\so_x$. (a) If $U=\spec B$ and 
+$\overline{f}\in{}B=\Gamma(U,\so_{X|U})$ is the restriction of $f$,
+show that $U\cap{}X_f=D(\overline{f})$ so $X_f$ is an open subset
+of $X$.  
+\end{prob}
+\proof
+Note that $D(\overline{f})=\{x\in U:\overline{f}\notin x\}
+=\{x\in U:\overline{f}_x\notin m_x\}
+=\{x\in U:f_x\notin m_x\}
+=U\cap{}X_f$. 
+Thus $U\cap{}X_f$ is an open subset of $U$. Now let 
+$\{U_{\alpha}\}$ be an affine open over of $X$. Then
+$X_f=\cup_{\alpha}(U_\alpha \cap X_f)$ is the union
+of open sets, hence open.
+
+\begin{prob}[II.2.16(b)]
+Assume that $X$ is quasi-compact. Let $A=\Gamma(X,\so_X)$, and let
+$a\in A$ be an element whose restriction to $X_f$ is $0$. Show that 
+for some $n>0$, $f^na=0$.
+\end{prob}
+\proof
+Using the fact that $X$ is quasi-compact we can find a finite cover
+$\{U_i=\spec B_i\}_{i=1}^m$ of $X$ by affine open sets. Since $a|_{X_f}$
+is $0$, the image of $a$ in $\so_{X_f\cap{}U_i}=(B_i)_{\overline{f}}$
+is 0. Thus there exists $n_i$ such that $\overline{f}^{n_i}\overline{a}=0$
+in $B_i$. That is, $f^{n_i}a|_{X_f\cap{}U_i}$ is $0$. Letting 
+$n=\mbox{max}\{n_1,\ldots,n_m\}$ we see that $f^n a|_{X_f\cap{}U_i}$ is $0$ for
+each $i$ whence $f^n a=0$ in $A=\Gamma(X,\so_X)$.
+
+\begin{prob}[II.2.16(c)]
+Assume $X$ has a finite cover by open affines $U_{i}$ such that
+each intersection $U_i\cap{}U_j$ is quasi-compact. Let
+$b\in\Gamma(X_f,\so_{X_f})$. Show that for some $n>0$, 
+$f^n b$ is the restriction of an element of $A$. 
+\end{prob}
+\proof
+Write $U_i=\spec B_i$. Then $b|_{U_i}\in{}(B_i)_f$ so,
+from the definition of $(B_i)_f$, there exists $n_i$
+such that $f^{n_i}b|_{U_i}\in{}B_i=\so_X(U_i)$. 
+Let $N=\mbox{max}\{n_i\}$ and let $g_i=f^{N}b|_{U_i}\in\so_X(U_i).$
+Then $g_i|_{X_f\cap{}U_i\cap{}U_j}=
+f^{N}b|_{U_i\cap{}U_j\cap{}X_f}=
+g_j|_{X_f\cap{}U_i\cap{}U_j}$
+so $(g_i-g_j)|_{(U_i\cap{}U_j)_f}=0$.
+By part (b) since $U_i\cap{}U_j$ is quasi-compact there is an integer
+$n_{ij}$ such that $f^{n_{ij}}(g_i-g_j)=0$ in 
+$\so_{U_i\cap{}U_j}$. Let $M=\mbox{max}\{n_{ij}\}$, and let
+$h_i=f^{M}g_i.$ Then $h_i\in\so(U_i)$ for each $i$ and 
+$h_i|_{U_i\cap{}U_j}=h_j|_{U_i\cap{}U_j}$
+so we can find $h\in\Gamma(X,\so_X)$ such that
+$h|_{U_i}=h_i$. But, for each $i$,
+$h|_{X_f\cap{}U_i}=f^{M}g_i|_{X_f\cap{}U_i}=f^{M}f^{N}b|_{X_f\cap{}U_i}
+=f^{M+N}b|_{X_f\cap{}U_i}$ so by uniqueness (sheaf axiom iii),
+$h|_{X_f}=f^{M+N}b$, as desired. 
+
+\begin{prob}[II.2.16(d)]
+With the hypothesis of (c), conclude that 
+$\Gamma(X_f,\so_{X_f})\cong{}A_f$. 
+\end{prob}
+\proof
+Define a homomorphism $\phi:A_f\rightarrow\Gamma(X_f,\so_{X_f})$ by
+$\phi(a/f^n)=a|_{X_f}/f^n|_{X_f}$. This is well-defined because the
+stalk $f_x$ is invertible in each local ring $\so_{x}$ for each
+$x\in{}X_{f}$. $\phi$ is a homomorphism since restriction is
+a homomorphism. Suppose $\phi(a/f^n)=0$, then 
+$a|_{X_f}/f|_{X_f}^n=0$ so $a|_{X_f}=0$. By
+part (b) there exists $m$ such that $f^{m}a=0$, so
+$a$ is $0$ in $A_f$, whence $\phi$ is injective.
+Suppose $b\in\Gamma(X_f,\so_{X_f})$, then by
+part (c) there exists $n$ such that $f^n{}b$ is the restriction
+of some $a\in\Gamma(X,\so_X)$ to $X_f$. Then 
+$\phi(a/f^n)=a|_{X_f}/f|_{X_f}^n=f^n{}b/f^n|_{X_f}=b$ so
+$\phi$ is surjective, which establishes the desired
+isomorphism.
+
+\begin{prob}[II.2.17(a)]
+A Criterion for Affineness. 
+Let $f:X\rightarrow{}Y$ be a morphism of schemes, and assume that
+$Y$ can be covered by open sets $U_i$, such that for each $i$, the
+induced map $f^{-1}(U_i)\rightarrow{}U_i$ is an isomorphism. 
+Then $f$ is an isomorphism.
+\end{prob}
+\proof
+Define a morphism $g:Y\rightarrow X$ as follows. On each open set
+$U_i$ let $g_i$ be the morphism inverse to 
+$f|_{f^{-1}(U_i)}:f^{-1}(U_i)\rightarrow{}U_i$. 
+Then 
+$g_i|_{U_i\cap{}U_j}=f|_{f^{-1}(U_i)\cap{}f^{-1}(U_j)}
+=g_j|_{U_i\cap{}U_j}$ 
+so, as in step 3 of the proof of Theorem 3.3, we can glue the morphisms
+$g_i$ to obtain a morphism $g:Y\rightarrow X$ such that
+$g|_{U_i}=g_i$. As a map of spaces $g$ is clearly inverse to $f$.
+Since each $g_i$ is an isomorphism, the induced maps $g^{\#}$ on stalks
+are isomorphisms so the induced map on sheaves is an isomorphism.
+Thus $g$ is an isomorphism. 
+
+ 
+
+
+
+\end{document}

@@ -1,0 +1,159 @@
+%\documentclass[11pt]{article}          % required in all documents
+\documentclass[11pt]{amsart}          % required in all documents
+\usepackage{epsfig}                     % a package to include PS figures
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\newcommand{\tuborg}{\left\{\begin{array}{ll}}
+\newcommand{\sluttuborg}{\end{array}\right.}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calZ}{\mathcal{Z}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\cal}{\mathcal}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\ord}{{\rm ord}}
+\newcommand{\coker}{{\rm coker}}
+\newcommand{\codim}{{\rm codim}}
+\newcommand{\supp}{{\rm Supp}}
+\newcommand{\rat}{{\rm Rat}}
+\newcommand{\spec}{{\rm Spec}}
+\newcommand{\tor}{{\rm Tor}}
+\newcommand{\stor}{{\underline{\rm Tor}}}
+\newcommand{\p}{\partial}
+\newcommand{\proj}{{\rm Proj}}
+\newcommand{\fr}{{\rm Frac}}
+\newcommand{\ann}{{\rm Ann}}
+\newcommand{\ass}{{\rm Ass}}
+\newcommand{\pic}{{\rm Pic}}
+\newcommand{\ext}{{\rm Ext}}
+\newcommand{\shom}{{\underline{\rm Hom}}}
+\newcommand{\sext}{{\underline{\rm Ext}}}
+\newcommand{\ilim}{{\underset{\longleftarrow}{\lim}}}
+\newcommand{\dlim}{{\underset{\longrightarrow}{\lim}}}
+\newcommand{\sym}{{\rm Sym}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem*{lemma}{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defi}[thm]{Definition} 
+\newtheorem{eg}[thm]{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem*{remark}{Remark}
+\newtheorem{remark2}[thm]{Remark}
+\newtheorem*{phil}{Philosophy}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{metaconj}[thm]{Metaconjecture}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{question}[thm]{Question}
+\newtheorem{application}[thm]{Application}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{thm}.\arabic{equation}}
+\renewcommand{\div}{{\rm div}}
+\renewcommand{\hom}{{\rm Hom}}
+
+\setlength{\textwidth}{6in}             % Space saving measures
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.5in}
+\renewcommand{\baselinestretch}{1}
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+   
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}                                    
+
+\begin{document}
+
+\begin{center}
+\bf
+\large Robin Hartshorne's Algebraic Geometry Solutions
+\end{center}
+\begin{center}
+by Jinhyun Park
+\end{center}
+\vskip0.5cm
+
+\section*{Chapter V Section 5 Birational Transformations}
+
+\subsection*{5.8} \emph{A surface singularity.}\textbf{Let $k$ be an algebraically closed field, and let $X$ be the surface in $\bbA_k ^3$ defined by the equation $x^2 +y^3 + z^5 = 0$. It has an isolated singularity at the origin $P = (0,0,0)$.}
+\subsubsection*{(a)} \textbf{Show that the affine ring $A = k[x,y,z]/(x^2 + y^3 + z^5)$ of $X$ is a unique factorization domain, as follows. Let $t = z^{-1}$; $u = t^3 x$, and $v = t^2 y$. Show that $z$ is irreducible in $A$; $t \in k[u,v]$, and $A[z^{-1}] = k[u,v,t^{-1}]$. Conclude that $A$ is a UFD.  }
+ \begin{claim} $z$ is irreducible in $A$.\end{claim} 
+ \begin{proof}Notice that $$z \mbox{ is irreducible in } A.$$ $$\Leftrightarrow (z) \mbox{ is a prime ideal in } A.$$ $$\Leftrightarrow A/(z) \mbox{, which is } k[x,y]/ (x^2 + y^3) \mbox{, is an integral domain.} $$ $$ \Leftrightarrow x^2 + y^3 \mbox{ is irreducible in } k[x,y].$$ 
+
+We prove the last statement. Suppose that for some $f, g$ in $k[x,y]$, we have
+$$fg = x^2 + y^3.$$
+
+\begin{enumerate}
+
+\item (case 1) Assume that $\deg_x (f)$, the degree of $f$ in $x$, is zero. Then $f$ is a polynomial in $y$, and we can write $g = cx^2 + ax + b$ for some $c$ in $k^{\times}$ and $a, b $ in $k[y]$. Thus,
+$$x^2 + y^3 = fg = cfx^2 + fa x + fb.$$ This implies that $f = 1/c$, which is a unit in $k[x,y]$.
+
+\item (case 2) Assume that $\deg_x f = 1$. Then, by multiplying a suitable constant in $k^{\times}$, we may assume that $f = x + a$ and $g = x + b$ for some $a, b$ in $k[y]$. Then,
+
+$$x^2 + y^3 = fg = x^2 + (a+b) x + ab$$ so that $a + b = 0$ and $ab = y^3$. Then, $b^2 = - y^3$ and since $y$ is irreducible in $k[y]$, $b = y b'$ for some $b'$ in $k[y]$. Hence $y^2 (b')^2 = - y^3$, thus $(b')^2 = -y$, which is impossible because we then have $2 \deg_y (b') = 1$.
+
+\item (case 3) Assume that $\deg_x (f) = 2$. Then, by symmetry, (case 1) shows that $g$ must be a unit. 
+\end{enumerate}
+
+Hence $x^2 + y^3$ is irreducible in $k[x,y]$, and thus $z$ is irreducible in $A$.\end{proof}
+
+\begin{claim} $t \in k[u,v]$.\end{claim}
+\begin{proof} The equality $x^2 + y^3 + z^5 = 0$ implies that in the fraction field we have $- x^2 / z^6 - t^3/ z^6 = 1/z$. This is equivalent to $t = - u^2 - v^3.$\end{proof}
+
+\begin{claim} $A[z^{-1}] = k[u,v, t^{-1}]$.\end{claim}
+\begin{proof} The equalities
+$$\tuborg x  = (t^{-1})^3 t^3 x = (t^{-1})^3 u, \\    y= (t^{-1} )^2 t^2 y = (t^{-1})^2 v, \\   z= t^{-1} \sluttuborg$$ show that $A \subset k[u,v, t^{-1}]$. By the previous claim $z^{-1} = t \in k[u,v]$, thus $A[z^{-1}] \subset k[u,v, t^{-1}]$.
+
+Conversely, we have
+$$\tuborg u = (z^{-1})^3 x \in A[z^{-1}], \\  v = (z^{-1})^2 y \in A[z^{-1}], \\ t^{-1} = z \in A\sluttuborg$$ so that $A[z^{-1}] \supset k[u,v, t^{-1}]$. This finishes the proof.\end{proof}
+
+\begin{claim} $A$ is a UFD.\end{claim} Notice that, being a polynomial ring, $A[z^{-1}] = k[u,v, t^{-1}]$ is a UFD.
+\begin{lemma}[1] Let $f $ be an irreducible element in $A$, that is not in $(z)$. Then, $f$ is irreducible as an element in $A[z^{-1}]$.
+\end{lemma}
+\begin{proof}Suppose that $(g/ z^m) (h/z^n) = f/1$ for some integers $m, n \geq 0$ and $g, h$ in $A$, so that $gh = z^{m+n} f$. If $m>0$ or $n >0$, then since the quantity $gh = z^{m+n } f$ is in the ideal $ (z)$, either $g \in (z)$ or $h \in (z)$. By canceling a suitable number of $z$'s if necessary, we may assume that $m = n = 0$. Thus, $gh = f$ in $A$. But, since $f$ is irreducible in $A$, $g$ or $h$ must be a unit in $A$. Hence $g/1$ or $h/1$ is a unit in $A[z^{-1}]$, thus, $f/1$ is irreducible in $A[z^{-1}]$.\end{proof}
+
+\begin{lemma}[2] If a nonzero element $f/1 \in A[z^{-1}]$ is irreducible for some $f $ in $A$, then $f = z^m g$ for some integer $m \geq 0$ and an irreducible element $g$ in $A$, where $g \not \in (z)$.
+\end{lemma}
+\begin{proof}Since $f$ is nonzero, we can write $f = z^m g$ for some integer $m \geq 0$ and an element $g \in A$ that is not in the ideal $(z)$. We need to check that this $g$ is irreducible in $A$.
+
+If not, then for some nonunits $p, q$ in $A$, the equality $g = pq$ holds. Thus, $f/1 = (z^m /1) (g/1) = (z^m /1) (p/1) (q/1)$. Since $f/1$ is irreducible in $A[z^{-1}]$ and $z^m$ is a unit, one of $p/1$ and $q/1$ must be a unit element in $A[z^{-1}]$, say $p/1$, without loss of generality. Thus, for some $r $ in $A$ and an integer $n \geq 0$, we have $(p/1) (r/z^n) = 1$, that is, $pr = z^n$. Thus, $pr \in (z)$, and $z$ being irreducible either $p \in (z)$ or $r \in (z)$. But since $g \not \in (z)$ and $g=pq$, the element $p$ must not be in $(z)$. Hence $r \in (z)$. Thus, by repeating this argument, we may assume that $n=0$. Then, we have the equality $pr = 1$ in $A$, contradicting the assumption that $p$ is not a unit in $A$.\end{proof}
+
+We now prove that $A$ is a UFD. For any nonzero $f \in A$, since the ring $A[z^{-1}]$ is a UFD, we have a factorization of $f/1$
+$$\frac{f}{1} = \frac{u}{z^m} \frac{f_1}{z^{m_1}} \cdots \frac{f_n}{z^{m_n}}$$ for some nonnegative integers $m, m_1, \cdots, m_n$, a unit $u$ in $A$, and $f_1, \cdots, f_n$ in $A$, where $f_i / z^{m_i}$ are irreducible in $A[z^{-1}]$. Since each $z^{m_i}$ is a unit, by replacing $m + m_1 + \cdots + m_n$ by $m$, we may simplify the above equation as
+$$\frac{f}{1} = \frac{u}{z^m} \frac{f_1}{1} \cdots \frac{f_n}{1}$$ where $f_i$ are irreducible in $A[z^{-1}]$. Thus, $z^m f = u f_1 \cdots f_n$ in $A$. By the Lemma (2), each $f_i = z^{r_i} g_i$ for some integer $r_i \geq 0$ and an irreducible element $g_i \in A$, where $g_i \not \in (z)$, so that $$z^m f = u z^{r_1 + \cdots + r_n} g_1 \cdots g_n.$$ Note that we must have $m \geq r_1 \cdots r_n$ since all $g_i$ is not in $(z)$. Thus, $f = u z^s g_1 \cdots g_n$, where $s= r_1 + \cdots + r_n - m \geq 0$, gives a factorization of $f$ into a product of irreducible elements of $A$.
+
+To show that this factorization is unique, suppose that we have two such factorizations
+$$g = ug_1 \cdots g_n = v h_1 \cdots h_m,$$ where $u, v$ in $A$ are units, and $g_i, h_j$ in $A$, $1 \leq i \leq n$, $1 \leq j \leq m$, are irreducible. Since $f = ug_1 \cdots g_n $ is in the ideal $(h_1)$, for some $i$, the element $g_i$ must be in $(h_1)$. We may assume that $g_1 \in (h_1)$ so that $g_1 = h_1 k$ for some $k $ in $A$. Since $g_1$ is irreducible and $h_1$ is not a unit (being irreducible), $k$ must be a unit in $A$. Hence, continuing in this way, by suitably renumbering them if necessary, we must have $m = n$ and each irreducible element $g_i$ is a unit multiple of $h_i$. This finishes the proof.
+
+\end{document}
+

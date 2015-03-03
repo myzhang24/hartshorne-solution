@@ -1,0 +1,1998 @@
+\documentclass{report}
+\usepackage{eucal,amsmath,amsfonts,amssymb}
+\usepackage[all]{xy}
+
+
+\DeclareFontFamily{OT1}{rsfs}{}
+\DeclareFontShape{OT1}{rsfs}{n}{it}{<-> rsfs10}{}
+\DeclareMathAlphabet{\mathscr}{OT1}{rsfs}{n}{it}
+
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textheight}{8.5in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+
+\renewcommand{\P}{\mathbf{P}}
+\renewcommand{\L}{\mathscr{L}}
+\DeclareMathOperator{\im}{im}
+\renewcommand{\Im}{\mathrm{im\,}}
+\newcommand{\I}{\mathscr{I}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\p}{\mathfrak{p}}
+\renewcommand{\O}{\mathcal{O}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\Q}{\mathbf{Q}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\A}{\mathbf{A}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\N}{\mathscr{N}}
+\newcommand{\HOM}{\mathscr{H}\mathit{om}}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Pic}{Pic}
+
+\begin{document}
+\stepcounter{chapter}
+\chapter{}
+
+\section{}
+
+\noindent
+1.1	Show that $\mathcal{A}$ has the right universal property.
+Let $\G$ be any sheaf and let $\F$ be the
+presheaf $U\mapsto A$, and suppose $\varphi:\F\rightarrow\G$.  Let $f\in \mathcal{A}(U)$,
+i.e. $f:U\rightarrow A$ is a continuous map.  Write $U=\coprod V_{\alpha}$  with $V_{\alpha}$
+the connected components of $U$ so $f(V_{\alpha})=a_{\alpha}\in A$.  Then we get $b_{\alpha}=\varphi_{V_{\alpha}}(a_{\alpha})$
+since $\F(U)=A$ for any $U$, and since $\G$ is a sheaf we obtain $b\in\G(U)$.  We define
+$\psi:\mathcal{A}\rightarrow\G$ by $\psi_U(f)=b$.  This map has the right properties.
+
+\bigskip
+\noindent
+1.2	a) Observe $(\ker \varphi)_P=\varinjlim_{U\ni P} (\ker\varphi)(U)=\varinjlim_{U\ni P} \ker\varphi_U$
+is a subgroup of $\F_P$, as is $\ker \varphi_P$, so we show equality inside $\F_P$.
+For $x\in (\ker\varphi)_P$ pick $(U,y)$ representing $x$, with $y\in\ker\varphi_U$.  Then the image of $y$
+in $\F_P$, i.e. $x$, is mapped to zero by $\varphi_P$.  Conversely, if $x\in\ker\varphi_P$
+there exist $(U,y)$ with $y\in \F(U)$ and $\varphi_U(y)=0$ so $x\in (\ker\varphi)_P$.
+For $\im\varphi$ one proceeds similarly, noting only that $(\im\varphi)_P=\varinjlim_{U\ni P} \im\varphi_U$ since
+the presheaf ``$\im\varphi$" and the sheaf $\im\varphi$ have the same stalks at every point.
+
+\noindent
+b)	The morphism $\varphi$ is inj. resp surj. iff $(\ker\varphi)_P=0$ resp. $(\im\varphi)_P=\G_P$ for all $P$.
+By part a), this holds iff $\ker\varphi_P=0$ resp. $\im\varphi_P=\G_P$ for all $P$, that is, iff
+$\varphi_P$ is inj. resp. surj.
+
+\noindent
+c)  We have $\im\varphi^{i-1}=\ker\varphi^{i}$ iff 
+$\im\varphi^{i-1}_P=(\im\varphi^{i-1})_P=(\ker\varphi^{i})_P=\ker\varphi^i_P$.
+
+\bigskip
+\noindent
+1.3	a)  By 1.2, $\varphi$ is surjective iff $\varphi_P$ is surj. for all $P$, that is, iff for all $U$
+and all $s\in\G(U)$ there exist $(U_i,t_i)\in \F_P$ with $t_i\in\F(U_i)$
+such that $\varphi_{U_i}(t_i)\big|_{P}=s_P$, or shrinking $U_i$ if need be, iff for all $P\in U$
+we have $\varphi_{U_i}(t_i)=s\big|_{U_i}$ with each $U_i$ a nbd of $P$.  The $U_i$ cover $U$.
+
+\noindent
+b)  Let $\F_{\infty}$ be the sheaf of holomorphic fns on $\mathbf{CP}^1$ vanishing at $\infty$ 
+and $\F_0$ the sheaf of holo. fns. vanishing at $0$.  Let $\G$ be the sheaf of holo.
+fns. and $\varphi:\F_{\infty}\oplus\F_0\rightarrow \G$ be given over
+an open $U$ by $(f_1,f_2)\mapsto f_1+f_2$.  This is a surjective map of sheaves since it
+is obviously surjective on every neighborhood not containing both $\infty,0$.  However,
+the map on global sections is not surjective: any holo. function on $\mathbf{CP}^1$ is constant,
+so the global sections of $\F_{\infty}$ and $\F_{0}$ are just $\{0\}$, while the global sections
+of $\G$ are $\mathbf{C}$.
+
+\bigskip
+\noindent
+1.4	a)  If $\varphi_U$ is injective for all $U$ then $\varphi_P:\F_P\rightarrow\G_P$ is injective for all $P$,
+and since $\F^+_P=\F_P$, $\G^+_P=\G_P$ and $\varphi^+_P=\varphi_P$,
+we see that $\varphi^+$ is injective by 1.2.
+
+\noindent
+b)  Since $\im \varphi(U)\hookrightarrow \G(U)$ for all $U$ is injective (the map being just inclusion)
+we see that the induced map $\im\varphi\rightarrow \G^+=\G$ is injective by the above,
+so $\im\varphi$ is a subsheaf of $\G$.
+
+\bigskip
+\noindent
+1.5  Reduce to the corresponding statement for abelian groups by Prop 1.1: $\varphi$ is an isom. iff
+$\varphi_P$ is an isom. for all $P$, iff $\varphi_P$ is inj. and surj. for all $P$, iff $\varphi$ is inj. and surj.
+by 1.2 b).
+
+\bigskip
+\noindent
+1.6  a)  The natural map is $\F(U)\rightarrow \F(U)/\F'(U)\rightarrow (\F/\F')(U)$,
+and we may check surjectivity on stalks by 1.2.  But $\F_P\rightarrow \F_P/\F'_P$ is 
+clearly surjective for all $P$.  The sequences $0\rightarrow \F'_P\rightarrow \F_P/\F'_P\rightarrow 0\rightarrow$
+induced by 
+$0\rightarrow \F'(U)\rightarrow \F(U)/\F'(U)\rightarrow 0$ are all exact,
+so the corresponding sequence of sheaves is exact, that is, $\ker (\F\rightarrow \F/\F')=\F'$.
+
+\noindent
+b)  By 1.4 it suffices to show that $\varphi:\F'\rightarrow \im\varphi$ is surjective.  Checking on 
+stalks and using 1.2 reduces this to the surjectivity of $\F'_P\rightarrow \im \varphi_P$, which
+is a tautology.  By abuse, we now consider $\F'$ as a subsheaf of $\F$.
+We claim that the map $\F(U)\rightarrow \F''(U)$ kills $\F'(U)$ for each $U$.  Indeed, 
+any $s\in \F'(U)$ has image that is zero in every stalk, and hence must be zero by the sheaf axioms.
+Thus we obtain a map $\F(U)/\F'(U)\rightarrow F''(U)$ induced by $\F\rightarrow\F''$, which gives a morphism
+$\F/\F'\rightarrow \F''$ that is an isomorphism on stalks by 1.2 and the given exact sequence.
+
+\bigskip
+\noindent
+1.7 a)  There is a natural map $\F\rightarrow \im\varphi$ induced by $\F(U)\xrightarrow{\varphi_U} \im \varphi_U\rightarrow (\im\varphi)(U)$,
+and on stalks we have the exact sequences $0\rightarrow \ker\varphi_P\rightarrow \F_P\rightarrow \im\varphi_P\rightarrow 0$
+where we have used 1.2 again.  Thus by 1.2, the sequence $0\rightarrow \ker\varphi\rightarrow\F\rightarrow\im\varphi\rightarrow 0$
+is exact, so 1.6 b) yields the result.
+
+\noindent
+b)  Similarly, the map $\G(U)\rightarrow \G(U)/\im \varphi(U)\rightarrow (\coker\varphi )(U)$
+gives a map $\G\rightarrow\coker\varphi$, and identifying $\im\varphi$ as a subsheaf of $\G$
+by 1.4 b), we see that 
+$0\rightarrow \im\varphi\rightarrow \G\rightarrow \coker\varphi\rightarrow 0$ is exact on stalks,
+so is exact by 1.2.  Now use 1.6 b) again.
+
+
+\bigskip
+\noindent
+1.8	It suffices to show exactness at $\Gamma(U,\F)$ as injectivity holds since $\F'(U)\rightarrow \F(U)$ is injecitve for 
+all $U$ iff $\F'\rightarrow \F$ is injective.  Let $\phi:\F\rightarrow\F''$ and $\psi:\F'\rightarrow \F$.
+Then for $s\in\F'(U)$ we have 
+$$(\phi_U\circ\psi_U (s))_P=\varinjlim_{U\supseteq V\ni P}(\phi_U\circ\psi_U (s))\big|_V= \varinjlim_{U\supseteq V\ni P}(\phi_V\circ\psi_V (s\big|_V))=\phi_P\circ\psi_P(s_P)=0,$$
+so since $\F''$ is a sheaf we have $\phi_U\circ\psi_U=0$.  Conversely, suppose $s\in\F(U)$ has $\phi_U(s)=0$.
+Since the sequence of stalks at $P$ is exact, for each $P\in U$ we have $t_P=(V_i,t_i)$ with $t_i\in\F'(V_i)$
+such that $\psi_P(t_p)=s_P$.  Shrinking $V_i$ if need be, we may suppose $\psi_{V_i}(t_i)=s\big|_{V_i}$.
+It follows that $\psi_{V_i\cap V_j}(t_i\big|_{V_j\cap V_i})=\psi_{V_i\cap V_j}(t_j\big|_{V_i\cap V_j})$
+as both are equal to $s\big|_{V_i\cap V_j}$.  Since $\psi_V$ is injective for all $V$, we have the compatibility
+condition on the $t_i$ to ensure (observe the $V_i$ cover $U$) that they glue to a section $t\in \F'(U)$.
+Checking on stalks shows that $\psi_U(t)=s$ and left exactness of $\Gamma(U,\bullet)$ follows.
+
+\bigskip
+\noindent
+1.9	That $\F\oplus\G$ is a sheaf is obvious.  Moreover, if $f:\F\rightarrow \H$ and $g:\G\rightarrow \H$ are morphisms
+of sheaves, then for every $U$ we have maps of abelian groups $\F(U)\rightarrow \H(U)$ and $\G(U)\rightarrow \H(U)$
+compatible with restriction.  By the universal property of direct sum in the category of abelian groups,
+we get unique homomorphisms of ab. gpg. $\F(U)\oplus \G(U)\rightarrow \H(U)$ for all $U$, and these are evidently
+compatible with restriction because restriction is a homomorphism (in particular on $\H$).  This gives a morphism
+$\F\oplus\G\rightarrow \H$, which must also be unique.
+
+If $f:\H\rightarrow \F$ and $g:\H\rightarrow \G$ are two morphisms, then for all $U$ we have 
+a unique morphism $\H(U)\rightarrow \F(U)\oplus \G(U)$ (implicitly using that direct sum and product
+of finitely many gps. are isomorphic in category of ab. gps.)  and thus a unique morphism
+$\H\rightarrow \F\oplus\G$, which is compatible with restriction because $f,g$ are morphisms of sheaves
+and hence themselves compatible with restriction.
+
+\bigskip
+\noindent
+1.10	By the universal property of direct limit in the category of ab. gps., there is a unique morphism of
+presheaves $``\varinjlim \F_i"\rightarrow \G$ having the desired properties.  Now use the universal 
+property of the sheafification $\varinjlim \F_i$ of $``\varinjlim \F_i"$.
+
+\bigskip
+\noindent
+1.11	Let $s_j\in \varinjlim_{i} \F_i(V_j)$ be sections compatible on overlaps with $V_j$ covering $U\subset X$.
+Since $X$ is noetherian,
+there are finitely many indices $j_1,\ldots,j_n$ such that $V_j\subseteq \bigcup_{k=1}^n V_{j_k}$
+for all $j$.  Thus, to glue the $s_j$ we need only glue $s_{j_1},\ldots,s_{j_n}$.  By the definition
+of a directed system, there is an $N>0$ such that $s_{j_k}\in \F_N(V_{j_k})$ for all $k$ and since
+$\F_N$ is a sheaf and the $V_{j_k}$ cover $U$, we obtain a section $s\in \varinjlim_i \F_i$
+agreeing with $s_j$ over $V_j$ for all $j$; i.e. $U\mapsto \varinjlim_i \F_i(U)$ is a sheaf (as the other sheaf
+axiom follows by an almost identical argument).
+
+\bigskip
+\noindent
+1.12	  Let $s_j=\{s^i_j\}_i\in\varprojlim_i \F_i(V_j)$ be compatible sections, where $V_j$ is a cover of $U$.
+Since each $\F_i$ is a sheaf, the $\{s_j^i\}$ glue to give $s^i\in \F_i(U)$ for each $i$.  If $\phi_{i'i}:\F_{i'}\rightarrow \F_i$
+then we have $\phi_{i'i}(s_{i'})_P=(\phi_{i'i})_P((s_{i'})_P)=(s_i)_P$ since $\phi_{i'i}\big|_{V_j}(s_j^{i'})=s_j^{i}$ for all $j$
+and $P\in V_j$ for some $j$.	Thus we conclude that the $s^i$ are compatible with the given maps defining the inverse system
+so we have an element $s\in \varprojlim_i \F_i(U)$ restricting to $s_j$ over each $V_j$.
+
+Suppose that $f_i:\G\rightarrow \F_i$ is a collection of morphisms, compatible with the inverse system morphisms.
+Define $f:\G(U)\rightarrow \varprojlim_i \F_i(U)$ by $s\mapsto \{f_i(U)\}_i$.  The compatibility of the $f_i$ with the
+inverse system morphisms ensure that this is an element of $\varprojlim_i\F_i(U)$, and compatibility with the restriction
+morphisms is clear (as the $f_i$ are sheaf morphisms).  Thus we obtain $f:\G\rightarrow \varprojlim_i\F_i$.  Uniqueness
+follows easily as $\pi_i\circ f=f_i$ where $\pi_i:\varprojlim_i \F_i\rightarrow \F_i$ is projection onto the $i$ th component.
+
+\bigskip
+\noindent
+1.14	The complement of $\Supp s$ is the set $S=\{P\in U\big|s_P=0\}$.  If $s_P=0$ then there is a nbd. $V_P$ of $P$
+such that $s\big|_{V_P}=0$, and hence for all $Q\in V_P$ we have $s_Q=0$ since the restriction maps are gp. homs.
+so map 0 to 0.  Thus, $V_P\subseteq S$ which shows that $S$ is open and hence $\Supp s$ is closed.
+
+\bigskip
+\noindent
+1.15	Let $f,g:\F\big|_U\rightarrow\G\big|_U$.  Define $f+g:\F\big|_U\rightarrow \G\big|_U$ by $(f+g)_V(s)=f_V(s)+g_V(s)$.  Observe
+that this is a morphism of sheaves $\F\big|_U\rightarrow\G\big|_U$ since the restriction maps are homomorphisms 
+of abelian groups.  Suppose that $f_i:\F\big|_{V_i}\rightarrow \G\big|_{V_i}$ are compatible morphisms, with $V_i$ a cover of $U$.
+Define $f\F\big|_U\rightarrow\G\big|_U$ as follows: any $V\subseteq U$ is cover by $W_i=V\cap V_i$.  For $s\in \F(V\cap U)$
+let $s_i=s\big|_{W_i}$ and put $t_i=f_i\big|_{W_i}(s_i)$.  Since the $f_i$ are compatible on overlaps, so are the $t_i$, which
+therefore glue to $t\in \G(V\cap U)$.  We set $f_V(s)=t$.  We must check that this is compatible with the restriction maps:
+if $V'\subset V$ then $f_V(s\big|_{V'})$ is the glueing of $f_i\big|_{V'\cap W_i}(s_i\big|_{V'\cap W_i})=t_i\big|_{V'\cap W_i}$
+since the $f_i$ are morphisms.  Since $(t\big|_{V'})\big|_{W_i}=t_i$, we obtain the desired compatibility.
+
+\bigskip
+\noindent
+1.16	a) Since $X$ is irreducible, it consists of one connected component, and hence any $U\subseteq X$ is connected.
+If $V\subset U$ and $f:V\rightarrow A$ is cts. then $f(V)=a$ for some $a$.  We extend $f$ to $\widetilde{f}:U\rightarrow A$
+by definining $\widetilde{f}(U)=a$.
+
+\noindent
+b)	By 1.8 we need only show that $\F(U)\rightarrow \F''(U)$ is surjective.  Let $s\in \F''(U)$.  By 1.3, there is a cover $\{U_i\}_{i\in I}$ of $U$
+and sections $t_i\in\F(U_i)$ with $t_i\mapsto s\big|_{U_i}$.  Consider the set $S$ of pairs $(J,z)$ with $J\subseteq I$
+and $z\in \F(\cup_{j\in J} U_j)$ with $z\mapsto s\big|_{\cup_{j\in J} U_j}$.
+We order $S$ by $(J,z)\le (J',z')$ iff $J\subseteq J'$ and $z'\big|_{\cup_{j\in J}U_j}=z$.  The set $S$ is nonempty as 
+for any fixed index $j_0\in I$ we have $(\{j_0\},t_{j_0})$.  Moreover, any chain of $S$ is bounded above by the sheaf axiom, 
+so by Zorn's lemma, $S$ has a maximal
+element $(I_0,z)$.  If $I_0\neq I$, pick $i\in I\setminus I_0$, set $V=\cup_{j\in I_0}U_j$ and let $t_i\in \F(U_i)$ be as above.
+Since $x=z\big|_{V\cap U_i}-t_i\big|_{V\cap U_i}\mapsto 0\in \F''(V\cap U_i)$, there exists $v_i\in \F'(V\cap U_i)$ mapping to
+$x$.  Since $\F'$ is flasque, we may lift $v_i$ to $w_i\in \F'(U_i)$ and define $t_i'=t_i+w_i$.  Then $z,t_i'$ are compatible sections and glue
+to $t\in \F(V\cup U_i)$.  Clearly $t\mapsto s\big|_{V\cup U_i}$.  Since $I_0$ was chosen to be maximal, we have $i\in I_0$ so $I=I_0$.
+
+\noindent
+c)	By part b) for $V\subseteq U$ we have a commutative diagram
+	
+\begin{equation}
+\xymatrix{
+{0}\ar[r] &{\F'(U)} \ar[r] \ar[d] & {\F(U)} \ar[r] \ar[d] & {\F''(U)}\ar[r]\ar[d] &    {0}\\
+{0}\ar[r] &{\F'(V)} \ar[r]  & {\F(V)} \ar[r]  & {\F''(V)}\ar[r] &    {0}
+}\nonumber
+\end{equation}
+in which the first two vertical arrows are surjective.  It follows that the third is also, and hence that
+$\F''$ is flasque.
+
+\noindent
+d)	This amounts to the fact that $V\subseteq U$ implies $f^{-1}(V)\subseteq f^{-1}(U)$.
+
+\noindent
+e)	The sheaf $\G$ is flasque since if $V\subseteq U$ then any $s:V\rightarrow \cup_{P\in V} \F_P$ may be extended
+to $\widetilde{s}:U\rightarrow \cup_{P\in U}\F_P$ by
+$$\widetilde{s}(P)=\begin{cases}s(P) & \text{if}\ P\in V\\ 0 & \text{otherwise}\end{cases}.$$
+Define $\phi_U:\F(U)\rightarrow \G(U)$ by $s\mapsto \big(P\mapsto s_P\big)$.    This is injective
+since $s=0$ iff $s_P=0$ for all $P$ iff $P\mapsto s_P$ is the zero map.
+
+\bigskip
+\noindent
+1.17	Suppose $Q\in \overline{P}$.  Then every open set containing $Q$ contains $P$ so $\varinjlim_{U\ni Q}i_P(A)(U)=\varinjlim_{U\ni P} A=A$.
+If $Q\not\in \overline{P}$ then there exists an open $U$ containing $Q$ and not $P$.  For any open $V$ containing $Q$
+the set $V\cap U$ is open, contains $Q$ and not $P$.  Since $\varinjlim_{V\ni Q}i_P(A)(V)=\varinjlim_{V\ni Q}i_P(V\cap U)=0$
+we conclude that $i_P(A)_Q=0$ for such $Q$.	  Observe that
+$$i_*(A)(U)=A(i^{-1}(U))=\begin{cases}A & \text{if}\ P\in U\\ 0 & \text{otherwise}\end{cases}=i_P(A)(U).$$
+
+
+\bigskip
+\noindent
+1.18	Define $\varphi_U: \varinjlim_{V\supseteq f(U)}\F(f^{-1}(V))\rightarrow \F(U)$ by the collection of maps
+${\rm res}_{f^{-1}(V),U}$ for all $V$ occurring in the direct limit (observe $V\supseteq f(U)$ implies $f^{-1}(V)\supseteq U$).
+The universal property of sheafification then gives a map $\varphi^+:f^{-1}f_*\F\rightarrow \F$ that is
+functorial in $\F$ (essentialy because $\varphi$ is just a collection of restriction maps).  Since $f^{-1}$ is a functor
+from sheaves on $Y$ to sheaves on $X$, this gives a map $\tau:\Hom_Y(\G,f_*\F)\rightarrow \Hom_X(f^{-1}\G,\F)$
+determined by $g\mapsto \varphi^+\circ(f^{-1}g)$. 
+
+Now define $\psi_U:\G(U)\rightarrow \lim_{V\supseteq f(f^{-1}(U))}\G(V)$ by inclusion of $\G(U)$ as a term in the direct limit 
+(observe that $U\supseteq f(f^{-1}(U))$).  Composing $\psi$ with the map to the sheafification yields a map
+$\psi^+:\G\rightarrow f_*f^{-1}\G$, functorial in $\G$ (again, roughly because $\psi$ is defined by the identity map).
+Thus we can define $\sigma:\Hom_X(f^{-1}\G,\F)\rightarrow \Hom_Y(\G,f_*\F)$
+by $g\mapsto (f_*g)\circ \psi$.  
+
+%Since $f_*,f^{-1},\psi^+,\varphi^+$ are functorial, it follows that $\sigma,\tau$ are also functors
+
+It remains to check that $\sigma\circ\tau=\id_{\Hom_Y}$ and $\tau\circ\sigma=\id_{\Hom_X}$.
+Perhaps a stalk calculation?
+
+\bigskip
+\noindent
+1.19	a)  If $P\in Z$, every open $V\ni P$ in $Z$ is of the form $U\cap Z$ for some open $U$ in $X$.
+Thus, $(i_*\F)_P=\varinjlim_{X\supseteq U\ni P}\F(U\cap Z)=\varinjlim_{Z\supseteq V\ni P}\F(V)=\F_P$.
+If $P\not\in Z$ then since $Z$ is closed there exists an open $U\ni P$ with $U\cap Z=0$.
+Now	$(i_*\F)_P=\varinjlim_{X\supseteq V\ni P}\F(V\cap Z)=\varinjlim_{X\supseteq V\ni P}\F(V\cap U\cap  Z)=0$.
+
+\noindent
+b)	Recall that the stalk of a presheaf is the stalk of its sheafification at any point.  If $P\in U$ then
+$\varinjlim_{V\ni P} j_{!}(V)=\varinjlim_{V\ni P} j_{!}(U\cap V)=\varinjlim_{W\ni P}\F(W)=\F_P$.
+If $P\not\in U$ then no open set containing $P$ is contained in $U$, so
+$\varinjlim_{V\ni P}j_!(V)=0$.	If $\G$ is any sheaf on $X$ with $\G_P=\F_P$ for $P\in U$ and $\G_P=0$ otherwise,
+and the restriction of $\G$ to $U$ is $\F$, then we have a map $\G\rightarrow j_{!}\F$ given by
+composing $\G(V)\xrightarrow{{\rm res}}\G(U\cap V)=\F(U\cap V)$ with the sheafification map to $j_{!}\F$.
+The condition on stalks shows that this map is an isomorphism on all stalks, hence an isomorphism of
+sheaves.
+
+\noindent
+c)	If $V\subseteq U$ we map $\F(V)\rightarrow \F(V)$ by the identity; otherwise we use the zero map.
+This gives a morphism $j_{!}(\F\big|_{U})\rightarrow \F$.  We use the map $\F\rightarrow i_*i^{-1}\F=i_*(\F\big|_{Z})$
+described in 1.18.	The sequence we obtain is exact on stalks (two cases: $P\in Z$ or $P\in U$) and hence exact.
+
+
+\section{}
+
+\noindent
+2.1  Define $\varphi:\Spec A_f\rightarrow D(f)$ by the map $\p\mapsto \p \cap A=i^{-1}(\p)$ induced by the map $i:A\rightarrow  A_f$.
+One checks easily that $\varphi$ is a homeomorphism with $\varphi^{-1} D(f)\rightarrow \Spec A_f$ given by $\p\mapsto \p^e$
+(by commutative algebra there is a 1-1 corr. between primes of $A_f$ and primes of $A$ not containing $(f)$).  
+For example, $\varphi$ takes the basic open set $D(g/f^r)$ to $D(fg)$ and so is an open map.
+We define $\varphi^{\#}:\O_{\Spec A}\big|_{D(f)}\rightarrow \varphi_*\O_{\Spec A_f}$ on basic opens $D(g)\subseteq \Spec A$
+by $\O_{\Spec A}\big|_{D(f)}(D(g))=A_{fg}\xrightarrow{\id} (A_{f})_{g/1}=\O_{\Spec A_f}(\varphi^{-1}(D(g)))$.  This gives a well
+defined sheaf map since every point has a basic open nbd.  
+
+\bigskip
+\noindent
+2.2	Let $P\in U$ and $V\ni P$ be a nbd. of $P$ in $X$ such that $(V,\O_X\big|_{V})$ is affine, say isomorphic to $\Spec R$.
+There exists a basic open nbd. $D(f)\subseteq U\cap V$ containing $P$ that is open in $V$.  By 2.1, the locally ringed
+space $(D(f),(\O_{X}\big|_{V})\big|_{D(f)})$ is isomorphic to $\Spec R_f$ and is hence affine.  Thus $(U,\O_{X}\big|_{U})$ is
+a scheme.
+
+\bigskip
+\noindent
+2.3	a)  Suppose $\O_P$ reduced for all $P$ and let $s\in \O_X(U)$ be nilpotent.  Then $s^n=0$ in every stalk, so $s_P=0$
+for all $P\in U$ hence $s=0$ by the sheaf axiom.  Conversely, suppose $\O_X(U)$ reduced for all $U$.  If $s\in \O_P$
+is nilpotent, pick $U,s'$ representing $s$ so $(s')^n=0$ in $s_P$ hence there is a nbd. $V$ of $P$
+with $(s'\big|_{U\cap V})^n=0$ (as restriction is a homomorphism) hence $s'\big|_{U\cap V}=0$ since $\O_X(U\cap V)$
+is reduced, whence $s=0$ in $s_P$.
+
+\noindent b)  Let $P\in X$ and let $U\ni P$ be such that $(\varphi,\varphi^{\#}):(U,\O_X\big|_{U})\simeq \Spec R$ is affine.  
+Then $(U,(\O_X)_{\rm red}\big|_{U})\simeq \Spec R_{\rm red}$.  Indeed, the topological spaces
+$\Spec R$ and $\Spec R_{\rm red}$ are homeomorphic (as every prime contains the nilradical) via the
+surjection $R\rightarrow R/N$.  There is a natural map $\psi:\O_{\Spec R}\rightarrow \O_{\Spec R_{\rm red}}$
+defined on the basic open $D(f)$ by the quotient map $R_f\rightarrow (R_f)_{\rm red}=(R_{\rm red})_f$
+(since localization commutes with quotients).    
+Then the map $(\psi\circ \varphi^{\#})_V:\O_X(V)\rightarrow \O_{\Spec R_{\rm red}}(\varphi^{-1}(V))$ is a map to a reduced
+ring, and therefore factors through $\O_V(V)_{\rm red}$.  The universal property of sheafification then yields
+a map $(\O_X)_{\rm red}\rightarrow \varphi_*\O_{\Spec R_{\rm red}}$ that is an isomorphism
+on stalks, hence an isomorphism.  
+
+\noindent c)  This amounts to the commutative algebra statement that any map from a ring $R$ to a reduced
+ring $S$ factors uniquely through $R_{\rm red}$ and the fact that the push forward of a reduced sheaf is reduced.
+
+\bigskip
+\noindent
+2.4	The result holds when $X$ is affine.  In general, cover $X$ by affines $U_i$ and cover the double overlaps
+$U_i\cap U_j$ by affines $U_{ijk}$.  Then we have an exact sequence of rings
+\begin{equation}
+\xymatrix{
+{0}\ar[r] &{\Gamma(X,\O_X)} \ar[r]^-{g}  & {\prod_i \Gamma(U_i,\O_{U_i})} 
+\ar[r]^-{f} & {\prod_{i,j,k} \Gamma(U_{ijk},\O_{U_{ijk}})}
+}\nonumber
+\end{equation}
+where $g$ is given by
+$s\mapsto\prod_i s\big|_{U_i}$
+and $f$ is given by
+$\prod_i s_i\mapsto \prod_{i,j,k} (s_i-s_j)\big|_{U_{ijk}}$.
+The functor $\Hom(A,\bullet)$ is left exact, so we obtain the exact sequence
+\begin{equation}
+\xymatrix{
+{0}\ar[r] &{\Hom(A,\Gamma(X,\O_X))} \ar[r]  & {\prod_i \Hom(A,\Gamma(U_i,\O_{U_i}))} 
+\ar[r] & {\prod_{i,j,k} \Hom(A,\Gamma(U_{ijk},\O_{U_{ijk}}))}
+}\nonumber
+\end{equation}
+Meanwhile, since to give a morphism $X\rightarrow \Spec A$ is to give morphisms $U_i\rightarrow \Spec A$
+that agree on the coverings of double overlaps, we have the exact sequence of sets
+\begin{equation}
+\xymatrix{
+{0}\ar[r] &{\Hom(X,\Spec A)} \ar[r]  & {\prod_i \Hom(U_i,\Spec A)} 
+\ar[r] & {\prod_{i,j,k} \Hom(U_{ijk},\Spec A)}
+}\nonumber
+\end{equation}
+(where "kernel" is interpreted in the appropriate sense, i.e. in the category of sets).
+Piecing these sequences together, we have
+\begin{equation}
+\xymatrix{
+{0}\ar[r] &{\Hom(A,\Gamma(X,\O_X))} \ar[r] \ar@{<->}[d]  & {\prod_i \Hom(A,\Gamma(U_i,\O_{U_i}))} 
+\ar[r] \ar@{<->}[d]& {\prod_{i,j,k} \Hom(A,\Gamma(U_{ijk},\O_{U_{ijk}}))}\ar@{<->}[d]\\
+{0}\ar[r] &{\Hom(X,\Spec A)} \ar[r]  & {\prod_i \Hom(U_i,\Spec A)} 
+\ar[r] & {\prod_{i,j,k} \Hom(U_{ijk},\Spec A)}
+}\nonumber,
+\end{equation}
+where the second two vertical arrows are bijections.  Thus the first is also.
+
+\bigskip
+\noindent
+2.5	The closed points of $\Spec \Z$ are the prime ideals $(p)$ with $p\in \Z$ not equal to 0.  There is a single open point 
+(the generic point), namely $(0)$.  The basic open sets are of the form $D(n)$ with $n\in\Z$ and consist of
+those primes not dividing $n$.  The local ring at the closed point $(p)$ is $\Z_{(p)}$ and
+the residue field is $\FF_p$ while the local ring and residue field
+at $(0)$ are both $\Q$.	Since there is a unique homomorphism from $\Z$ to any ring defined by  $1\mapsto 1$,
+2.4 implies that every scheme $X$ admits a unique morphism to $\Spec \Z$.
+
+\bigskip
+\noindent
+2.6 Let $R$ be the zero ring.  Then $\Spec R=\{\emptyset\}$ and $\O_{\Spec R}(\emptyset)=R=0$.  
+There is a unique morphism $f:\Spec R\rightarrow X$ to any scheme $X$ defined by inclusion
+on topological spaces and $\O_X\rightarrow f_*\O_{\Spec R}$ given by the identically zero morphism.
+
+\bigskip
+\noindent
+2.7  Given a morphism $(\varphi,\varphi^{\#})\Spec K\rightarrow X$ we obtain 
+a point $x=\varphi((0))\in X $ and a sheaf morphism $\varphi^{\#}:\O_X\rightarrow \varphi_*\O_{\Spec K}$,
+which gives a {\em local} map of local rings $\varphi^{\#}_x:\O_{X,x}\rightarrow \O_{\Spec K,(0)}=K$;
+in particular $m_x\mapsto 0$ so we obtain a morphism $k(x)\rightarrow K$ which must be injective since
+$k(x)$ is a field.  Conversely, given a point $x\in X$ and an inclusion $k(x)\hookrightarrow K$
+we define $\phi:\Spec K\rightarrow X$ by $\phi((0))=x$ and $\varphi^{\#}_U:\O_X(U)\rightarrow \O_{\Spec K}(\varphi^{-1}(U))$
+for each open $U$ in $X$ by $\O_X(U)\rightarrow \O_{X,x}\rightarrow k(x)\hookrightarrow K$,
+where the first arrow is the zero map when $x\not\in U$ and is inclusion into the direct limit
+when $x\in U$.
+
+\bigskip
+\noindent
+2.8	Suppose given a map $\varphi:\Spec k[\epsilon]/\epsilon^2=\{(\epsilon)\}\rightarrow X$ as schemes over $k$.
+This gives a point $\varphi(\epsilon)=x\in X$ together with the diagram of local rings
+\begin{equation}
+\xymatrix{
+	\O_{X,x} \ar[rr]& & k[\epsilon]/\epsilon^2 \\
+		& \ar[ul] k \ar[ur] &  
+}\nonumber
+\end{equation}
+(since $(0)\in\Spec k\mapsto (\epsilon)\in\Spec k[\epsilon]/\epsilon^2$).
+Since the map $\varphi_x:\O_{X,x}\rightarrow k[\epsilon]/\epsilon^2$ is {\em local}, we have $\varphi_x(m_x)\subseteq (\epsilon),$
+from which we deduce that the map $k(x)\rightarrow k[\epsilon]/\epsilon\simeq k$ is an isomorphism.
+Since $\epsilon^2=0$, we define $\psi:m_x\rightarrow k$ by $\psi(z)=\varphi_x(z)/\epsilon$ and note that this is well defined,
+ $k$-linear (by the commutativity of the above diagram), and kills $m_x^2$ so yields an element of $\Hom(m_x/m_x^2,k)$.
+ 
+ Conversely, suppose given a point $x\in X$ with residue field $k$ and a $k$-linear $\psi:m_x\rightarrow k$ killing $m_x^2$.  We define
+ $\varphi_x:\O_{X,x}\rightarrow k[\epsilon]/\epsilon^2$ by $\varphi(\alpha+z)=\alpha+\psi(z)\epsilon$, where $\alpha\in k$ and $z\in m_x$
+ (using that $\O_{X,x}/m_x\simeq k$).  One checks using the linearity of $\psi$ and the fact that $\epsilon^2=0$ and that $\psi$ kills
+ $m_x^2$ that $\varphi_x$ is a local homomorphism with the above diagram commuting.
+ Finally, define a map $\varphi:\Spec k[\epsilon]/\epsilon^2\rightarrow X$ by 
+ $\varphi((\epsilon))=x$ and $\varphi^{\#}:\O_{X}\rightarrow \O_{\Spec k[\epsilon]/\epsilon^2}$ by
+ the map $\O_X(U)\rightarrow \O_{X,x}\xrightarrow{\varphi_x} k[\epsilon]/\epsilon^2$ where the first arrow
+ is 0 if $x\not\in U$ and is inclusion into the direct limit otherwise.  One easily checks that this gives a map of
+ sheaves.
+
+\bigskip
+\noindent
+2.9	Suppose $\zeta_1,\zeta_2$ are two generic points of $Z$.  Then since $\overline{\zeta_i}=Z$, an open set contains $\zeta_1$
+iff it contains $\zeta_2$.  Letting $U=\Spec R$ be an affine nbd. of $\zeta_1$, we identify $\zeta_i=p_i\in\Spec R$.  
+Since $p_2\in\overline{p_1}$, we have $p_2\supseteq p_1$ and vice versa, so $\zeta_1=\zeta_2$.  This settles uniqueness.
+As for existence, let $Z$ be irreducible, nonempty, and closed and let $U\subseteq Z$ be a (nonempty) open affine.
+Then $U=\Spec R$ is dense in $Z$ and irreducible.  By Zorn's lemma, $R$ has minimal primes, and the irreducibility
+of $\Spec R$ implies $R$ has a unique minimal prime, $\zeta\in U$.  It follows that $\overline{\zeta}=U$ (closure in $U$)
+and since $U$ is dense in $Z$, we have $\overline{\zeta}=Z$ (closure in $Z$, hence also $X$ as $Z$ is closed).
+
+\bigskip
+\noindent
+2.10	Observe that $\R[x]$ is a PID.  The prime ideals of $\R[x]$ fall into three types:
+\begin{enumerate}
+	\item The generic (and open) point $(0)$, with residue field $\R(x)$.
+	\item Closed points of the form $(x-\alpha)$ with $\alpha\in\R$.  The residue field in each case is $\R$.
+	\item Closed points of the form $(x^2+\alpha x+\beta)$, with residue field $\C$.
+\end{enumerate}
+As a set, $\Spec \R[x]=\R\cup (\C-\R)=\C$ with the bijection sending $z\in \C$ to $((x-z)(x-\overline{z}))$ if $z\not\in\R$
+and to $(x-z)$ if $z\in\R$.
+
+\bigskip
+\noindent
+2.11	Again, $\FF_p[x]$ is a PID, and the points of $\Spec \FF_p[x]$ are
+\begin{enumerate}
+	\item	 The generic point $(0)$ with residue field $\FF_p(x)$. 
+	\item  Closed points of the form $(f)$ with $f$ a monic irreducible polynomial of degree $d\ge 1$.  The
+	residue field is $\FF_{p^d}$. 
+\end{enumerate}
+Since $x^{p^n}-x$ is the product of all monic irreducibles (over $\FF_p$) of degree $d|n$ we get the formula
+$$\#\{\text{monic degree $d$ irreducibles}\}=\sum_{d|n}\mu(d)p^{n/d}$$ by m\"{o}bius inversion.
+
+
+\bigskip
+\noindent
+2.12
+
+\bigskip
+\noindent
+2.13	a)  Let $U$ be an open set of $X$ that is not quasi-compact and $\{U_i\}$ an open cover of $U$
+that does not admit a finite subcover.  Using the axiom of choice, we can find a sequence
+of $U_i$, say $U_{i_j}$ for $1\le j$ with $U_{i_{j+1}}$ not contained in $V_{j}:=\cup_{1\le k\le j} U_{i_k}$.
+Then the $V_j$ form an ascending nonterminating chain of open subsets of $X$.
+Conversely, suppose that $X$ is noetherian and let $\{U_i\}$ be an open cover
+of the open set $U\subseteq X$.  Let $S$ be the set of finite unions of the $U_i$, partially ordered
+by inclusion.  Every chain evidently has an upper bound, so by Zorn's lemma $S$ has a maximal element,
+which is easily seen to be $U$, viz. $U$ is quasi-compact.
+
+
+\noindent
+b)	Let $U_i$ be an open covering of $X=\Spec R$.  Covering each $U_i$ by basic opens, we may suppose
+that the $U_i$ are all basic, $U_i=D(f_i)$.  Then the $f_i$ generate the unit ideal, so in particular,
+finitely many of them do, giving a finite subcover.	
+Let $R=k[x_i]$ for $1\le i$ be a polynomial ring in infinitely many variables and consider
+the set $U=\sup D(x_i)$.  This is not quasi-compact, so by a) $\Spec R$ is not noetherian.
+
+\noindent
+c) Let $U$ be an open set and $U_i$ an open cover, which we may assume to be basic ($U_i=D(f_i)$)as above.
+If $A$ is noetherian, then the ideal $(f_i)$ is generated by finitely many of the $f_i$, say $f_i:i\in J$ with $\#J<\infty$.
+Then $U_i$ with $i\in J$ is a finite subcover.
+
+
+\noindent
+d) Take $A=k[x_i]/(x_i^2)$ for $1\le i$.  Evidently $A$ is not noetherian, but the space $\Spec A$ consists of a single point
+$(0)$.
+
+\bigskip
+\noindent
+2.14	a)	Recall that the set $\Proj S$ consists of those homogenous prime ideals that do not contain the irrelevant 
+ideal $S_+$.  If every element $S_+$ is nilpotent then $S_+$ is contained in the nilradical and hence in every prime
+of $S$, so $\Proj S$ is empty.  Conversely, if $\Proj S=\emptyset$ then every homogenous prime
+ideal of $S$ contains $S_+$, so $S_+$ is contained in the intersection of all homogenous prime ideals
+and is therefore contained in the nilradical.
+
+\noindent
+b)	Let $p\in U$.  Then there is some $s\in S_+$ with $\varphi(s)\not\in p$.  The set $D(\varphi(s))$ is an open
+nbd of $p$ in $U$.	The morphism $f:U\rightarrow \Proj S$ is given by contraction.  Each homogenous prime
+of $\Proj T$ contracts to a homogenous prime of $S$, and when $p\in U$, the contraction $\varphi^{-1}(p)$
+does not contain all of $S_+$ so is in $\Proj S$.  Continuity follows since contraction preserves containment
+relations, and the sheaf map is given by..... 
+
+\noindent
+c)	Since $\varphi$ is graded, we have $\varphi(S_+)\subseteq T_+$.	
+If $\varphi_d:S_d\rightarrow T_d$ is an isomorphism for all $d\ge d_0$ then every prime that does not contain
+$T_+$ cannot contain $\varphi(S_+)$: indeed, if there is some $t\in T_r$ not in $p$ then $t^k\not\in p$ for all $k$
+and since $r>1$ we may choose $k$ so that $rk>d_0$, thus producing $t^k=\varphi(s)$ for some $s\in S_+$
+so $p$ does not contain $\varphi(S_+)$, thus giving $\Proj T\subseteq U$ so in fact equality holds.
+
+We now show that $f:\Proj T\rightarrow \Proj S$ is an isomorphism.
+Let $\{t_i\}$ generate $T_+$, so $\{D_+(t_i)\}$ is a cover of $\Proj T$.  Then $\{D_+(t_i^{d_0})\}$ is
+also a cover of $\Proj T$.  Put $s_i=\varphi^{-1}(t_i^{d_0})$
+ (here we use that $\varphi_d$ is an isomorphism for all $d\ge d_0$).
+ Then $f_i=f\big|_{D_+(t_i)}\rightarrow D_+(s_i)$ is a morphism of affine schemes (as
+ $D_+(t_i)\simeq \Spec T_{(t_i)}$ and $D_+(s_i)\simeq \Spec S_{(s_i)}$) corresponding
+ to the ring homomorphism $\varphi_i: S_{(s_i)}\rightarrow T_{(t_i)}$  induced by
+ $\varphi$.	But $\varphi_i$ is an isomorphism since $s_i$ has degree at least $d_0$,
+ and $\varphi_d$ is an isomorphism for all $d\ge d_0$.	Thus, $f_i$ is an isomorphism.
+ Now the $D_+(s_i)$ cover $\Proj S$ since any $p\in Proj S$ fails to contain some $s_i$
+ (otherwise the contraction of $p$, which is in $\Proj T$, contains $t_i$ for all $i$ and
+ hence $T_+$, a contradiction), so to show that $f$ is an isomorphism
+ we need only show it is injective (since a bijective local isomorphism is an isomorphism and
+ surjectivity follows from the fact that the $D_+(s_i)$ cover $\Proj S$).
+If $f(x)=f(y)$ then $\varphi^{-1}(x)=\varphi^{-1}(y)=p\in\Proj S$, from which it follows that
+$x_d=y_d$ for all $d\ge d_0$ (here $x_d=x\cap T_d$).	Pick $z\in x$ not in $y$ and let
+$s\in S_+$ be such that $s\not\in y$ (recall $S_+\not\subseteq y$).  Then $s^{d_0}z\in x$
+is of degree at least $d_0$ and so is in $y$.  Since $y$ is prime, this implies that $z\in y$
+so $f$ is injective, hence an isomorphism. 
+ 
+
+\bigskip
+\noindent
+2.16	a)	We have $U\cap X_f=\{x\in\Spec B\big| f_x=\overline{f}_x\not\in m_x\subseteq \O_{X,x}\}$
+(where $\overline{f}_x=f_x$ since $\overline{f}$ and $f$ agree in a nbd. of $x$).
+Putting $x=p\subseteq B$ this is $\{p\in\Spec B\big| \overline{f}_p\not\in pB_p\}$
+and it is easy to verify that $\overline{f}_p\not\in pB_p$ iff $\overline{f}\not\in p$,
+so $U\cap X_f=D(\overline{f})$.  Hence $X_f$ intersects every open affine (hence every open) in
+a (union of) basic opens, and so must be open  (for $x\in X_f$ pick an affine open nbd. $U$ of $x$ in $X$ so
+$U\cap X_f$ is open in $U$ hence in $X$, and is contained in $X_f$).
+
+\noindent
+b)	Cover $X$ by affines $U_i=\Spec B_i$ for $i=1\ldots n$ and let $a_i=a\big|_{U_i}$ and $f_i=f\big|_{U_i}$.
+By part a), $U_i\cap X_f=D(f_i)$, so $a_i=0$ on $D(f_i)$, i.e. $a_i=0$ in $(B_i)_{f_i}$.  Thus there
+is $r_i\ge 0$ such that $a_i f_i^{r_i}=0$ in $B_i$.  Letting $N=\max_{1\le i\le n} r_i$ we find that
+the global section $af^N$ restricts to 0 on each $U_i$ and is therefore 0.
+
+\noindent
+c)	Let $U_i=\Spec B_i$ for $1\le i\le n$ be a finite affine cover of $X$.
+Put $b\big|_{X_f\cap U_{i}}=b_{i}/\overline{f_i}^{d_{i}}\in (B_{i})_{f_i}$ with $b_{i}\in B_{i}$.
+Set $d=\sum_i d_i$ (finite) and $b_i'=f^{d-d_i} b_i\in \Gamma(U_i,\O_X)$.
+Since $b_i'\big|_{X_f}=f^{d-d_i}f^{d_i}b$ we see that $(b_i'-b_j')\big|_{U_i\cap U_j\cap X_f}=0$ so 
+by part b), for each pair $i,j$ there is an integer $d_{ij}$ with $f^{d_{ij}}(b_{i'}-b_{j'})=0$ as an element of $\Gamma(U_i\cap U_j,\O_X)$.
+Letting $D=\max_{i,j} d_{ij}$ (finite since the double overlaps have finite affine covers by hypothesis)
+we find that $f^Db_i'\in \Gamma(U_i,\O_X)$ are compatible on double overlaps, so give an element $a\in \Gamma(X,\O_X)$.
+By construction, $a\big|_{X_f\cap U_i}=f^Db_i'=f^{D+d} b$ so in particular $a\big|_{X_f}=f^{D+d}b$ by the sheaf axiom. 
+
+\noindent
+d)	Define $\varphi:A_f\rightarrow \Gamma(X_f,\O_{X_f})$ by $ a/f^{n}\mapsto a\big|_{X_f}/f^n\big|_{X_f}$.
+(Observe that $f\big|_{U_i\cap X_f}\in \Gamma(U_i\cap X_f,\O_{X_f})=(B_i)_f$ is a unit for all $i$
+and hence $f\big|_{X_f}\in \Gamma(X_f,\O_{X_f})$ is a unit).
+The map is a homomorphism since restriction is, and is injective since otherwise $f^k a=0$ for some $k$ by part b),
+so $a/f^n=0$ in $A_f$.  Surjectivity is part c) above.
+
+
+
+\bigskip
+\noindent
+2.17	a)	Let $g_i:U_i\rightarrow f^{-1}(U_i)$ be the inverse to $f\big|_{f^{-1}(U_i)}:f^{-1}(U_i)\rightarrow U_i$.
+Observe that $g_i.g_j$ agree on $U_i\cap U_j$ (because 
+$f\big|_{U_i\cap U_j}\circ g_i\big|_{U_i\cap U_j}=f\big|_{U_i\cap U_j}\circ g_j\big|_{U_i\cap U_j}=\id_{U_i\cap U_j}$ and 
+$f\big|_{U_i\cap U_j}$ is an isomorphism,
+so we can ``cancel" the $f$ from both sides).  Thus we can glue the $g_i$ to get a morphism $g:Y\rightarrow X$
+that is locally---hence globally---inverse to $f$.
+
+\noindent
+b)	By 2.4, we have a morphism $f:X\rightarrow \Spec A$ corresponding to the identity ring homomorphism $A\rightarrow \Gamma(X,\O_X)$.
+By 2.16 d) we have $\Gamma(X_f,\O_{X_f})\simeq A_f$, and the isomorphism makes the diagram
+\begin{equation}
+\xymatrix{
+A  \ar[r]^-{\id}\ar[d] & \Gamma(X,\O_X)\ar[d]^-{\rm res}\\
+A_f \ar[r]^-{\sim} & \Gamma(X_f,\O_{X_f})
+}\nonumber
+\end{equation}
+commute, from which it follows that $f\big|_{X_f}:X_f\rightarrow \Spec A_f$ is an isomorphism for each $f=f_i$.
+Since the $f_i$ generate the unit ideal, $\Spec A_{f_i}$ covers $\Spec A$.  Thus the hypothesis of part a)
+are satisfied, so $f$ is an isomorphism and $X$ is affine.  The converse follows from the quasi-compactness
+of an affine scheme; see 2.13 b).
+
+\bigskip
+\noindent
+2.18	a)	$D(f)$ is empty iff $f$ is contained in the intersection of all primes; i.e. iff $f$ is nilpotent.
+
+\noindent
+b)	If the map of sheaves $\O_X\rightarrow f_*\O_Y$ is injective then $A=\O_X(X)\rightarrow \O_Y(f^{-1}(X))=\O_Y(Y)=B$
+is injective.  Conversely, if $A\rightarrow B$ is injective, then $A_{f}\rightarrow B_{\varphi(f)}$ is injective for
+all $f\in A$ (if $a/f^k\mapsto 0$ then $\varphi(f)^m\varphi(a)=\varphi(f^m a)=0$ so $f^ma=0$ since $\varphi$ is injective).
+This shows that the map $f^{\#}:\O_X(D(f))\rightarrow \O_Y(f^{-1}(D(f)))$ is injective for all $f$ (where
+we use that $f^{-1}(D(f))=D(\varphi(f))$).	Thus the map of sheaves is injective since it is injective on a base
+of opens of $X$, and hence injective on every stalk.
+
+Let $f\in A$.  Then if $D(f)$ is nonempty, there exists $q\in\Spec B$ with $f\not\in \varphi^{-1}(q)$, or what is the same,
+every nonempty $D(f)\subseteq\Spec A$ contains some $f(q)$.  Indeed, if $f\in\varphi^{-1}(q)$ for all $q\in\Spec B$
+then $\varphi(f)\in q$ for all $q$, and is hence nilpotent.  As $\varphi$ is an injective homomorphism, it follows that $f$
+is nilpotent and hence by a) that $D(f)$ is empty.  Thus $f(Y)$ is dense.
+
+\noindent
+c)	If $\varphi$ is surjective, then $A/\ker\varphi\simeq B$ so their spectra are homeomorphic,
+and $\Spec A/\ker\varphi=V(\ker\varphi)\subseteq \Spec A$ is a closed subset.	Now let $s\in (f_*\O_Y)_p$
+be represented by $\widetilde{s}\in \O_Y(f^{-1}(U))$.  Shrinking if necessary, we may suppose $U=D(f)$
+is basic, so $f^{-1}(U)=D(\varphi(f))$ as above.  Thus, $\widetilde{s}\in B_{\varphi(f)}$.  Since $A\rightarrow B$
+is surjective, so is $A_f\rightarrow B_{\varphi{f}}$, so there exists $t\in \O_X(U)$ mapping to $\widetilde{s}$.
+It follows that the induced maps on stalks are all surjective, so the sheaf map is surjective.
+
+\noindent
+d)	Let $X'=\Spec A/\ker\varphi$.  Then we have $Y\xrightarrow{\psi} X'\xrightarrow{\phi}X$,
+where $\phi$ is a homeomorphism onto a closed subset by c) and $\psi(Y)$ is dense in $X'$
+by b).  Since the composite is $f$ (this is just the fact that the ring map $A\rightarrow B$
+factors through $A/\ker\varphi$) and $f(Y)$ is homeomorphic to a closed subset of $X$,
+we conclude that $\psi(Y)\subseteq X'$ is dense and closed, so that $\psi(Y)=X'$.
+Moreover, since $f,\phi$ are homeomorphisms, so is $\psi.$	We claim that
+$\psi^{\#}$ is an isomorphism.  It is injective by b) and surjective since $f^{\#}$ is surjective
+and the map $f^{\#}:\O_X\rightarrow f_*(\O_Y)$ factors as
+$\O_X\xrightarrow{\phi^{\#}} \phi_*\O_{X'}\xrightarrow{\phi_*(\psi^{\#})} \phi_*\psi* \O_Y=f_*\O_Y $
+as $f=\phi\circ\psi$.	 Hence it is an isomorphism by 1.5.	It follows that $\Spec B\simeq \Spec A/\ker\varphi$
+from which we conclude that $\varphi:A/\ker\varphi\rightarrow B$ is an isomorphism, i.e. that $\varphi$
+is surjective.
+
+\bigskip
+\noindent
+2.19 ((i)$\implies$(ii))		Suppose $\Spec A=V(I)\cup V(J)$ is disconnected.  Pick a non-nilpotent, nonunit $e_1\in I$
+(if $I$ consists only of nilpotents then the disconnect is trivial).  Then $e_2=1-e_1\in J$, and hence $e_1e_2$
+is in every prime ideal and so nilpotent.  That is, $e_1,e_2$ as elements of $A_{\rm red}$ are orthogonal idempotents.
+We claim that such idempotents can be lifted to $A$.  Indeed, let $N$ denote the nilradical of $A$.
+ Let $e_1'$ be any lift of $e_1$ to $A$ and put $e_2'=(1-e_1')$.  Then $e_1'e_2'=n$ is nilpotent, so for some $j$ we have
+${e_1'}^j{e_2'}^j=0$.  Set $\tilde{e}_1={e_1'}^j$ and $\tilde{e}_2={e_2'}^j$.  Observe that $\tilde{e}_1\equiv e_1' \mod N$
+ and $\tilde{e}_2\equiv e_2' \mod N$ since $e_1'\equiv {e_1'}^2,\ e_2'\equiv {e_2'}^2\mod N$.  Moreover, we have $\tilde{e}_1+\tilde{e}_2\equiv 1\mod N$
+ since $e_1'+e_2'\equiv 1\mod N$.  It follows that $\tilde{e}_1+\tilde{e}_2$ is a unit, say with inverse $a\in A$.  Clearly $a\equiv 1\mod N$.
+ We now put $e_1^*=a\tilde{e}_1$ and $e_2^*=a\tilde{e}_2$.  Then $e_1^*+e_2^*=a(\tilde{e}_1+\tilde{e}_2)=1$ and $e_1^* e_2^*=a^2 \tilde{e}_1\tilde{e}_2=0$.
+  Since $a\equiv 1\mod N$ we have
+ $e_1^*\equiv \tilde{e}_1\equiv e_1' \mod N$ so that $e_1^*$ lifts $e_1$ and similarly $e_2^*$ lifts $e_2$.        
+
+\noindent
+((ii)$\implies$(i))	Since $e_1e_2=0$ we see that $\Spec R=V(e_1)\cup V(e_2)$.  Moreover, $V(e_1)\cap V(e_2)=\emptyset$
+since no prime can contain $1=e_1+e_2$.
+
+\noindent
+((ii)$\implies$(iii))	Suppose that $A$ has orthogonal idempotents $e_1,e_2$.  Define $\varphi:Ae_1\times Ae_2$ by $(u,v)\mapsto u+v$.
+One checks this is a homomorphism.  It is injective since if $re_1=se_2$ then $re_1^2=re_1=se_1e_2=0$.  It is
+surjective since $r=r(e_1+e_2)=re_1+re_2$.	
+
+\noindent
+((iii)$\implies$(ii))	If $A\simeq A_1\times A_2$ then $e_1=(1,0)$ and $e_2=(0,1)$ are orthogonal idempotents.
+
+
+
+\section{}
+
+\noindent {\bf Nike's trick:} We will use the following ``trick" repeatedly.  Let $\Spec R,\Spec R'\subseteq X$
+be affine opens with $x\in \Spec R\cap \Spec R'$.  Then there is an affine neighborhood $U$ of $x$ that is
+basic open in both $\Spec R$ and $\Spec R'$.		
+
+\bigskip
+\noindent
+3.1	The ``if" direction is obvious.  Conversely, let $\Spec B_i$ be an open affine cover of $Y$
+with $f^{-1}(\Spec B_i)$ covered by $\Spec A_{ij}$ with $A_{ij}$ a finitely generated $B_i$-algebra
+for all $j$.  Observe that $f^{-1}(\Spec (B_i)_b)$ is covered by $\Spec (A_{ij})_b$
+(if $f(x)\in\Spec (B_i)_b$ then $f(x)$ is a prime of $B_i$ not containing $b$ so $x$ is a prime of some $\Spec A_{ij}$
+not containing the image of $b$ under the algebra map $B_i\rightarrow A_{ij}$) and that
+$(A_{ij})_b$ is a finitely generated $(B_i)_b$-algebra.  Thus, the hypotheses are inherited by basic opens
+of $U_i$.	
+
+Now let $\Spec B\subseteq Y$ be arbitrary.  By ``Nike's trick," there exists a cover of $\Spec B$ by affines
+that are basic open in {\em both} $\Spec B$ and $\Spec B_i$ (for varying $i$).
+This allows us to reduce to the case that $Y=\Spec B$ is affine, with the same hypotheses
+as above, and we need only show that any affine in the $f^{-1}(Y)=X$ is a finitely generated $B$-algebra.
+
+Thus, let $\Spec B_{b_i}$ be our cover of $\Spec B$ (constructed above)
+by basic opens with $f^{-1}(\Spec B_{b_i})$ covered by $\Spec A_{ij}$
+and $A_{ij}$ a finitely generated $B_{b_i}=B[1/b_i]$-algebra, and hence a finitely generated $B$-algebra.
+Let $\Spec A\subseteq X$ be arbitrary.  By the Nike trick again, there is a cover
+$\Spec A_{a_k}$ of $\Spec A$ with each $\Spec A_{a_k}$ basic open in {\em both} $\Spec A$ and $\Spec A_{ij}$
+(for varying $i,j$).  Each $A_{a_k}$ is isomorphic to a localization of some $A_{ij}$ and is therefore a finitely generated
+$A_{ij}$-algebra, and hence also a finitely generated $B$-algebra.
+
+Thus, we are reduced to the following problem: $A$ is a ring with $(a_k)$ generating the unit ideal, and each
+$A_{a_k}$ is a finitely generated $B$-algebra, and we must show that $A$ is a f.g. $B$-algebra.
+ We may clearly assume that there are only finitely many $a_k$ and that we have $x_1,\ldots,x_n\in A$
+ with $\sum x_ka_k=1$.
+ Let $A_{a_k}=B[y_{k1}/\alpha_{k}^N,y_{k2}/\alpha_k^N,\ldots,y_{k m_k}/\alpha_k^N]$ with $y_{kl}\in A$ for all $k,l$.
+ Put $A'=B[x_k,a_k,y_{kl}]$ with $k,l$ running over all possible indices (a {\em finite} set!).  Then $A'$ is obviously
+ a $B$-subalgebra of $A$.  Moreover, we have $A_{a_k}=A'_{a_k}$ for all $k$.  For any $p\in\Spec A$ choose $a_k\not\in p$
+ (since $(a_k)$ is the unit ideal this is possible).  Then $A'_{p}$ is a further localization of $A'_{a_k}=A_{a_k}$, from which
+ we conclude that $A'_p=A_p$ for all $p\in\Spec A$.  Thus $A=A'$ is a finitely generated $B$-algebra.
+  
+\bigskip
+\noindent
+3.2	As in 3.1, one direction is trivial.  For the converse, let $\Spec B\subseteq Y$ be arbitrary and suppose
+we have a cover $\Spec B_i$ of $Y$ with $f^{-1}(\Spec B_i)$ quasi-compact.  Suppose $f^{-1}(\Spec B_i)$
+is covered by $\{\Spec A_{ij}\}_{j\in J_i}$ with $\#J_i<\infty$ for each $i$.
+Then we can cover $\Spec B$ by {\em finitely}	many opens of the form $\Spec (B_i)_{b_i}$, say for $i\in I$, and we have
+$f^{-1}(\Spec (B_i)_{b_i})=\cup_{j\in J_i} \Spec (A_{ij})_{b_i}$ so $f^{-1}(\Spec (B_i)_{b_i})$ is quasicompact.
+It follows that $f^{-1}(\Spec B)=\cup_{i\in I,\ j\in J_i} (A_{ij})_{b_i}$, and since $\#I<\infty$ and $\#J_i<\infty$ for all $i\in I$,
+we conclude that $f^{-1}(\Spec B)$ is quasicompact.
+		
+\bigskip
+\noindent
+3.3	a)	If $f$ is of finite type then it is clearly of locally finite type and quasi-compact.	Conversely, 
+if $f$ is q-compact and locally of finite type, then we have a covering of $Y$ by affines $\Spec B_i$
+with $f^{-1}(\Spec B_i)$ covered by $\Spec A_{ij}$ with $A_{ij}$ finitely generated $B_i$-algebras.
+By 3.2, $f^{-1}(\Spec B_i)$ is quasi-compact, so finitely many of the $\Spec A_{ij}$ will do; i.e.
+$f$ is of finite type.
+
+
+\noindent
+b)	By a) $f$ is f.t. iff. it is locally f.t. and q-compact.  Now apply 3.1 and 3.2.
+
+\noindent
+c)	This was done in 3.1.
+
+\bigskip
+\noindent
+3.4	The ``if" direction is obvious.  Conversely, let $\Spec B_i$ be an open affine cover of $Y$
+with $f^{-1}(\Spec B_i)=\Spec A_{i}$ with $A_{i}$ a finitely $B_i$-module.
+for all $i$.  Observe that $f^{-1}(\Spec (B_i)_b)=\Spec (A_{i})_b$
+and that
+$(A_{i})_b$ is a finite $(B_i)_b$-module so the hypotheses are inherited by basic opens
+of $\Spec B_i$.	
+
+Now let $\Spec B\subseteq Y$ be arbitrary.  By ``Nike's trick," there exists a {\em finite} cover of $\Spec B$ by affines
+that are basic open in {\em both} $\Spec B$ and $\Spec B_i$ (for varying $i$).
+This allows us to reduce to the case that $Y=\Spec B$ is affine with a covering $\Spec B_{b_i}$,
+by finitely many {\em basic} opens and $f^{-1}(\Spec B_{b_i})=\Spec C_i$ affine with $C_i$ a finite $B_{b_i}$-module.
+We need only show that  $f^{-1}(Y)=X$ is affine, equal to $\Spec A$, with $A$ a finite  $B$-module.
+
+By 2.4, we have a ring homomorphism $B\rightarrow \Gamma(X,\O_X)=A$ corresponding to the map $f:X\rightarrow Y=\Spec B$.
+Moreover, we see that the $b_i$ generate the unit ideal in $A$
+because they do in $B$, and that  $f^{-1}(\Spec B_{b_i})=X_{b_i}=\Spec C_i$ is affine and gives
+a finite cover of $X$.  By 2.17, $X=\Spec A$ is affine.
+
+It remains to show that $A$ is a finite $B$-module.  We now know that $X_{b_i}=\Spec A_{b_i}=\Spec C_i$, so
+$A_{b_i}\simeq C_i$.  That is, we are reduced to the following problem: $A$ is a $B$-algebra and $b_i\in B$
+is a finite collection generating the unit ideal such that $A_{b_i}$ is a finite $B_{b_i}$-module, and we 
+wish to conclude that $A$ is a finite $B$-module.	Let $\{z_{ij}\}$ for $1\le j\le m_i$ generate
+$A_{b_i}$ as a $B_{b_i}$-module, where by clearing denominators we may suppose that $z_{ij}\in A$.	
+Any $a\in A$ can be written
+$a=\sum \beta_{ij}	z_{ij},$ where $\beta_{ij}\in B_{b_i}$.  Since there are only finitely many $\beta_{ij}$,
+we can find some $N$ so that $b_i^N\beta_{ij}=\gamma_{ij}\in B$ for all $i,j$.
+Then $b_i^N a =\sum \gamma_{ij} z_{ij}$ for all $i$.  Since $b_i$ generate the unit ideal, so do $b_i^N$,
+so we have $\sum x_i b_i^N=1$ for $x_i\in B$.  Thus, putting $\mu_{ij}= x_i\gamma_{ij}$ we have $\mu_{ij}\in B$ and
+$a=\sum_{i,j} \mu_{ij} z_{ij}$.  Thus $A$ is a finite $B$-module.
+
+\bigskip
+\noindent
+3.5	a)	One reduces immediately to the affine case, $\Spec B\rightarrow \Spec A$ with $B$ integral over $A$.
+The fact that there are only finitely many primes of $B$ lying over any given prime of $A$ is standard Commutative
+Algebra.
+
+\noindent
+b)	This is the ``going up" theorem from Commutative Algebra.
+
+\noindent
+c)	Take $k[x]\rightarrow k[x,y]/(xy-1)\times k$ with the map $p(x)\mapsto (p(x),p(0))$.  The corresponding
+map of spectra is surjective, finite type, and quasi-finite.  However, $k[x,y]/(xy-1)\times k$ is not a finite $k[x]$-module.
+
+\bigskip
+\noindent
+3.6	Let $U=\Spec A$ be any affine open.  Since $X$ is irreducible, $\overline{xi}=X$ so $\xi\in U$.
+We claim that $\xi$ is a minimal prime of $A$.  Indeed, is $\zeta\in\Spec A$ is contained in $\xi$,
+then $X\supseteq \overline{\zeta}\supseteq \overline{\xi}=X$, so we have equality, and the uniqueness
+of generic point (2.9) gives $\zeta=\xi$.  But $\O_X(U)=A$ is an integral domain as $X$ is integral,
+and there is a unique minimal prime $(0)$ of any domain.  It follows that 
+$\O_{\xi}=\lim_{U\ni \xi} \O_X(U)=\lim_{f\in A-\{0\}} \O_{X}(D(f))=\lim_{f\not\in A} A_f=A_{(0)}=\Frac A$.
+
+\bigskip
+\noindent
+3.7	Let $\xi_X,\xi_Y$ be the generic points of $X,Y$ resp.  If $U$ is an open set of $Y$ not containing $y=f(\xi_X)$
+then $f^{-1}(U)$ is an open set of $X$ not containing $\xi_X$, and so must be empty.  But then $U\cap f(X)=\emptyset$
+and $f$ is not dominant.  We conclude that every open set of $Y$ contains $f(\xi_X)$, and hence that $f(\xi_X)=\xi_Y$.
+We thus have a local map of local rings $f^{\#}_{\xi_Y}:\O_{\xi_Y}\rightarrow \O_{\xi_X}$ which is injective as $\O_{\xi_Y}=K(Y)$
+is a field, i.e. $K(X)$ is a field extension of $K(Y)$.	
+We claim that it is an {\em algebraic} field extension.  Indeed, 
+If $\Spec B$ is any affine open in $Y$ and $\Spec A$ is any affine open in $f^{-1}(\Spec B)$, then we have a 
+ring homomorphism $\varphi:B\rightarrow A$ corresponding to $f:\Spec A\rightarrow \Spec B$, and since $f$
+is generically finite, there are only finitely many primes of $A$ lying over $(0)\in B$.  If $\Frac A=K(X)$ is transcendental
+over $\Frac B=K(Y)$ then $A$ is transcendental over $B$, and there are infinitely many primes of $A$ lying over $(0)\in\Spec B$,
+contradicting the generic finiteness assumption.	Hence $K(X)$ is an algebraic, finitely generated (since $f$ is of finite type)
+$K(Y)$-algebra, and is therefore a finite extension of fields.  
+It follows that there exists some $b\in B$ with $A$ finitely generated as a $B_b$-module.
+Thus, we may shrink $\Spec B$ (if necessary) to obtain a cover of $f^{-1}(\Spec B)$ by affines
+$\Spec A_i$ for $1\le i\le n$ with each $A_i$ a finite $B$-module.	
+Now for each $i<n$ there exists $a_i\in A_i$ such that $\Spec (A_i)_{a_i}\subseteq \Spec A_n$,
+and since $A_i$ is an integral $B$-extension, $a_i$ satisfies a monic polynomial $\sum_{k} \beta_{ik}a_i^k=0$
+with $\beta_{ik}\in B$ and $\beta_{i0}\neq 0$.		Let $b=\prod_{1\le i< n} \beta_{i0}$, so $b\neq 0$,
+and every prime of $A_i$ containing $a_i$ contains $b$ for all $i<n$, that is, 
+$\Spec (A_i)_b\subseteq \Spec (A_{i})_{a_i}$ for all $i<n$.	It follows that $f^{-1}(B_b)=\cup_{i<n} \Spec (A_i)_b\cup \Spec (A_n)_{b}=\Spec (A_n)_b$
+is affine, and since $A_n$ is a finite $B$-module, $(A_n)_b$ is a finite $B_b$-module.  As $X,Y$ are integral (hence irreducible),
+$U=\Spec B_b$ and $f^{-1}(U)=\Spec (A_n)_b$ are dense in $Y,X$ respectively, and $f:f^{-1}(U)\rightarrow U$ is finite.
+
+
+\bigskip
+\noindent
+3.8	This is a standard application of {\bf The Fourfold Way}:
+
+We wish to construct an $X$-scheme $P(X) \rightarrow X$ 
+for every scheme $X$ with $P(X)$ having some universal
+property $\mathcal{P}$ in some  subcategory of the category of $X$-schemes.
+
+\begin{enumerate}
+	\item	 Prove that if $P(X) \rightarrow X$ exists for a single $X$, then the open
+subscheme in $P(X)$ that lies over an open subscheme $U$ of $X$ satisfies the
+universal property to be $P(U)$; in particular, existence for $X$ implies
+existence for any open subscheme of $X$. 
+
+\item Suppose the problem can be solved locally on a single $X.$ That is,
+assume there is an open cover $\{U_i\}$ of $X$ such that $P(U_i)\rightarrow U_i$ exists.
+Now consider $P_{ij}$, the part of $P(U_i)$ that lies over $U_{ij} = U_i \cap U_j
+= U_{ji}$.  Notice that $P_{ij}$ and $P_{ji}$ both satisfy the same universal
+property in the category of $U_{ij}$-schemes, by step 1 (applied to the
+scheme $U_{ij}$),  so they are {\em uniquely} $U_{ij}$-isomorphic, and the
+uniqueness ensures triple-overlap consistency when comparing the various
+triples of isomorphisms we get over triple overlaps.
+
+\item  Using step 2, we may (for $X$ and $\{U_i\}$ as in step 2) glue the
+$P(U_i)$ to make an $X$-scheme. Now this glued $X$-scheme restricts over $U_i$
+to give the universal thing $P(U_i) \rightarrow U_i$, and so one then can usually
+exploit this to prove that the glued thing over $X$ does in fact satisfy the
+universal property to serve as the desired $P(X) \rightarrow X$.
+
+
+\item By steps 1--3, the
+existence problem for $P(X)$ for any particular $X$ is "local on the base"
+(i.e., suffices to solve the problem for the constituents of an open
+covering of $X$), and of course the uniqueness aspect is generally OK by
+whatever universal property is to be satisfied by the construction. Now we
+may suppose $X$ is affine and we perhaps make an explicit construction in
+this case, and thereby solve the global problem in view of the preceding
+considerations.
+
+\end{enumerate}
+
+	Suppose that $\pi:\widetilde{X}\rightarrow X$ exists and let $U\subseteq X$ be open.
+	We wish to show that $\pi^{-1}(U)\simeq \widetilde{U}$.		The scheme $\pi^{-1}(U)$
+	is normal because it is a subscheme of $\widetilde{X}$ and normality is a local property.
+	It is integral because it is reduced (again a local property) and irreducible (because it is an open
+	subscheme of an irreducible scheme).
+	Moreover, if $Z\rightarrow U$ is any normal integral $U$-scheme with dominant structure map,
+	then $Z$ becomes an $X$-scheme with dominant structure map (since $U$ is dense in $X$),
+	and hence factors uniquely through $\widetilde{X}$, and it is clear that the image lies in $p^{-1}(U)$,
+	so $p^{-1}(U)$ has the right universal property and is thus (isomorphic to) $\widetilde{U}$.
+
+	Next we show that it suffices to solve the existence of normalization locally on $X$.		Indeed, let $\{X_i\}$
+	be an open cover of $X$ and let $\widetilde{X}_i$ be the normalization of $X_i$.
+	By 1), we get the normalization of $X_{ij}=X_i\cap X_j$ in two different ways: one
+	as a subscheme of $\widetilde{X}_i$ and the other as a subscheme of $\widetilde{X}_j$.
+	The uniqueness (which is an immediate consequence of the universal property) yields 
+	an isomorphism $\phi_{ij}$ identifying these two constructions.	Moreover, 
+	uniqueness up to unique isomorphism ensures that $\phi_{jk}\circ \phi_{ij}=\phi_{ik}$
+	(triple overlap compatibility), so that we can glue the $\widetilde{X}_i$ to obtain a scheme 
+	$\pi:\widetilde{X}\rightarrow X$.
+	
+	We wish to show that $\widetilde{X}$ has the required universal property.	Over each $X_i$,
+	the scheme $\widetilde{X}$ restricts to $\widetilde{X}_i$ so given an integral normal
+	scheme $\phi:Z\rightarrow X$ with dominant structure map, we obtain unique maps
+	$\phi_i:\phi^{-1}(X_i)\rightarrow X_i$ (which must be dominant by irreducibility
+	considerations) and hence unique factorizations $\psi_i:\phi^{-1}(X_i)\rightarrow \widetilde{X}_i$.
+	The uniqueness of these maps ensures compatibility on overlaps, so we may glue them 
+	to show that $Z\rightarrow X$ factors uniquely through $\widetilde{X}$.  Moreover, $\widetilde{X}$
+	is normal and reduced since $\widetilde{X}_i$ is for each $i$ (and these are local properties)
+	and is irreducible since the $\widetilde{X}_i$ are irreducible and all intersect pairwise (because
+	$\widetilde{X}_i=\pi^{-1}(X_i)$ and the $X_i$ all intersect as $X$ is irreducible).
+
+	We have reduced the existence of normalization to the case of affine $X=\Spec A$, with 
+	$A$ a domain.	Let $B$ be the integral closure of $A$ in $\Frac A$.		Then
+	every localization of $B$ is integrally closed, so $\Spec B$ is normal, and since $A\rightarrow B$
+	is injective, the map $\Spec B\rightarrow \Spec A$ is dominant (2.18).	If $Z\rightarrow \Spec A$
+	is a dominant map with $Z$ an integral normal scheme, then we have an injective (converse to 2.18 a)) map 
+	$A\rightarrow \Gamma(Z,\O_Z)$ by 2.4.  Since $\Gamma(Z,\O_Z)$ is normal (as all localizations at prime ideals
+	are) the morphism $A\rightarrow \Gamma(Z,\O_Z)$ factors through $B$ so by 2.4 again,
+	the morphism $Z\rightarrow\Spec A$  factors through $\Spec B$.	This gives the normalization
+	for affines, and we are done.
+	
+	Finally, if $X$ is finite type over a field, then we have a cover $X_i=\Spec A_i$ by affines with $\pi^{-1}(X_i)=\Spec B_i$
+	with $B_i$ integral over $A_i$, so by Theorem 3.9A of Chapter I, $B_i$ is a finite $A_i$-module and $\pi$ is finite. 
+
+
+\bigskip
+\noindent
+3.9	The fiber product $X=\A_k^1\times \A_k^1$ has the following universal property: to give a $k$-morphism $Y\rightarrow X$
+(with $Y$ a scheme over $k$)
+is to give $k$-morphisms $\phi_1,\phi_2:Y\rightarrow \A_k^1$, that is, to give two $k$-algebra homomorphisms $k[x]\rightarrow \Gamma(Y,\O_Y)$.
+Thus, $\Hom(Y,X)\simeq \Gamma(Y,\O_Y)^2$ is a bijection.  Since this is the universal property of $\A_k^2$, we conclude
+that $X\simeq \A_k^2$.  We could also observe that $X=\Spec (k[x]\otimes_k k[y])\simeq \Spec k[x,y]$.	
+The underlying point-set of the product has points that correspond to irreducible curves in $\A_k^2$ (even if $k$ is
+algebraically closed).  For example, we might take $xy-1$.  If such a point $p$ were to correspond to an element of the product
+set ${\rm sp}(\A_k^1)\times_{{\rm sp}(k)}{\rm sp}(\A_k^1)$ it would have to be the point $(i_1^{-1}(p),i_2^{-1}(p))$
+where $i_1:k[x]\rightarrow k[x,y]$ and $i_2:k[y]\rightarrow k[x,y]$ are the natural inclusions.  But for such $p$,
+the contraction of $p$ via $i_j$ is $(0)$ for $j=1,2$, so the sets are not equal (Really I should give a cardinality argument).  
+
+b) Since $k(s)=S^{-1}k[s]$ and $k(t)=T^{-1}k[t]$ where $S,T$ are the multiplicative subsets of $k[s],k[t]$
+consisting of all nonzero elements, we have $k(s)\otimes_k k(t)=S^{-1}k[s]\otimes_k T^{-1}k[t]=(ST)^{-1} k[s]\otimes_k k[t]=U^{-1}k[s,t]$,
+where $U$ is the multiplicative subset of $k[s,t]$ consisting of all nonzero polynomials $P(s)Q(t)$.
+Since $k[s,t]$ and $k[s]$ are finitely generated $k$-algebras, they are Jacobson rings, so maximal ideals contract
+to maximal ideals under the inclusion $k[s]\hookrightarrow k[s,t]$ (see Eisenbud's Commutative Algebra, Theorem 4.19).
+Thus, every maximal ideal $m$ of $k[s,t]$ contains some nonzero $P(s)$.  It follows that the expansion of $m$ under $k[s,t]\rightarrow U^{-1}k[s,t]$
+is the unit ideal.  We conclude that the prime ideals of $U^{-1}k[s,t]$ correspond to the height-1 prime ideals of $k[s,t]$ {\em not}
+of the form $P(s)Q(t)$.  That is, the prime ideals of $U^{-1}k[s,t]$ are principal, generated by some irreducible $g\in k[s,t]\setminus (k[s]\cup k[t])$.
+There are infinitely many such irreducibles, and it follows that $\Spec (U^{-1}k[s,t])\simeq \Spec k(s)\times_k \Spec k(t)$
+has infinitely many points.  Moreover, $\Spec k(s)\times_k \Spec k(t)$ is 1-dimensional as it is the spectrum of a ring in which
+every prime is principal. 
+
+
+\bigskip
+\noindent
+3.10	a)	We claim that the first projection $p:X\times_Y\Spec k(y)\rightarrow X$ induces a homeomorphism $X_y\rightarrow f^{-1}(y)$.
+Letting $\Spec A$ be any affine nbd. of $y\in Y$, we see from the universal properties of fiber product that
+$X_y=(X\times_{Y} \Spec A )\times_{\Spec A} \Spec k(y)=(f^{-1}(\Spec A))_y$, so we may suppose $Y=\Spec A$ is affine.
+For any open subset $U\subseteq X$ we have $p^{-1}(U)=U\times_Y \Spec k(y)$ (by universal properties).
+Moreover, if we can show that $p:p^{-1}(U)\rightarrow U$ induces a homeomorphism $U_y\rightarrow f^{-1}(y)\cap U$
+then we can use universal properties to glue and obtain the desired result (sketchy).
+Thus, we reduce to the case that $X=\Spec B$ is affine.		
+Let $p\in\Spec A=Y$ be the point $y$ and let $g=f^{\#}_Y:A\rightarrow B$ be the ring map corresponding
+to $f:X\rightarrow Y$ making $B$ into an $A$-algebra.
+We have ring maps $B\xrightarrow{\phi} B\otimes_A A_p\xrightarrow{\psi} B\otimes_A k(p)$, and the projection $p$
+is the map $\Spec (B\otimes_A k(p))\rightarrow  \Spec B$ corresponding to $\psi\circ\phi$.
+We already know that $\Spec \phi$, $\Spec \psi$ are continuous.
+Now $\psi$ is surjective, so by 2.18 c), $\Spec \psi: X_y\rightarrow \Spec (B\otimes_A A_p)$ is a homeomorphism
+onto the closed subset $V(\ker\psi)$.  We claim that $\Spec \phi$ is a homeomorphism
+onto the set $\{q\in\Spec B:	q\cap S=\emptyset\}$, where $S=g(A-p)$.	
+($\Spec\phi$ is closed since $\Spec\phi(V(I))=V(\phi^{-1}(I))\cap  (\Spec\phi)(\Spec B)$ is a closed subset of the image of $\Spec\phi$,
+which are those primes of $B$ not meeting $S$).	Therefore, $p$ is the composition of two homeomorphisms and hence a homeomorphism.
+Since $\ker\psi=pB$, we see that $p$ is a homeomorphism onto the set of primes $q\in \Spec B$ 
+such that $q\supseteq pB=g(p)B$ and $q\cap S=q\cap g(A-p)=0$, that is, $g^{-1}(q)\supseteq p$ and $g^{-1}(q)\subseteq p$,
+i.e. $g^{-1}(q)=p$.  
+
+
+b)	Assuming $k$ to be algebraically closed, the fiber over $y=(s-a)\in\Spec k[s]$ consists (by part a) ) of those
+primes in $k[s,t]/(s-t^2)$ contracting to $(s-a)$, that is $(s-a,t-\sqrt{a})$ and $(s-a,t+\sqrt{a})$.  
+The residue field at each point is $k$ (defined by mapping $s\rightarrow a$ and $t\rightarrow \pm \sqrt{a}$).
+If $a=0$, the fiber over $y=(s)$ is the scheme $\Spec( k[s,t]/(s-t^2)\otimes_{k[s]} k[s]_{(s)}/(s))=\Spec( k[s,t]/(s-t^2) \otimes_{k[s]} k)$
+where the map $k[s]\rightarrow k$ sends $s$ to 0, so $s$ acts on the left of the tensor product as 0.
+Thus, $k[s,t]/(s-t^2)\otimes_{k[s]} k\simeq k[t]/t^2$ and the fiber is the one-point non-reduced scheme $\Spec (k[t]/t^2)$.
+The prime ideals of $k[s,t]/(s-t^2)$ that contract to $(0)\subseteq k[s]$ are those prime ideals of $k[s,t]$ containing $(s-t^2)$
+that contain no polynomials in $s$.  The only such ideal is $(s-t^2)$ (see 3.9 b) ).	In other words, 
+$k[s,t]/(s-t^2)\otimes_{k[s]} k(s)\simeq k(s)[t]/(s-t^2)$ (a field) so the fiber is a one-point scheme with residue field
+a degree-2 extension of $k(s)$.  
+
+
+\bigskip
+\noindent
+3.12	a)	Since $\varphi$ is surjective and degree-preserving, we have $\varphi(S_+)=T_+$ so $U=\Proj T$.
+As $\varphi$ is surjective, we have $S/\ker\varphi\simeq T$ so since there is a 1-1 inclusion-preserving correspondence
+between homogeneous prime ideals of $S$ that contain $\ker\varphi$ and homogeneous prime ideals
+of $S/\ker\varphi$, we conclude that $f:\Proj T\rightarrow \Proj S$ is a homeomorphism onto $V(\ker\varphi)$
+($\ker\varphi$ is a homogeneous ideal).  We need only remark that $f^{\#}:\O_{\Proj S}\rightarrow f_*\O_{\Proj T}$
+is surjective.  But this follows from the fact that $\O_{\Proj S}(D_+(f))=S_{(f)}\rightarrow T_{\varphi(f)}=\O_{\Proj T}(f^{-1}(D_+(f))$
+is surjective for any $f\in S$ since $S\rightarrow T$ is surjective (equivalently $S_{\varphi^{-1}(p)}\rightarrow T_{p}$
+is surjective for any prime $p\in\Proj T$, so the sheaf map is surjective on stalks).
+
+b)	Observe that $(S/I)_d\simeq (S/I')_d$ for all $d\ge d_0$.  By 2.14 c), the morphism $f:\Proj (S/I)\rightarrow \Proj (S/I')$
+associated to $S/I'\rightarrow S/I$ is an isomorphism that is evidently compatible with the closed immersions
+$\Proj (S/I)\rightarrow \Proj S$ and $\Proj (S/I')\rightarrow \Proj S$ since the ring maps are.
+
+
+
+\bigskip
+\noindent
+3.13	a)	Let $f:X\rightarrow Y$ be a closed immersion.		Observe that for $U\subseteq Y$
+open, the map $f:f^{-1}(U)\rightarrow U$ is a closed immersion (indeed, it is a homeomorphism
+onto the closed subset $f(X)\cap U$ of $U$ and the sheaf map $\O_Y\big|_{U}\rightarrow f_*\O_X\big|_{f^{-1}(U)}$
+is surjective since it is on stalks).  Thus, being a closed immersion is local on the base.
+We have already seen that being a finity-type morphism is local on the base (3.1, 3.3), so we
+reduce to the case $Y=\Spec A$ whence $X\simeq \Spec A/I$.	Since $A/I$ is clearly a finitely
+generated $A$-algebra, we conclude that $f$ is finite-type.
+
+\noindent
+b)	By 3.3 a) it will suffice to show that $f$ is locally of finite type.
+Let $f:X\rightarrow Y$ be an isomorphism onto $U\subseteq Y$ and let $\Spec A$
+be any affine open of $Y$.  Then $f^{-1}(\Spec A)=f^{-1}(U\cap \Spec A)$, and we may cover $U\cap \Spec A$
+by open affines $\Spec A_{a_i}$.  Since $f:X\rightarrow U$ is an isomorphism, $f^{-1}(\Spec A)$ is covered by
+open affines isomorphic to $\Spec A_{a_i}$, and each $A_{a_i}$ is a finitely generated $A$-algebra.
+
+
+\noindent
+c)	Let $X\xrightarrow{f} Y\xrightarrow{g} Z$ with $f,g$ finite type, and let $\{\Spec A_i\}$ be a covering of $Z$
+with $g^{-1}(\Spec A_i)=\cup_{j=1}^{n_j} \Spec B_{ij}$ and $B_{ij}$ a finitely generated $A_i$-algebra.
+By 3.1, $f^{-1}(\Spec B_{ij})=\cup_{k=1}^{m_{ij}} \Spec C_{ijk}$ with $C_{ijk}$ a finite $B_{ij}$-algebra,
+and hence a finite $A_i$-algebra.  Thus, $(g\circ f)^{-1}(\Spec A_i)=\cup_{j,k} \Spec C_{ijk}$ is a finite
+cover with $C_{ijk}$ a finitely generated $A_i$-algebra for all $i,j,k$.  Thus $g\circ f$ is of finite type.
+
+\noindent
+d)	Let $f:X\rightarrow S$ be an $S$-scheme and $S'\rightarrow S$ a base change.
+Because finite type is local on the base, we may assume $S=\Spec A$ and $S'=\Spec B$
+are affine.	Let $X=f^{-1}(\Spec A)$ be covered by $\Spec C_i$, with $C_i$ a finite $A$-algebra.
+Then $(f')^{-1}(S')=X\times_S S'$ is covered by $\Spec (B\otimes_A C_i)$, and since
+$C_i$ is a f.g. $A$-algebra, $B\otimes_A C_i$ is a f.g. $B$-algebra.
+
+\noindent
+e)	We may assume $S=\Spec A$ is affine.  Let $\Spec B_i$ and $\Spec B'_j$ be finite covers of $X,Y$
+with $B_i,B_j'$ finite $A$-algebras.  Then $\Spec (B_i\otimes_A B_j')$ is a finite cover of $X\times_S Y$
+and $B_i\otimes_A B_j$ is a finite $A$-algebra.
+
+\noindent
+f)	Again, we need only check that $f$ is locally finite type.	Cover $Z$
+by open affines $\Spec C_i$ with $(g\circ f)^{-1}(\Spec C_i)$ covered by finitely many 
+$\Spec A_{ij}\subseteq X$.	Now let $\Spec B_{ik}$ be a cover of $g^{-1}(\Spec A_i)$
+and observe that $f^{-1}(\Spec B_{ik})$ is covered by a collection of the $\Spec A_{ij}$,
+so we have ring maps $C_i\rightarrow B_{ik}\rightarrow A_{ij}$
+such that $A_{ij}$ is finite type over $C_i$, from which we conclude that $A_{ij}$ is finite type over $B_{ik}$
+and hence that $f$ is locally of finite type.
+	
+
+\noindent
+g) Let $\Spec A_i$ be a finite cover of $Y$ with $A_i$ noetherian.  By 3.1, $f^{-1}(A_i)$ can be covered by 
+finitely many $\Spec B_{ij}$  with $B_{ij}$ a finite $A_i$-algebra.	Since each $A_i$ is noetherian, so are
+all the $B_{ij}$ and $\Spec B_{ij}$ is a finite cover of $X$ with $B_{ij}$ noetherian.	
+
+\bigskip
+\noindent
+3.14	Let $U\subseteq X$ be open and let $U_i=\Spec A_i$ be an affine cover of $X$.
+We claim that $x$ closed in $U$ implies $x$ closed in $U_i$ for all $U_i\ni x$.
+Indeed, pick a basic open $\Spec B$ inside $U_i\cap U$ containing $x$ so the
+inclusion $U_i\cap U\hookrightarrow U_i$ gives a ring homomorphism $A_i\rightarrow B$.
+Both $A_i$ and $B$ are finitely generated $k$-algebras, hence Jacobson rings,
+so maximal ideals contract to maximal ideals (c.f. 3.9).  In particular, since $x$
+is closed in $U_i\cap U$, its image in $U_i$ is closed.  Since $x$ is closed in 
+each $U_i$ and the $U_i$ cover $X$, we conclude that $x$ is closed in $X$.
+
+Thus it suffices to prove that every nonempty basic open subset of an affine $\Spec A$ contains
+a maximal ideal of $A$.  But if $f\in A$ is in every maximal ideal then it is nilpotent (as $A$ is Jacobson)
+hence $D(f)$ is empty.  
+
+As an example where this fails, let $R$ be any local domain (for example, $\Z_{(3)}$).
+Then if $f\in m\setminus \{0\}$, the set $D(f)$ is nonempty and open, and contains
+no closed points.
+
+\bigskip
+\noindent
+3.15	a)	We have $(iii)\implies (i)\implies (ii)$, so we show $(ii)\implies (i)\implies (iii)$.
+We claim that if $K/k$ is purely inseparable, then $X$ irreducible implies $X_K$ irreducible.
+Indeed, if $X_K$ is not irreducible, then there is an open affine subset $U_K\subset X_K$
+with $\Gamma(U_K,\O_{X_K})$ not a domain (take $U_K$ to be the union of two disjoint open affines $V_1,V_2\subseteq X_K$). 
+Since $\Spec A$ is homeomorphic to $\Spec A_{\rm red}$, it will suffice to show that
+if $A$ is a domain so is $A\otimes_k K$ for any purely inseparable extension $K/k$.
+But $A\otimes_k K$ having a zero-divisor is equivalent to a system of equations with coefficients
+in $k$ having a solution over $K$.	We may suppose that $K/k$ is finite since any element
+of $A\otimes_k K$ is contained in $A\otimes_k L$ with $L$ a finite extension of $k$.  Thus, there
+exists $q=(\Char k)^r$ for some $r$ such that $K^q\subseteq k$.  Letting $\{f_i\}$ be our
+system of equations with a solution in $K$, we see that $\{f_i^q\}$ has s solution in $k$, and
+since $x\mapsto x^q$ is injective, we obtain a zero-divisor in $A$, contradicting our assumption.
+
+We now prove that
+if $k^{\prime}/k$ is an extension of fields with $k$ algebraically closed then $\{f_j\}$ with $f_j\in k[X_1,\ldots, X_n]$
+has a solution over $k$ iff it has one over $k^{\prime}$.  One direction is clear.  For the opposite direction,
+we prove the contrapositive.  By the Nullstellensatz (crucially using that $k$ is algebraically closed)
+if $\{f_j\}$ has no solution over $k$ then the $f_j$ generate the unit ideal  
+of $k[X_1,\ldots,X_n]$, and hence they also generate the unit ideal of $k^{\prime}[X_1,\ldots,X_n]$
+and therefore have no solution over $k^{\prime}$.
+
+Lastly, we show that $(i)\implies (iii)$.  We may suppose that $K$ is an extension of $\overline{k}$.
+Then having a zero divisor in $A\otimes_k K$ is equivalent to a system of equations with coefficients in $\overline{k}$
+having a solution over $K$, and by the above result, such a system also has a solution over $\overline{k}$
+whence $A\otimes_k \overline{k}$ is not a domain.
+	 
+	 
+
+\noindent
+b)	Obviously $(iii)\implies (i)\implies (ii)$, so it will suffice to prove $(ii)\implies (i)\implies (iii)$.   
+We claim that if $K/k$ is {\em separable} then $X$ reduced implies $X_K$ reduced.
+Indeed, we may suppose that $X=\Spec A$ is affine (for it suffices to show that $U_K$ is reduced
+for every affine $U\subseteq X$) and we must therefore show that $\Gamma(U_K)=A\otimes_k K$ is a reduced
+ring given that $A$ is reduced.  We may suppose that $A$ is a domain: indeed, $A\hookrightarrow \prod A/p_i$,
+so $A\otimes_k K\hookrightarrow \prod A/p_i\otimes k K$ as $K/k$ is flat,
+the product being over all minimal primes of $A$, and a product of rings is reduced iff each factor is.  (We have
+also tacitly used that tensor product commutes with finite direct products$=$ finite direct sums, which employs
+the finite type hypothesis, i.e. that $A$ has finitely many minimal primes.)		
+Since $A\hookrightarrow \Frac(A)$, it will suffice to show that $F\otimes_k K$ is reduced for every extension field $F/k$.
+We may replace $K$ by a {\em finite} extension $L/k$ since every element of $F\otimes_k K$ is contained in $F\otimes_k L$
+for some finite $L$ (depending on the element).	But then $L\simeq k[T]/(f)$ with $f\in k[T]$ a {\em separable} polynomial,
+so that $F\otimes_k L\simeq F[t]/(f)$ and $f\in F[t]$ is still separable, so $F[t]/(f)$ is reduced.
+Since $\overline{k}/k_p$ is a separable extension, we have shown $(ii)\implies (i)$.
+
+Now we show that if $A\otimes_k \overline{k}$ is reduced, then $A\otimes_k K$ is reduced for any extension
+$K/k$ of fields.  We reduce at once (by a further field extension if necessary) to the case
+that $K$ is an extension of $\overline{k}$.	But then having a nilpotent element of $A\otimes_k K$
+is equivalent to giving a system of equations with coefficients in $\overline{k}$ that have a solution
+over $K$, and by the result in part a), must therefore have a solution over $\overline{k}$.
+
+\noindent
+c)	Let $k=\FF_p(T)$ and $K=\FF_p(T^{1/p})$.  Then $\Spec K$ is reduced but not geometrically reduced
+as $\Spec K\times_k \Spec K=\Spec(K\otimes_k K)$ and $K\otimes_k K$ has the nonzero nilpotent
+$x=1\otimes T^{1/p}-T^{1/p}\otimes 1$ with $x^p=0$.
+Similarly, $X=\Spec \R[x]/(x^2+1)\simeq \Spec \C$ is irreducible (it is a single point) but not geometrically irreducible
+as $X_{\C}=\Spec \C[x]/(x^2+1)=\Spec (\C\oplus \C)=\Spec \C \coprod \Spec \C$. 
+
+ 
+\section{}
+
+\noindent
+4.1	Let $f:X\rightarrow Y$ be finite.  Since properness is local on the base (cor 4.8), we may assume $Y=\Spec A$
+and $f^{-1}(Y)=X=\Spec B$ with $B$ a finite $A$-module (since $f$ is finite; c.f. 3.4).
+By Prop. 4.1, $f:X\rightarrow Y$ is separated
+and it is of finite type since it is finite.
+We need to check that $f':X\times_Y Y'\rightarrow Y'$ is closed for all $Y'\rightarrow Y$.  Since this is
+local on $Y$, we may suppose that $Y'=\Spec C$ is affine.  	We are reduced to showing that 
+$\Spec B\otimes_A C\rightarrow \Spec C$ induced by the map $C\rightarrow B\otimes_A C$ 
+to the second factor is closed.  But $B\otimes_A C$ is integral over $C$ as $B$ is integral over $A$
+(generated as a $C$ module by $g_i\otimes 1$ with $g_i$ a finite set of $A$-module generators of $B$),
+so by 3.5 b), $f'$ is closed and $f$ is universally closed.  Thus, $f$ is proper.
+
+
+\bigskip
+\noindent
+4.2	Let $h=(f,g):X\rightarrow Y\times_S Y$.  
+Observe that $(f,f)=\Delta\circ f:X\rightarrow Y\times_S Y$ agrees with $h$ on the open dense subset $U$
+Since $Y$ is separated, $\Delta:Y\rightarrow Y\times_S Y$ is a closed immersion, so $\Delta^{Y}$ is closed.
+Thus, $h^{-1}(\Delta(Y))$ is a closed subset of $X$ containing $U$ (since $h\big|_U=\Delta\circ f\big|_U$),
+and since $U$ is dense, $h^{-1}(\Delta(Y))=X$, so $h(X)\subseteq \Delta(Y)$ so $f=g$ on $X$.
+
+To check the sheaf maps are equal, we may suppose $X=\Spec B$ and $Y=\Spec A$ are affine
+(since equality of sheaf maps can be checked locally) and we have maps $f^{\#},g^{\#}:A\rightarrow B$.
+For $a\in A$ consider $b=f^{\#}(a)-g^{\#}(a)$.  Observe that $b\big|_{U}=0$ so $V(b)\subseteq X$
+contains the dense open $U$ and hence $V(b)=X$.  Thus, $b$ is nilpotent.  Since $X$ is reduced, 
+$b=0$ and we are done.
+
+If $X$ is nonreduced, this can fail.  For example, take $X=\Spec \Z[x]/(x^2,xp)$ for a prime $p$.  
+We define $\phi_i:X\rightarrow X$ for $i=1,2$ by $x\mapsto x$, $x\mapsto 0$
+respectively.  The open set $U=X_(p)=\Spec \Z[1/p]$ is dense in $X$ since $X$ is irreducible (the unique 
+minimal prime is $(x)$) and $\phi_1=\phi_2$ on $U$.  However, $\phi_1\neq \phi_2$ as they
+are not induced by the same ring map.
+
+Similarly, the result can fail for $Y$ not separated.  Take $Y$ to be the affine line with doubled origin
+and let $\phi_1:Y\rightarrow Y$ be the identity map and $\phi_2:Y\rightarrow Y$ the map that switches the two copies of $\A^1$.
+Then $\phi_1=\phi_2$ on the dense open $U$ consisting of $Y$ minus the two origins, 
+but not on all of $Y$.
+
+\bigskip
+\noindent
+4.3	Let $f:X\rightarrow S=\Spec A$ be separated, and $U=\Spec B,\ V=\Spec B'$ affine opens in $X$.
+Then $\Delta:X\rightarrow X\times_S X$ is a closed immersion, and by universal properties of the fiber product,
+we have $U\cap V=\Delta^{-1}(U\times_S V)$.		Since being a closed immersion is local, $\Delta:U\cap V\rightarrow U\times_S V=\Spec(B\otimes_A B')$
+is a closed immersion, so in particular by 3.11 b),	$\Delta(U\cap V)$ is affine, which implies that $U\cap V$ is affine as $\Delta$
+is a homeomorphism.
+
+As an example when this fails if $X$ is nonseparated, let $X$ be the affine plane with the origin doubled (over an algebraically closed field $k$) and $U,V$ the two copies of $\A_k^2$.	Then $U,V$ are open affines, but their intersection is isomorphic to $\A_k^2$ with the origin
+deleted, which is not affine.
+  
+
+\bigskip
+\noindent
+4.4	Let $\pi_X:X\rightarrow S$ and $\pi_Y:Y\rightarrow S$ be the structure maps, and $\pi_Z:Z\rightarrow S=\pi_Z\big|_Z$.
+Since $\pi_Y\circ f|_{Z}=\pi_Z$ and $\pi_Z$ is proper by hypothesis and $\pi_Y$ is separated, Prop. 4.8 tells us that
+$f\big|_{Z}:Z\rightarrow f(Z)$ is proper.	Replace $X$ by $Z$ and $Y$ by $f(Z)$ so that we have
+$f:X\rightarrow Y$ a surjective $S$-morphism and $\pi_X$ proper; we wish to show $\pi_Y$ is proper.
+Since $X\times_Y Y\times_S T=X\times_S T$ for any $S$-scheme $T$, we see that the morphism
+$f\times \id: X\times_S T\rightarrow Y\times_S T$ is the base change of $f:X\rightarrow Y$ and
+$X\times_S T\rightarrow T$ is the base change of $X\rightarrow S$.	Thus, since 
+properness and surjectivity are stable under base change (see below), we may replace $X$ by $X\times_S T$, $Y$
+by $Y\times_S T$, $S$ by $T$, and $f$ by $f\times \id$ to reduce showing that $f$ is universally closed to just showing
+that it is closed.	But if $W\subseteq Y$ is closed, then since $f:X\rightarrow Y$ is surjective, we 
+have $W=f(f^{-1}(W))$ and hence $\pi_Y(W)=\pi_Y\circ f (f^{-1}(W))=\pi_X(f^{-1}(W))$ and this is closed since $\pi_X$
+is proper (hence closed) and $f$ is continuous so $f^{-1}(W)$ is closed.
+
+To prove that surjectivity is stable under base change, observe that if $f:X\rightarrow S$ is a surjective map
+and $\pi:S'\rightarrow S$ any base change, then $(f\times 1)^{-1}(s')$ is homeomorphic
+to $X\times_S S'\times_{S'} \Spec k(s')=X\times_S \Spec k(s')=X\times_S \pi(s')$,
+which is homeomorphic to $f^{-1}(\pi(s'))$ and must therefore be nonempty as a set, since $f$ is surjective
+(we have used 3.10).
+
+
+\bigskip
+\noindent
+4.6	Let $f:\Spec B=X\rightarrow Y=\Spec A$ be proper, and let $\varphi:A\rightarrow B$ be the associated ring map.
+Since $X$, $Y$ are varieties, $A$ and $B$ are domains of finite type over an algebraically closed field $k$.
+Let $K=\Frac B$ and $R$ be any valuation ring of $K$ containing $\varphi(A)$.
+The valuative criterion of properness ensures the existence of a unique map $\Spec R\rightarrow \Spec B$
+making the diagram
+\begin{equation}
+\xymatrix{
+	\Spec K \ar[r] \ar[d] & \Spec B \ar[d] \\
+	\Spec R \ar@{-->}[ur] \ar[r] & \Spec A
+}\nonumber
+\end{equation}
+commute.	 
+ In other words, there is a unique map of rings $B\rightarrow R$ making
+\begin{equation}
+\xymatrix{
+	 A \ar[r] \ar[d] & R \ar@{^{(}->}[d] \\
+	 B \ar@{-->}[ur] \ar@{^{(}->}[r] & K
+}\nonumber
+\end{equation} 
+commute, and we easily see this map is injective.	Thus, $B$ is contained
+in every valuation ring of $K$ containing $A$, so by 4.11 A, it is contained in the integral 
+closure of $A$ in $K$ and is hence integral over $A$.  By 3.4, we conclude that $f:X\rightarrow Y$
+is finite.  
+
+\bigskip
+\noindent
+4.8	d)	If $\pi_X:X\rightarrow Z$ and $\pi_Y:Y\rightarrow Z$ have $\mathcal{P}$ then since $X\times_Z Y\rightarrow Y$
+is the base change $Y\rightarrow Z$ of $X\rightarrow Z$, we see that $X\times_Z Y\rightarrow Y$ has $\mathcal{P}$.
+SInce $X\times_Z Y\rightarrow Z$ is the composition $X\times_Z Y\rightarrow Y\xrightarrow{\pi_Y} Z$
+of two morphisms having $\mathcal{P}$, it also has $\mathcal{P}$.
+ 
+ \noindent
+ e)	The morphism $\Gamma_f:X\rightarrow X\times_Z Y$ is the base change of $\Delta:Y\rightarrow Y\times_Z Y$
+ by $f\times\id:X\times_Z Y\rightarrow Y\times_Z Y$, and since $Y$ is separated, $\Delta$ is a closed immersion.
+ Since closed immersions are stable under base change, $\Gamma_f$ is also a closed immersion, hence has $\mathcal{P}$.
+ Now $g\circ f:X\rightarrow Z$ has $\mathcal{P}$ so the base change $X\times_Z Y\rightarrow Y$ by $Y\rightarrow Z$ also has $\mathcal{P}$.
+ But $f$ factors as $X\xrightarrow{\Gamma_f} X\times_Z Y\rightarrow Y$ and so is the composition of two morphisms
+ having $\mathcal{P}$ and therefore has $\mathcal{P}$.
+ 
+ \noindent
+ f)	The morphism $X_{\rm red}\rightarrow X$ is a closed immersion, hence has $\mathcal{P}$.
+ Then the composite $X_{\rm red}\rightarrow X\rightarrow Y$ 
+ has $\mathcal{P}$ and factors as $X_{\rm red}\rightarrow Y_{\rm red}\rightarrow Y$ by 2.3 c).
+ Since $Y_{\rm red}\rightarrow Y$ is separated (use the valuative criterion: $T=\Spec R$ is reduced for any valuation ring $R$
+ as valuation rings are domains, so the map $\Spec R\rightarrow Y$ factors uniquely as $\Spec R\rightarrow Y_{\rm red}\rightarrow Y$
+ by 2.3) 
+ we conclude by e) that $X_{\rm red}\rightarrow Y_{\rm red}$
+ has $\mathcal{P}$.
+ 
+ \section{}
+ 
+ 5.1	a)	Define a map $\varphi_U: \E(U)\rightarrow \Check{\Check{\E}}(U)=\Hom(\HOM(\E,\O_X)\big|_U,\O_X\big|_U)$
+ by sending $e\in \E(U)$ to the collection of maps $\{e_V\}_V:\Hom(\E,\O_X)(U\cap V)\rightarrow \O_X(U\cap V)$,
+ with $e_V(\sigma)=\sigma_{U\cap V}(e\big|_{U\cap V})$, where $\sigma:\E\big|_{U\cap V}\rightarrow \O_X\big|_{U\cap V}$.
+ One checks that the stalk $\HOM(\E,\O_X)_P$ is $\Hom(\E_P,\O_{X,P})$ (because $\E$ is coherent; see, for example,
+ Serre, ``Faisceux Alg\'{e}braiques Coh\'{e}rents.''  In general, the canonical map $\Hom(\E,\O_X)_P\rightarrow \Hom(\E_P,\O_{X,P})$
+ is not an isomorphism.), and that the morphism we have defined induces the stalk
+ morphism $\E_P\rightarrow \Hom(\Hom(\E_P,\O_{X,P}),\O_{X,P})$ given by $e_P\mapsto (\sigma_P\mapsto \sigma_P(e_P))$.
+ Since $\E$ is locally free of finite rank, the stalk $\E_P$ is free of finite rank, and the stalk map is the {\em canonical}
+ isomorphism of a free module of finite rank with its double dual.	Since all of the induced stalk maps
+ are isomorphisms, we have $\Check{\Check{\E}}\simeq \E$.
+ 
+ \noindent
+% b)	For open $U$ on which $\E\big|_U\simeq \O_X^n$, define $\epsilon_i\in \Hom(\E\big|_U,\O_X\big|_U)$
+ %to be the map $\E\big|_U\simeq \O_X\big|_U\oplus\O_X\big|_U\oplus\cdots\oplus \O_X\big|_U\rightarrow \O_X\big|_U$ to be projection
+ %onto the $i$ th factor (see 1.9).	Now any $\psi\in \Hom(\E\big|_U,\F\big|_U)\simeq \Hom({\O_X\big|_U}^n,\F\big|_U)$
+ %is a collection of maps $\{\psi_V\}_V$ with $\psi_V:\O_X(U\cap V)^n\rightarrow \F(U\cap V)$, and each $\psi_V$
+ %we identify with a set of $n$ sections $\{f_i^V\}_{i=1}^n$ with $f_i^V\in \F(U\cap V)$.
+ %We then define $\varphi_U:\Hom(\E\big|_U,\F\big|_U)\rightarrow \Hom$	
+b)  Define $\varphi_U:\Hom(\E\big|_U,\O_X\big|_U)\otimes \F(U)\rightarrow \Hom(\E\big|_U,\F\big|_U)$
+by $(\varphi_U(\psi\otimes f))_V(e)=\psi_V(e)\cdot f\big|_V\in \F(U\cap V)$, where $\psi=\{\psi_V\}$ and $e\in \E(U\cap V)$.
+We extend this definition linearly.  Observe that the restriction maps are compatible and that the $\varphi_U$ glue
+to give $\varphi$, since they are all canonically defined.	On stalks, $\varphi_P$ is the map
+$\Hom(\E_P,\O_{X,P})\otimes \F_P\rightarrow \Hom(\E_P,\F_P)$ given by $\psi\otimes f\mapsto (e\mapsto \psi(e)\cdot n)$,
+which is an isomorphism of $\O_{X,P}$-modules since $\E_P$ is free (this is standard commutative algebra).
+Thus the map $\varphi$ is an isomorphism.
+ 
+ \noindent
+ c)	Let $\varphi:\E\otimes\F\rightarrow \G$ and define $F(\varphi):\F\rightarrow\HOM(\E,\G)$
+ by $F(\varphi)_V(f)=\{\sigma_W\}$ where $\sigma_W:\E\big|_V(W)\rightarrow \G\big|_V(W)$ is 
+ $e\mapsto \varphi_{V\cap W}(\theta^+(e\otimes f\big|_{W\cap V}))$, with $\theta^+:\E(U)\otimes \F(U)\rightarrow (\E\otimes \F)(U)$
+ the sheafification map.
+ It is easily checked that $F(\varphi)$ is a map of sheaves of modules, so $F$ gives a map
+ $\Hom(\E\otimes\F,\G)\rightarrow \Hom(\F,\HOM(\E,\G))$.  We claim that $F$ is injective.
+ Indeed, if $F(\varphi)=0$ then $\varphi_{V\cap W}(\theta^+(e\otimes f))=0$ for all open $V,W$ and $e\otimes f\in \E(V\cap W)\otimes \F(V\cap W)$,
+ which implies that $\varphi$ is the zero map.
+ Moreover, $F$ is surjective as given $\psi:\F\rightarrow\HOM(\E,\G)$
+ we define $\varphi_U:\E(U)\otimes \F(U)\rightarrow \G(U)$
+ by $\varphi_U(e\otimes f)=(\psi_U(f))_U(e)\in\G(U)$.  It is clear this defines morphism of sheaves (using the universal property
+ of sheafification) $\E\otimes\F\rightarrow \G$ such that $F(\varphi)=\psi$.	Surjectivity follows.
+ 
+ \noindent
+ d)	Let's try to be slick about this:	We have the identification $f_*\F\otimes_{\O_Y} \E\simeq f_*\F\otimes_{\O_Y} \Check{\Check{\E}}$
+ by part a) and $f_*\F\otimes_{\O_Y} \Check{\Check{\E}}\simeq \HOM_{\O_Y}(\Check{\E},f_*\F)$ by part b).
+ Using the {\em canonical} isomorphism
+ $$\Hom_{\O_X}(f^*\G,\F)\simeq \Hom_{\O_Y}(\G,f_*\F),$$ by patching together over opens we obtain an isomorphism
+ of sheaves of $\O_Y$-modules
+ $$\HOM_{\O_Y}(\G,f_*\F)\simeq f_*\HOM_{\O_X}(f^*\G,\F).$$
+Now let $\G=\Check{\E}$ and combine with the above to obtain
+$$f_*\F\otimes_{\O_Y} \E\simeq \HOM_{\O_Y}(\Check{\E},f_*\F)\simeq 
+f_*\HOM_{\O_X}(f^*(\Check{E}),\F)\simeq f_*(\F\otimes_{\O_X}\Check{f^*\Check{E}}),$$
+where we have used b) again.
+Now we need only realize the isomorphism $\Check{f^*\Check{E}}\simeq f^*\Check{\Check{\E}}$ of sheaves on $X$
+and use part a).  Observe that the two duals on the LHS are {\em different}: the inner one is $\HOM(\bullet, \O_Y)$ while the outer one
+is $\HOM(\bullet,\O_X)$.	
+
+
+\bigskip
+\noindent
+5.2	a)	As $R$ is a dvr, there are two open sets: $X$ and $\{0\}=D(m)$ for any $m\in P$ where $P$ is the unique nonzero
+prime ideal of $R$.  As such, to give a sheaf of modules on $X$ is to give a $R$-module $M$ and a $R_m=K$-module (vector space)
+$L$ such that the restriction map $M\rightarrow L$ is compatible with the module structures $R\rightarrow \End M$ and $K\rightarrow \End L$,
+i.e. such that we have a homomorphism of $K$-vector spaces $M\otimes_R K\rightarrow L$.
+
+b)	The sheaf given above is quasi-coherent iff, by 5.4, it is of the form $\widetilde{M}$, in which case
+we must have $M_m=M\otimes_R K=L$, with the map given above (coming from restriction) providing
+an isomorphism.
+
+\bigskip
+\noindent
+5.3	Let $\varphi:M\rightarrow \Gamma(X,\F)$ be an $A$-module homomorphism and
+for any $f\in A$ define $\psi_{D(f)}:M_f\rightarrow \F(D(f))$ by $\psi_{D(f)}(m/f^n)=(1/f^n)\cdot \varphi(m)\big|_{D(f)}$.
+Observe this is well defined since $\F(D(f))$ is an $A_f$-module, and that the $\psi_{D(f)}$ patch
+together to give a morphism $\psi:\widetilde{M}\rightarrow \F$ (as is easily checked by looking
+at the double-overlap condition).	Given $\psi\in \Hom(\widetilde{M},\F)$
+we define $\varphi:M\rightarrow \Gamma(X,\F)$ by $\varphi=\psi_X$.  It is clear that these two constructions
+provide inverses to eachother, so provide the desired isomorphism.
+
+
+\bigskip
+\noindent
+5.4	If $\F$ is quasi-coherent, then every point $x\in X$ has an affine nbd. $\Spec A=U$ with $\F\big|_U\simeq \widetilde{M}$
+for some $A$-module $M$.	Then $M$ has presentation $A^{I}\rightarrow A^{J}\rightarrow M$; applying $\widetilde{\phantom{M}}$
+and recalling that this is an exact functor that commutes with arbitrary direct sum and that $\widetilde{A}=\O_X\big|_U$,
+we obtain the exact sequence of sheaves of modules
+$$(\O_X\big|_U)^{I}\rightarrow(\O_X\big|_U)^{J}\rightarrow \F\big|_U\rightarrow 0.$$
+Observe that if $\F$ is coherent and $X$ is noetherian, then $A$ is a noetherian ring and $M$
+is a finitely generated---hence finitely presented---module.  We may therefore take the index sets $I$ and $J$
+to be finite in this case.
+
+Conversely, suppose that $\F\big|_U$ is the cokernel of the morphism
+$$\widetilde{A}^n=(\O_X\big|_U)^{I}\xrightarrow{\varphi}(\O_X\big|_U)^{J}.$$
+Applying 5.3 to this morphism, we obtain an $A$ module homomorphism $\psi:A^{I}\rightarrow A^{J}$
+with $\widetilde{\psi}=\varphi$.		Thus, letting $M=\coker\psi$ and applying $\widetilde{\phantom{M}}$
+to the exact sequence
+$A^{I}\xrightarrow{\psi}A^{J}\rightarrow M\rightarrow 0$, we obtain an exact sequence of sheaves
+$$(\O_X\big|_U)^{I}\xrightarrow{\varphi}(\O_X\big|_U)^{J}\rightarrow \widetilde{M}\rightarrow 0.$$
+Now use the snake lemma to obtain $\widetilde{M}\simeq \F\big|_U$.	
+If $I,J$ are finite index sets and $A$ is noetherian, then $M$ is finitely generated and hence $\F\big|_U$
+is coherent.
+
+\bigskip
+\noindent
+5.5	a)	Let $X=\Spec k[x,y]$ and $Y=\Spec k[x]$ with $f:X\rightarrow Y$ induced by the inclusion $k[x]\hookrightarrow k[x,y]$.
+Then $f_*\O_X$ is not a coherent $\O_Y$-module.  Indeed, $k[x,y]$ is not a finitely generated $k[x]$-module; now use
+Prop. 5.4.
+
+\noindent
+b)	Let $f:X\rightarrow Y$ be a closed immersion, and $U=\Spec A$ an affine subset of $Y$, and $V=f^{-1}(U)$.
+Then $f(V)=U\cap f(X)$ is a closed subset of $U$ since $f(X)$ is closed in $Y$, so by Corollary 5.10 we have
+$f(V)\simeq \Spec A/I$ for some ideal $I$ of $A$.  Since $f:V\rightarrow f(V)$ is a homeomorphism, 
+we conclude that $V=\Spec B$ is affine and since $f^{\#}$ is surjective, that $A/I\rightarrow B$ is surjective.
+Hence $A\rightarrow B$ is surjective and $B$ is a finite $A$-module (generated by 1); thus $f$ is finite.
+
+\noindent
+c)	Let $f:X\rightarrow Y$ be finite and $\F$ a coherent sheaf on $X$.	By Prop. 5.4, $f_*\F$ is coherent on $Y$
+iff for any affine $U=\Spec A$, the restricted sheaf $f_*\F\big|_U$ is $\widetilde{M}$ for some finite $A$-module $M$.
+%Since $f_*\F$ is at any rate quasi-coherent (Prop 5.8 c), using that a finite morphism is quasi-compact), we have
+%by Prop. 5.4 that $f_*\F\big|_U\simeq \widetilde{M}$ for some $A$-module $M$.
+Since $f$ is finite, $f^{-1}(U)=\Spec B$ with $B$ a finite $A$-module, and since $\F$ is coherent,
+we have $\F\big|_{f^{-1}(U)}\simeq \widetilde{M}$ for some finite $B$-module $M$.  
+Prop 5.2 (d) says that $f_*\F\big|_U\simeq \widetilde{({}_A M)}$.  Since $B$ is a finite $A$-module
+and $M$ is a finite $B$-module, $M$ is a finite $A$-module and hence $f_*\F$ is coherent.
+
+
+\bigskip
+\noindent
+5.6	a)	By definition, $\Supp m=\{x\in \Spec A: m_x\neq 0\}=\{p\subseteq A: m_p\neq 0\}$.
+But $m_p=0$ iff there exists $f\not\in p$ with $fm=0$, that is, iff $\Ann m\subsetneq p$.
+Hence $\Supp m=V(\Ann m)$.
+
+\noindent
+b)	Recall $\Supp\F=\{x\in X:\F_x\neq 0\}=\cup_{m\in M} V(\Ann m)$ by part a).  Since $M$ is finitely generated,
+say by $m_1,\ldots,m_n$, we have $\cup_{m\in M} V(\Ann m)=\cup_{i=1}^n V(\Ann m_i)=V(\cap_{i=1}^n \Ann m_i)=V(\Ann M)$.
+(where did I use the hypothesis that $A$ is noetherian?
+
+\noindent
+c)	Let $U=\Spec A$ be any open affine subset of $X$.  By Prop. 5.4, we have $\F\big|_{U}=\widetilde{M}$
+with $M$ a finitely generated $A$-module.  By part b), $\Supp \F \cap U=\Supp \F\big|_{U}=V(\Ann M)$ is closed in
+$U$.		It follows that $\Supp\F$ is closed (take $U_i$ a finite affine cover of $X$ since $X$ is noetherian;
+then $ \Supp \F=\cup \Supp\F\cap U_i$ is closed).  Perhaps this only shows locally closed?
+
+\noindent
+d)	By 1.20, we have the exact sequence of sheaves on $X$
+$$0\rightarrow \mathscr{H}^0_Z(\F)\rightarrow \F\rightarrow j_*(\F\big|_U),$$
+where $j_*:U=X-Z\rightarrow X$ is the inclusion.	By Prop. 5.8, $j_*(\F\big|_U)$
+is quasi-coherent since $X$ is noetherian.
+By Prop. 5.7, $\mathscr{H}_Z^0$ is quasi-coherent since it is the kernel
+of a morphism of quasi-coherent sheaves.	
+Now 
+\begin{align*}
+\Gamma_Z(\F)&=\{m\in M: \Supp m\subseteq V(\mathfrak{a})\}=\{m\in M: V(\Ann m)\subseteq V(\mathfrak{a})\}\\
+&=\{m\in M: \mathfrak{a}\subseteq \Rad(\Ann m)\}=\{m\in M:\mathfrak{a}^nm=0\ \text{for some}\ n\}
+\end{align*}
+since $A$ is noetherian, and hence $\mathfrak{a}$ is finitely generated.  Thus, $\Gamma_Z(\F)=\Gamma_{\mathfrak{a}}(M)$.
+But since $\mathscr{H}_Z^0(\F)$ is quasi-coherent and $\Gamma_Z(\F)\simeq \Gamma_{\mathfrak{a}}(M)$,
+Cor. 5.5 allows us to conclude that $\mathscr{H}_Z^0(\F)\simeq \widetilde{\Gamma_{\mathfrak{a}}(M)}$.
+
+\noindent
+e)	Let $U=\Spec A$ be any affine.  Then $Z\cap U$ is closed in $U$ so is isomorphic to $\Spec A/{\mathfrak{a}}$
+for some ideal $\mathfrak{a}$ (by Cor. 5.10), i.e. $Z\cap U=V(\mathfrak{a})$.
+If $\F$ is quasi-coherent, we have $\F\big|_U\simeq \widetilde{M}$ by Prop. 5.4, and by part d)
+we have $\mathscr{H}_Z^0(\F)\big|_U\simeq \widetilde{\Gamma_{\mathfrak{a}} (M)}$.
+It follows that $\mathscr{H}_Z^0(\F)$ is quasi-coherent.	If $\F$ is coherent,
+then $M$ is a finitely generated $A$ module, so $\Gamma_{\mathfrak{a}}(M)$ is a finitely generated $A$-module since
+$A$ is noetherian so it is a submodule of a noetherian module.
+
+\bigskip
+\noindent
+5.7 a)	Let $U=\Spec A$ be a nbd. of $x$ with $\F|_U\simeq \widetilde{M}$, with $M$ a finite $A$-module,
+generated by $m_1,\ldots,m_n$.  Then the images of $m_i$ in $\F_x$ generate $\F_x\simeq M_x$ as an $A_x$-module.
+Renumbering if necessary, we may assume that (the images of) $m_1,\ldots,m_v$ generate $\F_x$ freely, and we replace
+$M$ by the submodule generated by the $m_i$.
+Because $X$ is noetherian, $A$ is noetherian and $M$ is finitely presented, so let $n_j$ for $1\le j\le m$
+be a basis for the module of relations.  Since the images of $m_i$ in $\F_x$ generate freely, the image of each $n_i$
+in $\F_x$ is zero, so there is an open set $V_i$ such that $n_i\big|_{V_i}=0$ for each $i$.
+ Let $V=\cap V_i$; since there are finitely many $n_i$, $V$ is a nbd of $x$ which we may take to be a basic affine open contained inside $U$.
+Then $\F\big|_V$ is generated freely by the global sections $m_i$.
+
+\noindent
+b)	One direction is obvious, and the converse is part a).
+
+\noindent
+c)	Suppose first that $\F$ is locally free of rank 1.  Then by 5.1 b) we have $\F\otimes_{\O_X}\Check{\F}\simeq \HOM_{\O_X}(\F,\F)$.
+We define an isomorphism $\HOM_{\O_X}(\F,\F)\simeq \O_X$ as follows: cover $X$ by open affines $U_i$ with
+$\F\big|_{U_i}\simeq \O_X$ so $\HOM_{\O_X}(\F,\F)(U_i)=\Hom_{\O_X}(\O_X\big|_{U_i},\O_X\big|_{U_i})$, and we let
+$\varphi_{U_i}(\psi)=\psi_{U_i}(1)$ with $\psi:\O_X\big|_{U_i}\rightarrow \O_X\big|_{U_i}$.  This gives a map 
+$\HOM_{\O_X}(\F,\F)\rightarrow \O_X$ that is an isomorphism on each $U_i$, hence an isomorphism and $\F$
+is invertible.	One easily checks that $\Check{\F}$ is coherent by looking locally and translating
+it into a question about modules.
+
+Conversely, suppose there exists $\G$ such that $\F\otimes_{\O_X}\G\simeq \O_X$.  Then
+$(\F\otimes_{\O_X}\G)_x=\F_x\otimes_{\O_{X,x}}\G_x\simeq \O_{X,x}$ for all $x\in X$, so 
+by part b) it is enough to show that if $M,N$ are $A$-modules with $(A,m,k)$ a local ring (here I am using that $\F,\G$
+are coherent)	and $M\otimes_A N\simeq A$ then $M\simeq A$ and $N\simeq A$.
+Indeed, we have an isomorphism (this is tricky commutative algebra) $M/mM\otimes_k N/nM\simeq (M\otimes_A\otimes N)\otimes_A k\simeq k$,
+so $M/mM$ (and $N/mN$) has rank 1; by Nakayama's lemma, $M$ is a rank 1 $A$-module.
+Let $a\in \Ann M$.  Then $a$ annihilates $A$ since $M\otimes_A N\simeq A$,
+and in particular, $a\cdot 1=0$ so $a=0$ and $M$ is free of rank 1.
+
+
+\bigskip
+\noindent
+5.8 a)	We show the complement is open.  Let $x\in X$ satisfy $\varphi(x)=k< n$ and choose a nbd. $U=\Spec A$ of  $x$
+with $\F\big|_U\simeq \widetilde{M}$ with $M$ a finitely generated $A$-module, generated by $m_1,\ldots,m_r$.
+Since $\F_x\otimes_{\O_{X,x}} k(x)\simeq M_p/pM_p$ where $p\in \Spec A$ corresponds to $x\in X$,
+we may take $u_i\in M$ for $1\le i\le k$ with images a generating set of $M_p/pM_p$
+as a $k(x)$ vector-space.  NAK implies that the images of the $u_i$ generate $M_P$ as an $A_p$-module.
+Writing $m_j=\sum {a_{ij}/f_{ij}} u_i$ for each $j$ (inside $M_p$) and $f=\prod_{i,j} f_{ij}$, we see that $p\in D(f)$
+and if $q\in D(f)$ then $m_j\in M_q$ can be written as an $A_q$-linear combination of the (images of) $u_i$.
+Since the $m_j$ generate $M$ as an $A$-module, their images generate $M_q$ as an $A_q$-module,
+so the images of $u_i$ for $1\le i\le k$ generate $M_q$ as an $A_q$ module whence $\varphi(q)\le k < n$.
+Observe that by taking $n=k$ we have shown that the sets $\{x:\varphi(x)< n\}$ and $\{x:\varphi(x)\le n\}$
+are open (which follows anyway from the fact that $\Z$ is discrete).
+
+\noindent
+b)	If $\F$ is locally free, then $U=\varphi^{-1}(n)=\{x:\varphi(x)=n\}$ is open.  Indeed, 
+let $x\in U$.  By 5.7 a), there is a nbd $V$ of $X$ with $\F\big|_{V}$ free, necessarily
+of rank $n$, so for every $y\in V$ we have $\varphi(y)=n$ so $U$ is open.	
+Since $\varphi(x)\ge 0$, we may find $x\in X$ with $\varphi(x)=n\ge 0$ minimal.
+Then $\{x:\varphi(x)> n\}=\cup_{k> n} \varphi^{-1}(k)$ is open by the above and  closed by part a).
+and since $X$ is connected it is either empty or all of $X$.  The latter possibility is
+ruled out since we have one point $x$ with $\varphi(x)=n$.  Thus $\varphi(y)\le n$ for all $y\in X$,
+and since $n$ was chosen minimally, we conclude that $\varphi(y)=n$ for all $y\in X$.  
+
+\noindent
+c)	Let $U=\Spec A$ be a nbd. of $x\in X$ with $\varphi(x)=n$ and $\F\big|_U=\widetilde{M}$.
+By 5.7 b) it will suffice to show that $M_p$ is a free $A_p$-module
+for all $p$.	Pick $m_1,\ldots,m_n\in M$ whose images are a basis of $M_p/pM_p$ as an $A_p/p$-vector space.
+By NAK, $m_1,\ldots,m_n$ generate $M_p$ as an $A_p$-module, and thus also generate $M_q$ 
+as an $A_q$-module for any $q\subseteq p$; since $\varphi(q)=\varphi(p)$, we must have that the images of
+$m_1,\ldots,m_n$ in $M_q/qM_q$ are linearly independent over $A_q/q$ for all $q\subseteq p$.
+Thus, if $\sum a_i m_i=0$ is any relation with $a_i\in A_p$, then we have $a_i=0$ in $A_q/q$ for all $q\subseteq p$,
+or what is the same thing, that $a_i\in \cap_{q\subseteq p} q$.	But as $X$ is reduced,
+$A_p$ is reduced, so $\cap_{q\subseteq p} q=0$ so $a_i=0$ and the $m_i$ are linearly independent
+over $A_p$ so $M_p$ is a free $A_p$-module.
+
+
+\bigskip
+\noindent
+
+5.10	a)	Let $s=\sum f_j$ be in $\overline{I}$ with $f_j\in S_j$.	Then $x_i^ns=\sum x_i^n f_j\in I$
+so since I is homogeneous, $x_i^n f_j\in I$ for all $i,j$ and hence $\overline{I}$ is homogeneous.
+
+\noindent
+b)	Two ideals $I,J$ define the same closed subscheme iff $\widetilde{I}= \widetilde{J}$, as 
+subsheaves of $\O_X$.	That is, iff $I_{(x_i)}=\widetilde{I}(D_+(x_i))=\widetilde{J}(D_+(x_i))=J_{(x_i)}$.
+Now $I_{(x_i)}=J_{(x_i)}$ for all $i$ iff for any $s\in \overline{I}$, there exists an integer $m$ (which we can take to be positive)
+such that $x_i^m s\in J$, that is, $s\in\overline{J}$.  
+Indeed, $s\in \overline{I}$ iff.  $x_i^n s\in I$ for some $n$ and all $i$ iff $s\in I_{x_i}$ for all $i$.
+This is the case iff there exists $m\in \Z$ such that $x_i^m s\in I_{(x_i)}$.
+Thus, $I_{(x_i)}=J_{(x_i)}$ iff $x_i^k s\in J $ for some $k>0$, i.e. iff $s\in \overline{J}$.
+Interchanging the roles of $I,J$ gives the desired result. 
+
+\noindent
+c)	Observe that $$\Gamma(X,\I_Y(n))=\{s\in \Gamma(X,\O_X(n))=S_n : s_p=0\ \text{for all}\ p\in Y\}.$$
+Thus, if $s\in \overline{\Gamma_*(\I_Y)}$ then there exists $m>0$ with $(x_i^m s)_p=0$ in $S_p$ for all
+$p\in Y$, or ehat is the same thing, there exists $f_i\in S-p$ with $f_ix_i^m s =0$ in $S$.  Since $x_i$
+generate $S_+$, given any $p\in Y$, we can find $i$ such that $x_i\not\in p$ and hence $f_i x_i^m \in S-p$,
+whence $s_p=0$ so $s\in \Gamma_*(\I_Y)$.
+
+\noindent
+d)	This follows immediately from a)--c).
+
+\bigskip
+\noindent
+5.11	We assume $S,T$ are generated by $S_1,T_1$ over $A$.
+Let $S_1$ be generated by $s_1,\ldots,s_a$ over $A$ and $T_1$ by $t_1,\ldots,t_b$ over $A$.
+We claim there is an isomorphism of rings ({\em not} a graded isomorphism)
+$$S_{(s_i)}\otimes_A T_{(t_j)}\simeq \left(\oplus_{d\ge 0} S_d\otimes T_d\right)_{s_i\otimes t_j}.$$
+Indeed, $S_{(s_i)}\otimes_A T_{(t_j)}=\oplus_{m,n} (S_m)_{(s_i)}\otimes (T_n)_{(t_j)}$
+and $\left(\oplus_{d\ge 0} S_d\otimes T_d\right)_{s_i\otimes t_j}=\oplus_{d\ge 0} (S_d)_{(s_i)}\otimes (T_d)_{(t_j)}$,
+and the map $(S_m)_{(s_i)}\otimes (T_n)_{(t_j)}\rightarrow (S_n)_{(s_i)}\otimes (T_n)_{(t_j)}$
+is defined (say for $n\ge m$) by 
+$$\frac{s}{s_i^m}\otimes \frac{t}{t_j^n}\mapsto \frac{s\cdot s_i^{n-m}}{s_i^n}\otimes \frac{t}{t_j^n}$$
+on simple tensors and extended by $A$-linearity.  This gives the claimed isomorphism since
+the two sides of the map are already {\em equal} inside $S_{(s_i)}\otimes T_{(t_j)}$.
+We thus have an isomorphism of affine schemes
+$$D_+(s_i)\times_A D_+(t_j)\simeq \Spec(S_{(s_i)}\otimes T_{(t_j)})\xleftarrow{\sim} \Spec ((S\times_A T)_{s_i\otimes t_j})\simeq D_+(s_i\otimes t_j),$$
+and these glue in the evident manner to give an isomorphism $\Proj (S\times_A T)\rightarrow \Proj S \times_A \Proj T$.
+
+
+
+
+\bigskip
+\noindent
+5.15 a)	By Prop 5.4, any quasi-coherent $\F$ has the form $\F=\widetilde{M}$ for some $A$-module $M$ (with $\Spec A=X$ and
+$A$ noetherian).	Then the natural map $\varinjlim_{\alpha} M_{\alpha}\rightarrow M$ is an isomorphism,
+where $\{M_{\alpha}\}_{\alpha}$ are the finitely generated submodules of $M$.
+Since the $\widetilde{\phantom{M}}$ operation commutes with direct limit (because tensor product does) and is exact, 
+we see that the natural map $\varinjlim \widetilde{M_{\alpha}}\rightarrow \widetilde{M}$
+is an isomorphism.
+
+\noindent
+b)	The sheaf $i_*\F$ is q-coh. by 5.8 c) since $X$ is noetherian, so part a) applies.  We claim that there is
+a coherent subsheaf $\F_{\alpha}$ of $i_*\F$ with $\F_{a}\big|_U=\F$.
+Indeed, the sheaves $\F_{\alpha}\big|_U$ are all subsheaves of the coherent sheaf $\F$, so any chain
+of these sheaves is bounded above (by a coherent sheaf!).  Zorn's lemma yields a maximal subsheaf $\F_a\big|_U\subseteq \F$
+and we claim equality holds.  If not, there is some point $P$ with $(\F_a)_P\neq \F_P$ and hence an open set $V$ contained in $U$
+with $\F_a(V)\subsetneq \F(V)$, and we can take $V$ small enough so that $\F\big|=\widetilde{M}$ and $\F_a\big|_V=\widetilde{N}$
+with $N\subsetneq M$ and $N,M$ f.g. $\O(V)$-modules.  Pick $m\in M\setminus N$ and let $N'$ be the $\O(V)$-module
+generated by $m,N$.  Then $\widetilde{N'}$ is a coherent subsheaf of $\F$ strictly containing $\F_a$ as a subsheaf,
+contradicting the maximality of $\F_a$.
+
+\noindent
+c)	
+
+
+
+\stepcounter{section}
+
+\section{}
+
+\noindent
+7.1	Passing to stalks, we are reduced to the following: if $\varphi:M\rightarrow N$ is a surjective map of free $A$-modules of rank 1
+(with $(A,m,k)$ local) then it is an isomorphism.	By tensoring $M\rightarrow N\rightarrow 0$ with $k$,
+we see that $\varphi \otimes 1$ is a surjective map of $k$ vector spaces of the same dimension, hence an isomorphism.
+Thus, if $x\in\ker \varphi$ then $x\otimes 1=0$, or what is the same, $x\in M_{\rm tors}$.  But since $M$ is free,
+we conclude that $\ker\varphi=0$ so $\varphi$ is an isomorphism.	 By identifying $M,N$ with $A$ (thought of as an $A$-module)
+One could also use a different result
+(cf. Matsumura, Th. 2.4) which states that for any ring $A$ and any finite $A$-module $M$, any surjective $f:M\rightarrow M$
+is an isomorphism.
+
+\bigskip
+\noindent
+7.2	
+
+
+\chapter{}
+
+\stepcounter{section}
+
+\section{}
+
+\bigskip
+\noindent
+2.3	a)	Let $0\rightarrow \F'\rightarrow \F\rightarrow \F''\rightarrow 0$ be exact.
+We know that $0\rightarrow \Gamma(X,\F')\rightarrow \Gamma(X,\F)\rightarrow \Gamma(X,\F'')$ is exact,
+so it follows that $\Gamma_Y(X,\F')\hookrightarrow \Gamma(X,\F)$.  The image is contained in the subgroup 
+$\Gamma_Y(X,\F)$ because the sequence on stalks $0\rightarrow \F'_P\rightarrow \F_P\rightarrow \F''_P$
+is exact for all $P$, so $s\in \Gamma_Y(X,\F')$ has nonzero stalk at $P$ iff its image in $\Gamma(X,\F)$
+has nonzero stalk at $P$.  For this reason, the map $\Gamma(X,\F)\rightarrow \Gamma(X,\F'')$
+induces $\Gamma_Y(X,\F)\rightarrow \Gamma_Y(X,\F'')$.
+Now it is clear that the map $\Gamma_Y(X,\F')\rightarrow\Gamma_Y(X,\F)\rightarrow \Gamma_Y(X,\F'')$
+is the zero map as it is induced by the map of usual global sections.  It therefore remains to show that
+is $s\in \Gamma_Y(X,\F)$ maps to 0 in $\Gamma_Y(X,\F'')$ then it is in $\Gamma_Y(X,\F')$.
+We know that it is in the image of $\Gamma(X,\F')$, and checking the sequence on stalks
+shows that it is in $\Gamma_Y(X,\F')$ as required.
+
+\noindent
+b)	
+
+
+
+
+
+\section{}
+
+
+
+\bigskip
+\noindent
+3.1	If $X=\Spec A$ then $X_{\rm red}=\Spec A/N$ is affine, where $N$ is the nilradical.
+Conversely, suppose that $X_{\rm red}$ is affine, and let $\N$ be the sheaf of nilpotents
+on $X$ and $\F$ any quasi-coherent sheaf on $X$.		Then for any $j$ we have 
+an exact sequence
+$$0\rightarrow \N^{j+1}\cdot \F\rightarrow \N^j\cdot \F\rightarrow \N^{j}\cdot\F/\N^{j+1}\cdot\F\rightarrow 0.$$
+Observe that $\N^{j}\cdot\F/\N^{j+1}\cdot\F$ is a q-coh. sheaf of $\O_X/\N$-modules, i.e. a q-coh sheaf of modules
+on $X_{\rm red}$.	Using Serre's criterion, we may suppose that $H^i(X,\N^{j}\cdot\F/\N^{j+1}\cdot\F)=0$
+for all $i\ge 1$, and the long exact sequence of cohomology associated to the short exact sequence above
+yields an isomorphism
+$H^{i}(X,\N^j\cdot \F)\simeq H^i(X,\N^{j+1}\cdot\F)$ for all $j\ge 0$ and all $i\ge 2$, and a surjection
+$H^{1}(X,\N^{j+1}\cdot \F)\rightarrow H^1(X,\N^{j}\cdot\F)$.
+Since $X$ is noetherian, we may cover it by finitely many affines $\Spec A_i$ with $A_i$ noetherian and
+$\N^j\big|_{\Spec A_i}=\widetilde{N^j_i}$ with $N_i$ the module of nilpotents on $A_i$.  By the Noetherian
+hypothesis, we can find $j_i$ such that $N_i^{j_i}=0$ for each $i$ and choosing $j=\max_i j_i$, we 
+find that $\N^j$ is the zero sheaf on $X$ and hence all the cohomology vanishes.  Thus, using the isomorphisms
+above and our surjection on $H^1$'s, we conclude that $H^i(X,\F)=0$ for all $i>0$ and any q-coh. $\F$,
+and hence that $X$ is affine,
+
+\bigskip
+\noindent
+3.2	Since $X$ is noetherian, there are finitely many irreducible components, say $Y_i$ for $q\le i\le n$.
+Let $\I_i$ be the ideal sheaf definining $Y_i$ and filter a q-coh sheaf $\F$ on $X$ as
+$$\F\supset \I_1\cdot\F\supset \I_1\I_2\cdot \F\supset\cdots\supset \I_1\I_2\cdots\I_n\cdot \F.$$
+Breaking into short exact sequences 
+$$0\rightarrow \I_1\cdots\I_k\cdot\F\rightarrow \I_1\cdots\I_{k-1}\cdot \F\rightarrow \I_1\cdots\I_{k-1}\cdot\F/\I_1\cdots\I_{k}\cdot\F\rightarrow 0,$$
+and the quotient sheaf $\I_1\cdots\I_{k-1}\cdot\F/\I_1\cdots\I_{k}\cdot\F$ is a q-coh. sheaf of $\O_X/I_k$-modules, i.e.
+a q-coh sheaf on $Y_k$.  The long exact cohomology sequences and the assumption that all the irreducible components are affine
+yields isomorphisms
+$$H^i(X,\F)\simeq H^i(X,\I_1\cdots\I_n\cdot\F)$$
+for all $i>1$ and a surjection $H^1(X,\I_1\cdots\I_n\cdot\F)\twoheadrightarrow H^1(X,\F)$.
+However, $\I_1\cdots\I_n$ is the zero sheaf on $X$ because its support consists of those points $P\in X$
+not contained in any irreducible component.  We conclude by Serre's criterion that $X$ is affine.
+The converse follows from the fact that a closed subscheme of an affine scheme is affine.
+
+\bigskip
+\noindent
+3.3	a)  Let $0\rightarrow M'\rightarrow M\rightarrow M''\rightarrow 0$ be an exact sequence of $A$-modules.
+Since $\Gamma_a(M')$ is a submodule of $M'$, we have $\Gamma_a(M')\hookrightarrow \Gamma_a(M)$.
+Moreover, since $\phi:M'\rightarrow M$ is a homomorphism of $A$-modules, we have $\phi(a^nm')=a^n\phi(m')$
+so if $m'\in \Gamma_a(M')$ then $\phi(m')\in\Gamma_a(M)$.  For the same reason, the image
+of $\Gamma_a(M)$ under $M\rightarrow M''$ is contained in $\Gamma_a(M'')$, and since
+$M'\rightarrow M\rightarrow M''$ is the zero map, its restriction to $\Gamma_a(M')\rightarrow\Gamma_a(M'')$
+is zero.  It remains to show that if $m\in\Gamma_a(M)$ maps to zero in $\Gamma_a(M'')$ then it is
+in the image of $\Gamma_a(M')\rightarrow \Gamma_a(M)$.	But if $m\mapsto 0$ then there is
+$m'\in M'$ with $\phi(m')= m$.  But then for some $n$, $\phi(a^n m')=a^nm=0$ and since $\phi$
+is injective, we conclude that $m'\in \Gamma_a(M')$.  
+
+\noindent
+b)	Let $0\rightarrow M\rightarrow I^{\cdot}$ be an injective resolution of $M$.
+Then $0\rightarrow\widetilde{M}\rightarrow\widetilde{I^{\cdot}}$ is a flasque resolution of $\widetilde{M}$,
+so it will suffice to show that $\Gamma_a(M)\simeq \Gamma_Y(\Spec A,\widetilde{M})$ for any $A$-module
+$M$.		Let $f_1,\ldots,f_s$ generate $a$ so $X-Y$ is covered by $D(f_i)$.  Then an element
+ $m\in \Gamma_Y(\Spec A,\widetilde{M})$ is just an element $m\in M$ such that $m_P=0$ for all $P\not\in Y$.
+ Equivalently, we must have $m\mapsto 0$ in $M_{f_i}$ for all $i$ since the $D(f_i)$ cover $X-Y$.  Thus, there
+ is some $n$ such that $f_i^n m=0$ for all $i$ and hence $m\in \Gamma_a(M)$.  In the reverse direction,
+ if $m\in \Gamma_a(M)$ then $m\in \Gamma(\Spec A,\widetilde{M})$ and $m\mapsto 0$ in $M_{f_i}$
+ so $m\in \Gamma_Y(\Spec A,\widetilde{M})$.
+
+\noindent
+c)	It suffices to show that $c\in H_a^i(M)$ is killed by $a^n$ for some $n$.  But $H_a^i(M)$ is a quotient
+of a submodule of $\Gamma_a(I)$ for some $I$, so pick $m\in\Gamma_a(I)$ lifting $c$.  Then by definition,
+there exists $n$ with $a^n m=0$ so the same is true of $c$.  
+
+\bigskip
+\noindent
+3.7	a) Pick generators $f_1,\ldots,f_s$ of $\mathfrak{a}$ and observe that $U=\cup D(f_i)$.
+Define $$\Hom_A(\mathfrak{a}^n,M)\rightarrow \Gamma(U,\widetilde{M})=\{(\alpha_i)\in \prod M_{f_i}: \alpha_i=\alpha_j\in M_{f_if_j}\}$$
+by $\varphi\mapsto \big(\frac{\varphi(f_i^n)}{f_i^n}\big)_{i=1}^s$.  
+
+In the reverse direction, suppose that $\big(\frac{m_i}{f_i^{n_i}}\big)_{i=1}^s\in\Gamma(U,\widetilde{M})$.  Let $m=\max n_i$
+and define $\varphi\in \Hom(\mathfrak{a}^{n},M)$ for any $n\ge ms$ as follows:
+let $f_1^{j_1}\cdots f_s^{j_s}\in \mathfrak{a}^n$ and let $i_0$ be the index for which $j_{i_0}$ is maximal,
+so $j_{i_0}\ge m$.  Then define (to start off with)
+$$\psi(f_1^{j_1}\cdots f_s^{j_s})=f_1^{j_1}\cdots \widehat{f_{i_0}^{j_{i_0}}}\cdots f_s^{j_s} \cdot  f_{i_0}^{j_{i_0}-n_{i_0}} m_{i_0}.$$ 
+The problem is that this may not be well defined.
+However, observe that since $m_i f_j^{n_j}-m_j f_i^{n_i}$ is killed by a power of $f_if_j$ (cf. II,5.14), there is some large $N$ 
+such that $\phi:=(f_1\cdots f_s)^N \psi$ {\em is} well defined.
+
+It is not hard to check that this is well defined (using the compatibility properties of the local sections $m_i/f_i^{n_1}$)
+and inverse to the map defined above, so we have the claimed isomorphism.
+
+ 
+\noindent
+b) When $M$ is injective, any section $s\in \Gamma(U,\widetilde{M})$ gives a homomorphism $\mathfrak{a}^n\rightarrow M$
+for some $n$, which extends to a morphism $A\rightarrow M$ as $M$ is injective and gives a section $\widetilde{s}\in \Gamma(X,\widetilde{M})$
+restricting to $s$.  In other words, $\Gamma(X,\widetilde{M})\rightarrow \Gamma(U,\widetilde{M})$ is surjective and $\widetilde{M}$
+is flasque.
+
+\section{}
+
+\bigskip\noindent
+4.1	By II, 5.8, $f_*\F$ is a quasi-coherent sheaf on $Y$.  Let $U$ be an affine covering of $Y$.  Then since
+$f$ is affine, $f^{-1}U$ is an affine covering of $X$, so by Theorem 4.5, we have natural isomorphisms
+$\widehat{H}^p(f^{-1}U,\F)\simeq H^p(X,\F)$ and  $\widehat{H}^p(U,f_*\F)\simeq H^p(Y,f_*\F)$ for all $p\ge 0$.
+But the Cech complexes for $\widehat{H}^p(f^{-1}U,\F)$ and $\widehat{H}^p(U,f_* \F)$ are, respectively,
+$$\prod_{i_0<\cdots<i_p} \F(f^*U_{i_0\ldots i_p}),\qquad\prod_{i_0<\cdots<i_p} \F(f^{-1}U_{i_0\ldots i_p}),$$
+where
+$$f^*U_{i_0\ldots i_p}:=\bigcap_{j=0}^p f^{-1}U_{i_j}=f^{-1}U_{i_0\ldots i_p},$$ so the Cech complexes are
+isomorphic, whence the cohomology groups are isomorphic.
+
+\bigskip\noindent
+4.2	a) We show that $\mathscr{M}=\O_X$ fits the bill.	Indeed, let $\Spec A\ni y$ be an open affine nbd of $y\in Y$,
+where $y$ is the generic point.  Then $\Spec B= f^{-1}(\Spec A)$ is an open affine nbd of the generic point $x\in X$,
+since $f$ is finite, hence affine.  Moreover, as $f$ is finite, $A\rightarrow B$ makes $B$ a finite $A$-module.
+Since $X$ is affine, the open sets $X_g$ for $g\in \Gamma(X,\O_X)$ form a basis of opens of $X$,
+so let $g\in \Gamma(X,\O_X)$ be such that $x\in X_g\subseteq \Spec B$.	Put $K=\Frac B$ and $k=\Frac A$
+($X,Y$ are assumed integral!).  Then since $B$ is $A$-finite, it follows that $K/k$ is finite, and we may pick 
+a basis $s_i,\ldots, s_m\in B$ for $K/k$.  Now $s_i\big|_{X_g}\in \Gamma(X_g,\O_X)$, so by II, Lemma 5.3 (b)
+there exists some $n>0$ such that $x_i:=g^n s_i\big|_{X_g}$  is a {\em global} section of $\O_X$, and hence
+an element of $\Gamma(Y,f_*\O_X)$.  The $x_i$ then give a morphism $\O_Y^m\rightarrow f_*\O_X$
+defined by $(t_i)\mapsto \sum x_i t_i$.  This is an isomorphism at the generic point of $Y$ since
+the map $k^m\rightarrow K$ defined by $(t_i)\mapsto \sum t_i s_i$ is an isomorphism.
+
+\noindent
+b)	Now let $\F$ be any coherent sheaf on $Y$ and apply $\HOM(\cdot,\F)$ to $\O_Y^m\rightarrow f_*\O_X$
+to get a map $\beta: \HOM(f_*\O_X,\F)\rightarrow \HOM(\O_Y^m,\F)$.  Observe that $\HOM(f_*\O_X,\F)$
+is both a $\O_Y$-module, {\em and} a $f_*\O_X$-module (via inner composition), so Ex. 5.17 (e) gives
+a coherent sheaf $\G$ on $X$ with $f_*\G\simeq \HOM(f_*\O_X,\F)$.  The map 
+$\beta:f_*\G\rightarrow \F^m$ is an isomorphism at $y$ since $\alpha$ is.
+
+\noindent
+c) Since $f$ is finite, $f_*\G$ is coherent by Ex. 5.5, so $\ker\beta$ and $\coker \beta$ are coherent by Prop. 5.7.
+It follows that $Y_1:=\Supp \ker\beta$ and $Y_2:=\Supp\coker\beta$ are closed
+(let $\F$ be any coherent sheaf and suppose $\F_P=0$.  Pick an affine nbd $\Spec A$ of $P$
+with $\F\big|_{\Spec A}=\widetilde{M}$ and let $M$ be generated by $m_1,\ldots,m_r$ over $A$.
+Then $(m_i)_P=0$ so we have opens $U_i$ with $m_i\big|_{U_i}=0$.  Then $V=U\cap U_1\cap\cdots\cap U_r$
+is an open nbd of $P$ with $\F\big|_{V}=0$).
+Moreover, since $\beta$ is an isomorphism at $y$, we have $y\not\in Y_i$ for $i=1,2$.
+As $f^{-1}(Y_i)$ is closed and $X$ is affine, it is affine, and $f:f^{-1}(Y_i)\rightarrow Y_i$
+is then a finite morphism of integral noetherian schemes, so we assume (using Noetherian
+induction) that this implies that $Y_1,Y_2$ are affine, and we must show that $Y$ is affine.
+Let $j_i:Y_i\rightarrow Y$ be the inclusion.  Then since $\Supp \ker\beta=Y_1$
+we have $(j_1)_*(j_1)^* \ker\beta=\ker\beta$ and similarly for $\coker\beta$; we may then apply
+Lemma 2.10 to conclude that
+$$H^p(Y,\ker\beta)=H^p(Y_1, (j_1)^*\ker\beta)=0$$
+since $(j_i)^*\ker\beta$ is coherent (Prop. 5.8) and $Y_1$ is affine by hypothesis (using Serre's criterion Thm. 3.7).
+Similarly, $H^p(Y,\coker\beta)=0$.
+But we have the exact sequence
+$$0\rightarrow\ker\beta\rightarrow f_*\G\rightarrow \F^m\rightarrow\coker\beta\rightarrow 0$$
+which gives two short exact sequences
+$$0\rightarrow\ker\beta\rightarrow f_*\G\rightarrow \Im \beta\rightarrow 0$$
+and
+$$0\rightarrow \Im\beta\rightarrow \F^m\rightarrow\coker\beta\rightarrow 0.$$
+Taking cohomology and using the fact that $H^p(Y,\ker\beta)=H^p(Y,\coker\beta)=0$ for all $p>0$
+(by Noetherian induction hypothesis)
+yields an isomorphism
+$$H^p(Y,f_*\G)\simeq H^p(Y,\F^m)=H^p(Y,\F)^m.$$
+By Ex. 4.1, using the fact that $f$ is affine, we have $H^p(X,\G)=H^p(Y,f_*\G)$.
+Finally, applying Serre's criterion and the hypothesis that $X$ is affine yields
+$H^p(Y,\F)=0$.  Since $\F$ was arbitrary, we again apply Serre's crit. to conclude that
+$Y$ is affine.  By Noetherian induction, we are done in the case that $X$, $Y$ are integral.
+Ex. 3.1 and 3.2 allow us to immediately reduce to this case.
+
+
+\bigskip
+\noindent
+4.3	We cover $U$ by the open affines $D(x)=\Spec k[x,1/x,y]$ and $D(y)=k[y,1/y,x]$.  We have seen
+that $\Gamma(U,\O_X)=k[x,y,1/x,1/y]$.  Thus, we have the Cech complex
+$$k[x,1/x,y]\oplus k[y,1/y,x]\xrightarrow{d:(f,g)\mapsto f-g} k[x,y,1/x,1/y]\rightarrow 0,$$
+so $\widehat{H}^1(U,\O_X)=k[x,y,1/x,1/y]/\Im d$.  But the image of $d$ is just $k[x,y]$, so 
+$\widehat{H}^1$ is the $k$-vector space spanned by $\{x^iy^j:\ i,j <0\}$, and in particular
+is infinite-dimensional, so by Serre's criterion, we see that $U$ is not affine.
+
+
+\bigskip
+\noindent
+4.5	We prove that $\Pic X\simeq \varinjlim_U\widehat{H}^1(U,\O_X^{\times})$.
+Indeed, let $\F$ be an invertible sheaf, and let $U$ be any cover consisting of affines $U_i$ with $\phi_i:\O_{U_i}\xrightarrow{\sim}\F\big|_{U_i}$.
+Then $\phi_i^{-1}\circ\phi_j:\O_{U_i\cap U_j}\xrightarrow{\sim}\O_{U_i\cap U_j}$ is an isomorphism, so gives an element $s_{ij}\in \O(U_i\cap U_j)^{\times}$.
+Moreover, we have $s_{jk}\cdot s_{ik}^{-1}\cdot s_{ij}=1$ since it comes from the isomorphism $\phi_j^{-1}\phi_k\circ \phi_k^{-1}\phi_i\circ \phi_i^{-1}\phi_j=\id$,
+so we obtain an element of $\ker \left(\O_X^{\times}(U_i\cap U_j)\rightarrow \O_X^{\times}(U_i\cap U_j\cap U_k)\right)$, i.e. of 
+$\varinjlim_U \widehat{H}^1(U,\O_X^{\times})$ (observe from that once the isomorphisms $\phi_i$ have been fixed, the element of $\widehat{H}^1$
+defined behaves well under refinement of open covers).  The map $\Pic X\rightarrow \widehat{H}^1(U,\O_X^{\times})$ thus defined
+is surjective, as given any cocycle representing an element of $\widehat{H}^1$, we obtain an invertible sheaf (by using the cocycle to glue
+together the sheaves $\O_{U_i}$ just as above) that maps to it.  The map is injective because if the cohomology class obtained is zero,
+then the isomorphisms $\phi_i:\O_{U_i}\xrightarrow{\sim} \F\big|_{U_i}$ are multiplication by elements $s_i\in \O_{U_i}^{\times}$,
+so in fact $\F\simeq \O_X$ as an $\O_X$-module.    Using the isomorphism $\widehat{H}^1(U,\O_X^{\times})\simeq H^1(X,\O_X^{\times})$
+of Ex. 4.4 completes the proof.
+
+\bigskip
+\noindent
+4.7	We have $$\O_X(V)=k[x_0/x_2,x_1/x_2]/(f(x_0/x_2,x_1/x_2,1))=k[u,v]/(f(u,v,1))$$ 
+and $$\O_X(U)=k[x_0/x_1,x_2/x_1]/(f(x_0/x_1,1,x_2/x_1))=k[u/v,1/v]/(f(u/v,1,1/v))$$ and $\O_X(U\cap V)=k[u,v,1/v]/(f(u,v,1))$.
+Thus, the image $\O_X(U)\oplus \O_X(V)\rightarrow \O_X(U\cap V)$ 
+consists of all pairs
+$(\alpha,\beta)\in k[u,v]\oplus k[u/v,1/v]$ modulo $f(u,v,1)$
+that are equal.  Hence the image is spanned by $u^i v^j$ with $i\ge 0$, $j\in\Z$ and $-j\ge i$ if $j<0$ (otherwise no restriction) , so $H^1$ as a $k$-vector space
+is spanned by the monomials $u^iv^j$ with $0<-j< i$.  The relation $f(u,v,1)=1$ gives a linear dependence on $u^d$ in terms
+of such monomials, so a basis for $H^1$ is $\{u^i/v^j : 0< j < i < d\}$.  Thus, $\dim_k H^1=(d-1)(d-2)/2$.
+Now $H^0$ consists of those $(\alpha,\beta)\in k[u,v]\oplus k[u/v,1/v]$ that are equal modulo $f(u,v,1)$.
+By considering denominators, we see that this consists of the constants $k$, so $\dim_k H^0=1$.
+
+
+\bigskip
+\noindent
+4.11	The proof is almost identical to that of 4.5.  We have $\widehat{H}^0(U,\F)=\Gamma(X,\F)$ for {\em any}
+open covering $\F$ as the proof of 4.1 clearly shows.  In general, imbed $\F$ in a flasque, q-coh sheaf $\G$
+and let $\mathcal{R}$ be the quotient.  Because the intersections $U_{i_0\ldots i_p}$ have no nontrivial
+cohomology (for the sheaf $\F$), we have exact sequences 
+$$0\rightarrow \F(U_{i_0\ldots i_p})\rightarrow \G(U_{i_0\ldots i_p})\rightarrow \mathcal{R}(U_{i_0\ldots i_p})\rightarrow 0.$$
+The proof now follows that of 4.5 verbatim.
+
+
+\section{}
+
+\bigskip
+\noindent
+5.1	Observe first that the definition of $\chi$ makes sense by Theorem 5.2.  
+The short exact sequence $0\rightarrow \F'\rightarrow \F\rightarrow \F''\rightarrow 0$ gives a long exact sequence
+of $k$-vector spaces:
+$$0\rightarrow H^0(X,\F')\rightarrow \cdots\rightarrow H^i(X,\F)\rightarrow H^i(X,\F'')\rightarrow H^{i+1}(X,\F')\rightarrow\cdots,$$
+and this leads to the formula required formula.
+
+\bigskip
+\noindent
+5.7	We use Prop. 5.3.
+
+\noindent
+a) By II, Cor. 4.8, the closed immersion $i$ is proper, so by Caution 5.8.1, for any coherent sheaf $\F$
+on $Y$, the sheaf $i_*\F$ is coherent on $X$.
+Thus let $\L$ be ample on $X$.  Then
+then for every coherent $\F$ on $Y$, $i_*\F$ is coherent on $X$, so by 5.3 there exists $n_0$ s.t. for all $i>0$
+and all $n>n_0$ we have $H^i(X,i_*\F \otimes \L^n)=0$.
+There is a natural surjective map $i_*\F \otimes \L^n \rightarrow i_*(\F \otimes i^*\L)$ by II, Ex. 1.19,
+and thus a surjective map $H^i(X,i_*\F\otimes\L^n)\rightarrow H^i(X,i_*(\F\otimes i^*\L^n))=H^i(Y, \F\otimes i^*\L^n)$
+by III, Lemma 2.10.  We thus conclude that $H^i(Y, \F\otimes i^*\L^n)=0$ for all $i>0$ and all $n>n_0$,
+so by applying 5.3 again, we see that $i^*\L$ is ample on $Y$.  
+
+\noindent
+b)	Let $\F$ be a coherent sheaf on $X$ and consider the filtration from III, Ex. 3.1.  We thus obtain exact sequences
+$$0\rightarrow \N^{i+1} \F\otimes \L^n \rightarrow \N^i\F\otimes \L^n \rightarrow \N^i\F/\N^{i+1}\F\otimes \L^n \rightarrow.$$
+Taking cohomology and using the isomorphism
+$$\N^i\F/\N^{i+1}\F\otimes_{\O_X}\L^n \simeq \N^i\F/\N^{i+1}\F\otimes_{\O_{X_{\rm red}}} (\O_{X_{\rm red}}\otimes \L)^n,$$
+we see by 5.3 that if $\L\otimes \O_{X_{\rm red}}$ is ample on $X_{\rm red}$ then for any $i>1$ and any coherent $\F$ on $X$
+there exists $n_0$ such that for all $n>n_0$ and all $j\ge1$ we have isomorphisms 
+$H^i(X,\F\otimes \L^n)\simeq H^i(X,\N^j\F\otimes \L^n)$.  Taking $j$ large enough so $\N^j$ is the zero sheaf and considering the surjective maps
+$H^1(X,\N^j\F\otimes \L^n)\simeq H^1(X,\F\otimes \L^n)$, we conclude (again by 5.3) that $\L$ is ample on $X$.
+For the converse, we observe that the natural map $i:X_{\rm red}\rightarrow X$ is a closed immersion, with $i^*\L=\L\otimes \O_{X_{\rm red}}$.
+Thus, part a) yields the converse.
+
+\noindent
+c)	As in b), part a) yields one direction ($X_i\rightarrow X$ is a closed immersion).  For the other direction,
+we let $\F$ be a coherent sheaf on $X$ and filter $\F$ as in Ex. 3.2, so as to obtain exact sequences
+$$0\rightarrow \I_1\cdots\I_k\cdot\F\otimes \L^n \rightarrow \I_1\cdots\I_{k-1}\cdot \F\otimes \L^n \rightarrow \I_1\cdots\I_{k-1}\cdot\F/\I_1\cdots\I_{k}\cdot\F\otimes\L^n\rightarrow 0,$$
+with $\I_i$ the ideal sheaf of $X_i$.
+Now
+ $$\I_1\cdots\I_{k-1}\cdot\F/\I_1\cdots\I_{k}\cdot\F\otimes_{\O_X}\L^n\simeq \I_1\cdots\I_{k-1}\cdot\F/\I_1\cdots\I_{k}\cdot\F\otimes_{\O_{X_k}}
+ (\O_{X_k}\otimes_{\O_X} \L)^n$$ 
+since $\I_1\cdots\I_{k-1}\cdot\F/\I_1\cdots\I_{k}\cdot\F$ is a sheaf of $\O_X/\I_k=\O_{X_k}$-modules.
+  The long exact cohomology sequences and the hypothesis that $\L\otimes_{\O_{X}}\O_{X_i}$ is ample on $X_i$
+yields, via 5.3, an $n_0$ such that for all $i>0$ and all $n>n_0$ there are isomorphisms
+$$H^i(X,\F\otimes\L^n)\simeq H^i(X,\I_1\cdots\I_n\cdot\F \otimes \L^n)$$
+for all $i>1$ and a surjection $H^1(X,\I_1\cdots\I_n\cdot\F\otimes\L^n)\twoheadrightarrow H^1(X,\F\otimes\L^n)$.
+However, $\I_1\cdots\I_n$ is the zero sheaf on $X$ as we saw in Ex. 3.2, so we conclude that $H^i(X,\F\otimes\L^n)=0$
+for all $i>0$ and all $n>n_0$, so that $\L$ is ample by 5.3.
+
+\noindent
+d)	Parts b) and c) allow us at once to reduce to the case of $X$ and $Y$ integral.   Let $\F$
+be any coherent sheaf on $Y$.  Then we have seen in the proof of Ex. 4.2 that there is 
+a sheaf $\G$ on $X$ and a morphism 
+$\beta:f_*\G\rightarrow \F^r$ that is an isomorphism at the generic point of $Y$.  Proceeding as in Ex. 4.2
+by Noetherian induction and using the long exact cohomology sequences associated to
+$$0\rightarrow \ker\beta\otimes \L^{nr}\rightarrow f_*\G\otimes \L^{nr}\rightarrow \Im \beta\otimes\L^{nr}\rightarrow 0$$
+and
+$$0\rightarrow \Im\beta\otimes \L^{nr}\rightarrow (\F\otimes \L^{n})^{r}\rightarrow \coker \beta\otimes\L^{nr}\rightarrow 0$$
+we conclude that $H^i(Y,(\F\otimes\L^n)^r)\simeq H^i(Y,f_*\G\otimes\L^{nr})$.
+Now the natural map $\L\rightarrow f_*f^*\L$ yields a map $$H^i(Y,f_*\G\otimes\L^{nr})\rightarrow H^i(Y,f_*(\G\otimes (f^*\L)^{nr})),$$
+and by Ex. 4.1, we have
+ $$H^i(Y,f_*(\G\otimes (f^*\L)^{nr}))=H^i(X,\G\otimes (f^*\L)^{nr}).$$
+
+
+HMMMMMMMMMMM????
+
+
+\bigskip
+\noindent
+5.10 Let $\O_X(1)$ be a very ample invertible sheaf on $X$.  Then we have short exact sequences
+$$0\rightarrow \F^i/\ker{\alpha_i}\otimes\O_X(n)\xrightarrow{\alpha_i} \F^{i+1}(n)\xrightarrow{\alpha_{i+1}} \Im \alpha_{i+1}\otimes\O_X(n)\rightarrow 0$$
+and
+$$0\rightarrow \Im \alpha_{i}\otimes\O_X(n)\rightarrow \F^{i+1}(n)\rightarrow \coker \alpha_i\otimes\O_X(n) \rightarrow 0$$
+for all $i\ge1$ and all $n>0$.  Exactness implies that $\coker\alpha_i=\F^{i+1}/\Im\alpha_i=\F^{i+1}/\ker \alpha_{i+1}$.
+Since the $\F^i$ are coherent, all the sheaves in the exact sequences above are coherent.  Now use 5.3 to find
+$n_i$ such that for all $n>n_i$ and all $j$ we have 
+$$H^i(\Im\alpha_i\otimes\O_X(n))=\F^i/\ker\alpha_i\otimes\O_X(n)=0$$ and let $N=\max_i n_i$.  Then for all $n>N$
+we have exact sequences (from the long exact sequences of cohomology and the fact that we have forced all the $H^1$'s to vanish)
+$$0\rightarrow \Gamma(X,\F^{i}/\ker\alpha_i\otimes\O_X(n))
+\rightarrow \Gamma(X,\F^{i+1}(n))\rightarrow \Gamma(X,\Im\alpha_{i+1}\otimes\O_X(n))
+\rightarrow 0
+$$
+and
+$$0\rightarrow \Gamma(X,\Im \alpha_{i}\otimes\O_X(n))
+\rightarrow \Gamma(X,\F^{i+1}(n))\rightarrow \Gamma(X,\coker \alpha_i\otimes\O_X(n)) \rightarrow 0.$$
+Using the fact that $\coker\alpha_i=\F^{i+1}/\Im\alpha_i=\F^{i+1}/\ker \alpha_{i+1}$ as noted above and splicing
+these exact sequences back together shows that for all $n>N$ we have an exact sequence
+$$\Gamma(X,\F^1(n))\rightarrow\Gamma(X,\F^2(n))\rightarrow\ldots\rightarrow\Gamma(X,\F^r(n)),$$
+as desired.
+
+
+\chapter{}
+
+\section{}
+
+\bigskip
+\noindent
+1.1	Consider the divisor $nP$ for a positive integer $n$.  We have 
+$$l(nP)-l(K-nP)=n+1-g,$$	
+so choosing $n> g$ and observing that $l(K-nP)\ge 0$, we conclude that $l(nP)>1$,
+which is to say that $\dim_k H^0(X,\L(nP))=\dim_k\Gamma(X,\L(nP))>1$, so there is
+a nonconstant rational function $f\in \L(nP)$.  Then $f$ is regular everywhere but $P$,
+where it must have a pole.
+
+
+\bigskip
+\noindent
+1.2	We first claim that there is a function $f_i$ with a pole at $P_i$ and nonvanishing at $P_j$ for all $j$.
+Indeed, choose $n$ sufficiently large so 
+$$l(nP_i -\sum_{j\neq i} P_j)= n+1-g-(r-1)$$
+and
+$$l(nP_i -\sum_{j\neq i,k} P_j)= n+1-g-(r-1)+1.$$
+Since we have the obvious containment 
+$$H^0(X,\L(nP_i-\sum_{j\neq i} P_j))\subseteq H^0(X,\L(nP_i-\sum_{j\neq i,k} P_j)),$$
+dimension considerations show that there is a function $g_{i,k}$ with a pole at $P_i$
+and vanishing at $P_j$ for $j\neq k$, but nonvanishing for $j=k$.
+Then the function
+$f_i:=\sum_k g_{i,k}$ has a pole at $P_i$ and $f(P_j)=g_{i,j}(P_j)\neq 0$.
+We now let $F=\prod_i f_i$.  Then $F$ has a pole at $P_i$ for all $i$ because there
+can be no cancellation by our construction.
+
+
+\bigskip
+\noindent
+1.3	The hypotheses allow us to embed $X$ in a proper curve $\widetilde{X}$ and we let $S=\widetilde{X}\setminus X=\{P_1,\ldots,P_r\}$
+(as it is a closed subset and nonempty since $X$ is not proper).  
+By 1.2, we have a function $f$ with poles at $P_i$ and regular elsewhere, so $f:\widetilde{X}\rightarrow \P^1$
+satisfies $f^{-1}(\A^1)=X$.  By II 6.8, as $f$ is nonconstant and $\widetilde{X}$ is proper, we conclude that
+$f$ is a finite morphism, and in particular affine.  Hence $f^{-1}(\A^1)=X$ is affine. 
+
+\bigskip
+\noindent
+1.4	Let $X$ be a separated one-dimensional scheme over $k$ none of whose irreducible components are proper.
+By III Ex. 3.1 we know that $X$ is affine iff $X_{\rm red}$ is affine, so we may assume $X$ reduced.  Similarly,
+III Ex. 3.2 allows us to suppose that $X$ is irreducible, hence integral.  Now let $f:\widetilde{X}\rightarrow X$
+be the normalization.  It is a finite surjective morphism with $\widetilde{X}$ an integral, normal, separated, one-dimensional
+scheme over $k$, hence by I 6.2A it is regular also.
+If $X$ is not proper, neither is $\widetilde{X}$, as the image of a proper scheme under a finite morphism is again proper
+by II, Ex. 4.4.
+So assume $\widetilde{X}$ is not proper.  Then we may apply 1.3 to conclude that if $\widetilde{X}$ is affine.
+Finally, we apply III, Ex. 4.2 (as $f$ is finite) and conclude that $X$ is affine.
+
+\bigskip
+\noindent
+1.5	Let $D$ be effective, so we have the containment $H^0(X,\L(K-D))\subseteq H^0(X,\L(K))$, with equality holding
+iff $\deg D=0$ or $g=0$.  Then $l(D)-1=\deg D + l(K-D)-g \leq \deg D$, with equality iff $\deg D=0$ (i.e. $D=0$ since $D$ is effective)
+of $g=0$.
+
+\bigskip
+\noindent
+1.6	It follows from II, 6.9 that $\deg f=\deg (f)_{\infty}$, the degree of the divisor of poles of $f$.
+Let $P$ be any point of $X$.  Then $l((g+1)P)=2+l(K-(g+1)P)>1$, so there exists a function $f$
+with $(g+1)P-(f)_{\infty}$ effective, or what is the same, a morphism $f:X\rightarrow \P^1$
+of degree $\deg f\leq g+1$.
+
+\bigskip
+\noindent
+1.7	The only non-obvious part is that $|K|$ has no base points.  If $P$ is a base point
+of $|K|$ then every effective divisor linearly equivalent to $K$ has support containing $P$,
+so every $f\in H^0(X,\L(K))$ has a zero at $P$.  In other words,
+the containment $H^0(X,\L((K-P))\subseteq H^0(X,\L(K))$ is an equality, so $l(K-P)=l(K)=2$.
+Then $l(P)=l(K-P)=2$ by Riemann-Roch.  We conclude that there is a function $f$ with
+a simple pole at $P$, so this defines a morphism $X\rightarrow \P^1$ of degree 1,
+(as in Ex. 1.6) which must be an isomorphism, contradicting the assumption that $g=2$.
+Thus $|K|$ is base-point free, so we use II, 7.8.1 to get a morphism $f:X\rightarrow \P^1$
+of degree $\deg K=2$. 
+
+\bigskip
+\noindent
+1.10	Following the proof of 1.3.7, it is enough to show that for any divisor $D$ of degree 0 supported in
+$X_{\rm reg}$ there exists a point $P\in X_{\rm reg}$ with $D\sim P-P_0$.  Using Ex. 1.9 and the hypothesis
+that $p_a=1$, we have 
+$$l(D+P_0)-l(K-D-P_0)=1,$$
+and as $K-D-P_0$ has degree $-1$, there exists a function $f$ with $(f)+D+P_0\ge 0$, and comparing degrees
+shows that we must have$(f)+D+P_0=P$ for some point $P$, necessarily in $X_{\rm reg}$ as $D$ is supported in 
+$X_{\rm reg}$.
+\end{document}

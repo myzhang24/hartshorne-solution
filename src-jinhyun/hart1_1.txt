@@ -1,0 +1,323 @@
+Algebraic Geometry by Robin Hartshorne
+Exercises solutions by Jinhyun Park
+
+Chapter I Varieties
+Section 1. Affine Varieties
+
+
+1.1. (a) Note that A(Y) = k[x,y]/(y-x^2)                           i         
+p
+Define phi : k[x] -> A(Y) = k[x,y]/(y-x^2) by the composition k[x] -> k[x,y] 
+-> k[x,y]/(y-x^2)
+Claim: phi is injective; Let phi(f)=phi(g) for f,g in k[x]. Then, f(x)-g(x) 
+in (y-x^2) <=> f(x) - g(x)= h(x,y) (y-x^2) for some h in k[x,y]. But, if h 
+is not zero, deg_y h(x,y) (y-x^2) >=1, and deg_y LHS = 0. Hence h ==0, i.e. 
+f(x)=g(x)./
+Claim: phi is surjective; Let h(x,y) + (y-x^2) be in A(Y). Then, if h(x,y) = 
+sum_{i=0 to n} f_i (x) y^i, f_i are in k[x]. Note that h(x,y)-h(x,x^2) = 
+sum_{i=0 to n} f_i(x) (y^i - x^2i) = sum_{i=0 to n} f_i(x) (y-x^2)(y^(i-1) + 
+y^(i-2) x^2 + ... + y (x^2)^(i-2) + (x^2)^(i-1)) is in (y-x^2). Hence, 
+h(x,y) + (y-x^2) = h(x,x^2) + (y-x^2). Let g(x)=h(x,x^2), then, phi(g) = 
+h(x,y) + (y-x^2)./
+
+(b) Note that A(Z) = k[x,y]/(xy-1). Assume that phi: A(Y) -> A(Z) is an 
+isomorphism. Since phi is surjective, there are f,g in k[x] s.t. phi(f(x))= 
+x+(xy-1), phi(g(x))=y+(xy-1). => phi(f(x)g(x)) = xy + (xy-1) = 1+(xy-1) = 
+unity of A(Z). Since phi is an isomorphism, f(x)g(x)= unity of A(Y), i.e. 
+f,g are in k. Then for any h(x,y) + (xy-1) in A(Z), h(f,g) is in k, and 
+phi(h(f,g)) = h(x,y) +(xy-1) i.e. phi|k (k) = k[x,y]/(xy-1), but, it is a 
+contradiction.//
+
+(c) Let f(x,y) in k[x,y] be an irreducible conic polynomial. Let's write 
+f(x,y) = ax^2 + 2bxy + cy^2 + dx + ey + g, a,b,c,d,e,g in k, and not all of 
+a,b,c are zero. For this f, define D(f) = b^2-ac. We prove the following 
+claims:
+  1) Whether D(f) =0 or D(f) !=0 is stable under the following operations on 
+f:
+      i) multiply by a nonzero constant u in k.
+      ii) translation x->x+l, y->y+m, l,m in k.
+      iii) linear transform (x,y)^t -> A (x,y)^t for any A in GL(2,k).
+  2) Any irreducible conic f(x,y) can be transformed into one of the 
+following two cases using only above three operations:
+      i) y-x^2 if D(f)=0 (parabolic)
+      ii) xy-1 if D(f)!=0 (elliptic)
+  3) For irreducible conic f(x,y), its affine coordinate ring k[x,y]/(f) is 
+stable (up to isomorphism) under the operations in i).
+
+proof of 1); i) D(uf)=(bu)^2 - (au)(cu)=D(f)u^2.
+             ii) Let f' be the transformed conic. Note that, when 
+calculating D(f'), only coefficients of x^2, xy, y^2 matter. But, 
+translation does not change these coefficients. Hence, D(f')=D(f).
+             iii) linear transforms preserve degrees, so, we may assume that 
+f is homogeneous of degree 2. Note that f=ax^2 +2bxy + cy^2 = (x 
+y)([[a,b],[b,c]])(x,y)^t and D(f)= -det([[a,b],[b,c]]). So by (x,y)^t -> 
+A(x,y)^t, we obtain (x,y)^t A^t ([[a,b],[b,c]])A(x,y)^t, so D(f')=-detA^t 
+D(f) detA. But, A is in GL(2,k), so, D(f')=nonzero constant multiple of 
+D(f)./
+
+proof of 2); i) D(f)=b^2-ac=0. Then, f=ax^2 + 2bxy + cy^2 + dx+ey+g = 
+(sqrt(a)x + sqrt(c)y)^2 + dx+ey+g (k: algebraically closed => sqrt(a), 
+sqrt(c), sqrt(-1) exist).
+Take transform x<- sqrt(a)/sqrt(-1) x + sqrt(c)/sqrt(-1) y
+               y<- dx + ey + g
+This transform is a composition of operation ii), iii).
+Then, f-> y-x^2.
+             ii) D(f)=b^2-ac!=0. Then, f(x,y)=ax^2+2bxy+cy^2+dx+ey+g = 
+a{(x+b/a y)^2 + c/a y^2 - b^2/a^2 y^2} + dx+ey +g = a(x+b/ay)^2 + (ac-b^2)/a 
+y^2 + dx+ey+g = (sqrt(a)x + b/sqrt(a) y)^2 + (sqrt((ac-b^2)/a) y)^2 + 
+dx+ey+g = (sqrt(a)x + (b/sqrt(a) + sqrt((ac-b^2)/a) sqrt(-1) y ) (sqrt(a)x + 
+(b/sqrt(a) - sqrt((ac-b^2)/a)sqrt(-1) y) + dx+ey+g.
+Take transform x<- sqrt(a)x + (b/sqrt(a) + sqrt((ac-b^2)/a)sqrt(-1) y
+               y<- sqrt(a)x + (b/sqrt(a) - sqrt((ac-b^2)/a)sqrt(-1) y
+which is operation iii).
+=> f -> xy + d'x + e'y + g for some d', e' in k.
+        = (x+e')(y+d') + g-e'd'
+Take transform x<- x+e'
+               y<- y+d'
+which is operation ii).
+=> f -> xy + g-e'd'
+Since f is irreducible, g-e'd' is not zero, so there is u in k s.t 
+u(g-e'd')=-1.
+Then, operation i): f-> (ux)y -1
+      operation iii) : x<-ux, y<-y
+=> f -> xy-1.
+
+proof of 3); i) multiplication by u in k^* results in,
+k[x,y]/(f') = k[x,y]/(uf) = k[x,y]/(f) so stable.
+ii) translation x-> x+l , y-> y+m results in,
+k[x,y]/(f') = k[x,y]/(f(x+l,y+m)) -> k[x,y]/(f)
+                g(x,y) + (f') -> g(x-l,y-m) + (f)
+is an isomorphism
+iii) linear transform (x,y)^t -> A (x,y)^t results in,
+k[x,y]/(f') = k[x,y]/(f(A(x,y)^t)^t) -> k[x,y]/(f)
+                g(x,y) + (f') -> g((A^-1 (x,y)^t ))^t) + (f)
+is an isomorphism./
+
+So, any irreducible conic f can be transformed into
+  y-x^2 if D(f)=0,
+  xy-1  if D(f)!=0.
+Under this transformation, coordinate ring is stable upto isomorphism. Hence 
+for any irreducible conic f in k[x,y], A(W)=k[x,y]/(f) is isomorphic to 
+k[x]=A(Y) or k[x,y]/(y-x^2) = A(Z).//
+
+1.2. Clearly, A(Y)=k[x,y,z]/(z-x^3, y-x^2). Note that A(Y)== 
+k[x,x^2,x^3]=k[x]: ID, so Y is irreducible, and Y is an affine variety. and 
+dim Y = dim A(Y) = dim k[x] = 1 and I(Y) = (z-x^3,y-x^2).//
+
+1.3. Y= Z(x^2-yz, xz-x)= Z(x^2-yz, x(z-1)). Let x^2-yz=0 be (i), x(z-1)=0 be 
+(ii). From (ii), if x=0 => y=0 or z=0 in (i). If x!=0 => z=1 and x^2-y=0. 
+Hence we have three cases: {x^2-y=0 and z=1}, {x=0,y=0},{x=0,z=0}. Hence 
+Y=Z(x^2-y, z-1) union Z(x,y) union Z(x,z).
+Note that A(Z(x^2-y,z-1))=k[x,y,z]/(x^2-y,z-1) == k[x,x^2,1]=k[x] : ID
+          A(Z(x,y))==k[z] : ID
+          A(Z(x,z))==k[y] : ID
+So, Z(x^2-y, z-1), Z(x,y), Z(x,z) are all irreducible and, above expression 
+of Y is the irreducible decomposition.//
+
+1.4. Consider Z(x-y) in A^2. It is closed in A^2. But, in A^1 x A^1, closed 
+sets are finite union or arbitrary intersection of V1 x V2, V1,V2 : closed 
+sets of A^1. Since V1,V2 are empty or A^1 or finite sets, V1xV2 must be 
+empty or finite set or {finite}xA^1, A^1x{finite} or A^1 x A^1. Z(x-y) is 
+not any of above form. So, A^2 is not homeomorphic to A^1 x A^1.//
+
+1.5. (=>) Assume that B== k[x1,...,xn]/I(X) for some X. Clearly, B is then 
+finitely generated. Assume that f+I(X) satisfies (f+I(X))^m = 0 for some m 
+in N. Then, f^m is in I(X) => f^m (x) = 0 for all x in X => f is in I(X) => 
+f(x)+I(X)=0. Hence, there is no nilpotent element./
+(<=) Let a1,a2,...,an be generators of B is a k-algebra. Then, phi : 
+k[x1,...,xn] -> B mapping xi to ai is a surjection. Then, 
+k[x1,...,xn]/ker(phi) = B. So, we have to prove that ker(phi) is a radical 
+ideal. Let f be in sqrt(ker(phi)). => f^m is in ker(phi). => phi(f^m) = 
+(phi(f))^m = 0 but, B does not have nilpotent elements, so phi(f)=0. i.e. f 
+is in ker(phi). Hence ker(phi) is a radical ideal, and so, ker(phi)=I(X) for 
+some X. //
+
+1.6. Let U be nonempty open in X, X:irreducible.
+Claim: U is dense and irreducible.
+If U is not dense, there is a nonempty open set V in X s.t. U doesnot meet 
+V. Then U^c union V^c is X, contradicting the irreducibility of X. Hence U 
+is dense.
+If U is not irreducible, there is a nonempty proper closed sets W_1,W_2 in U 
+s.t. W_1 union W_2 = U. Since W_1=U intersection V_1, W_2=U intersection V_2 
+for some closed sets V_1,V_2 of X. Then, (V_1 union V_2) union U^c =X 
+contradicting the irreducibility of X. Hence is U is irreducible.
+
+Claim: When Y is irreducible, so is Y~.
+Lemma: If every nonempty open set U of Z is dense, then Z is irreducible.
+pf) If not, V_1 U V_2 = Z, V_1,V_2;nonempty proper closed. Then, (V_1)^c 
+intersection (V_2)^c = empty, contradicting denseness of (V_1)^c./
+Hence ETS: Any nonempty open set U in Y~ is dense. Let V be any nonempty 
+open set of Y~. Then, U intersection Y, V intersection Y are nonempty open 
+sets of Y(because Y is dense in Y~). Hence intersection of all U,V,Y = 
+nonempty. => intersection of U,V is = nonempty.//
+
+1.7. (a) (i) => (ii) Let S be a nonempty collection of closed subsets. On 
+elements of S, give a partial order '<=' as F1<=F2 if F1 contains F2. Let 
+{F_i} be a chain in S. Since X is a noetherian space, {F_i} is actually a 
+finite set, so there is a maximal element. Hence by Zorn's lemma, there is a 
+maximal element in S with respect to '<=', i.e. a minimal element in S with 
+respect to the inclusion./
+
+(ii) => (i) Let F1 \contain F2 \contain F3 .... be a descending chain of 
+closed subsets of X. Then, S= {Fi| i in N} has a minimal element by (ii), 
+Let F_N be the minimal element. Then, of course, this chain is stationary 
+beyond Nth./
+
+(iii)=>(iv) and (iv)=>(iii) can be done in the same way.
+
+(i) => (iii) Let G1 \contained_in G2 \contained_in G3 ..... be an ascending 
+chain of open sets. Then, G1^c \contain G2^c \contain G3^c ..... is a 
+descedning chain of closed sets. By the DCC, there is N s.t. Gn^c = GN^c for 
+all n>=N, i.e. Gn = GN. Hence, ACC for open sets hold./
+
+(iii)=>(i) In the same way as in (i)=>(iii).
+Hence, (i), (ii), (iii), (iv) are all equivalent.//
+
+(b) Assume not, i.e. let I be a collection of open sets of a noetherian 
+space X s.t. any finite subcollection of I cannot cover X.  -------(*)
+Choose any nonempty U_1 in I. By (*), U_1 is properly in X. Let X_1 = 
+(U_1)^c;nonempty closed. Since I covers X, there is nonempty U_2 in I such 
+that U_2 meets X_1. By (*) again, U_1 U U_2 is properly in X, so, let X_2 = 
+(U_1 U U_2)^c; nonempty closed, and X_1 properly contain X_2.
+Assume U_1,...,U_n in I, X_1,...,X_n are given s.t. X_i = (Union of 
+U_1,...,U_n)^c;nonempty closed and {X_i,i=1,...,n} is strictly decreasing. 
+Since I covers X, there is a nonempty U_n+1 in X, so, let X_n+1 = (Union of 
+U_1,...,U_n+1)^c;nonempty closed, and, then, {X_i,i=1,...,n+1} is strictl 
+decreaing. Hence by induction, we can obtain an infinite properly descending 
+chian of closed subsets of X=> contradiction because X is noetherian.//
+
+(c) Let Y be in X, and X is a noetherian space. If Y is not noetherian, 
+there is a sequence of strictly decreasing closed subsets of Y: 
+{Y_i,i=1,2,.....}. Since Y has induced topology, Y_i = Y intersection F_i 
+for closed subsets F_i of X. Since Y_i contains Y_i+1, Y_i+1 = Y_i 
+intersection Y_i+1 = Y intersection (F_i intersection F_i+1). Hence, by 
+replacing F_i by intersection of F1,...,F_i, WMA {F_i,i=1,2,..} is an 
+decreasing sequence of closed sets of X. Since X is noetherian, 
+F_N=F_N+1=.... => Y_N=Y_N+1=..... (contradiction)//
+
+(d) If V is an irreducible closed set, V is a single point. (If not, two 
+points x,y have disjoint open sets, which are dense.) Since X is noetherian, 
+it is a finite union of irreducible closed sets, i.e. finite union of 
+points. Hence X has only finitely many points.//
+
+1.8. Let Y=Z(p), H=Z(f) where p is a prime ideal of k[x1,...,xn], f: a 
+nonconstant polynomial. Since Y \not_contained_in H, f is not in p, and Y 
+\intersection H = Z(p,f).
+Consider A(Y)= k[x1,...,xn]/p. Then, f+p in A(Y) is not zero, not unit, not 
+a zero-divisor. since A(Y) is a noetherian space, there is a primary 
+decomposition (f+p) = \intersection_{i=1 to m} q_i with r(q_i)=p_i; minimal 
+prime ideals of (f+p).
+Then, by the Krull's Hauptidealsatz, ht(p_i)=1, and every component of Y 
+\intersection H corresponds to p_i.
+Here, ht(p_i) + dim A(Y)/p_i = k[x1,...,xn]/(p,p_i) : coordinate ring of 
+each irreducible component => dim(component) = dim A(Y)/p_i = dim A(Y) - 
+ht(p_i) = r-1.//
+
+1.9. Let a = (f_1,f_2,...,f_r)
+=> 0 \contained_in (f_1) \contained_in (f_2) .... \contained_in 
+(f_1,f_2,...,f_r)=a.
+=> A^n \contains Z(f_1) \contains Z(f_2) ..... \contains 
+Z(f_1,f_2,...,f_r)=Z(a).
+so, note that dim Z(f_1,f_2,...,f_i) >= dim Z(f_1,f_2,...,f_i+1) for each i.
+If f_i+1 is not a zero-divisor in A(Z(f_1,f_2,...,f_i)), there is a minimal 
+prime ideal p in A(Z(f_1,f_2,...,f_i)) containing the image of f_i+1 with 
+ht(p)=1. So, ht(p) + dim A(Z(f_1,...,f_i))/p = dim A(Z(f_1,...,f_i)), so, 
+dim Z(f_1,...,f_i+1) = dim A(Z(f_1,...,f_i+1) >=dim A(Z(f_1,...,f_i))/p = 
+dim Z(f_1,...,f_i))-1.
+Otherwise, Z(f_1,...,f_i)=Z(f_1,...,f_i+1).
+Hence, at each step, dimension decreses by 0 or 1. Because there are r such 
+steps, hence dimension of Z(f_1,...,f_r) >=n-r.//
+
+1.10. (a) Any closed subset of Y is of the form : Y \intersection F, F: 
+closed in X.
+For any chain Y \intersection F_0 \strictly_in Y \intersection F_1 .... of 
+irreducible closed sets, cl(Y \intersection F_0) \strictly_in cl(Y 
+\intersection F_1) .... : irreducible closed sets of X. Hence dim Y <= dim 
+X.
+
+(b) dim U_i <= dim X is clear by (a) for all i. Hence sup dim U_i <= dim X.
+Conversely, for any chain of irreducible closed subsets F_0 \strictly_in F_1 
+\strictly_in ..... F_n, choose an open set U_0 in {U_i} s.t. F_0 
+\intersection U_0 !=\empty. Then, since F_0 \strictly_in F_1, F_1 
+\intersection U_0 !=\empty. Since F_1 is irreducible and F_1 \intersection 
+U0 is a nonempty open subset, it must be dense in F_1. THen, F_1 - F_0 : 
+nonempty open subset of F_1 => (F_1 - F_0 ) \intersection U_0 != \empty. 
+Hence, F_0 \intersection U_0 \strictly_in F_1 \intersection U_0. But, using 
+same argument, we can construct a strict chain {F_i \intersection U_0} 
+i=0,1,...,n. Hence dim U_0 >=dim X. Hence sup dim U_i = dim X.//
+
+(c) Consider X={0,1} with topology T={\empty, {0}, {0,1}}. Then, {0} is 
+dense open subset, because arbitrary open set intersects it. But, dim{0} = 
+0, because {0} doesnot contain any nonempty closed subsets other than 
+itself. But, {1} \strictly_in {1,2} is the maximal chain of irreducible 
+closed sets of X, so dim X=1. Hence dim U<dim X.//
+
+(d) Assume not, i.e. Y \strictly_in X. Choose a maximal chain of irreducible 
+closed subsets of Y with the maximal length: Y_0 \strictly_in Y_1 .... 
+\strictly_in Y_n. Then, by adding X, we obtain a chain with length n+1, so 
+dim X>=n+1 > n=dimY. contradiction .//
+
+(e) (From Atiyah-Macdonald)
+Let A=k[x_1,...,x_n,....], m_1,m_2, ... : increading sequence of natural 
+numbers, s.t. m_i+1 - m_i > m_i - m_i-1 for all i>1. Let p_i = (x_{m_i +1} , 
+..., x_{m_{i+1}}), S= (Union of all P_i)^c. Let X = Spec(S^-1 A) => X is 
+noetherian because S^-1 A is a noetherian ring (Chapter 7, Ex.9 of 
+Atiyah-Macdonald) but,, S^-1 p_i has height m_{i+1} - m_i : dim S^-1 A = 
+infinity.//
+
+1.11. Define phi: k[x,y,z] -> k[t^3, t^4, t^5] by phi(f(x,y,z)) = 
+f(t^3,t^4,t^5). Clearly phi is surjective and f is in ker(phi) iff 
+f(t^3,t^4,t^5)=0, i.e. f is in I(Y). Hence ker(phi) = I(Y). Note that 
+k[t^3,t^4,t^4] is in k[t], so it is an ID, hence I(Y) is a prime ideal.
+Now, ht(I(Y)) + dim (k[x,y,z]/I(Y)) = dim (k[x,y,z]).
+Note dim k[x,y,z]/I(Y) = dim k[t^3,t^4,t^5] = dim k[t] (because k[t] is an 
+integral extension of k[t^3,t^4,t^5])  = 1. Hence, ht(I(Y))= 3-1=2.
+Now we show that I(Y) cannot be generated by 2 elements. Let's search for 
+the elements of I(Y) with "minimal degree, next minimal degree, etc."
+Let f(x,y,z) be in I(Y), f(x,y,z)= sum_{i,j,k} b(i,j,k) x^i y^j z^k, 
+b(i,j,k) is in k.
+Then, f(t^3,t^4,t^5)=0 implies sum_{i,j,k} b(i,j,k) t^(3i+4j+5k) = 0. Let's 
+collect terms with same degree with respect to t. Let n=3i+4j+5k
+If n=0, (i,j,k)=(0,0,0) => b(0,0,0)=0.
+n=1, (i,j,k) does not exist
+n=2, (i,j,k) does not exist
+n=3, (i,j,k)=(1,0,0) => b(1,0,0)=0.
+n=4, (i,j,k)=(0,1,0) => b(0,1,0)=0.
+n=5, (i,j,k)=(0,0,1) => b(0,0,1)=0.
+n=6, (i,j,k)=(2,0,0) => b(2,0,0)=0.
+n=7, (i,j,k)=(1,1,0) => b(1,1,0)=0.
+n=8, (i,j,k)=(1,0,1) and (0,2,0) => b(1,0,1) + b(0,2,0) = 0 i.e. we find 
+xz-y^2 = f_1.
+n=9, (i,j,k)=(3,0,0) and (0,1,0) => b(3,0,0) + b(0,1,1) = 0 i.e. we find x^3 
+- yz = f_2.
+n=10, (i,j,k)=(2,1,0) and (0,0,2) => b(2,1,0) + b(0,0,2) = 0 i.e. we find 
+x^2 y - z^2 = f_3.
+n=11, (i,j,k)=(1,2,0) and (2,0,1) => b(1,2,0) + b(2,0,1) = 0 i.e. xy^2 - 
+x^2z = x(y^2-xz)=xf_1.
+n>=12, if there are solutions (i,j,k), i+j+k>=3. So, polynomials obtained 
+from now must have degree>=3 for every term.
+So, we have (f_1, f_2, f_3) \contained_in I(Y).
+Note that f_1 is not in (f_2, f_3) (degf_1 = 2, deg of minimal degree term 
+of f_2,f_3 = 2)
+f_2 is not in (f_1,f_3) (f_2 has yz but, deg 2 terms of f_1 and f_3 are 
+xz,y^2,z^2)
+f_3 is not in (f_1,f_2) (f_3 has z^2 but, deg 2 terms of f_1 and f_2 are 
+xz,y^2,yz)
+Note that if we find all other generators f_4,f_5,... of I(Y), each term of 
+f_i (i>=4) must have degree >=3 and f_1, f_2, f_3 are the only generators 
+those who have terms of degree 2. If (g_1 , g_2 ) = I(Y), i.e. I(Y) can be 
+generated by only two elements, (g_1, g_2) must contain f_1,f_2,f_3. By the 
+minimality of the degrees of f_1,f_2,f_3 in I(Y), g_1, g_2 must be constant 
+multiples of f_1,f_2,f_3. But, it is not possible. Hence I(Y) must have at 
+least 3 generators./
+
+Remark: We did not prove that (xz-y^2, x^3-yz , x^2 y -z^2) = I(Y). It 
+requires more work.
+
+1.12. Let f(x,y) = (x^2 -1)^2 + y^2 = x^4 -2x^2 +1 + y^2. It is irreducible.
+(f has a factorization in C[x,y]: (x^2 -1 + iy)(x^2-1 -iy) in to 
+irreducibles. If f factors in R[x,y], since both R[x,y] and C[x,y] are UFDs 
+and R[x,y] is in C[x,y], the factorization must be equal to (x^2 -1 + 
+iy)(x^2-1-iy), but it is not possible in R[x,y].)
+But, Z(f) = {(1,0),(-1,0)} = Z(x-1,y) \union Z(z+1,y). which is obviously 
+reducible.//

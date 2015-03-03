@@ -1,0 +1,205 @@
+%\documentclass[11pt]{article}          % required in all documents
+\documentclass[11pt]{amsart}          % required in all documents
+\usepackage{epsfig}                     % a package to include PS figures
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\newcommand{\tuborg}{\left\{\begin{array}{ll}}
+\newcommand{\sluttuborg}{\end{array}\right.}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calZ}{\mathcal{Z}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\cal}{\mathcal}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\ord}{{\rm ord}}
+\newcommand{\coker}{{\rm coker}}
+\newcommand{\codim}{{\rm codim}}
+\newcommand{\supp}{{\rm Supp}}
+\newcommand{\rat}{{\rm Rat}}
+\newcommand{\spec}{{\rm Spec}}
+\newcommand{\tor}{{\rm Tor}}
+\newcommand{\stor}{{\underline{\rm Tor}}}
+\newcommand{\p}{\partial}
+\newcommand{\proj}{{\rm Proj}}
+\newcommand{\fr}{{\rm Frac}}
+\newcommand{\ann}{{\rm Ann}}
+\newcommand{\ass}{{\rm Ass}}
+\newcommand{\pic}{{\rm Pic}}
+\newcommand{\ext}{{\rm Ext}}
+\newcommand{\shom}{{\underline{\rm Hom}}}
+\newcommand{\sext}{{\underline{\rm Ext}}}
+\newcommand{\ilim}{{\underset{\longleftarrow}{\lim}}}
+\newcommand{\dlim}{{\underset{\longrightarrow}{\lim}}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defi}[thm]{Definition} 
+\newtheorem{eg}[thm]{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem*{remark}{Remark}
+\newtheorem{remark2}[thm]{Remark}
+\newtheorem*{phil}{Philosophy}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{metaconj}[thm]{Metaconjecture}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{question}[thm]{Question}
+\newtheorem{application}[thm]{Application}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{thm}.\arabic{equation}}
+\renewcommand{\div}{{\rm div}}
+\renewcommand{\hom}{{\rm Hom}}
+
+\setlength{\textwidth}{6in}             % Space saving measures
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.5in}
+\renewcommand{\baselinestretch}{1}
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+   
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}                                    
+
+\begin{document}
+
+\begin{center}
+\bf
+\large Robin Hartshorne's Algebraic Geometry Solutions
+\end{center}
+\begin{center}
+by Jinhyun Park
+\end{center}
+\vskip0.5cm
+
+\section*{Chapter II Section 8, Differentials}
+
+\subsection*{8.1}
+\subsubsection*{(a)}
+\subsubsection*{(b)}
+\subsubsection*{(c)}
+\subsubsection*{(d)}
+\subsection*{8.2}
+\subsection*{8.3}
+\subsubsection*{(a)}
+\subsubsection*{(b)}
+\subsubsection*{(c)}
+\subsection*{8.4}
+\subsubsection*{(a)}
+\subsubsection*{(b)}
+\subsubsection*{(c)}
+\subsubsection*{(d)}
+\subsubsection*{(e)}
+\subsubsection*{(f)}
+\subsubsection*{(g)}
+\subsection*{8.5}
+\subsubsection*{(a)}
+\subsubsection*{(b)}
+
+
+\subsection*{8.6}
+\subsubsection*{(a)} Here, we assume that there exists at least one lefting $g: A \to B'$. We prove all the required propositions.
+
+\begin{claim} $I$ has a natural structure of $B$-module.
+\end{claim}
+
+Let $b \in B$, $x \in I$. Let $b' \in B'$ be a lifting of $b$ under the given surjection $p: B' \to B$. Define $b \cdot x = b' x \in I$. If $b'' \in B'$ is another lifting of $b$, then $p(b'' - b') =0$ implies $b'' - b' \in I$. Hence, $b'' x - b' x = (b'' - b')x \in I^2 = 0$, i.e. $b \cdot x$ is well defined. It proves the claim.
+
+Since we have a $k$-algebra homomorphism $f: A \to B$ and $g: A \to B'$ is a lifting, in fact, $b \cdot x = g(b) x$ by above claim for any lifting $g$.
+
+If $g' : A \to B'$ is another such lifting, then obviously the image of $\theta = g - g'$ lies in $I$.
+\begin{claim} $\theta: A \to I$ is a $k$-derivation.
+\end{claim}
+
+Obviously, it is additive because $g, g'$ are. For $a \in k$, since $g(1) = g'(1)$, $\theta(a) = g(a) - g'(a) = a g(1) - ag'(1) = 0$. We now need to prove that for $a, b \in A$, $\theta (ab) = a \theta(b) + b \theta(a)$, i.e. $$g(ab) - g'(ab) = a (g(b) - g'(b)) + b(g(a) - g'(a)).$$ 
+
+Recall how the action of $A$ was defined on $I$. Hence, $$RHS = g(a) (g(b) - g'(b)) + g'(b)(g(a) - g'(a)) = g(ab) - g(a) g'(b) + g'(b) g(a) - g'(ab)$$
+$$= g(ab)-g'(ab) = LHS$$ so that $\theta$ is a $k$-derivation, i.e. $\theta \in Der_k (A, I) = \hom_A (\Omega_{A/k}, I)$. It proves the claim.
+
+\vskip0.3cm
+
+Now, conversely, let $\theta \in \hom_A(\Omega_{A/k}, I) = Der_k(A, I)$.
+\begin{claim}$g' := g + \theta$ is another lifting of $f$.
+\end{claim}
+
+Since $\theta$ is additive, so is $g'$. Now, 
+$$g'(ab) = g(ab) + \theta(ab) = g(ab) + a \theta(b) + b \theta(a)$$
+$$ = g(a) g(b) + g(a) \theta(b) + g(b) \theta(a) + \theta(a) \theta(b) $$
+$$= (g(a) + \theta(a)) (g(b) + \theta(b)) = g'(a) g'(b)$$ so that $g'$ is multiplicative.
+
+If $a \in k$, then $\theta$ is a $k$-derivation so that $\theta(a) = 0$. Hence $g'(a) = g(a) = ag(1) = a$. Hence $g'$ is a $k$-algebra homomorphism. Now, $(p \circ g') (a) = p(g(a) + \theta(a)) = p \circ g(a) + p(\theta(a)) = f(a)$ because $\theta(a) \in I$ and $p(I) = 0$. Hence $g'$ is another lifting of $f$.
+
+\subsubsection*{(b)} For each $i$, choose $b_i \in B'$ such that $p(b_i) = f(\bar{x_i})$. Define $h: P= k[x_1, \cdots, x_n ] \to B'$ be the $k$-algebra homomorphism determined by $h(x_i ) := b_i$. Obviously, the diagram commutes by construction.
+
+Let $q : P \to A$ be the given surjection. If $j \in J$, then since $q(j) = 0$, we have $f(q(j)) = p(h(j)) = 0$ i.e. $h(j) \in I$. Hence we have $h|_J : J \to I$. But $I^2 = 0$ implies that we have a $k$-homomorphism $\bar{h} : J/J^2 \to I$.
+
+\begin{claim} This map is even $A$-linear.
+\end{claim}
+
+First, we note that $J/J^2$ has a canonical $A$-action. Let $a \in A$, $[j] \in J/J^2$. Choose any lifting $a' \in P$ of $a$ and define $a \cdot [j] = [a' j]$. If we have another lifting $a'' $ of $a$, then $a'' - a' \in J$ so that $(a'' - a') j \in J^2$, i.e. $[a'j] = [a''j]$ so, this action is well-defined.
+
+In part (a), we noted that the action of $A$ on $I$ is well-defined. To show that $\bar{h}: J/J^2 \to I$ is $A$-equivariant, it is enough to show that the action of $A$ is preserved. This is easy: Let $a \in A$ and choose a lifting $a' \in P$. Then by the commutativity of the diagram, $h(a')$ is a lifting of $f(a)$ so that for $[j] \in J/J^2$, $$\bar{h}(a \cdot [j]) = \bar{h} ([a'j]) = h(a'j) = h(a')h(j) = a \cdot h(j) = a \cdot \bar{j}([j]).$$ It proves the required $A$-linearity.
+
+\subsubsection*{(c)} By the hypothesis, $\spec A \hookrightarrow \bbA_k ^n$ is a nonsingular subvariety. Hence by (8.17), we have an exact sequence
+$$0 \to J/J^2 \to \Omega_{P/k} \otimes A \to \Omega_{A/k} \to 0.$$ $A$ being nonsingular, $\Omega_{A/k}$ is projective (because the sheaf $\Omega_{\spec A/k}$ is locally free). Hence, above sequence splits and so by applying $\hom_A(- I)$, we obtain
+$$\xymatrix{0 \ar[r] & \hom_A(\Omega_{A/k}, I) \ar[r] & \hom_{A} (\Omega_{P/k} \otimes A, I) \ar[d]_{\simeq} \ar[r] & \hom_A (J/J^2, I) \ar[r] &0 \\
+& & \hom_{P}(\Omega_{P/k}, I) \ar[r]^= & Der_k(P,I) &}.$$
+
+Let $\theta \in \hom_P(\Omega_{P/k}, I)$ be an element mapped to $\bar{h} \in \hom_A(J/J^2, I)$ defined in part (b). Regard $\theta$ as a $k$-derivation of $P$ to $B' \supset I$. Let $h' = h - \theta$.
+\begin{claim} $h' : P \to B'$ is a $k$-homomorphism such that $h'(J) = 0$.
+\end{claim}
+
+Obviously, $\theta$ being a $k$-derivation, $h'(a) = a$ for $a \in k$ and $h'$ is additive. If $a, b \in P$, then $$h'(ab) = h(ab) - \theta(ab) = h(ab) - b\theta(a) - a \theta(b) + \theta(a) \theta(b) $$
+$$ = (h(a) - \theta(a))(h(b) - \theta(b)) = h'(a) h'(b).$$
+
+If $j \in J$, $\theta(j) = \bar{h}(j) = h(j)$ so that $h(j) = h(j) - \theta(j) = 0$. Hence $h'$ gives a rise to a $k$-homomorphism $g: A \to B'$. Since $h$ was a lifting of $f$ from $P$ to $B'$, obviously, $g$ is indeed a required lifting. 
+
+\subsection*{8.7}\textbf{As an application of the infinitesimal lifting property, we consider the following general problem. Let $X$ be a scheme of finite type over $k$, and let $\calF$ be a coherent sheaf on $X$. We seek to classify schemes $X'$ over $k$, which have a sheaf of ideals $\calI$ such that $\calI^2 = 0$ and $(X', \calO_{X'}/ \calI ) \simeq (X, \calO_X)$, and such that $\calI$ with its resulting structure of $\calO_X$-module is isomorphic to the given sheaf $\calF$. Such a pair $X', \calF$ we call an \emph{infinitesimal extension} of the scheme $X$ bye the sheaf $\calF$. One such extension, the \emph{trivial} one, is obtained as follows. Take $\calO_{X'} = \calO_X \oplus \calF$ as sheaves of abelian groups, and define multiplication by $(a \oplus f) \cdot (a' \oplus f') = aa' \oplus (af' + a'f)$. Then the topological space $X$ with the sheaf of rings $\calO_{X'}$ is an infinitesimal extension of $X$ by $\calF$.}
+
+\textbf{The general problem of classifying extensions of $X$ by $\calF$ can be quite complicated. So for now, just prove the following special case: if $X$ is affine and nonsingular, then any extension of $X$ by a coherent sheaf $\calF$ is isomorphic to the trivial one. See (III, Ex. 4.10) for another case.}
+
+\begin{proof}Suppose that we have an infinitesimal extension
+$$0 \to I \to A' \overset{\alpha}{\to}  A\to 0$$ defined by a ring $A'$ and its square-zero ideal $I$ with $I^2 =0$. By the infinitesimal lifting property we have a lifting $f$, that is a $k$-algebra homomorphism, of the identity map of $A$:
+$$\xymatrix{ & 0 \ar[d] \\ & I \ar[d] \\ & A' \ar[d] ^{\alpha} \\ A \ar[ru] ^f \ar[r] ^{\rm id} & A \ar[d] \\ & 0}$$ and it gives a splitting of $A' \simeq A \oplus I$ as $k$-modules. We show that it is in fact an isomorphism of $k$-algebras, where $A \oplus I$ is seen as given the structure of the trivial extension as in the statement of the problem.
+
+For each $x, y \in A'$, we have $x - f (\alpha (x)), y - f (\alpha (y)) \in I$. Since $I^2 = 0$ we have 
+$$ (x- f(\alpha(x))) (y - f(\alpha (y)) )=0$$ that gives $xy = - f(\alpha (x)) f(\alpha (y)) + x f(\alpha (y)) + f (\alpha (x)) y$. Thus,
+\begin{eqnarray*}
+xy- f(\alpha (xy)) &=& xy - f(\alpha (x)) f(\alpha (y)) = - 2 f(\alpha (x))f(\alpha (y)) + x f(\alpha (y)) + f(\alpha (x)) y\\
+&=& (x - f (\alpha (x))) f (\alpha (y)) + f (\alpha (x)) (x- f (\alpha (y))).
+\end{eqnarray*}
+This immediately implies that, when we identify $x \in A'$ with the pair $\left( f(\alpha (x)), x - f(\alpha (x)) \right)$ of $ A \oplus I$, the product structure of $A'$ is identical to that of $A \oplus I$, as desired. Thus there is only one extension up to isomorphism.
+\end{proof}
+
+\subsection*{8.8}
+
+\end{document}
+

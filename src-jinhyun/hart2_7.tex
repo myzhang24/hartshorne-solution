@@ -1,0 +1,156 @@
+%\documentclass[11pt]{article}          % required in all documents
+\documentclass[11pt]{amsart}          % required in all documents
+\usepackage{epsfig}                     % a package to include PS figures
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\newcommand{\tuborg}{\left\{\begin{array}{ll}}
+\newcommand{\sluttuborg}{\end{array}\right.}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calZ}{\mathcal{Z}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\cal}{\mathcal}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\ord}{{\rm ord}}
+\newcommand{\coker}{{\rm coker}}
+\newcommand{\codim}{{\rm codim}}
+\newcommand{\supp}{{\rm Supp}}
+\newcommand{\rat}{{\rm Rat}}
+\newcommand{\spec}{{\rm Spec}}
+\newcommand{\tor}{{\rm Tor}}
+\newcommand{\stor}{{\underline{\rm Tor}}}
+\newcommand{\p}{\partial}
+\newcommand{\proj}{{\rm Proj}}
+\newcommand{\fr}{{\rm Frac}}
+\newcommand{\ann}{{\rm Ann}}
+\newcommand{\ass}{{\rm Ass}}
+\newcommand{\pic}{{\rm Pic}}
+\newcommand{\ext}{{\rm Ext}}
+\newcommand{\shom}{{\underline{\rm Hom}}}
+\newcommand{\sext}{{\underline{\rm Ext}}}
+\newcommand{\ilim}{{\underset{\longleftarrow}{\lim}}}
+\newcommand{\dlim}{{\underset{\longrightarrow}{\lim}}}
+\newcommand{\sym}{{\rm Sym}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defi}[thm]{Definition} 
+\newtheorem{eg}[thm]{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem*{remark}{Remark}
+\newtheorem{remark2}[thm]{Remark}
+\newtheorem*{phil}{Philosophy}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{metaconj}[thm]{Metaconjecture}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{question}[thm]{Question}
+\newtheorem{application}[thm]{Application}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{thm}.\arabic{equation}}
+\renewcommand{\div}{{\rm div}}
+\renewcommand{\hom}{{\rm Hom}}
+
+\setlength{\textwidth}{6in}             % Space saving measures
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.5in}
+\renewcommand{\baselinestretch}{1}
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+   
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}                                    
+
+\begin{document}
+
+\begin{center}
+\bf
+\large Robin Hartshorne's Algebraic Geometry Solutions
+\end{center}
+\begin{center}
+by Jinhyun Park
+\end{center}
+\vskip0.5cm
+
+\section*{Chapter II Section 7, Projective Morphisms }
+
+\subsection*{7.1}
+
+\subsection*{7.9}
+Let $r+1$ be the rank of $\calE$.
+\subsubsection*{(a)} There are several ways to prove it. 
+\begin{enumerate}
+\item [Proof 1] We assume the following result from Chow group theory: (See Appendix A section2 A11 and section 3. The group $A(X)$ is here $CH(X)$.)
+
+$$CH^*(\bbP(\calE)) \simeq \left( \bbZ[\xi]/ \sum_{i=0} ^r (-1)^i c_i (\calE) \xi ^{r-i} \right) \otimes_{\bbZ} CH^* (X)$$ as graded rings. If we look at the grade $1$ part, as $\bbZ$-modules, $$CH^1(\bbP(\calE)) \simeq (\bbZ \otimes_{\bbZ} CH^0(X) ) \oplus (\bbZ \otimes_{\bbZ} CH^1(X))$$ and $CH^1( - ) = \pic ( - )$ so that $\pic (\bbP(\calE)) \simeq \bbZ \oplus \pic (X)$ as desired.
+
+\item [Proof 2] We can use the Grothendieck groups, i.e. $K$-theory to do so. Note that $$K(\bbP(\calE)) \simeq \left( \bbZ[\xi]/ \sum_{i=0} ^r (-1)^i c_i (\calE) \xi ^{r-i} \right) \otimes_{\bbZ} K(X)$$ as rings. For the detail, see Yuri Manin {\it Lectures on the $K$-functor in Algebraic Geometry}, Russian Mathematical Surveys, 24 (1969) 1-90, in particular, p. 44, from Prop (10.2) to Cor. (10.5).
+
+\item [Proof 3] Here we give a direct proof. In fact, it adapts a way from Proof 1. It can also use the method from Proof 2. Totally your choice.
+
+Define a map $\phi: \bbZ \oplus \pic (X) \to \pic (\bbP (\calE))$ by $(n, \calL) \mapsto (\pi^* \calL) (n) := (\pi^* \calL) \otimes \calO_{\bbP(\calE)} (n)$.
+
+\begin{claim} This map is injective. \end{claim}
+
+Assume that $\phi(n, \calL) = \calO_{\bbP(\calE)}$, i.e. $\pi^* \calL \otimes \calO_{\bbP(\calE)} (n) \simeq \calO_{\bbP(\calE)}$. Apply $\pi_*$ to it. From II (7.11), recall thet $$\pi_* (\calO_{\bbP(\calE)} (n)) = \tuborg 0 & n<0 \\ \calO_X & n=0 \\ \sym^n (\calE) & n >0 \sluttuborg.$$ So, by applying the projection formula (Ex. II (5.1)-(d)), we obtain, $\calL \otimes \pi_* \calO_{\bbP(\calE)}(n) \simeq \calO_X$, i.e. $$\pi_* \calO_{\bbP(\calE)} \simeq \calL^{-1}.$$ Note that it is a line bundle and ${\rm rk} (\sym ^n (\calE)) \geq r+1 \geq 2$ if $n>0$ by the given assumption, so that the only possible choice for $n$ is $n = 0$. Then, it implies that $\calL \simeq \calO_X$. Hence $\phi$ is injective.
+
+\begin{claim} This map is surjective. \end{claim}
+
+In case $\calE$ is a trivial bundle, then $\bbP(\calE) \simeq X \times \bbP^r$  so that we already know the result.
+
+In general, choose an open subset $U \subset X$ over which $\calE$ is trivial and let $Z = X - U$. Then, we have a closed immersion $\bbP(\calE|_Z) \hookrightarrow \bbP(\calE)$ and an open immersion $\bbP(\calE_U) \hookrightarrow \bbP(\calE|_U) \simeq U \times \bbP^r$. Let $m = \dim X$. Then we have
+$$\xymatrix{ CH_{m+r-1} (\bbP(\calE|_Z)) \ar[r] & \pic (\bbP(\calE)) \ar[r] & \pic (\bbP(\calE|_U)) \ar[r] &0 \\
+\bbZ \oplus CH_{m-1} (Z) \ar[u] _{\phi_Z} \ar[r] & \bbZ \oplus \pic X \ar[r] \ar[u] _{\phi_X} & \bbZ \oplus \pic U \ar[r] \ar[u]_{\phi_U} & 0}.$$
+
+By induction on the dimension, $\phi_Z$ is surjective and we already know that $\phi_U$ is an isomorphism. Hence, by a simple diagram chasing, we have the surjectivity of $\phi_X$.
+\end{enumerate}
+
+\subsubsection*{(b)} Let $\pi: \bbP(\calE) \to X$, $\pi' : \bbP(\calE') \to X$ be the structure morphisms and let $\phi: \bbP(\calE) \to \bbP(\calE)$ be the given isomorphism over $X$:
+$$\xymatrix{ & \bbP(\calE) \ar[d] ^{\pi} \\ \bbP(\calE') \ar[ru]^{\phi} \ar[r]^{\pi'} & X}.$$
+
+$\phi ^* \calO_{\bbP(\calE)} (1)$ is an invertible sheaf on $\bbP(\calE)$ so that by part (a), we have
+
+$$(1) : \phi^* \calO_{\bbP(\calE)} (1) \simeq {\pi'}^* \calL' \otimes \calO_{\bbP(\calE')} (n')$$ for some $\calL' \in \pic X$ and $n' \in \bbZ$. Similarly, $\phi^{-1}$ being a morphism, we have
+$$(2) : {\phi^{-1}}^* \calO_{\bbP(\calE')} (1) \simeq \pi^* \calL \otimes \calO_{\bbP(\calE)} (n)$$ for some $\calL \in \pic X$ and $n \in \bbZ$. By applying $\phi^*$ to (2), we have 
+$$\calO_{\bbP(\calE')} (1) \simeq \phi^* {\phi^{-1}} ^* \calO_{\bbP(\calE')}(1) \simeq \phi^* \pi^* \calL \otimes \phi^* \calO_{\bbP(\calE)} (n) \simeq {\pi'}^* \calL \otimes \left( \phi^* \calO_{\bbP(\calE)} (1) \right) ^{\otimes n}$$
+$$ \simeq {\pi'} ^* \calL \otimes \left( {\pi'} ^* \calL' \otimes \calO_{\bbP(\calE)} (n') \right) ^{\otimes n} \simeq {\pi'} ^* \left( \calL \otimes {\calL'} ^{\otimes n} \right) \otimes \calO_{\bbP(\calE')} (nn').$$
+
+Recall that $$\pi' _* \left( \calP_{\bbP(\calE')} (n) \right) = \tuborg 0 & m<0 \\ \calO_X & m=0 \\ \sym ^m \calE' & m>0 \sluttuborg$$ so that if we apply $\pi'_*$ to the above, then by the projection formula, we will have
+$$\calO_X \simeq \calL \otimes {\calL'} ^{\otimes n} \otimes \pi'_* \left( \calO_{\bbP(\calE')} (nn') \right).$$ Since $\calO_X$, $\calL \otimes {\calL'} ^{\otimes n}$ are invertible sheaves, it makes sense only when $nn' =1$. Hence we have either $(n,n') = (-1, -1)$ or $(n,n') = (1,1)$.
+
+If $(n,n') = (-1,-1)$, then, we have $\calL \simeq \calL'$ and (2) becomes ${\phi^{-1}}^* \calO_{\bbP(\calE')}(1) \simeq \pi^* \calL \otimes \calO_{\bbP(\calE)} (-1)$. $\phi$ being an isomorphism, ${\phi^{-1}}^* = \phi_*$, so that $\pi'_* = \pi_* \phi_* = \pi_* {\phi^{-1}}^*$ and the projection formula gives $\calE' \simeq \calL \otimes 0 \simeq 0$ which is not possible. Hence $(n,n') = (1,1)$.
+
+Hence, we have (2): ${\phi^{-1}}^* \calO_{\bbP(\calE')}(1) \simeq \pi^* \calL \otimes \calO_{\bbP(\calE)} (1)$, and as above, noting that ${\phi^{-1}}^* = \phi_*$, applying $\pi_*$ and using the projection formula, we will have $\calE' \simeq \calL \otimes \calE$ as desired.
+\end{document}
+

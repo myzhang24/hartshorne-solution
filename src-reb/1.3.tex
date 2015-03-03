@@ -1,0 +1,112 @@
+\def\Z{{\bf Z}}
+{\bf Hartshorne, Chapter 1.3}
+Answers to exercises. \hfill REB 1994
+\item{3.1a} Follows from exercise 1.1 as 2 affine varieties are isomorphic
+if and only if their coordinate rings are. 
+\item{3.1b} The coordinate ring of any proper subset of $A^1$ has invertible 
+elements not in $k$ and o is not isomorphic to the coordinate ring of
+$A^1$.  
+\item{3.1c} The aut group of $P^2$ acts transitively on sets
+of 3 points not on a line, so we can assume the conic contains
+$(0:0:1)$, $(0:1:0)$, and $(1:0:0)$, i.e., it is of the form
+$axy+byz+czx=0$ for some $a,b,c$, which are nonzero as otherwise the
+conic would be a union of two lines.  We can multiply $x$, $y$, and
+$z$ by constants to make $a$, $b$, and $c$ all equal to 1, so we can
+assume the conic is $xy+yz+zx=0$, and in particular all conics are
+isomorphic. Hence we only have to show 1 conic is isomorphic to $P^1$,
+e.g., the image of $P^1$ under the 2-uple embedding.  
+\item{3.1d} Any 2 1-dimensional closed subsets of $P^2$ intersect
+(see ex. 3.7a), but $A^2$ does not have this property. 
+\item{3.1e} By theorem 3.4 the regular functions on a projective variety
+is the ring $k$, which is only possible for an affine variety if
+it is a point. 
+\item {3.2a} If $\phi$ had an inverse, this would give a polynomial 
+$f(x,y) $ such that $f(t^2,t^3)=t$, which is impossible.
+\item {3.2b} $\phi$  is 1:1 because if $x^p=y^p$ in characteristic
+$p$ then $(x-y)^p=0$ so $x=y$. It has no inverse because there
+is no polynomial $f$ with $f(t^p)=t$. 
+\item{3.3a}If $f$ is a regular function defined on a neighborhood
+$V$ of $\phi(p)$ then $f\circ\phi$ is a regular function on the neighborhood
+$\phi^{-1}(V)$ of $p$,  
+This gives a map from $O_{\phi(p),Y}$ to $O_{p,X}$ which is a homomorphism.
+\item{3.3b} We have to show that if $V$ is an open set in $X$, and $f$ is
+regular on $V$, then $f\circ \phi^{-1}$ is regular on $\phi(V)$. 
+If $\phi(p)\in \phi(V)$ then $f\in O_{p,X}$, so $\phi_p^{-1*}$ maps
+$f$ to an element of $O_{\phi(p),y}$, so $f\circ \phi^{-1}$ is
+regular near $\phi(p)$, so it is regular on $\phi(V)$. 
+\item{3.3c} If $\phi^*_p(f)=0$ then $f$ vanishes on $\phi(X)\cap V$ 
+which is a dense subset of $V$. As $f$ is continuous and vanishes on 
+a dense subset, it must be 0. Therefore $\phi_p^*$ is injective. 
+\item{3.4} It is enough to show that $\phi^{-1}$ is regular near
+$\phi(1:x_1:\cdots:x_n)$, where $\phi$ is the $d$-uple embedding. 
+But near this point $\phi^{-1} $ takes
+$(m_0:\cdots :m_N) $ to $(m_{i_0}:\cdots:m_{i_n})$ 
+where $m_{i_k}$ is the coordinate corresponding to the monomial
+$x_0^{d-1}x_k$, and this is a regular map. 
+\item{3.5} Identify $P^n$ with its image under the
+$d$-uple embedding. Then $H$ is the intersection of a 
+hyperplane in $P^N$ with $P^n$, so $P^n-H$ is 
+a closed subset of $P^N-H=A^N$ and is therefore an affine variety. 
+\item{3.6} Any regular function on $X$ has the form $f(x,y)/g(x,y)$
+where $f$ and $g$ are coprime. The curves of $f$ and $g$ only intersect
+in a finite number of points and $g$ can only vanish at $(0,0)$
+or where $f=0$, so $g$ has only a finite number of zeros and 
+must therefore be constant. Hence $O(X)=k[x,y]$. Therefore
+the map from $X$ to $A^2$ is an isomorphism of their coordinate rings, 
+so if $X$ was affine it would be an isomorphism of varieties,
+which it obviously is not as is is not surjective on points. 
+\item{3.7b} Suppose $Y\cap H=\phi$. Then $Y$ is a closed subset of
+an affine variety $P^n-H$ and therefore a finite set of points, 
+as any projective subset of an affine variety is finite.
+\item{3.8} Any regular function on $P^n-H_i$ 
+is of the form $f_i(x_0,\ldots,x_n)/x_i^{d_i}$ where $d_i$ is the degree
+of the homogeneous polynomial $f_i$. 
+Hence for a function to be regular except on $H_i\cup H_j$
+we would have $f_ix_j^{d_j}=f_jx_i^{d_i}$ for some $f_i$, $f_j$. 
+But this implies $f_i=x_i^{d_i}$, so the function must be constant. 
+\item{3.9} $S(X)$ is the polynomial ring $k[X_0, X_1]$, 
+but $S(Y)$ is the subring $k[X_0^2,X_0,X_1,X_1^2] $ of
+$k[X_0,X_1,X_2]$, which is not a graded polynomial ring
+in 2 variables (as the space of elements of the smallest
+nonzero degree is 3 dimensional). 
+\item{3.10} For any point $x\in X'$ there is an affine neighborhood
+$U$ of $x$ in $X$ and a regular function $f$ from $U$ to $Y$ 
+with $\phi|U=f$. Therefore $f$ is a regular function from the
+neighborhood $U\cap X'$ of $x$ to $Y$ and therefore to $Y'$. 
+Hence $\phi$ is regular near each point of $X'$ and is therefore 
+regular. 
+\item{3.11} We can assume that $X$ is affine as the 
+irreducible varieties of $X$ containing $P$ are just the closures
+of the irreducible varieties containing $P$ of any affine neighborhood
+of $P$. But then the varieties containing $P$ 
+just correspond to the prime ideals of $A(X)$ contained in the maximal 
+ideal $M$ of $P$, which correspond to the prime ideals 
+of the ring $A(X)$ localized at $M$, which are 
+the prime ideals of the local ring $O_P$. 
+\item{3.12} By exercise 2.6 there is an affine neighborhood $Y$ of $P$
+with $\dim(Y)=\dim(X)$. But $O_{P,X}=O_{P,Y}$ so
+$\dim(X)=\dim(Y)=\dim(O_{P,Y})$ (by 3.2c) $=\dim(O_{P,X})$. 
+\item{3.13} $O_{Y,X}$ is clearly a ring. Put $I$ = image of set of pairs
+$\lbrace U,f \rbrace$, $f$ regular on $U$, with $f=0$ on $U\cap Y$.
+Then $I$ is the unique maximal ideal, because if $\lbrace V,g\rbrace$
+is not in $I$ then it has an inverse $\lbrace W,1/g\rbrace$ where 
+$W=V\cap$(set where $g\ne 0$), as $W\cap Y\ne 0$. 
+The residue field is obviously $K(Y)$. 
+To prove the result about dimensions, we can assume $X$ affine. Put $B=A(X)$,
+$p$=functions on $X$ vanishing on $Y$. Then by 1.8A, $\hbox{height}(p)
++\dim(B/p)=\dim(B)$. But $\dim(B)=\dim(X)$ and $\dim(B/p)=\dim(Y)$ 
+and height of $p$ in $B$ = height of maximal ideal of $O_{Y,X}$
+= dimension of $O_{X,Y}$. Hence $\dim(O_{X,Y}+\dim(Y)=\dim(X)$. 
+\item{3.14a} We can assume that $P^n$ is the set where $x_0\ne 0$,
+and $p$ is the point $(1:0:\cdots:0)$. If $x=(x_0:\cdots :x_n)\in P^{n+1}-P$,
+then $x_i\ne 0 $ for some $i>0$. Therefore the line containing $P$ and $x$ 
+meets $P^n$ in $(0:x_1:\cdots:x_n)$, which is a morphism in the neighborhood
+$x_i\ne 0$ of $x$. Therefore $\phi$ is a morphism. 
+\item{3.14b} The projection maps $(t^3,t^2u, tu^2, u^3)$ to 
+$(t^3,t^2u, u^3)\in P^2$. It is easy to check that the image
+is the whole of the variety given by the equation $x_1^3=x_2x_0^2$.
+For $x_2\ne 0$ this is the same as the variety given 
+by $y^3=x^2$ which has a cusp at $(0,0)$, i.e., the image has
+a cusp at $(0,0,1)$.
+
+\bye

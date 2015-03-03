@@ -1,0 +1,183 @@
+%\documentclass[11pt]{article}          % required in all documents
+\documentclass[11pt]{amsart}          % required in all documents
+\usepackage{epsfig}                     % a package to include PS figures
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\newcommand{\tuborg}{\left\{\begin{array}{ll}}
+\newcommand{\sluttuborg}{\end{array}\right.}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calZ}{\mathcal{Z}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\cal}{\mathcal}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\ord}{{\rm ord}}
+\newcommand{\coker}{{\rm coker}}
+\newcommand{\codim}{{\rm codim}}
+\newcommand{\supp}{{\rm Supp}}
+\newcommand{\rat}{{\rm Rat}}
+\newcommand{\spec}{{\rm Spec}}
+\newcommand{\tor}{{\rm Tor}}
+\newcommand{\stor}{{\underline{\rm Tor}}}
+\newcommand{\p}{\partial}
+\newcommand{\proj}{{\rm Proj}}
+\newcommand{\fr}{{\rm Frac}}
+\newcommand{\ann}{{\rm Ann}}
+\newcommand{\ass}{{\rm Ass}}
+\newcommand{\pic}{{\rm Pic}}
+\newcommand{\ext}{{\rm Ext}}
+\newcommand{\shom}{{\underline{\rm Hom}}}
+\newcommand{\sext}{{\underline{\rm Ext}}}
+\newcommand{\ilim}{{\underset{\longleftarrow}{\lim}}}
+\newcommand{\dlim}{{\underset{\longrightarrow}{\lim}}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defi}[thm]{Definition} 
+\newtheorem{eg}[thm]{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem*{remark}{Remark}
+\newtheorem{remark2}[thm]{Remark}
+\newtheorem*{phil}{Philosophy}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{metaconj}[thm]{Metaconjecture}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{question}[thm]{Question}
+\newtheorem{application}[thm]{Application}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{thm}.\arabic{equation}}
+\renewcommand{\div}{{\rm div}}
+\renewcommand{\hom}{{\rm Hom}}
+
+\setlength{\textwidth}{6in}             % Space saving measures
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.5in}
+\renewcommand{\baselinestretch}{1}
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+   
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}                                    
+
+\begin{document}
+
+\begin{center}
+\bf
+\large Robin Hartshorne's Algebraic Geometry Solutions\\
+\end{center}
+\begin{center}
+by Jinhyun Park
+\end{center}
+\vskip0.5cm
+\section*{Appendix C; The Weil Conjectures}
+\subsection*{Exercise 5.1} Let $X= \coprod_i X_i$. Obviously, then, $N_r(X) = \sum_i N_r(X_i)$ so that
+$$Z(X, t) = \exp(\sum_{r=1} ^{\infty} N_r(X) \frac{t^r}{r}) = \exp(\sum_{r=1} ^{\infty} \sum_i N_r (X_i) \frac{t^r}{r})$$
+$$= \exp(\sum_i \sum_{r=1} ^{\infty} N_r (X_i) \frac{t^r}{r}) = \prod_i \exp (\sum_{r=1} ^{\infty} N_r(X_i) \frac{t^r}{r}) = \prod_i Z(X_i, t).$$
+
+\subsection*{Exercise 5.2} The point is to compute the number of $k_r = \bbF_{q^r}$-rational points, i.e. to compute $N_r$ in $\bar{X} = \bbP_{\bar{k}} ^n$. We can consider the following {\it stratification} of $\bbP^n$:
+$$\bbP^n = \bbA^n \cup \bbP^{n-1} = \cdots = \bbA^n \cup \bbA^{n-1} \cup \cdots \cup \bbA^1 \cup \{ * \}.$$ Hence for a field $k_r$ of $q^r$ elements, $\bbP_{k_r} ^n$ has $N_r = 1+ q^r + q^{2r} + \cdots + q^{nr}$ points. Hence,
+$$Z(\bbP^n, t) = \exp(\sum_{r=1} ^{\infty} \{ 1+ q^r + \cdots + q^{nr} \} \frac{t^r}{r}) = \prod_{i=0} ^n \exp (\sum_{r=1} ^{\infty} \frac{(q^i t)^r}{r}) $$
+$$= \prod_{i=0} ^n \exp (-\log (1-q^i t)) = \prod_{i=0} ^n \frac{1}{1-q^i t} = \frac{1}{(1-t)(1-qt) \cdots (1-q^nt)}.$$ 
+
+Obviously, this is a rational function so that (1.1) is true. Also, we have $P_{\mbox{odd}} (t) = 1$, $P_{2i} (t) = 1-q^i t$ so that (1.3) is true, because $|q^i | = q^{\frac{2i}{2}}$, indeed.
+
+Let's find the self intersection number $E$ of $\Delta$ in $\bbP^n \times \bbP^n$. Note that $CH^* (\bbP^n \times \bbP^n) \simeq CH^*(\bbP^n) \otimes CH^*(\bbP^n)$ so that in particular, we have
+$$CH^n (\bbP^n \times \bbP^n) \simeq \underset{i+j=n, 0\leq i,j \leq n}{\oplus} \bbZ s^i t^j,$$ where $s^i t^j$ corresponds to an $n$-cycle $\bbP^i \times \bbP^j$ in $\bbP^n \times \bbP^n$. Hence if $\Delta = \sum_{i,j} a_{ij} s^i t^j$, then if we look at the intersection product, $(\Delta . (\bbP^i \times \bbP^j)) = 1$. Also, $(s^i t^j) .(s^{i'} t^{j'}) = 1$ iff $i + i' = n$ and $j+ j' = n$ and otherwise it is $0$. Hence each $a_{ij} = 1$. That is, 
+$$E = (\Delta . \Delta ) = (\sum_{i,j} s^i t^j) (\sum_{i', j'} s^{i'} t^{j'}) = n+1.$$
+
+Now, $$Z(\bbP^n, \frac{1}{q^n t}) = \frac{1}{(1-\frac{1}{q^nt})(1- \frac{1}{q^{n-1}t}) \cdots (1- \frac{1}{t})} = \frac{(q^nt)(q^{n-1}t) \cdots (t)}{(q^nt-1) (q^{n-1}t-1) \cdots(t-1)}$$
+$$= (-1)^{n+1} \frac{q^{\frac{n(n+1}{2}} t^{n+1}}{(1-t)(1-qt) \cdots (1-q^nt)} = (-1)^{n+1} q^{\frac{nE}{2}} t^E Z(\bbP^n, t),$$ so that we have (1.2).
+
+Now, obviously, from $Z(\bbP^n, t)$, we see that $B_i = 0$ if $i$ is odd and $B_i = 1$ if $i$ is even. Hence $E = n+1 = \sum_{i=0} ^{2n} (-1)^i B_i$, indeed. Also, for $\bbP_{\bbC} ^n$, we had $H^i (\bbP_{\bbC} ^n, \bbZ) = \tuborg \bbZ & i : \mbox{ even } \\ 0 & i: \mbox{ odd} \sluttuborg,$ so that $B_i$ indeed is ${\rm rk} H^i (\bbP_{\bbC} ^n, \bbZ)$. This one shows (1.4). Hence $\bbP^n$ satisfies the Weil conjectures.
+
+\subsection*{Exercise 5.3} Obviously, $N_r (X \times \bbA^1) = q^r N_r (X)$. Hence,
+$$Z(X \times \bbA^1 , t) = \exp (\sum_{r=1} ^{\infty} N_r(X \times \bbA^1) \frac{t^r}{r}) = \exp (\sum_{r=1} ^{\infty} q^r N_r (X) \frac{t^r}{r})$$
+$$ = \exp (\sum_{r=1} ^{\infty} N_r(X) \frac{(qt)^r}{r}) = Z(X, qt).$$
+
+\subsection*{Exercise 5.4} Let $N_r(x)$ be the contribution of the closed point $x \in X$ to $N_r$ in $X$. A $\bbF_{q^r}$-rational point is determined by the number of morphisms $\spec \bbF_{q^r} \to X$, which is the same as to give a $\bbF_{q}$-homomorphism $k(x) \to \bbF_{q^r}$ and $N_r(x)$ is the number of all such embeddings. This is possible iff $\deg x = [k(x): \bbF_q] | r$, and, the number of all such embeddings is just $\deg x$. (If you are confused, consider, say $\deg x = 1$. How many $\bbF_q$-linear maps are there? Just $1$!.)
+
+Thus, in fact, $N(x) = q^{\deg x}$ so that
+$$\zeta_X(x) = \prod_{x \in X} \frac{1}{1 - N(x)^{-s}} = \prod_{x \in X} \frac{1}{1- (q^{\deg x})^{-s}} = \prod_{x \in X} \frac{1}{1- (q^{-s})^{\deg x}} = \exp (\sum_{x \in X} \sum_{r=1} ^{\infty} \frac{(q^{-s \deg x})^r}{r}) $$
+$$= \exp (\sum_{x \in X} \sum_{r=1} ^{\infty} \frac{(q^{-s})^{r \deg x}}{r}) = \exp (\sum_{x \in X} \sum_{r=1} ^{\infty} \frac{ (\deg x)(q^{-s})^{r \deg x}}{ r \deg x}) = \exp (\sum_{x \in X} \sum_{n=1} ^{\infty} \frac{N_n(x) (q^{-s})^n}{n})$$ $$ = \exp (\sum_{n=1} ^{\infty} N_n \frac{(q^{-s})^n}{n} = Z(X, q^{-s}).$$
+
+\subsection*{Exercise 5.5} By the Weil conjectures, since $\dim H^1(X, \bbQ_l) = B_1 = \deg P_1 (t) = 2g$, for some $\alpha_i$, we have
+$$Z(X, t) = \frac{P_1(t)}{(1-t)(1-qt)} = \frac{\prod_{i=1} ^{2g} (1-\alpha_i t)}{(1-t)(1-qt)}$$
+$$= \exp (\sum_{r=1} ^{\infty} (\frac{t^r}{r} + \frac{q^r t^r}{r} - \sum_{i=1} ^{2g} \alpha_i ^r \frac{t^r}{r})) = \exp (\sum_{r=1} ^{\infty} N_r \frac{t^r}{r}).$$
+
+Hence, $N_r = 1 + q^r - \sum_{i=1} ^{2g} \alpha_i ^r$ for all $r \geq 1$. 
+
+Now, from the functional equation, we have
+
+$$Z(\frac{1}{qt}) = \pm  q^{1-g} t^{2-2g} Z(t).$$
+
+The left hand side of the equation is,
+$$\frac{\prod_{i=1} ^{2g} (1- \frac{\alpha_i}{qt})}{(1- \frac{1}{qt})(1- \frac{1}{t})} = \frac{ t^{2-2g} q^{1-g} \prod_{i=1} ^{2g} (\sqrt{q} t - \frac{\alpha_i}{\sqrt{q}})}{(1-t)(1-qt)}.$$
+
+Hence, by comparing terms, we have
+$$P_1(t) = \prod_{i=1} ^{2g} (1- \alpha_i t) = \pm \prod _{i=1} ^{2g} (\sqrt{q} t - \frac{\alpha_i}{\sqrt{q}}).$$
+
+Recall that $\frac{1}{-a+bt} = \frac{-1}{a}(1 + \frac{b}{a} t + (\frac{b}{a})^2 t^2 + \cdots )$ so that $\log(-a + bt) = - (\frac{b}{a} t + (\frac{b}{a})^2 t^2 + \cdots).$ Hence, if we replace $P_1(t)$ be the right hand side of above,
+
+$$Z(X, t) = \exp (\sum_{r=1} ^{\infty} (\frac{t^r}{r} + \frac{q^r t^r}{r} + \sum_{i=1} ^{2g} \frac{q^r}{\alpha_i ^r} \frac{t^r}{r})) = \exp (\sum_{r=1} ^{\infty} (1+ q^r + q^r \sum_{i=1} ^{2g} \frac{1}{\alpha_i ^r} \frac{t^r}{r})).$$
+
+Hence, $N_r = 1 + q^r + q^r \sum_{i=1} ^{2g} \frac{1}{\alpha_i ^r}$ as well, which was also $1 + q^r - \sum_{i=1} ^{2g} \alpha_i ^r$. Since we know $N_1, N_2, \cdots, N_g$, we hence know all of $\sum_{i=1} ^{2g} \alpha_i ^{r}$ for $ -g \leq r \leq g$. Using some combinatorial argument and Nowton's identity on symmetric polynomials, above information is enough to determine all $\sum \alpha_i ^r$ for $r > g$ as well. Hence $N_r = 1+ q^r - \sum \alpha_i ^r$ is determined as well.
+
+\subsection*{Exercise 5.6} From IV, Exercise 4.16, $N_r = q^r - (f^r + \breve{f} ^r) + 1$. Hence,
+
+$$Z(,t) = \exp (\sum_{r=1} ^{\infty} N_r \frac{t^r}{r}) = \exp (\sum_{r=1} ^{\infty} (q^r - (f^r + \breve{f} ^r) + 1) \frac{t^r}{r})$$
+$$ = \frac{1}{1-qt} \frac{1}{1-t} (1-ft)(1-\breve{f}t)= \frac{1-at+qt^2}{(1-t)(1-qt)},$$ since $f \breve{f} = q$ and $a = f + \breve{f} \in \bbZ$.
+
+Now from the functional equation, we will have
+$$P_1 (t) = (1-ft) (1-\breve{f}t) = \pm (\sqrt(q)t - \frac{f}{\sqrt{q}}) (\sqrt{q} t - \frac{\breve{f}}{\sqrt{q}})$$ so that
+$$|a| = |f + \breve{f}| \leq 2g \Leftrightarrow |f| = |\breve{f}| = \sqrt{q}.$$
+
+(See Exercise 5.7, (b) and (c).)
+
+\subsection*{Exercise 5.7} \subsubsection*{(a)} We have
+$$Z(X,t) = \frac{P_1(t)}{(1-t)(1-qt)} = \frac{ \prod_{i=1} ^{2g} (1-\alpha_it)}{(1-t)(1-qt)}$$ $$= \exp (\sum_{r=1} ^{\infty} \frac{ (1- \sum_{i=1} ^{2g} \alpha_i ^r + q^r) t^r}{ r} ).$$
+
+Hence, $N_r = 1 - \sum_{i=1} ^{2g} \alpha_i ^r + q^r = 1 - a_r + q^r$ so that $a_r = \sum_{i=1} ^{2g} (\alpha_i)^r$.
+
+\subsubsection*{(b)}($\Leftarrow$) If $|\alpha_i| \leq \sqrt{q}$ for all $i$, then,
+$$|\alpha_i| \leq \sum_{i=1} ^{2g} | \alpha_i | ^r \leq \sum_{i=1} ^{2g} \sqrt{q^r} = 2g \sqrt{q^r}.$$
+
+\noindent ($\Rightarrow$) Consider the following easy power series expansion:
+$$\sum_{i=1} ^{2g} \frac{\alpha_i t}{1- \alpha_i t} = \sum_{r=1} ^{\infty} a_r t^r.$$
+
+Since $|a_r | \leq 2g \sqrt{q^r}$, the RHS is holomorphic in $|t|<\frac{1}{\sqrt{q}}$. If $|\alpha_i | > \sqrt{q}$ for some $i$, then, the LHS has a pole of order $1$ in $|t| < \frac{1}{\sqrt{q}}$ at $t = \frac{1}{\alpha_i}$ which is hence a contradiction.
+
+\subsubsection*{(c)} By using the functional equations, as in Ex (5.5), we have $$P_1 (t) = \prod_{i=1} ^{2g} (1-\alpha_i t) = \pm \prod_{i=1} ^{2g} (\sqrt{q} t - \frac{\alpha_i}{\sqrt{q}}).$$ Hence, 
+$$\{ \alpha_1 ^{-1} , \cdots, \alpha_{2g} ^{-1} \} = \{ \frac{\alpha_1}{q} , \cdots, \frac{\alpha_{2g}}{q} \}$$ so that for all $j$, there is a unique number $i(j)$ with $\alpha_j ^{-1} = \frac{\alpha_{i(j)}}{q}$, so that $|\alpha_i| \leq \sqrt{q}$ then implies $|\alpha_j ^{-1}| = \frac{|\alpha_i|}{q} \leq \frac{1}{\sqrt{q}}$ i.e. $|\alpha_j | \geq \sqrt{q}$ for all $j$. This proves that $|\alpha _i | = \sqrt{q}$.
+
+\end{document}
+

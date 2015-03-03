@@ -1,0 +1,553 @@
+\documentclass[12pt]{article}
+\author{William A. Stein}
+\title{Algebraic Geometry Homework\\
+II.3 \#'s 6,7,8,12,14\\ II.4 \#'s 2, 4}
+
+\font\grmn=eufm10 scaled \magstep 1
+
+\newcommand{\gp}{p}
+\newcommand{\ga}{a}
+\newcommand{\so}{\mathcal{O}}
+\newcommand{\id}{\mbox{\rm id}}
+
+\newtheorem{prob}{Problem}
+\newtheorem{prop}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\ov}{\overline{\varphi}}
+\newcommand{\ol}{\overline}
+\renewcommand{\phi}{\varphi}
+\newcommand{\fh}{f^{\#}}
+\newcommand{\proj}{\mbox{\rm Proj \hspace{.01in}}}
+\newcommand{\spec}{\mbox{\rm Spec \hspace{.01in}}}
+\newcommand{\proof}{\mbox{\sc Proof.\hspace{.1in}}}
+
+\newcommand{\diagram}{$$\vspace{.75in}$$}    %% space for diagrams
+
+\date{April 4, 1996}
+\begin{document}
+\maketitle
+
+\begin{prob}[3.6]
+Let $X$ be an integral scheme. Show that the local ring $\so_{\xi}$ of
+the generic point $\xi$ of $X$ is a field. Call it $K(X)$. Show also 
+that if $U=\spec A$ is any open affine subset of $X$, then $K(X)$ is
+isomorphic to the quotient field of $A$.  
+\end{prob}
+\proof
+Let $U=\spec A$ be any nonempty open affine subset of $X$. Then since
+the closure of a generic point of $X$ is all of $X$, every open set
+must contain a generic point. Thus if $\xi$ is a generic point, then 
+$\xi\in U$. But $A$ is an integral domain so $(0)$ is the unique 
+generic point of $U$, whence $\xi=(0)$. This shows the generic point is
+unique if it exists. Since $X$ is integral it is irreducible so every
+open set intersects $U$. Thus every open set contains $(0)\in \spec A=U$, 
+so $X$ actually contains a generic point $\xi=(0)$. Furthermore,
+$\so_{\xi}\cong A_{(0)}$ is the quotient field of $A$. 
+
+\begin{prob}[3.7]
+Let $f:X\rightarrow Y$ be a dominant, generically finite morphism of 
+finite type of integral schemes. Show that there is an open dense
+subset $U\subseteq Y$ such that the induced morphism 
+$f^{-1}(U)\rightarrow U$ is finite. 
+\end{prob}
+\proof
+Let $U=\spec B$ be an open affine subset of $Y$ which contains the
+generic point of $Y$. Let $V=\spec A$ be an open affine subset of
+$f^{-1}(U)$. Since $f$ is of finite type $A$ is a finitely generated
+$B$-algebra. The generic point of $X$ is in $V$ since every
+open set contains the generic point. Let $\phi:B\rightarrow A$ be
+the homomorphism corresponding to the induced morphism of affine schemes
+$f:V\rightarrow U$.
+Since $f$ is dominant, we know that $\phi$ is injective. 
+The induced map on stalks then gives an inclusion
+of function fields $K(Y)=B_{(0)}\hookrightarrow A_{(0)}=K(X)$. 
+Since $A$ is a finitely generated $B$-algebra, $K(X)$ is a finitely
+generated field extension of $K(Y)$. If this field extension is not of 
+finite degree then $K(X)$ must contain an element which is
+transcendental over $K(Y)$. Thus $A$ must contain an
+element $t$ which is transcendental over $B$. But then infinitely
+many primes of $A$ lie over $(0)$. Indeed, since $K(X)$ is
+finitely generated over $K(Y)$, $K(X)$ is
+a finite algebraic extension of $k(t)$ for some field $k$.
+Then (since the algebraic closure of a field is
+infinite), there are infinitely many irreducible polynomials
+in $k[t]$. Since $K(X)$ is finite algebraic over $k(t)$ 
+infinitely many of these must remain irreducible in $A$.  
+Multiplying through denominators this gives infinitely
+many irreducible elements of $A$ which generate prime ideals
+which lie over $(0)$. This would contradict the fact that
+$f$ is generically finite. Thus $K(X)$ is finite over $K(Y)$.  
+
+Let $x_1,\ldots,x_n$ generate $A$ as a $B$-algebra. Then,
+since $K(X)$ is finite over $K(Y)$ each $x_i$ satisfies
+some polynomial $f_i$ with coefficients in $B$. Let $b$ be the
+product of all of the leading coefficients of the polynomials
+$f_i$. If $b$ is a unit in $B$ then so are all of the leading
+coefficients of the $f_i$ so we can divide by them and hence assume
+the $f_i$ are monic polynomials. If not, replace $B$ by the localization
+$B_b$ and repeat the whole argument with $U=\spec B_b$.  
+In either case we may assume the $f_i$ are monic from which
+we conclude that $A$ is a finitely generated integral extension
+of $B$, thus $A$ is a finite module over $B$. 
+
+Now let $U=\spec B$ be an open affine subset of $Y$ which contains the
+generic point. Since $f$ is of finite type we may write
+$f^{-1}(U)=\cup_{i=1,\ldots,n}V_i$ where each $V_i=\spec A_i$ is
+finitely generated $B$-algebra. By the work above we may shrink
+$U$ so that we can assume each $A_i$ is actually a finitely
+generated $B$-module. To complete the proof we need to show that
+there is a distinguised open subset of $U$ (which necessarily
+contains the generic point) whose inverse image under $f$ is an 
+open affine which is the spectrum of a finitely generated $B$-module. 
+Let $\phi_i:B\rightarrow A_i$ be the homomorphism which
+induces $f|_{V_i}$. Since $f$ is dominant, each $\phi_i$
+is an injection. Thus we may, for notational convenience,
+identify $B$ with it's images in the various $A_i$. The
+morphism $f$ is then induced by the inclusion map
+$B\hookrightarrow A_i$.  
+
+Since $\cap_{i=1,\ldots,n}V_i$ is open we can,
+for each $i$, $1\leq i \leq n-1$, find $\alpha_i\in A_i$
+such that $\spec (A_i)_{\alpha_i}\subseteq \cap_{i=1,\ldots,n}V_i$.
+Since $A_i$ is a finite module over $B$ there is an
+integral equation 
+$$\alpha_i^n+b_{n-1}\alpha_i^{n-1}+\cdots+b_0=0$$
+where each $b_j\in B$ and $b_0\not=0$. 
+Let $b=\prod_{i=1,\ldots,n-1}b_i$. Then any
+prime of $A_i$ which contains $\alpha_i$ must
+also contain $b_i$ and hence $b$. Therefore
+$\spec (A_i)_{b}\subseteq \spec (A_i)_{\alpha}$. 
+We then have that
+$g^{-1}(\spec B_b) 
+= \cup_{i=1,\ldots,n-1}\spec (A_i)_b\cup\spec(A_n)_b
+= \spec(A_n)_b$. 
+The latter equality follows since, for $1\leq i\leq n-1$, 
+$\spec(A_i)_b\subseteq \cap_{i=1,\ldots,n} V_i \cap f^{-1}(U_b)
+\subseteq f^{-1}(U_b)\cap V_n = \spec (A_n)_b$.
+We thus see that $U_b$ is a dense open
+subset of $Y$ such that the morphism $f:f^{-1}(U_b)\rightarrow U_b$
+is finite (since $f^{-1}(U_b)$ is the affine scheme $\spec(A_n)_b$
+which a finite $B_b$-module). This completes the proof. 
+
+\begin{prob}[3.8] 
+Normalization. Let $X$ be an integral scheme. For each open affine
+subset $U=\spec A$, let $\tilde A$ be the integral closure of $A$
+in its quotient field, and let $\tilde U=\spec \tilde A$.
+Show that one can glue the schemes $\tilde U$ to obtain a normal integral
+scheme $\tilde X$, called the normalization of $X$. Show also that there
+is a morphism $\tilde X\rightarrow X$, having the following universal
+property: for every normal integral scheme $Z$, and for every
+dominant morphism $f:Z\rightarrow X$, $f$ factors uniquely through
+$\tilde X$. If $X$ is of finite type over a field $k$, then the morphism
+$\tilde X\rightarrow X$ is a finite morphism. 
+\end{prob}
+\proof 
+
+We first verify the universal property for affine schemes where
+it is clear what the normalization is. 
+\begin{prop} Suppose $X=\spec A$, $\tilde X=\spec \tilde A$ 
+its normalization and $Z=\spec B$ is a normal integral scheme.   
+Then every dominant morphism $f:Z\rightarrow X$ factors uniquely
+through $\tilde X$. 
+\end{prop}
+\proof
+Let $\phi:A\rightarrow B$ be the homomorphism corresponding to $f$.  
+Then, since $f$ is dominant, $\phi$ is injective. Indeed, 
+$f(Z)\subseteq V(\ker(\phi))$ so if $\ker(\phi)\not = 0$
+then $f(Z)$ doesn't meet the nonempty open set 
+$X-V(\ker(\phi))$ (nonempty since $A$ is a domain
+so $(0)$ is prime so $(0)\in X-V(\ker(\phi))$. 
+So there is a unique extension of $\phi$ to a 
+homomorphism from $\tilde A \rightarrow B$. 
+Indeed, define $\ol{\phi}(a/b)=\phi(a)/\phi(b)$. Then
+since $\phi$ is injective this is well-defined since $b\not=0$
+implies $\phi(b)\not=0$. Furthermore, if $\psi$ is another
+possible extension of $\phi$ to $\tilde A$, then 
+$\psi(b)\psi(a/b)=\psi(a)=\phi(a)=\phi(b)\ol{\phi}(a/b)=\psi(b)\ol{\phi}(a/b)$
+so cancelling shows that $\psi(a/b)=\ol{\phi}(a/b)$.  
+Thus there is a unique morphism $f':Z\rightarrow
+\tilde X$ whose composition with the natural map $\tilde X\rightarrow X$
+equals $f$. (The natural map is induced by the inclusion 
+$A\hookrightarrow \tilde A$.)   
+
+Now we prove the universal property holds when $Z$ is an arbitrary
+normal integral scheme but $X$ is still affine.  
+\begin{prop} Let $X=\spec A$, $\tilde X=\spec \tilde A$ its 
+normalization and $Z$ be any normal integral scheme. Then
+every dominant morphism $f:Z\rightarrow X$ factors uniquely 
+through $\tilde X$. 
+\end{prop}
+\proof
+Let $U_i$ be a cover of $Z$ by open affines. If $U=U_i$ is any
+$U_i$ then $U$ is a normal
+integral affine scheme and $f|_U$ is a dominant morphism. Indeed,
+$U$ is dense in $Z$ since $Z$ is irreducible (Proposition 3.1). 
+Thus $f^{-1}(\ol{f(U)})\supseteq \ol{U}=Z$ so 
+$f^{-1}(\ol{f(U)})=Z$ so $\ol{f(U)}\supseteq f(Z)$ so
+$\ol{f(U)}=\ol{f(Z)}=X$.
+We can thus apply the above proposition to find a unique morphism
+$g_i:U_i\rightarrow \tilde{X}$ such that $\psi\circ g_i=f|_U$ where
+$\psi:\tilde{X}\rightarrow X$. By uniqueness on a cover of $U_i\cap U_j$
+by open affines, $g_i|_{U_i\cap U_j}=g_j|_{U_i\cap U_j}$. We
+can thus glue the morphism $g_i$ to obtain a morphism 
+$g:Z\rightarrow \tilde{X}$ such that $\psi\circ g=f$. The  
+morphism $g$ is evidently unique.  
+
+Now we can define the identification maps $\phi_{ij}$. Let
+$\{U_i=\spec A_i\}$ be the open affine subsets of $X$. Let
+$\{\tilde U_i=\spec \tilde A_i\}$ be the associated normalizations.
+Let $\psi_i:\tilde U_i \rightarrow U_i$ be the morphism induced
+by the inclusion $A_i \hookrightarrow \tilde A_i$. Let
+$W_{ij}=\psi_i^{-1}(U_i\cap U_j)$. Then $W_{ij}$ is an open
+subset of a normal scheme hence normal. $\psi_i:W_{ij}\rightarrow
+U_i\cap U_j \subseteq U_j$ so there is a unique morphism
+which we call $\phi_{ij}:W_{ij}\rightarrow \tilde U_j$ such
+that $\psi_j|_{W_{ji}} \circ \phi_{ij} = \psi_i|_{W_{ij}}$.
+By uniqueness we see that $\phi_{ij}\circ\phi_{ji}=id$ so
+$\phi_{ij}=\phi_{ji}^{-1}$.  Furthermore, for each $i,j,k$, 
+$\phi_{ij}(W_{ij}\cap W_{ik})
+=\psi_j^{-1}(\psi_i(W_{ij}\cap W_{ik}))
+=\psi_j^{-1}(\psi_i(W_{ij}))\cap \psi_j^{-1}(\psi_i(W_{ik}))
+=W_{ji}\cap W_{jk}$. By uniqueness, 
+$\phi_{jk}\circ\phi_{ij}=\phi_{ik}$ on $W_{ij}\cap W_{ik}$. 
+So by the glueing lemma (Exercise 2.12) we may glue to obtain
+a scheme $\tilde X$. We can also glue the morphisms $\psi_i$ 
+to obtain a morphism $\psi:\tilde X\rightarrow X$. 
+
+Next, we must verify that the universal property holds in general.
+Let $Z$ be an arbitrary normal integral scheme, and let $X$
+and $\tilde{X}$ be as above and suppose $f:Z\rightarrow X$ is a morphism. 
+Cover $X$ be open affines $U_i$. Then for each morphism $f|_{f^{-1}(U_i)}$
+we can apply the above proposition to find a morphism $g_i$ such
+that $\psi\circ g_i=f|_{f^{-1}(U_i)}$. By uniqueness we can
+glue these morphism to obtain the required morphism 
+$g:Z\rightarrow \tilde{X}$. 
+
+Now we check that $\tilde{X}$ is a normal integral scheme. 
+Note first that each $\tilde{U_i}$ is the spectrum of
+an integrally closed domain and is hence a normal integral
+scheme (since the localization of an integrally closed
+domain is integrally closed). 
+Let $x\in\tilde{X}$. Then $x$ is contained in some $\tilde{U_i}$.
+But the local ring of $x$ in $\tilde{X}$ is the same as the
+local ring of $x$ in $\tilde{U_i}$ which is integrally closed.
+This shows that $\tilde{X}$ is normal. 
+
+Since $X$ is irreducible,
+every $U_i$ intersects every $U_j$. Thus every $\tilde{U_i}$
+intersects every $\tilde{U_j}$ after glueing.  
+Since each $\tilde{U_j}$ is irreducible and they all overlap
+this implies $\tilde{X}$ is irreducible. Indeed, if $\tilde{X}=A\cup B$
+with $A$ and $B$ closed, then every $\tilde{U_i}$ is either completely
+contained in $A$ or in $B$. If they are not all contained in one of
+$A$ or $B$ then we can find an open subset $U$ contained in $A$ 
+and an open subset $V$ contained in $B$ but not contained in $A$. Then 
+$V=(U\cap V)\cup(U^c\cap V)
+  =(A\cap V)\cup(U^c\cap V)$
+which expresses $V$ as a union of two proper closed subsets of $V$.
+$A\cap V$ is a proper subset of $V$ since $V$ is not contained in
+$A$ and $U^c\cap V$ is a proper subset of $V$ since 
+$U\cap V\not=\emptyset$. This contradicts the fact that $V$ is
+irreducible. Thus $\tilde{X}=A$ or $\tilde{X}=B$ whence $\tilde{X}$
+is irreducible. 
+
+Now we check that the structure sheaf has no nilpotents.
+Let $U$ be an open subset of $\tilde{X}$ and suppose
+$f\in\so_{\tilde{X}}(U)$ is nilpotent. Then since $f$ is
+nonzero, there is some point $x\in \tilde{X}$ so that the
+stalk $f_x$ of $f$ at $x$ in the local ring $\so_{\tilde{X}}$ is
+nonzero and nilpotent (use sheaf axiom (iii) and the definition of
+$\so_{\tilde{X}}$.) Let $\tilde{U_i}$ be some $\tilde{U_i}$ 
+which contains $x$. Then the local ring at $x$ is a localization
+of the integral domain $\tilde{A_i}$ so it can't contain any
+nilpotents. Thus the scheme $\tilde{X}$ is reduced.
+  
+Now we check that if $X$ is of finite type over a field $k$, then 
+the morphism $f:\tilde X\rightarrow X$ is a finite morphism. 
+The $U_i$ form an open cover of $X$ and $f^{-1}(U_i)=\spec \tilde A_i$
+is affine for each $i$, so we just need to check that
+$\tilde A_i$ is a finite module over $A_i$. This follows from
+Theorem 3.9A of chapter I.  
+
+
+\begin{prob}[3.12]
+Closed Subschemes of $\proj S$.
+
+(a) Let $\phi:S\rightarrow T$ be a surjective homomorphism of graded
+rings, preserving degrees. Show that the open set $U$ of (Ex. 2.14)
+is equal to $\proj T$, and the morphism $f:\proj T\rightarrow\proj S$
+is a closed immersion.  
+
+(b) If $I\subseteq S$ is a homogeneous ideal, take $T=S/I$ and let $Y$
+be the closed subscheme of $X=\proj S$ defined as the image of the
+closed immersion $\proj S/I\rightarrow X$. Show that different homogeneous
+ideals can give rise to the same closed subscheme. For example,
+let $d_0$ be an integer, and let $I'=\bigoplus_{d\geq d_0} I_d$. Show
+that $I$ and $I'$ determine the same closed subscheme. 
+\end{prob}
+\proof
+(a) Since $\phi$ is graded and surjective, $\phi(S_{+})=T_{+}$ from which
+it is immediate that $U=\proj T$. By the first isomorphism theorem
+$T\cong S/\ker(\phi)$ so $f(\proj T)=f(\proj S/\ker(\phi))
+=V(\ker(\phi))$ which is a closed subset of $\proj S$. (This is
+just the fact that there is a one to one correspondence between
+homogeneous ideals of $S/\ker(\phi)$ and homogeneous ideals of $S$ 
+which contain $\ker(\phi)$.) The map on the stalk corresponding
+to a point $x\in\proj T$ is the map 
+$S_{(\phi^{-1}(x))}\rightarrow T_{(x)}$
+induced by $\phi$. This map is surjective since $\phi$ is surjective.
+Thus the induced map on sheaves is surjective.   
+
+(b) Let $\phi:S/I'\rightarrow S/I$ be the natural projection homomorphism.  
+(This makes sense because $S/I$ is a quotient of $S/I'$. Indeed,
+$S/I=(S/I')/\bigoplus_{0\leq d<d_0}I_d$.) Then $\phi$ is a graded homomorphism
+of graded rings such that $\phi_d$ is the identity for $d\geq d_0$.
+So by (Exercise 2.14c) $\phi$ induces an isomorphism
+$f:\proj S/I \rightarrow \proj S/I'$. Since this is a morphism
+over $\proj S$ (the corresponding triangle of homomorphisms commutes)
+it follows that $I$ and $I'$ give rise to the same closed subscheme. 
+
+\begin{prob}[3.14]
+If $X$ is a scheme of finite type over a field, show that
+the closed points of $X$ are dense. Give an example to show that
+this is not true for arbitrary schemes.
+\end{prob}
+\proof
+Since $X$ is of finite type over $k$ we can cover $X$ with
+affine open sets $U_i=\spec A_i$ where each $A_i$ is a finitely
+generated $k$-algebra. Let $U$ be an open subset of $X$. We must
+show that $U$ contains a closed point. Since the $U_i$ cover
+$X$, $U$ must intersect some $U_i$. Then $U\cap U_i$ contains
+a distinguised open subset of $U_i$. So, to show that every open
+set contains a closed point, it suffices to show that every 
+nonempty distinguised open subset of each $U_i$ contains 
+a closed points of $X$. Since a distinguished open subset $(U_i)_x$ of
+a $U_i$ is also the spectrum of a finitely generated $k$-algebra
+$\spec (A_i)_x$ we can just add it to our collection $\{U_i\}$. 
+The problem thus reduces to showing that each $U_i$ contains
+a closed point.
+
+\begin{prop} 
+With the notation as above, if $x\in U_i$ is closed in $U_i$ (here
+$U_i$ has the subspace topology) then $x$ is closed in $X$. 
+\end{prop}
+\proof
+Suppose $x\in U_j$. There is a natural injection 
+$U_i\cap U_j\hookrightarrow U_j$. Let $\spec (B_i)_f$ be
+a distinguished open subset of $U_i$ contained in $U_i\cap U_j$
+which contains $x$. Then we have a morphism 
+$\spec(B_i)_f\hookrightarrow U_j=\spec B_j$. We
+thus get a ring homomorphism $\phi:B_j\rightarrow (B_i)_f$
+of Jacobson rings. Since it is induced by a restriction of 
+the identity map $X\rightarrow X$ which is a morphism over
+$k$, $\phi$ is a $k$-algebra homomorphism. 
+Since $(B_i)_f$ is a finitely generated $k$-algebra, $(B_i)_f$ is
+also a finitely generated $B_j$-algebra. Since $x$ is closed
+in $\spec(B_i)_f$, $x$ is a maximal ideal of $(B_i)_f$. 
+Thus by page 132 of Eisenbud's {\em Commutative Algebra}
+$\phi^{-1}(x)$ is a maximal ideal of $B_j$. Thus $x$ is also
+a closed point of $U_j$ in the subspace topology on $U_j$. 
+Thus $X-x=\cup_{i}(U_i-x)$ is a union of open subsets of $X$, 
+hence open in $X$, so $x$ is closed. 
+
+To finish we just need to know that $U_i$ has a closed point. 
+  
+\begin{prop}
+Let $X=\spec A$ be an affine scheme with $A$ a finitely generated
+$k$-algebra. Then any nonempty distinguished open subset of $X$ 
+contains a closed point.
+\end{prop}
+\proof
+The key observation is that $A$ is a Jacobson algebra since it finitely
+generated over a field, so by page 131 of Eisenbud's {\em Commutative
+Algebra} the Jacobson radical of $A$ equals
+the nilradical of $A$. Let $D(f)$ be a nonempty
+distinguised open subset of $X$. Then some prime omits $f$
+so $f$ is not in the nilradical of $A$. Thus $f$ is not
+in the Jacobson radical of $A$ so there is some maximal
+ideal $m$ so that $f\notin m$. Then $m \in D(f)$ and 
+$m$ is a closed point of $X$ since $m$ is maximal.
+
+Strangely enough I never used the hypothesis that $X$ is of
+finite type over $k$ but just the weeker hypothesis that
+$X$ is {\em locally} of finite type over $k$. Did I miss something? 
+
+Finally, we present a counterexample in the more general situation. Let
+$X=\spec Z_{(2)}$. Then $X$ contains precisely one closed
+point, the ideal $(2)$. So the set of closed points in $X$ is
+not dense in $X$. In fact, if $X$ is the spectrum of any
+DVR we also get a counterexample.   
+
+\begin{prob}[4.2]
+Let $S$ be a scheme, let $X$ be a reduced scheme over $S$, and let
+$Y$ be a seperated scheme over $S$. Let $f_1$ and $f_2$ be two $S$-morphisms
+of $X$ to $Y$ which agree on an open dense subset $U$ of $X$. Show that
+$f_1=f_2$. Give examples to show that this result fails if either (a)
+$X$ is nonreduced, or (b) $Y$ is nonseparated. 
+\end{prob}
+\proof
+Let $g=(f_1,f_2)_S:X\rightarrow Y\times_S Y$ be the product of
+$f_1$ and $f_2$ over $S$. By hypothesis the diagonal $T=\Delta_Y(Y)$ is
+a closed subscheme of $Y\times_S Y$. Thus $Z=g^{-1}(T)$ is a closed
+subscheme of $X$. If $h:U\rightarrow Y$ is the common restriction
+of $f_1$ and $f_2$ to $U$, then, since $g|_U$ makes
+the correct diagram commute, the restriction of $g$ to $U$ 
+is $g'=(h,h)_S$ and $g'=\Delta_Y \circ h$ since 
+$\Delta_Y\circ h$ makes the correct diagram commute.
+\diagram
+Thus $\Delta_Y^{-1}(T)=Y$ implies 
+$$g^{-1}(T)\supseteq (g')^{-1}(T)=h^{-1}(\Delta_Y^{-1}(T))=h^{-1}(Y)=U.$$ 
+Thus $g^{-1}(T)$ is a closed set which contains the dense
+set $U$. Thus $g^{-1}(T)=X$ so $g(X)\subseteq T$. 
+So, by the proposition below, since $X$ is reduced, $g$
+factors as $g=\Delta_Y\circ f$ where $f:X\rightarrow Y$. 
+From the definition of $\Delta_Y$, we see that
+$\pi_1\circ \Delta_Y=\id_Y=\pi_2\circ \Delta_Y$. 
+Thus $f_1=\pi_1\circ g=\pi_1\circ\Delta_Y\circ f=f$
+and $f_2=\pi_2\circ g=\pi_2\circ \Delta_Y\circ f=f$ so
+$f=f_1=f_2$, as desired. 
+
+\begin{prop}
+Let $X$ be a reduced scheme, $f:X\rightarrow Y$ a morphism, $Z$
+a closed subscheme of $Y$, $j:Z\hookrightarrow Y$, such
+that $f(X)\subseteq j(Z)$. Then $f$ factors uniquely as
+$$X\stackrel{g}{\rightarrow}Z\stackrel{j}{\hookrightarrow}Y.$$
+\end{prop}
+\proof
+First assume $X$ and $Y$ are affine, $X=\spec A$, $Y=\spec B$, 
+$Z=\spec B/I$.
+(Use exercise 3.11 to see that every closed subscheme $Z$ of
+$Y$ is of the form $\spec B/I$.)  
+Let $\phi:B\rightarrow A$ be the homomorphism which induces $f$. 
+Since $f(X)\subseteq Z$, the inverse image of any prime of $A$
+contains $I$. Since $A$ is reduced the intersection of all
+primes of $A$ equals $\{0\}$. Thus
+$$\ker(\phi)=\phi^{-1}(\{0\})=\phi^{-1}(\cap_{\mathrm{primes p}} p)\subseteq I$$
+so $\phi$ factors uniquely through $B/I$. 
+$$B\stackrel{j^{\#}}{\rightarrow}B/I\stackrel{g^{\#}}{\hookrightarrow}A$$
+This proves the proposition when $X$ and $Y$ are affine.
+
+Now suppose $X$ is an arbitrary reduced scheme. Cover $X$ by open affines
+$X=\cup_i U_i$. For each $i$ let $g_i$ be the unique map which factors
+$f|_{U_i}$ through $Z$. By uniqueness $g_i|_{U_i\cap U_j}=g_j|_{U_i\cap U_j}$,
+so we can glue the $g_i$ to obtain a morphism $g:X\rightarrow Z$ 
+such that $j\circ g=f$. Now suppose both $X$ and $Y$ are arbitrary. Cover $Y$ by open affines,
+take their inverse images in $X$, perform the construction locally 
+for each one, use uniqueness and glue. 
+
+\noindent{\em Counterexamples.} 
+
+(a) Let $A=k[x,y]/(x^2,xy)$, let $X=Y=\spec A$ and let $S=\spec k$. 
+Then $Y$ is affine  hence seperable over $S$, but $X$ is not reduced. 
+Let $f:X\rightarrow Y$ be the morphism induced by the identity homomorphism  
+$\id: A\rightarrow A$. Let $g:X\rightarrow Y$ be the morphism induced
+by the homomorphism $\phi: A\rightarrow A: x\mapsto 0, y\mapsto y$.    
+Let $U=D(y)=\spec A_y$. Then since $A_y\cong \spec k[y,y^{-1}]$, 
+the localized homomorphisms agree, $\id_y=\phi_y$. Thus 
+$f|_U=g|_U$. Now $X$ is irreducible since $A$ has just one
+minimal prime, namely $(x)$, so $U$ is dense in $X$. But, $f\not=g$.
+since $f^{\#}=\id\not=\phi=g^{\#}$. 
+
+(b) Let $X$ be the affine line and $Y$ the affine line
+with a doubled origin both thought of as schemes over $S=\spec k$. 
+Let $f_1:X\rightarrow Y$ be one of the inclusions of the affine
+line in $Y$ and let $f_2:X\rightarrow Y$ be the other one.
+Then $f_1$ and $f_2$ agree on $X$ minus the origin but not on $X$.  
+
+[Reference, EGA, I.8.2.2.1.]
+
+\begin{prob}[4.4]
+Let $f:X\rightarrow Y$ be a morphism of separated schemes of finite type
+over a noetherian scheme $S$. Let $Z$ be a closed subscheme of $X$ which
+is proper over $S$. Show that $f(Z)$ is closed in $Y$, and that $f(Z)$
+with its image subscheme structure is proper over $S$. 
+\end{prob}
+\proof
+First we show that since $X$, $Y$ and $Z$ are of finite type 
+over $S$ and $S$ is noetherian, $X$, $Y$ and $Z$ are noetherian. 
+Suppose $g:X\rightarrow S$ is the map from $X$ to $S$. Cover
+$S$ by finitely many $\spec A_i$, $A_i$ noetherian. Then for
+each $f^{-1}(\spec A_i)=\cup_j \spec B_{ij}$, with $B_{ij}$
+a finitely generated $A_i$-algebra. Since $A_i$ is noetherian
+each $B_{ij}$ is noetherian (this is the Hilbert basis theorem).
+Since $X=\cup_{ij}\spec B_{ij}$, $X$ is noetherian. One shows
+that $Y$ and $Z$ are noetherian in exactly the same way.
+
+Since the following diagram commutes 4.8(e) implies
+$f|_Z$ is proper. \diagram 
+Thus $f|_Z(Z)$ is closed in $Y$. 
+(I'm assuming $Z$ is an $S$-subscheme of $X$ so that 
+the diagram must commute.) 
+
+We now have $f(Z)\hookrightarrow Y\rightarrow S$. We must
+show the composition $f(Z)\rightarrow S$ is proper. By Corollary 4.8a the 
+closed immersion $f(Z)\hookrightarrow Y$ is proper. 
+We are given that the map $Y\rightarrow S$ is seperated
+and of finite type. Since the composition of seperated morphisms
+is seperated and the composition of finite type morphisms is of
+finite type, the morphism $f(Z)\rightarrow S$ is seperated and
+of finite type. The hard part is to show that it is universally closed.
+
+Since the morphism $Z\rightarrow S$ is proper it is closed
+and from above the morphism $Z\rightarrow f(Z)$ is closed so
+the morphism $f(Z)\rightarrow S$ is closed. Let $W$ be an
+any scheme over $S$. We must show that the map 
+$f(Z)\times_S W\rightarrow W$ is closed. 
+We have the following diagram.
+\diagram \diagram
+If we can show that $g_1$ is surjective we will be done. For then
+if $A$ is closed subset of $f(Z)\times_S W$, 
+$$g_2(A)=g_3(g_1^{-1}(A)),$$
+which, since $g_3$ is closed, is also closed. (We wouldn't have 
+equality in the above expression if $g_1$ weren't surjective.)
+
+In order to establish the surjectivity of $g_1$ we prove that
+the property of being a surjective morphism is preserved under
+base extension. It will then follow, since $g_1$ is a base
+extension of the surjective morphism $Z\rightarrow f(Z)$,
+that $g_1$ is surjective.  
+
+\begin{prop}
+Let $X$ and $Y$ be schemes over $S$. Suppose $x\in X$ and $y\in Y$ 
+both lie over the same point $s\in S$. Then there exists 
+$\alpha\in X\times_S Y$ such that $p_X(\alpha)=x$ and
+$p_Y(\alpha)=y$.
+\end{prop}
+\proof 
+Let $g_1:\spec(k(x))\rightarrow X$ and 
+$g_2:\spec(k(y))\rightarrow Y$ be the natural maps
+with $g_1((0))=x$ and $g_2((0))=y$. 
+Let $Z=\spec(k(x))\times_{\spec(k(s))}\spec(k(y))
+=\spec(k(x)\otimes_{k(s)}k(y))$, and let $\pi_1$ 
+be the projection to $\spec(k(x))$, $\pi_2$ 
+the projection to $\spec(k(y))$. 
+Let $g=g_1\times_S g_2$ be the product of $g_1\circ \pi_1$
+with $g_2\circ \pi_2$. So $g:Z\rightarrow X\times_S Y$.
+See the following diagram.
+\diagram
+Since $Z$ is the spectrum of the tensor product of two
+fields over a common base field, $Z\not=\emptyset$ so 
+there is some $z\in Z$.  By the definition of $g$, 
+$g_1\circ\pi_1=p_x\circ g$ and 
+$g_2\circ\pi_2=p_y\circ g$ so
+$x=g_1\circ\pi_1(z)=p_x\circ g(z)$ and
+$y=g_2\circ\pi_2(z)=p_y\circ g(z)$ so
+we may take $\alpha=g(z)$.  
+
+\begin{prop}
+If $f:X\rightarrow Y$ is a surjective $S$-morphism then 
+$f\times 1: X\times_S S' \rightarrow Y\times_S S'$ is surjective.
+\end{prop}
+\proof
+We have the following diagram.
+\diagram
+Let $y'\in Y\times_S S'$. Then 
+$q(y')\in Y=f(X)$ so there is $x\in X$
+such that $f(x)=q(y')$. Then by the above proposition
+there is some $\alpha\in X\times_S S'$ such that
+$p(\alpha)=x$ and $(f\times 1)(\alpha)=y'$. Thus 
+$f\times 1$ is surjective. 
+
+
+\end{document}

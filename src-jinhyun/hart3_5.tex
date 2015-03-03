@@ -1,0 +1,206 @@
+%\documentclass[11pt]{article}          % required in all documents
+\documentclass[11pt]{amsart}          % required in all documents
+\usepackage{epsfig}                     % a package to include PS figures
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\newcommand{\tuborg}{\left\{\begin{array}{ll}}
+\newcommand{\sluttuborg}{\end{array}\right.}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calZ}{\mathcal{Z}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\cal}{\mathcal}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\ord}{{\rm ord}}
+\newcommand{\coker}{{\rm coker}}
+\newcommand{\codim}{{\rm codim}}
+\newcommand{\supp}{{\rm Supp}}
+\newcommand{\rat}{{\rm Rat}}
+\newcommand{\spec}{{\rm Spec}}
+\newcommand{\tor}{{\rm Tor}}
+\newcommand{\stor}{{\underline{\rm Tor}}}
+\newcommand{\p}{\partial}
+\newcommand{\proj}{{\rm Proj}}
+\newcommand{\fr}{{\rm Frac}}
+\newcommand{\ann}{{\rm Ann}}
+\newcommand{\ass}{{\rm Ass}}
+\newcommand{\pic}{{\rm Pic}}
+\newcommand{\ext}{{\rm Ext}}
+\newcommand{\shom}{{\underline{\rm Hom}}}
+\newcommand{\sext}{{\underline{\rm Ext}}}
+\newcommand{\ilim}{{\underset{\longleftarrow}{\lim}}}
+\newcommand{\dlim}{{\underset{\longrightarrow}{\lim}}}
+\newcommand{\sym}{{\rm Sym}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defi}[thm]{Definition} 
+\newtheorem{eg}[thm]{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem*{remark}{Remark}
+\newtheorem{remark2}[thm]{Remark}
+\newtheorem*{phil}{Philosophy}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{metaconj}[thm]{Metaconjecture}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{question}[thm]{Question}
+\newtheorem{application}[thm]{Application}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{thm}.\arabic{equation}}
+\renewcommand{\div}{{\rm div}}
+\renewcommand{\hom}{{\rm Hom}}
+
+\setlength{\textwidth}{6in}             % Space saving measures
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.5in}
+\renewcommand{\baselinestretch}{1}
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+   
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}                                    
+
+\begin{document}
+
+\begin{center}
+\bf
+\large Robin Hartshorne's Algebraic Geometry Solutions
+\end{center}
+\begin{center}
+by Jinhyun Park
+\end{center}
+\vskip0.5cm
+
+\section*{Chapter III Cohomology Section 5 The Cohomology of Projective Space}
+\subsection*{5.1}
+\subsection*{5.2}
+\subsection*{5.3}
+\subsection*{5.4}
+\subsection*{5.5}
+\subsection*{5.6}
+\begin{enumerate}
+\item [(a)] Identify $Q = \bbP^1 \times \bbP^1$ and let $|Y| = \bbP^1 \times *$, $|Z| = * \times \bbP^1$. First, observe that $Q$ is birational to $\bbP^2$ and $h^1 (X, \calO_X)$ is a birational invariant, so, $h^1(Q, \calO_Q) = h^1(\bbP^2, \calO_{\bbP^2}) = 0$. 
+
+\begin{claim}[1] Let $p>0$. Then, $H^1(Q, \calO_Q (p,0)) = 0$.
+\end{claim}
+
+\begin{proof} Let $Y = \bbP^1 \times \{ p\mbox{-points} \}$. Then, we have a short exact sequence $0 \to \calO_Q (-p, 0) \to \calO_Q \to \calO_Y \to 0$. Tensor it by $\calO_Q (p,0)$ then, we obtain $0 \to \calO_Q \to \calO_Q (p,0) \to \calO_Y (p,0) \to 0$. Then, from the cohomology long exact sequence, we obtain
+$$0 = H^1(Q, \calO_Q) \to H^1(Q, \calO_Q (p,0)) \to \bigoplus_p H^1(\bbP^1, \calO_{\bbP^1} (p |Y|^2)) \to 0,$$ but, $|Y|^2 = 0$, so, by Serre duality, $H^1(\bbP^1, \calO_{\bbP^1}) \simeq H^0 (\bbP^1, \calO_{\bbP^1} (-2) )^* = 0$. Hence, $H^1(Q, \calO_Q(p,0)) = 0$ for $p>0$. This finishes the proof of Claim 1.
+\end{proof}
+
+By symmetry, we also have $H^1(Q, \calO_Q (0,q)) = 0$ for $q>0$.
+
+\begin{claim} [2] For all $p \geq 0, q \geq 0$, $H^1(Q, \calO_Q (p,q)) = 0$.
+\end{claim}
+
+\begin{proof} If $(p,q) = (0,0)$ or $p=0$ or $q=0$, then, we already know this result, so, assume that $p,q >0$. Tensor the sequence $0 \to \calO_Q (-p, 0) \to \calO_Q  \to \calO_Y \to 0$ with $\calO_Q (p, q)$ to obtain a short exact sequence $0 \to \calO_Q (0,q) \to \calO_Q (p,q) \to \calO_Y (p,q) \to 0$. Then, from the cohomology long exact sequence we have
+$$H^1(Q, \calO_Q (0,q)) \to H^1(Q, \calO_Q (p,q)) \to \bigoplus_p H^1(\bbP^1, \calO_{\bbP^1} (p|Y|^2 + q |Y| . |Z|))$$ but $p |Y|^2 + q |Y|.|Z| = q$ and by Serre duality, $H^1(\bbP^1, \calO_{\bbP^1} (q)) \simeq H^0 (\bbP^1, \calO_{\bbP^1} (-q-2))^* = 0$ as $-q-2 <0$. By Claim 1, we know that $H^1 (Q, \calO_Q (0,q) ) = 0$ so, $H^1(Q, \calO_Q (p,q)) = 0$ consequently. This proves the result.
+\end{proof}
+
+\begin{claim}[3]For any $p \in \bbZ$, $H^1(Q, \calO_Q (p, -1)) \simeq H^1(Q, \calO_Q (0, -1))$.
+\end{claim}
+
+
+\begin{proof}If $p=0$, it is obvious. First consider the case when $p>0$. From the sequence $0 \to \calO_Q (-p, 0) \to \calO_Q \to \calO_Y \to 0$, by tensoring with $\calO_Q (p, -1)$, we obtain $0 \to \calO_Q (0, -1) \to \calO_Q (p, -1) \to \calO_Y (p, -1) \to 0$. Hence, the long exact sequence gives
+$$\bigoplus_p H^0 (\bbP^1, \calO_{\bbP^1} (p|Y|^2 + (-1)|Y|.|Z| = -1) \to H^1(Q, \calO_Q (0, -1))\to H^1(Q, \calO_Q (p, -1)) \to \bigoplus_p H^1( \bbP^1, \calO_{\bbP^1} (-1)).$$ Then, $H^0 (\bbP^1, \calO_{\bbP^1} (-1)) = 0$ and $H^1 (\bbP^1, \calO_{\bbP^1} (-1)) \simeq H^0 (\bbP^1, \calO_{\bbP^1} (-1))^* = 0$, so, $ H^1 (Q, \calO_Q (p, -1)) \simeq H^1(Q, \calO_Q (0, -1))$ indeed.
+
+Now consider the case when $p<0$. let $p' = -p >0$ and let $Y' = \bbP^1 \times \{ p'\mbox{-points} \}$. Then we have $0 \to \calO_Q (-p', 0) \to \calO_Q \to \calO_{Y'} \to 0$ and by tensoring with $\calO_Q (0, -1)$, we obtain $0 \to \calO_Q (-p', -1) \to \calO_Q (0, -1) \to \calO_{Y'} (0, -1) \to 0$. Hence, the long exact sequence gives us
+$$\bigoplus_{p'} H^0 (\bbP^1, \calO_{\bbP^1} (-1)) \to H^1(Q, \calO_Q (-p', -1)) \to H^1(Q, \calO_Q (0, -1)) \to \bigoplus_{p'} H^1(\bbP^1, \calO_{\bbP^1} (-1))$$ and $H^0 (\bbP^1, \calO_{\bbP^1} (-1)) = H^1 (\bbP^1, \calO_{\bbP^1} (-1)) = 0$. This shows that $H^1 (Q, \calO_Q (p, -1)) \simeq H^1(Q, \calP_Q (0, -1))$ for $p<0$.
+\end{proof}
+
+\begin{claim}[4] \begin{enumerate}
+\item [(i)] $H^1(Q, \calO_Q (0, q)) \not = 0$ if $q \leq -2$.
+\item [(ii)] $H^1 (Q, \calO_Q (0, -1)) = 0$.
+\end{enumerate}
+\end{claim}
+
+\begin{proof} Let $p>0$. From $0 \to \calO_Q (-p, 0) \to \calO_Q \to \calO_Y \to 0$, by tensoring with $\calO_Q (0, q)$, we obtain $0 \to \calO_Q (-p, q) \to \calO_Q (0,q) \to \calO_Y (0,q) \to 0$ so that the long exact sequence gives
+$$\bigoplus_p H^0 (\bbP^1, \calO_{\bbP^1} (q)) \to H^1(Q, \calO_Q (-p, q) )\to H^1(Q, \calO_Q (0, q)) \to \bigoplus_p H^1 (\bbP^1, \calO_{\bbP^1} (q)) \to 0.$$
+
+When $q \leq -2$, $H^0 (\bbP^1, \calO_{\bbP^1} (-1) ) = 0$ and $h^1 (\bbP^1 , \calO_{\bbP^1} (q)) = h^0 (\bbP^1, \calO_{\bbP^1} (-q-2)) >0$ so that $H^1 (0, q) \not = 0$. This proves (i) and by symmetry we also have $H^1 (p, 0) \not = 0$ if $p \leq -2$. This proves (3).
+
+When $p = 1, q=0$, we have
+$$k = H^0 (Q, \calO_Q) \overset{\simeq}{\to} H^0 (\bbP^1, \calO_{\bbP^1}) = k \to H^1 (Q, \calO_Q (-1, 0)) \to H^1 (Q, \calO_Q) = 0$$ so that $H^1(Q, \calO_Q (-1, 0)) = 0$. This proves (ii) and similarly we have $H^1 (Q, \calO_Q (0, -1)) = 0$.
+\end{proof}
+
+Now, we prove (2). From V. 1.4.4, the canonical line bundle $K \simeq \calO_Q (-2, -2)$, so, when $a,b<0$, by Serre duality, 
+$$H^1(Q, \calO_Q (a,b)) \simeq H^1(Q, \calO_Q (-a-2, -b-2))^*.$$
+
+If $a, b \leq -2$, then, by Claim 2, this group vanishes.
+
+In case $(a,b) = (0, -1), (-1, 0), (-2, -1), (-1,-2), (-1,-1)$, the previous claims already show it. Hence, it is $0$ for any $a,b<0$. This proves (2). (1) is trivial once we have (2) and the previous claims. 
+
+\item [(b)]
+\begin{enumerate}
+	\item [(1)] For $Y$, $0 \to \calO_Q (-Y) \to \calO_Q \to \calO_Y\to 0$ is exact and $\calO_Q (-Y) \simeq \calO_Q (-a, -b)$. Thus, 
+	$$0 \to H^0 (Q, \calP_Q (-a, -b)) \to H^0 (Q, \calO_Q) \to H^0 (Y, \calO_Y) \to H^1(Q, \calO_Q (-a, -b)) \to 0$$ so, $H^0 (Y, \calO_Y) \simeq H^0 (Q, \calO_Q) \simeq k$. Hence $Y$ has only $1$ connected component, i.e. connected.
+	
+	\item [(2)] Let $\calL$ be a line bundle on $Q$ of type $(a,b)$ with $a>0, b>0$. Then, by II. 7.6.2, $\calL$ is very ample so that it gives an embedding of $Q$ into a projective space $\bbP^N$. Then, by Bertini's theorem (II, 8.18), there is a hyperplane $H \subset \bbP^N$ whose intersection with $Q$ is a nonsingular projective curve $Y$ and this $\calO_Q (Y)$ is isomorphic to $\calL$, i.e. $Y$ is of type $(a,b)$.
+	
+	\item [(3)] By Ex. II 5.14-(d), $X \subset \bbP_A ^r$ is projectively normal if and only if it is normal and for all $n \geq 0$, the natural map $\Gamma(\bbP^r, \calO_{\bbP^r} (n)) \to \Gamma(X, \calO_X (n))$ is surjective. We will use this.
+	
+	Since we have a sequence of closed embeddings $Y \hookrightarrow Q \hookrightarrow \bbP^3$, it gives a commutative diagram
+	$$\xymatrix{ \Gamma( \bbP^3, \calO_{\bbP^3} (n)) \ar[dr] \ar[rr] & & \Gamma(Y, \calO_Y (n)) \\ & \Gamma (Q, \calO_Q (n)) \ar[ru] & }$$ so, if, $\Gamma (Q, \calO_Q(n)) \to \Gamma(Y, \calO_Y (n))$ is not surjective, then, $\Gamma(\bbP^3, \calO_{\bbP^3}(n)) \to \Gamma(Y, \calO_Y (n))$ cannot be surjective.
+	
+	On the other hand, since $Q = V(xy- zw) \subset \bbP^3$, the ideal sheaf of Q $\calI_Q \simeq \calO_{\bbP^3} (-2)$ so that the sequence $0 \to \calO_{\bbP^3} (-2) \to \calO_{\bbP^3} \to \calO_Q \to 0$ is exact. Hence, by tensoring with $\calO_{\bbP^3} (n)$, we have $0 \to \calO_{\bbP^3} (n-2) \to \calO_{\bbP^3} (n) \to \calP_Q (n) \to 0$ whose cohomology long exact sequence gives
+	$$H^0 (\bbP^3, \calO_{\bbP^3} (n)) \to H^0 (Q, \calO_Q (n)) \to H^1 (\bbP^3, \calO_{\bbP^3} (n-2)) = 0.$$ Consequently, the map $\Gamma (\bbP^3, \calO_{\bbP^3} (n)) \to \Gamma (Q, \calO_Q (n))$ is always surjective and it implies that $\Gamma (\bbP^3, \calO_{\bbP^3}(n)) \to \Gamma(Y, \calO_Y (n))$ is surjective if and only if $\Gamma (Q, \calO_Q (n)) \to \Gamma (Y, \calO_Y (n)))$ is surjective if and only if $Y \subset \bbP^3$ is projectively normal, because being nonsingular, $Y$ is already normal.
+	
+	Hence, it remains to show that $\Gamma (Q, \calO_Q (n)) \to \Gamma (Y, \calO_Y (n))$ is surjective if and only if $|a-b|\leq 1$.
+	
+	($\Leftarrow$) Suppose that $|a-b|\leq 1$. Then, from $0 \to \calO_Q (-a, -b) \to \calO_Q \to \calO_Y \to 0$, we obtain $0 \to \calO_Q (n-a, n-b) \to \calO_Q (n,n) \to \calO_Y (n) \to 0$ which gives us
+	$$\Gamma (Q, \calO_Q (n)) \to \Gamma (Y, \calO_Y (n)) \to H^1(Q, \calO_Q (n-a, n-b).$$ But, $|a-b | \leq 1$ means $|(n-a) - (n-b) |\leq 1$ so, by part (a) - (1), $H^1 (Q, \calO_Q (n-a, n-b))$ vanishes and the natural map is surjective.
+	
+	($\Rightarrow$) Conversely, suppose that the natural map is surjective for all $n \geq 0$. Then, the same sequence gives
+	$$\Gamma (Q, \calO_Q(n)) \to \Gamma(Y, \calO_Y (n)) \to H^1(Q, \calO_Q (n-a, n-b)) \to H^1(Q, \calO_Q (n,n))$$ where the last one is $0$ by Claim 2 of (a) and the first map is surjective. Hence, we must have $H^1(Q, \calO_Q (n-a, n-b) ) = 0$ for all $n \geq 0$.
+	
+	Toward contradiction, so, suppose that $|a-b | \geq 2$, i.e. $a \geq b+2$ or $b \geq a + 2$. For the first case, when $n = b$, $n-a \leq -2$ so that by (a)- (3), we have $H^1 (Q, \calO_Q (n-a, n-b)) \not = 0$, which is a contradiction. For the second case, we will have the same contradiction. Hence $|a-b | \leq 1$.
+	
+	Hence, a nonsingular $Y \subset Q$ of type $(a,b)$ with $a,b >0$ is projectively normal in $\bbP^3$ if and only if $|a-b | \leq 1$.
+	\end{enumerate}
+\item [(c)] First, we reduce this problem to a nonsingular $Y$. By part (b)-(2), $Y$ is linearly (hence rationally) equivalent to a nonsingular projective curve lying on $Q$ and this new curve has the same bidegree. Also, since this is a rational equivalence, they belong to the same flat family, so, the arithmetic genera are unchanged (which are defined to be $h^1(Y, \calO_Y)$). Hence, we may replace $Y$ by its linearly equivalent nonsingular $Y$. Then, for this $Y$, the arithmetic genus $p_a (Y) = p_g (Y)$, the geometric genus, and we can compute it in terms of $a,b$ as follows: $\calO_Q (Y) = \calO_Q (a,b)$ and the first Chern class $c_1 (N_{Q/Y}) = \deg _Y (N_{Q/Y}) = Y . Y = (ah + bk)^2 = ab (h.k) + ba (k.h) = 2ab$ where $h, k$ are generators of $\pic Q \simeq \bbZ \oplus \bbZ$ with intersection product $h^2 = k^2 = 0$, $h.k = k.h = 1$. 
+
+On the other hand, $T_{\bbP^1 \times \bbP^1 } = \left( \Omega _{\bbP^1 \times \bbP^1} ^1 \right)^*$ implies that $c_1 \left( T_{\bbP^1 \times \bbP^1 } \right) = c_1 \left( \wedge ^2 T_{\bbP^1 \times \bbP^1 } \right) = c_1 \left( K_{\bbP^1 \times \bbP^1 } ^* \right) = - (c_1 (K_{\bbP^1}), c_1 (K_{\bbP^1})) = - (2 \cdot 0 - 2, 2 \cdot 0 - 2 ) = (2,2) = 2h + 2k$ and so, $c_1 (T_Q |_Y) = \deg _Y \left( T_Q \otimes_{\calO_Q} \calO_C \right) = \deg_Y \left( \wedge^2 T_Q \otimes_{\calO_Q} \calO_C \right) = [K_Q ^*] \cdot (ah + bk) = (2h + 2k) \cdot ( ah + bk) = 2 (a+b)$.
+
+Of course, $c_1 (T_Y) = - \deg _Y (K_Y) = - (2g - 2) = 2 - 2g$. Hence the short exact sequence
+$$0 \to T_Y \to T_Q |_Y \to N_{Q/Y} \to 0$$ gives $c_1 (T_Y) + c_1 (N_{Q/Y}) = c_1 (T_Q |Y)$ and it is equivalent to $2 (a+b) = 2 - 2g + 2ab$, i.e. $g = ab - a - b +1 = (a-1)(b-1)$. This proves the result.
+\end{enumerate}
+
+\subsection*{5.7}
+\subsection*{5.8}
+\subsection*{5.9}
+\subsection*{5.10}
+
+\end{document}
+

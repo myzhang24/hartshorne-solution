@@ -1,0 +1,109 @@
+%This is the solution to section 4.1 Hartshorne's algebraic geometry
+\documentstyle[amssymb]{article}
+\input amssym.def
+\input amssym
+\begin{document}
+
+{\bf Solution to Math256a section IV.1}
+
+1.1) Choose a positive integer $n$ larger than $deg(K)=2g-2$, and
+$g$. By Riemann-Roch theorem, $l(nP)=n+1-g>1$. Thus there exists a
+non-constant rational function $f$ over $X$ which has a pole at $P$ of
+order $n>0$, and regular everywhere else. 
+
+1.2) Induction on $r$. The case $r=1$ follows from the previous
+exercise. Now assume there is a rational function $f$ having poles at
+each of $P_1,\cdots, P_{r-1}$ of positive orders and regular
+everywhere else. Since $f$ has no pole at $P_r$, we may let $n_r\geq
+0$ be the coefficient of $P_r$ in $(f)$ (as a divisor). We may choose
+a rational function $g$ which has a pole at $P_r$ of order $>n_r$ and
+regular everywhere else (Cf. 1.1). Then $f\cdot g$ has poles precisely
+at $P_1,
+\cdots, P_r$ of positive orders.
+
+1.5) Since $D$ is effective, $|K-D|\subseteq |K|$. Therefore
+$l(K-D)\leq l(K)$. By Riemann-Roch theorem,
+$l(D)=l(K-D)-g+deg(D)+1\leq l(K)-g+deg(D)+1=deg(D)+1$, since
+$l(K)=g$. It follows that $dim(|D|)=l(D)-1\leq deg(D)$.
+Proof showes that the equality holds iff $l(K-D)=l(K)=g$. 
+If $D=0$, it is trivially true. If $g=0$, $deg(K)=-2$, so
+$deg(K-D)<0$. Hence $l(K-D)=0$. It follows that $l(K-D)=l(K)=0$.
+
+Conversely, suppose $l(K-D)=l(K)=g$. Suppose $D\not =0$. Let $P\in
+Supp(D)$. Then $|K-D|\subseteq |K-P| \subseteq |K|$, thus $l(K-D)\leq
+l(K-P) \leq l(K)$, and hence they are all equal. By Riemann-Roch,
+$l(P)=l(K-P)+2-g=2$. Therefore there is a rational function $f$ with
+one pole at $P$ of order $1$ and regualr everywhere else. This
+function defines an isomorphism from $X$ to ${\Bbb P}^1$, thus
+$g(X)=g({\Bbb P}^1)=0$.
+
+1.6) Let $P$ be a point on $X$. By Riemann-Roch,
+$$l((g+1)P)=l(K-(g+1)P)+(g+1)+1-g\geq 2.$$ Thus there exists a
+rational function $f$ with a pole at $P$ of order $g+1$ and regular
+everywhere else. This ration function induces a morphism $f:
+X\rightarrow {\Bbb P}^1$ by sending $(g+1)P$ to ${\infty}\in {\Bbb
+P}^1$. By II Prop. 6.9, $deg(f)=deg((g+1)P)=g+1$.
+
+1.7) (a) It is clear that $deg(K)=2g-2=2$ and
+$dim(|K|)=l(K)-1=1$. Suppose $P$ is a base point of $|K|$, then
+$l(K-P)=l(K)=2$ by definition. By Riemann-Roch, $l(P)=2+2-2=2$. Thus
+there exist a non-constant rational function $f$ with a pole at $P$ of
+order $1$ and regular everywhere else. As we did before, $f$ defines
+an isomorphism from $X$ to ${\Bbb P}^1$, contradiction since $X$ has
+genus $2$ not $0$. Therefore $|K|$ has no base point.  Alternatively,
+one may apply directly Prop 3.1 on page 307.  By II, 7.8.1, there is a
+finite morphism $f: X\rightarrow {\Bbb P}^1$ with degree equal to
+$deg(K)=2$. Therefore $X$ must be a hyperelliptic curve.
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

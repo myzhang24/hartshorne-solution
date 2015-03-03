@@ -1,0 +1,65 @@
+%\documentclass[11pt]{article}          % required in all documents
+\documentclass[12pt]{amsart}           % required in all documents
+\usepackage{epsfig}                     % a package to include PS figures
+\usepackage{amscd}
+\newcommand{\tuborg}{\left\{\begin{array}{ll}}
+\newcommand{\sluttuborg}{\end{array}\right.}
+ 
+  
+\setlength{\textwidth}{6in}             % Space saving measures
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.5in}
+\renewcommand{\baselinestretch}{1}
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+   
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}                                    
+
+\begin{document}
+
+\begin{center}
+\bf
+\large Algebraic Geometry by Robin Hartshorne\\
+\end{center}
+\begin{center}
+Exercises solutions by Jinhyun Park\\
+\end{center}
+\vskip1cm
+Warning!!!!!!\\
+1)This material is not for sale.\\
+2)This is just for personal use only.\\
+3)No commercial purpose please.\\
+4)Never Never Ever read this solution unless you tried problems quite long time and gave up. Doing so may impair your ability to think and solve problems.\\
+
+\vskip1.5cm
+
+\subsection*{ Chapter 4.Curves, Section 1.Riemann-Roch Theorem}
+
+\subsubsection*{ 1.} 
+Choose $Q \in C$. Choose $n$ big enough so that deg $n(2P-Q) > 2g-2,\ g,\ 1$. $\Rightarrow h^0 (n(2P-Q)) = 1-g+n(2P-Q) >1 \Rightarrow \exists$ effective divisor $D \in |n(2P-Q)| \Rightarrow \exists f \in K(C)$ such that $D+nQ-2nP = (f)$. Since deg $D=n$, so $D$ cannot cancel $-2nP$ i.e. $f$ has a pole only at $P$.//
+
+\subsubsection*{ 2.}
+
+ Let $F=\{P_1 , \cdots , P_r\}$. Multiplying functions of Ex.IV.1.1 might give cancellation of poles and zeros, so we need slightly different approach.\\
+Let $Q \in C-F$. Consider $D'=n(P_1 + \cdots P_r - (r-1)Q)$. Choose $n > 2g-2,\ g$. Then, $\exists D \in |D'|$ i.e. $\exists f\in K(c)$ such that $D+(r-1)Q - nP_1 - \cdots -nP_r = (f)$. Note that deg $D = n$. Each $P_i$ occurs with order $-n$ so, if $P_i \in {\rm Supp} D$, then either (i) ${\rm ord}_{P_i} D <n$ or (ii) $D= nP_i$ for some $i$, in this case, WMA $i=1$ WLOG.
+\begin{quote}
+For (i) there is no problem.\\
+For (ii) $f$ has ples only at $P_2, \cdots, P_r$ not at $P_1$. By Ex.IV.1.1, $\exists g \in K(C)$ which has a pole only at $P_1$. Let ${\rm ord}_{P_i} g = n_i \ 2 \leq i \leq r$. Then, if we choose $m > 1, n_2, \cdots, n_r$, then, $f^m g$ has poles at and only at $F$.//
+\end{quote}
+
+\subsubsection*{ 3.}
+
+Proof 1) By I-(6.10), there is a projective nonsingular curve $\bar{X}$ over $k$ such that $X$ is an open subset of $\bar{X}$, i.e. $\bar{X} -X$ is a finite set, say, $\{P_1, \cdots, P_r \} \not = \phi$ because $X$ is not proper.\\
+Then, by Ex.IV.1.2, $\exists f \in k(\bar{X}) = k(X)$ such that $f$ has poles only at $P_1 , \cdots, P_r$.\\
+We can consider $f \in k(\bar{X})$ as a morphism $f : \bar{X} \to \mathbb{P}^1$.Then, $f^{-1} (\mathbb{A}^n) = X$, so, $g=f|_X : X \to \mathbb{A}^1$ is a morphism.\\
+$f(\bar(X))$ is proper over $k$(because $\bar{X}$ is proper) and irreducible and, $f(\bar{X}) \not = $a point. Hence, $f(\bar{X}) = \mathbb{P}^1$. And by (II-6.8), $f$ is a finite morphism, in particular, affine morphism. Hence, $f^{-1} (\mathbb{A}^1) =X$ is affine.//\\
+\\
+Proof 2) As above, let $F=\{P_1 , \cdots , P_r\}= \bar{X} -X$. Choose $m$ such that $mr>2g$ Then, $D = m(P_1 + \cdots P_r$ has a degree $>2g$, so by (3), it is very ample. Then, it gives an embedding of $\bar{X}$ into a projective space $\mathbb{P}^N$ for some $N$, and $D= \bar{X}.H$ for a hyper plane $H$ of  $\mathbb{P}^N$. Then, $\bar{X}-F =$ a closed subscheme of $\mathbb{A}^N = \mathbb{P}^N - H$ which is affine, so, $X=\bar{X}-F$ is also affine.//
+\end{document}
+

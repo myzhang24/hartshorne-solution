@@ -1,0 +1,86 @@
+\def\Z{{\bf Z}}
+{\bf Hartshorne, Chapter 1.6} Answers to exercises. \hfill REB 1994
+\item{6.1a} By 6.7, $Y$ is isomorphic to an open subset of some
+projective space, and therefore to a proper open subset of $P^1$, and
+therefore to some open subset of $A^1$.
+\item{6.1b} We can assume $Y=A^1\backslash \{a_1,\ldots,a_n\}$.
+Then $Y$ is isomorphic to the subset 
+$y(x-a_1)\cdots(x-a_n)=0$ of $A^1$. 
+\item{6.1c} Any element of $A(Y)$ can be written uniquely 
+in the form $a(x-b_1)^{c_1}\cdots (x-b_n)^{c_n}$
+with $c_i$ some integer, and $c_i$ positive if $b_i$
+is not one of $a_1,\ldots, a_n$. Hence $A(Y)$ is
+a U.F.D. with primes $x-b_i$ for $b_i\ne a_1,\ldots,a_n$. 
+\item{6.2a} Singular points must satisfy 
+$y^2-x^3+x=0$, $2y=0$, $-3x^2+1=0$, and if $k$ does not have characteristic
+2 this implies $y=0$, $x=0,\pm 1$ which contradicts
+$-3x^2+1=0$. The polynomial $y^2-x^3+x$ is irreducible,
+because if it were reducible then its two factors
+would intersect somewhere (possibly at infinity) 
+and this point of intersection would be singular. (We should really 
+also check that the curve has no singular points at infinity!)
+As $Y$ is nonsingular, all points of $Y$ are normal, 
+so $Y$ is normal, so $A(Y)$ is integrally closed. 
+\item{6.2b} $k[x]$ is clearly a polynomial ring, 
+and $y^2\in k[x]$ so $y$ is in the integral closure of 
+$k[x]$. So $A$ is contained in  the integral closure of
+$k[x]$, and is therefore equal to the integral closure
+because $A$ is integrally closed. 
+\item{6.2c} The automorphism $x\mapsto x$, $y\mapsto -y$
+is an automorphism of $k[x,y]$ which maps the ideal
+$(y^2-x^3+x)$ to itself and therefore induces an automorphism 
+of $A$ (fixing $x$). Any element of $A$ can be written as
+$yf(x)+g(x)$, so its norm is $(g(x)+yf(x))(g(x)-yf(x))
+=g(x)^2-f(x)^2(x^3-x)\in k[x]$. The remaining properties
+of $N(a)$ are trivial to check. 
+\item{6.2d} If $a$ is a unit then $N(a)$ is also 
+a unit (with inverse $N(1/a)$) so must be an element of $k$
+as these are the only units in $k[x]$. 
+But if $a=yf(x)+g(x)$, then its norm is
+$g(x)^2-f(x)^2(x^3-x)$ and if $f$ is nonzero 
+then the second term has odd degree while the first has
+even degree so their sum cannot be a constant. Hence $f=0$,
+and $g^2$ is a constant, so $a$ is a constant. 
+To show that $A$ is not a UFD, note that $x$ and $y$
+are irreducible (this follows easily by looking
+at their norms $x^2$ and $x^3-x$ and noting that 
+there are no elements whose norms is a degree 1 polynomial). 
+But $x|y^2$ and $y$ is not a unit times $x$, so $A$ cannot be a UFD. 
+\item{6.2e} $Y$ is clearly not $P^1$, and by exercise 6.1c
+it is not $A^1$ minus a finite number of points, so
+$Y$ is not rational. 
+\item{6.3a} Map $A^2\backslash (0,0)$ to $P^1$ 
+by $(x,y)\mapsto (x:y)$. 
+\item{6.3b} Map $P^1\backslash \infty$ to $A^1$ in the
+obvious way. 
+\item{6.4} Any nonconstant rational map from 
+$Y$ to $P^1$ induces $\phi^*$ from $k(x)$ to $k(Y)$, which is
+injective.  Then every valuation ring of $k(x)$ can be extended to one
+of $k(Y)$, so every point of $P^1$ is the image of a point of $Y$. For
+every $p\in P^1$, $\phi^{-1}(P)$ is closed. If it was infinite it
+would have to be all of $Y$ as the closure of any infinite subset of
+$Y$ is $Y$, so the map $\phi$ would have to be constant.
+\item{6.5} We know that $\bar X$ is a curve. If $x\in \bar X-X$ then
+by 6.8 the map from $X$ to $X$ can be extended to 
+a map from $x\cup X$ to $X$ which is impossible. (Alternatively 
+this problem follows from the fact that the image of
+any projective variety under a regular map is closed.)
+\item{6.6a} The inverse of $x\mapsto (ax+b)/(cx+d)$
+is $x\mapsto (dx-b)/(a-cx)$ if $ad-bc\ne 0$. 
+\item{6.6b} Follows from corollary 6.12 (i) and (iii). 
+\item{6.6c} Any automorphism of $k(x) $
+maps $x$ to $f(x)/g(x)$ for some coprime polynomials $f$ and $g$,
+and $x=h(f(x)/g(x))$ for some rational function $h$. Therefore
+$f(x)/g(x)$ is not equal to $f(y)/g(y)$ if $x\ne y$. But if
+$f$ or $g$ have degree greater than 1 then $g(y)a=f(y)$
+will usually have more than one solution for $y$. Hence
+$f$ and $g$ have degrees at most 1, and the result follows
+from part (a).
+\item{6.7} Any map from one curve to the other can be extended
+to a map from $P^1$ to $P^1$, so the points $P_i$
+must be mapped to the points $Q_j$, so $r=s$. The converse is true
+if and only if $r\le 3$, because any set of at most 3 distinct points in $P^1$ 
+can be mapped to any other set of the same size under $Aut(P^1)$, 
+but this is not true for sets of 4 or more points. 
+\bye
+

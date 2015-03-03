@@ -1,0 +1,537 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Homework assignment 2
+%%%%
+
+\documentclass[12pt]{article}
+\include{defs}
+\author{William A. Stein}
+\title{Homework 2, MAT256B\\Chapter III, 4.8, 4.9, 5.6}
+\date{April 4, 1996}
+\begin{document}
+\maketitle
+
+\section{Homework}
+
+\begin{exercise}
+{\bfseries (4.8)} \quad {\em Cohomological Dimension}. Let $X$ be a neotherian separated scheme.
+We define the {\em cohomological dimension} of $X$, denoted $\cd(X)$, to
+be the least integer $n$ such that $H^{i}(X,\F)=0$ for all quasi-coherent
+sheaves $\F$ and all $i>n$. Thus for example, Serre's theorem (3.7) says
+that $\cd(X)=0$ if and only if $X$ is affine. Grothendieck's theorem (2.7)
+implies that $\cd(X)\leq\dim X$. 
+
+(a) In the definition of $\cd(X)$, show that it is sufficient to 
+consider only coherent sheaves on $X$. 
+
+(b) If $X$ is quasi-projective over a field $k$, then it is 
+even sufficient to consider only locally free coherent sheaves
+on $X$. 
+
+(c) Suppose $X$ has a covering by $r+1$ open affine subsets. Use
+\cech{} cohomology to show that $\cd(X)\leq r$. 
+
+(d) If $X$ is a quasi-projective variety of dimension $r$ over a field
+$k$, then $X$ can be covered by $r+1$ open affine subsets. Conclude
+that $\cd(X)\leq \dim X$. 
+
+(e) Let $Y$ be a set-theoretic complete intersection of 
+codimension $r$ in $X=\P_k^n$. Show that $\cd(X-Y)\leq r-1$. 
+\end{exercise}
+
+\begin{proof}
+(a) It suffices to show that if, for some $i$,
+$H^i(X,\F)=0$ for all coherent sheaves $\F$,
+then $H^i(X,\F)=0$ for all quasi-coherent sheaves $\F$. 
+Thus suppose the $i$th cohomology of all coherent
+sheaves on $X$ vanishes and let $\F$ be quasi-coherent.
+Let $(\F_{\alpha})$ be the collection of coherent subsheaves
+of $\F$, ordered by inclusion. Then by (II, Ex. 5.15e)
+$\varinjlim\F_{\alpha}=\F$, so by (2.9)
+$$H^i(X,\F)=H^i(X,\varinjlim \F_{\alpha})=\varinjlim H^i(X,\F_{\alpha})=0.$$
+
+(b) Suppose $n$ is an integer and $H^i(X,\F)=0$ for all coherent
+locally free sheaves $\F$ and integers $i>n$. We must show
+$H^i(X,\F)=0$ for all coherent $\F$ and all $i>n$, then applying
+(a) gives the desired result. Since $X$ is quasiprojective
+there is an open immersion 
+     $$i:X\hookrightarrow Y\subset \P_k^n$$
+with $Y$ a closed subscheme of $\P_k^n$ and $i(X)$ open in $Y$.
+By (II, Ex. 5.5c) the sheaf $\F$ on $X$ pushes forward to a coherent
+sheaf on $\F'=i_{*}\F$ on $Y$.
+By (II, 5.18) we may write $\F'$ as a quotient of a locally 
+free coherent sheaf $\E'$ on $Y$. Letting $\R'$ be the kernel
+gives an exact sequence 
+$$0\into\R'\into\E'\into\F'\into 0$$
+with $R'$ coherent (it's the quotient of coherent sheaves). 
+Pulling back via $i$ to $X$ gives an exact sequence 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is probably possible because $i$ is an
+%% open immersion, but there are definately some
+%% details to check!! 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+$$0\into\R\into\E\into\F\into 0$$ 
+of coherent sheaves on $X$ with $E$ locally free.  
+The long exact sequence of cohomology shows
+that for $i>n$, there is an exact sequence
+$$0=H^i(X,\E)\into H^i(X,\F) \into H^{i+1}(X,\R) \into 
+         H^{i+1}(X,\E)=0.$$
+$H^i(X,\E)=H^{i+1}(X,\E)=0$ because we have assumed that, for $i>n$,
+cohomology vanishes on locally free coherent sheaves.
+Thus $H^i(X,\F)\isom H^{i+1}(X,\R)$. But if $k=\dim X$, then
+Grothendieck vanishing (2.7) implies that
+$H^{k+1}(X,\R)=0$ whence $H^{k}(X,\F)=0$. 
+But then applying the above argument with $\F$ replaced
+by $\R$ shows that $H^{k}(X,\R)=0$ which implies $H^{k-1}(X,\F)=0$
+(so long as $k-1>n$). Again, apply the entire argument
+with $\F$ replaced by $\R$ to see that $H^{k-1}(X,\R)=0$. 
+We can continue this descent and hence show that 
+$H^{i}(X,\F)=0$ for all $i>n$.
+
+(c) By (4.5) we can compute cohomology by using the \cech{}
+complex resulting from the cover $\sU$ of $X$ by $r+1$ open
+affines. By definition $\sC^p=0$ for all $p>r$ since
+there are no intersections of $p+1\geq r+2$ distinct open sets 
+in our collection of $r+1$ open sets. The \cech{} complex is
+$$\sC^0\into\sC^1\into\cdots\into\sC^r\into\sC^{r+1}=0\into 0\into 0\into \cdots.$$
+Thus if $\sF$ is quasicoherent then $\cH^p(\sU,\sF)=0$ 
+for any $p>r$ which implies that $\cd(X)\leq r$.  
+
+(d) I will first present my solution in the special
+case that $X$ is projective. The more general case when $X$ is 
+quasi-projective is similiar, but more complicated, and will 
+be presented next. 
+Suppose $X\subset\P^n$ is a projective variety of dimension $r$. 
+We must cover $X$ with $r+1$ open affines. Let $U$ be nonempty
+open affine subset of $X$. Since $X$ is irreducible, the irreducible
+components of $X-U$ all have codimension at least one in $X$. 
+Now pick a hyperplane $H$ which doesn't
+completely contain any irreducible component of $X-U$. We can do
+this by choosing one point $P_i$ in each of the finitely
+many irreducible components of $X-U$ and choosing a hyperplane
+which avoids all the $P_i$. This can be done because the field
+is infinite (varieties are only defined over algebraically
+closed fields) so we can always choose a vector not orthogonal
+to any of a finite set of vectors.
+Since $X$ is closed in $\P^n$ and $\P^n-H$ is affine, 
+$(\P^n-H)\intersect X$ is an open affine subset of $X$.
+Because of our choice of $H$, $U\union((\P^n-H)\intersect X)$ is only 
+missing codimension two closed subsets of $X$. Let $H_1=H$
+and choose another hyperplane $H_2$ so it doesn't completely
+contain any of the (codimension two) irreducible components
+of $X-U-(\P^n-H_1)$. Then $(\P^n-H_2)\intersect X$ is open
+affine and $U\union((\P^n-H_1)\intersect X)\union((\P^n-H2)\intersect X)$  
+is only missing codimension three closed subsets of $X$.
+Repeating this process a few more times yields 
+hyperplanes $H_1,\cdots,H_r$ so that 
+$$U, (\P^n-H_1)\intersect X, \ldots, (\P^n-H_r)\intersect X$$ 
+form an open affine cover of $X$, as desired.
+
+Now for the quasi-projective case. Suppose $X\subset\P^n$ is 
+quasi-projective. From (I, Ex. 3.5) we know that $\P^n$ minus
+a hypersurface $H$ is affine. Note that the same proof
+works even if $H$ is a union of hypersurfaces. We now
+proceed with the same sort of construction as in the projective
+case, but we must choose $H$ more cleverly to insure
+that $(\P^n-H)\intersect{}X$ is affine. Let $U$ be a nonempty  
+affine open subset of $X$. As before pick a hyperplane which 
+doesn't completey contain any irreducible component of $X-U$.
+Since $X$ is only quasi-projective we can't conclude that
+$(\P^n-H)\intersect{}X$ is affine. But we do know that
+$(\P^n-H)\intersect{}\overline{X}$ is affine. Our strategy is
+to add some hypersurfaces to $H$ to get a union of hypersurfaces $S$ so that 
+$$(\P^n-S)\intersect{}\overline{X}=(\P^n-S)\intersect{}X.$$
+But, we must be careful to add these hypersurfaces in such a
+way that $((\P^n-S)\intersect{}X)\union U$ is missing only codimension
+two or greater subsets of $X$. We do this as follows. For each
+irreducible component $Y$ of $\overline{X}-X$ choose a hypersurface
+$H'$ which completely contains $Y$ but which does not completely
+contain any irreducible component of $X-U$. That this can be done
+is the content of a lemma which will be proved later (just pick a point
+in each irreducible component and avoid it). Let $S$
+by the union of all of the $H'$ along with $H$. Then 
+$\P^n-S$ is affine and so
+$$(\P^n-S)\intersect{}X=(\P^n-S)\intersect{}\overline{X}$$
+is affine. Furthermore, $S$ properly intersects all
+irreducible components of $X-U$, so 
+$((\P^n-S)\intersect{}X)\union U$ is missing only codimension
+two or greater subsets of $X$. Repeating this process
+as above several times yields the desired result because
+after each repetition the codimension of the resulting
+pieces is reduced by 1.  
+\begin{lem}
+If $Y$ is a projective variety and $p_1,\ldots,p_n$ is a finite
+collection of points not on $Y$, 
+then there exists a (possibly reducible) hypersurface $H$ containing
+$Y$ but not containing any of the $p_i$. 
+\end{lem}
+By a possibly reducible hypersurface I mean a union of irreducible
+hypersurfaces, not a hypersurface union higher codimension varieties. 
+\begin{proof}
+This is obviously true and I have a proof, but I think there
+is probably a more algebraic proof. Note that $k$ is infinite
+since we only talk about varieties over algebraically closed fields.  
+Let $f_1,\cdots,f_m$ be defining equations for $Y$. Thus
+$Y$ is the common zero locus of the $f_i$ and not all $f_i$ vanish
+on any $p_i$. I claim that we can find a linear combination
+$\sum a_i f_i$ of the $f_i$ which doesn't vanish on any $p_i$. 
+Since $k$ is infinite and not all $f_i$ vanish on $p_1$, 
+we can easily find $a_i$ so that $\sum a_i f_i(p_1)\neq 0$ 
+and all the $a_i\neq 0$. If $\sum a_i f_i(p_2)=0$ then,
+once again since $k$ is infinite, we can easily ``jiggle''
+the $a_i$ so that $\sum a_i f_i(p_2)\neq 0$ and 
+$\sum a_i f_i(p_1)$ is still nonzero. Repeating this same
+argument for each of the finitely many points $p_i$ gives
+a polynomial $f=\sum a_i f_i$ which doesn't vanish on any $p_i$. 
+Of course I want to use $f$ to define our
+hypersurface, but I can't because $f$ might not be homogeneous. 
+Fortunately, this is easily dealt with 
+by suitably multiplying the various $f_i$ by the defining equation
+of a hyperplane not passing through any $p_i$, then repeating the
+above argument. Now let $H$ be the hypersurface defined by $f=\sum a_i f_i$.
+Then by construction $H$ contains $Y$ and $H$ doesn't
+contain any $p_i$. 
+\end{proof}
+
+
+(e) Suppose $Y$ is a set-theoretic complete intersection of codimension
+$r$ in $X=\P_k^n$. Then $Y$ is the intersection of $r$ hypersurfaces,
+so we can write $Y=H_1\intersect\cdots\intersect{}H_r$ where 
+each $H_i$ is a hypersurface. By (I, Ex. 3.5) $X-H_i$ is affine for
+each $i$, thus 
+$$X-Y=(X-H_1)\union\cdots\union(X-H_r)$$
+can be covered by $r$ open affine subsets. By (c) this
+implies $\cd(X-Y)\leq r-1$ which completes the proof.  
+\end{proof}
+
+
+\begin{exercise}
+{\bfseries (4.9)} Let $X=\spec k[x_1,x_2,x_3,x_4]$ be affine four-space
+over a field $k$. Let $Y_1$ be the plane $x_1=x_2=0$ and let $Y_2$
+be the plane $x_3=x_4=0$. Show that $Y=Y_1\union Y_2$
+is not a set-theoretic complete intersection in $X$. Therefore
+the projective closure $\overline{Y}$ in $\P_k^4$ is not
+a set-theoretic complete intersection.
+\end{exercise}
+\begin{proof}
+By (Ex. 4.8e) it suffices to show that 
+$H^2(X-Y,\so_{X-Y})\neq 0$.  
+Suppose $Z$ is a closed subset of $X$, then by (Ex. 2.3d), 
+for any $i\geq 1$, there is an exact sequence 
+$$H^i(X,\sox)\into H^i(X-Z,\so_{X-Z})\into
+  H_{Z}^{i+1}(X,\sox)\into H^{i+1}(X,\sox).$$
+By (3.8), $H^i(X,\sox)=H^{i+1}(X,\sox)=0$ so 
+$H^i(X-Z,\so_{X-Z})=H_{Z}^{i+1}(X,\sox)$.
+Applying this with $Z=Y$ and $i=2$ shows that
+$$H^2(X-Y,\so_{X-Y})=H_{Y}^3(X,\sox).$$ Thus
+we just need to show that $H_{Y}^3(X,\sox)\neq 0$.
+
+Mayer-Vietoris (Ex. 2.4) yields an exact sequence
+\begin{align*}
+H^3_{Y_1}(X,\sox)\oplus{}H^3_{Y_2}(X,\sox)\into{}H^3_Y(X,\sox)\into\\
+H^4_{Y_1\intersect{}Y_2}(X,\sox)\into{}
+H^4_{Y_1}(X,\sox)\oplus{}H^4_{Y_2}(X,\sox)
+\end{align*}
+As above, $H^3_{Y_1}(X,\sox)=H^2(X-Y_1,\so_{X-Y_1})$. 
+But $X-Y_1$ is a set-theoretic complete intersection 
+of codimension $2$ so $\cd(X-Y_1)\leq 1$,
+whence $H^2(X-Y_1,\so_{X-Y_1})=0$. Similiarly
+$$H^2(X-Y_2,\so_{X-Y_2})=H^3(X-Y_1,\so_{X-Y_1})
+=H^3(X-Y_2,\so_{X-Y_2})=0.$$ Thus from the above exact
+sequence we see that
+$H^3_Y(X,\sox)=H^4_{Y_1\intersect{}Y_2}(X,\sox).$
+
+Let $P=Y_1\intersect{}Y_2=\{(0,0,0,0)\}$. 
+We have reduced to showing that 
+$H^4_{P}(X,\sox)$ is nonzero. Since $H^4_{P}(X,\sox)=H^3(X-P,\so_{X-P})$
+we can do this by a direct computation of $H^3(X-P,\so_{X-P})$ using 
+\cech{} cohomology. Cover $X-P$ by the affine
+open sets $U_i=\{x_i\neq{}0\}$. Then the \cech{} complex is
+$$\begin{array}{l}
+k[x_1,x_2,x_3,x_4,x_1^{-1}]\oplus\cdots\oplus  
+k[x_1,x_2,x_3,x_4,x_4^{-1}]\xrightarrow{d_0}\\
+k[x_1,x_2,x_3,x_4,x_1^{-1},x_2^{-1}]\oplus\cdots\oplus  
+k[x_1,x_2,x_3,x_4,x_3^{-1},x_4^{-1}]\xrightarrow{d_1}\\
+k[x_1,x_2,x_3,x_4,x_1^{-1},x_2^{-1},x_3^{-1}]\oplus\cdots\oplus  
+k[x_1,x_2,x_3,x_4,x_2^{-1},x_3^{-1},x_4^{-1}]\xrightarrow{d_2}\\
+k[x_1,x_2,x_3,x_4,x_1^{-1},x_2^{-1},x_3^{-1},x_4^{-1}]  
+\end{array}$$
+Thus 
+$$H^3(X-P,\so_{X-P})
+       = \{x_1^ix_2^jx_3^kx_4^{\ell}:i,j,k,\ell<0\}\neq 0.$$
+\end{proof}
+
+
+\begin{exercise}
+{\bfseries (5.6)} {\em Curves on a Nonsingular Quadric Surface.}
+Let $Q$ be the nonsingular quadric surface $xy=zw$ in $X=\P_k^3$
+over a field $k$. We will consider locally principal closed
+subschemes $Y$ of $Q$. These correspond to Cartier divisors on
+$Q$ by (II, 6.17.1). On the other hand, we know that 
+$\pic Q\isom\Z\oplus\Z$, so we can talk about the
+{\em type} (a,b) of $Y$ (II, 6.16) and (II, 6.6.1). Let us denote
+the invertible sheaf $\sL(Y)$ by $\so_Q(a,b)$. Thus
+for any $n\in\Z$, $\so_Q(n)=\so_Q(n,n).$
+
+[{\bf Comment!} In my solution, a subscheme $Y$ of type 
+$(a,b)$ corresponds to the invertible sheaf $\soq(-a,-b)$. 
+I think this is reasonable since then $\soq(-a,-b)=\sL(-Y)=\sI_Y$.  
+The correspondence is not clearly stated in the problem,
+but this choice works.] 
+
+\noindent(a) Use the special case $(q,0)$ and $(0,q)$, with $q>0$, when $Y$
+is a disjoint union of $q$ lines $\P^1$ in $Q$, to show:
+\begin{enumerate}
+\item if $|a-b|\leq 1$, then $H^1(Q,\so_Q(a,b))=0$;
+\item if $a,b<0$, then $H^1(Q,\so_Q(a,b))=0$;
+\item if $a\leq-2$, then $H^1(Q,\so_Q(a,0))\neq 0)$.
+\end{enumerate}
+{\em Solution.}
+First I will prove a big lemma in which I explicitely
+calculate $H^1(Q,\soq(0,-q))$ and some other things
+which will come in useful later. Next I give an independent
+computation of the other cohomology groups (1), (2).  
+\par\begin{lem} Let $q>0$, then 
+$$\dim_k H^1(Q,\soq(-q,0))=H^1(Q,\soq(0,-q))=q-1.$$
+Furthermore, we know all terms in the long exact
+sequence of cohomology associated with the short exact sequence
+$$0\into\soq(-q,0)\into\soq\into\sO_Y\into{}0.$$
+\end{lem}
+\begin{proof}
+We prove the lemma only for $\soq(-q,0)$, since the argument
+for $\soq(0,-q)$ is exactly the same. Suppose $Y$ is the disjoint
+union of $q$ lines $\P^1$ in $Q$ so $\sI_Y=\soq(-q,0)$.  
+The sequence 
+$$0\into\soq(-q,0)\into\soq\into\sO_Y\into{}0$$
+is exact. The associated long exact sequence of cohomology is
+\begin{align*}
+0\into&\Gamma(Q,\soq(-q,0))\into\Gamma(Q,\soq)\into\Gamma(Q,\sO_Y)\\
+\into& H^1(Q,\soq(-q,0))\into{}H^1(Q,\soq)\into{}H^1(Q,\sO_Y)\\
+\into& H^2(Q,\soq(-q,0))\into{}H^2(Q,\soq)\into{}H^2(Q,\sO_Y)\into 0
+\end{align*}
+We can compute all of the terms in this long exact sequence. For
+the purposes at hand it suffices to view the summands as $k$-vector
+spaces so we systematically do this throughout. 
+Since $\soq(-q,0)=\sI_Y$ is the ideal sheaf of $Y$, 
+its global sections must vanish on $Y$. But $\sI_Y$ is a subsheaf
+of $\sO_Q$ whose global sections are the constants. Since the
+only constant which vanish on $Y$ is $0$, $\Gamma(Q,\soq(-q,0))=0$.
+By (I, 3.4), $\Gamma(Q,\soq)=k$. Since $Y$ is the disjoint union
+of $q$ copies of $\P^1$ and each copy has global sections $k$,
+$\Gamma(Q,\sO_Y)=k^{\oplus{}q}$. Since $Q$ is a complete intersection of
+dimension 2, (Ex. 5.5 b) implies $H^1(Q,\soq)=0$. 
+Because $Y$ is isomorphic to several copies of $\P^1$, 
+the general result (proved in class, but not in the book) 
+that $H_{*}^n(\sO_{\P^n})=\{\sum a_{I}X_{I}:\text{entries in $I$ negative}\}$ 
+implies $H^1(Q,\sO_Y)=H^1(Y,\sO_Y)=0$. Since $Q$ is a hypersurface
+of degree $2$ in $\P^3$, (I, Ex. 7.2(c)) implies $p_a(Q)=0$. Thus
+by (Ex. 5.5c) we see that $H^2(Q,\soq)=0$. Putting together the above
+facts and some basic properties of exact sequences show that
+$H^1(Q,\soq(-q,0))=k^{\oplus(q-1)}$, $H^2(Q,\soq(-q,0))=0$
+and $H^2(Q,\so_Y)=0$. Our long exact sequence is now 
+\begin{align*}
+0\into&\Gamma(Q,\soq(-q,0))=0\into\Gamma(Q,\soq)=k\into\Gamma(Q,\sO_Y)=k^{\oplus{}q}\\
+\into& H^1(Q,\soq(-q,0))=k^{\oplus(q-1)}\into{}H^1(Q,\soq)=0\into{}H^1(Q,\sO_Y)=0\\
+\into& H^2(Q,\soq(-q,0))=0\into{}H^2(Q,\soq)=0\into{}H^2(Q,\sO_Y)=0\into 0
+\end{align*}
+\end{proof}
+
+Number (3) now follows immediately from the lemma because 
+$$H^1(Q,\soq(a,0))=k^{\oplus(-a-1)}\neq 0$$ for $a\leq -2.$
+
+Now we compute (1) and (2). Let $a$ be an arbitrary integer.
+First we show that $\soq(a,a)=0$. We have an exact sequence
+$$0\into\sO_{\P^3}(-2)\into\sO_{\P^3}\into\sO_{Q}\into{}0$$
+where the first map is multiplication by $xy-zw$. Twisting by $a$ 
+gives an exact sequence
+$$0\into\sO_{\P^3}(-2+a)\into\sO_{\P^3}(a)\into\sO_{Q}(a)\into{}0.$$
+The long exact sequence of cohomology yields an exact sequence
+$$\cdots\into H^1(\sO_{\P^3}(a))\into H^1(\sO_Q(a))\into
+        H^2(\sO_{\P^3}(-2+a))\into\cdots$$
+But from the explicit computations of projective space (5.1)
+it follows that $H^1(\sO_{\P^3}(a))=0$ and $H^2(\sO_{\P^3}(-2+a))=0$
+from which we conclude that $H^1(\sO_Q(a))=0$.
+
+Next we show that $\soq(a-1,a)=0$. Let $Y$ be a single copy 
+of $\P^1$ sitting in $Q$ so that $Y$ has type $(1,0)$. Then
+we have an exact sequence
+$$0\into\sI_Y\into\soq\into\sO_Y\into 0.$$
+But $\sI_Y=\soq(-1,0)$ so this becomes
+$$0\into\soq(-1,0)\into\soq\into\sO_Y\into 0.$$
+Now twisting by $a$ yields the exact sequence
+$$0\into\soq(a-1,a)\into\soq(a)\into\sO_Y(a)\into 0.$$
+The long exact sequence of cohomology gives an exact sequence
+$$\cdots\into\Gamma(\soq(a))\into\Gamma(\sO_Y(a))\into
+       H^1(\soq(a-1,a))\into H^1(\soq(a))\into\cdots$$
+We just showed that $H^1(\soq(a))=0$, so to see that
+$H^1(\soq(a-1,a))=0$ it suffices to note that the
+map $\Gamma(\soq(a))\into\Gamma(\sO_Y(a))$ is surjective.
+This can be seen by writing $Q=\proj(k[x,y,z,w]/(xy-zw))$
+and (w.l.o.g.) $Y=\proj(k[x,y,z,w]/(xy-zw,x,z))$ and
+noting that the degree $a$ part of $k[x,y,z,w]/(xy-zw)$
+surjects onto the degree $a$ part of $k[x,y,z,w]/(xy-zw,x,z)$. 
+Thus $H^1(\soq(a-1,a))=0$ and exactly the same argument
+shows $H^1(\soq(a,a-1))=0$. This gives (1). 
+
+For (2) it suffices to show that for $a>0$, 
+$$H^1(\soq(-a,-a-n))=H^1(\soq(-a-n,-a))=0$$
+for all $n>0$. Thus let $n>0$ and suppose $Y$ is a disjoint union
+of $n$ copies of $\P^1$ in such a way that $\sI_Y=\soq(0,-n)$. 
+Then we have an exact sequence
+$$0\into\soq(0,-n)\into\soq\into\sO_Y\into 0.$$
+Twisting by $-a$ yields the exact sequence
+$$0\into\soq(-a,-a-n)\into\soq(-a)\into\sO_Y(-a)\into 0.$$
+The long exact sequence of cohomology then gives an exact sequence
+$$\cdots \into\Gamma(\sO_Y(-a))\into H^1(\soq(-a,-a-n))
+\into H^1(\soq(-a))\into \cdots$$
+As everyone knows, since $Y$ is just several copies of $\P^1$ and $-a<0$,
+$\Gamma(\sO_Y(-a))=0$. Because of our computations above,
+$H^1(\soq(-a))=0$. Thus $H^1(\soq(-a,-a-n))=0$, as desired. 
+Showing that $H^1(\soq(-a-n,-a))=0$ is exactly the same. 
+
+\noindent (b) Now use these results to show:
+\begin{enumerate}
+\item If $Y$ is a locally principal closed subscheme of
+type $(a,b)$ with $a,b>0$, then $Y$ is connected.
+\begin{proof}
+Computing the long exact sequence associated to the short
+exact sequence
+$$0\into\sI_Y\into\soq\into\sO_Y\into{}0$$
+gives the exact sequence
+$$0\into\Gamma(Q,\sI_Y)\into\Gamma(Q,\soq)\into\Gamma(Q,\sO_Y)
+\into H^1(Q,\sI_Y)\into\cdots$$
+But, $\Gamma(\sI_Y)=0$, $\Gamma(Q,\soq)=k$, and
+by (a)2 above $H^1(Q,\sI_Y)=H^1(Q,\soq(-a,-b))=0$. Thus we
+have an exact sequence
+$$0\into{}0\into{}k\into\Gamma(\so_Y)\into{}0\into\cdots$$
+from which we conclude that $\Gamma(\so_Y)=k$ which implies
+$Y$ is connected.  
+\end{proof}
+
+\item now assume $k$ is algebraically closed. Then for any
+$a,b>0$, there exists an irreducible nonsingular curve
+$Y$ of type $(a,b)$. Use (II, 7.6.2) and (II, 8.18).
+\begin{proof}
+Given $(a,b)$, (II, 7.6.2) gives a closed immersion
+$$Q=\P^1\times\P^1\into\P^a\times\P^b\into\P^n$$
+which corresponds to the invertible sheaf $\soq(-a,-b)$
+of type $(a,b)$. By Bertini's theorem (II, 8.18) there
+is a hyperplane $H$ in $\P^n$ such that the hyperplane section
+of the $(a,b)$ embedding of $Q$ in $\P^n$ is nonsingular. 
+Pull this hyperplane section back to a nonsingular curve $Y$ of
+type $(a,b)$ on $Q$ in $\P^3$. By the previous problem, $Y$ is
+connected. Since $Y$ comes from a hyperplane section this implies
+$Y$ is irreducible (see the remark in the statement of Bertini's
+theorem).  
+\end{proof}
+
+\item an irreducible nonsingular curve $Y$ of type $(a,b)$,
+$a,b>0$ on $Q$ is projectively normal (II, Ex. 5.14) if 
+and only if $|a-b|\leq 1$. In particular, this gives lots
+of examples of nonsingular, but not projectively normal curves
+in $\P^3$. The simplest is the one of type $(1,3)$ which is
+just the rational quartic curve (I, Ex. 3.18). 
+\begin{proof}
+Let $Y$ be an irreducible nonsingular curve of type $(a,b)$. 
+The criterion we apply comes from (II, Ex 5.14d) which asserts
+that the maps
+$$\Gamma(\P^3,\sO_{\P^3}(n))\into\Gamma(Y,\sO_Y(n))$$
+are surjective for all $n\geq 0$ if and only if
+$Y$ is projectively normal. To determine when this occurs
+we have to replace $\Gamma(\P^3,\sO_{\P^3}(n))$ with 
+$\Gamma(Q,\soq(n))$. It is easy to see that the above criterion 
+implies we can make this replacement if $Q$ is projectively normal. 
+Since $Q\isom\P^1\times\P^1$ is locally isomorphic to 
+$\A^1\times\A^1\isom\A^2$ which is normal, we see that $Q$
+is normal. Then since $Q$ is a complete intersection which is
+normal, (II, 8.4b) implies $Q$ is projectively normal. 
+
+Consider the exact sequence
+$$0\into\sI_Y\into\soq\into\sO_Y.$$ 
+Twisting by $n$ gives an exact sequence
+$$0\into\sI_Y(n)\into\soq(n)\into\sO_Y(n).$$
+Taking cohomology yields the exact sequence
+$$\cdots\into\Gamma(Q,\soq(n))\into\Gamma(Q,\sO_Y(n))\into
+              H^1(Q,\sI_Y(n))\into\cdots$$
+Thus $Y$ is projectively normal precisely if
+$H^1(Q,\sI_Y(n))=0$ for all $n\geq 0$. When can 
+this happen? We apply our computations from part (a).
+Since $\soq(n)=\soq(n,n)$,
+$$\sI_Y(n)=\soq(-a,-b)(n)=\soq(-a,-b)\tensor_{\soq}\soq(n,n)=\soq(n-a,n-b)$$ 
+If $|a-b|\leq 1$ then $|(n-a)-(n-b)|\leq 1$ for all $n$ so
+$$H^1(Q,\soq(-a,-b)(n))=0$$ for all $n$ which implies $Y$ is
+projectively normal. On the other hand, if $|a-b|>1$ let
+$n$ be the minimum of $a$ and $b$, without loss assume $b$ is
+the minimum, so $n=b$. Then from (a) we see that
+$$\soq(-a,-b)(n)=\soq(-a,-b)(b)=\soq(-a+b,0)\neq 0$$
+since $-a+b\leq -2$.  
+\end{proof}
+\end{enumerate}
+
+
+(c) If $Y$ is a locally principal subscheme of type $(a,b)$
+in $Q$, show that $p_a(Y)=ab-a-b+1.$ [Hint: Calculate the
+Hilbert polynomials of suitable sheaves, and again use the
+special case (q,0) which is a disjoint union of $q$ copies
+of $\P^1$.]
+\begin{proof}
+The sequence 
+$$0\into\soq(-a,-b)\into\soq\into\sO_Y\into{}0$$
+is exact so 
+$$\chi(\so_Y)=\chi(\soq)-\chi(\soq(-a,-b))=1-\chi(\soq(-a,-b)).$$
+Thus 
+$$p_a(Y)=1-\chi(\so_Y)=\chi(\soq(-a,-b)).$$
+The problem is thus reduced to computing $\chi(\soq(-a,-b))$.
+
+Assume first that $a,b<0$. To compute $\chi(\soq(-a,-b))$
+assume $Y=Y_1\union Y_2$ where
+$\sI_{Y_1}=\soq(-a,0)$ and $\sI_{Y_2}=\soq(0,-b)$. Thus
+we could take $Y_1$ to be $a$ copies of $\P^1$ in one family of lines 
+and $Y_2$ to be $b$ copies of $\P^1$ in the other family. 
+Tensoring the exact sequence
+$$0\into\sI_{Y_1}\into\soq\into\so_{Y_1}\into 0$$
+by the flat module $\sI_{Y_2}$ yields an exact sequence
+$$0\into\sI_{Y_1}\tensor\sI_{Y_2}\into\sI_{Y_2}\into\sO_{Y_1}\tensor\sI_{Y_2}$$
+[Note: I use the fact that $\sI_{Y_2}$ is flat. This follows
+from a proposition in section 9 which we haven't yet reached, 
+but I'm going to use it anyways. Since $Y_2$ is locally principal,
+$\sI_{Y_2}$ is generated locally by a single element and since $Q$ is
+a variety it is integral. Thus $\sI_{Y_2}$ is locally free so
+by (9.2) $\sI_{Y_2}$ is flat.] 
+This exact sequence can also be written as
+$$0\into\soq(-a,-b)\into\soq(0,-b)\into\sO_Y\tensor\soq(0,-b)\into{}0.$$
+The associated long exact sequence of cohomology is
+\begin{align*}
+0\into&\Gamma(Q,\soq(-a,-b))\into\Gamma(Q,\soq(0,-b))\into
+                \Gamma(Q,\sO_{Y_1}\tensor\soq(0,-b))\\
+\into&H^1(Q,\soq(-a,-b))\into H^1(Q,\soq(0,-b))\into H^1(Q,\sO_{Y_1}\tensor\soq(0,-b))\\
+\into&H^2(Q,\soq(-a,-b))\into H^2(Q,\soq(0,-b))\into H^2(Q,\sO_{Y_1}\tensor\soq(0,-b))\into 0
+\end{align*}
+The first three groups of global sections are $0$. Since $a,b<0$, 
+(a) implies $H^1(Q,\soq(-a,-b))=0$. From the lemma we know
+that $H^1(Q,\soq(0,-b))=k^{\oplus(b-1)}$. Also by the lemma
+we know that $H^2(Q,\soq(0,-b))=0$. Since
+$\so_{Y_1}\tensor\soq(0,-b)$ is isomorphic
+to the ideal sheaf of $b-1$ points in each line
+of $Y_1$, a similiar proof as that used in the
+lemma shows that $$H^1(Q,\sO_Y\tensor\soq(0,-b))=k^{\oplus{}a(b-1)}.$$
+Plugging all of this information back in yields the exact sequence
+\begin{align*}
+0\into&\Gamma(Q,\soq(-a,-b))=0\into\Gamma(Q,\soq(0,-b))=0\into
+                \Gamma(Q,\sO_{Y_1}\tensor\soq(0,-b))=0\\
+\into&H^1(Q,\soq(-a,-b))=0\into H^1(Q,\soq(0,-b))=k^{\oplus(b-1)}\\
+          &\hspace{1in}\into{}H^1(Q,\sO_{Y_1}\tensor\soq(0,-b))=k^{\oplus{}a(b-1)}\\
+\into&H^2(Q,\soq(-a,-b))\into H^2(Q,\soq(0,-b))=0\\ 
+          &\hspace{1in}\into{}H^2(Q,\sO_{Y_1}\tensor\soq(0,-b))=0\into 0
+\end{align*}
+From this we conclude that 
+$$\chi(\soq(-a,-b))=0+0+h^2(Q,\soq(-a,-b))=a(b-1)-(b-1)=ab-a-b+1$$
+which is the desired result. 
+    
+Now we deal with the remaining case, when $Y$ is $a$ disjoint copies
+of $\P^1$. We have 
+$$p_a(Y)=1-\chi(\sO_Y)=1-\chi(\sO_{\P^1}^{\oplus a})
+                      =1-a\chi(\sO_{\P^1})=1-a$$ 
+which completes the proof.
+\end{proof}
+\end{exercise}
+\end{document}

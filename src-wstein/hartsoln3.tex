@@ -1,0 +1,646 @@
+\documentclass[12pt]{article}
+\author{William A. Stein}
+\title{Algebraic Geometry Homework\\
+II.5, 1,2,3,4,5,7,8}
+
+\font\grmn=eufm10 scaled \magstep 1
+
+\renewcommand{\a}{\mbox{\bfseries A}}
+\newcommand{\gp}{p}
+\newcommand{\ga}{a}
+\newcommand{\so}{\mathcal{O}}
+\newcommand{\sox}{\mathcal{O}_X}
+\newcommand{\soy}{\mathcal{O}_Y}
+\newcommand{\se}{\mathcal{E}}
+\renewcommand{\sf}{\mathcal{F}}
+\newcommand{\sg}{\mathcal{G}}
+\newcommand{\shom}{\mathcal{H}\mbox{\rm om}}
+\renewcommand{\hom}{\mbox{\rm Hom}}
+\newcommand{\tensor}{\otimes}
+\newcommand{\tens}{\otimes}
+\newcommand{\isom}{\cong}
+\renewcommand{\dim}{\mbox{\rm dim}}
+\newcommand{\z}{\mbox{\bfseries Z}}
+\newcommand{\into}{\rightarrow}
+\newcommand{\res}{\mbox{\rm res}}
+\newcommand{\ru}{|_U}
+\newcommand{\ann}{\mbox{\rm Ann}}
+\newcommand{\coker}{\mbox{\rm Coker}}
+
+
+\newtheorem{prob}{Problem}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prop}{Proposition}
+
+\newcommand{\ov}{\overline{\varphi}}
+\renewcommand{\phi}{\varphi}
+\newcommand{\fh}{f^{\#}}
+\newcommand{\proj}{Proj \hspace{.01in}}
+\newcommand{\spec}{Spec \hspace{.01in}}
+\newcommand{\proof}{\mbox{\sc Proof.\hspace{.1in}}}
+\date{April 4, 1996}
+\begin{document}
+\maketitle
+
+\begin{prob}[II.5.1]
+Let $(X,\sox)$ be a ringed space, and let $\se$ be a locally
+free $\sox$-module of finite rank. We define the dual of
+$\se$, denoted by $\check{\se}$, to be the sheaf
+$\shom_{\sox}(\se,\sox)$. 
+
+(a) Show that $(\check{\se})\check{}\cong\se$.
+
+(b) For any $\sox$-module $\sf$, $\shom_{\sox}(\se,\sf)
+\cong \check{\se} \tensor_{\sox} \sf$. 
+
+(c) For any $\sox$-modules $\sf, \sg,$
+$\hom_{\sox}(\se\tensor\sf,\sg)\cong
+\hom_{\sox}(\sf,\shom_{\sox}(\se,\sg))$. 
+
+(d) (Projection Formula). If $f:(X,\sox)\rightarrow(Y,\soy)$
+is a morphism of ringed spaces, if $\sf$ is an $\sox$-module,
+and if $\se$ is a locally free $\soy$-module of finite
+rank, then there is a natural isomorphism 
+$f_{*}(\sf\tensor_{\sox}f^{*}\se)\cong
+f_{*}(\sf)\tensor_{\soy}\se$. 
+
+
+\end{prob}
+\proof
+(a) 
+A free module of finite rank is {\em canonically}
+isomorphic to its double-dual via
+$\check{m}(\lambda)=\lambda(m)$
+where $m\in M$, $\lambda\in \check{M}$, and
+$\check{m}\in (\check{M})\check{}$. 
+Let $U$ be an open set on which $\se|U$ is a
+free $\sox$-module of finite rank. Define a
+map $\phi:\se|_U\into(\check{\se})\check{}|_U$
+by, for all $V\subseteq U$, $\se(V)\into
+(\check{\se})\check{}(V)$ is the isomorphism described
+above. 
+Since the isomorphisms are canonical, we can patch on 
+intersections and define a global isomorphism. 
+
+(b) As above we may assume $\se$ is a free $\sox$-module.
+Let $e_1,\ldots,e_n$ be a basis for $\sf$ and let
+$e_1^{*},\ldots,e_n^{*}$ be the corresponding dual
+basis. Let $U$ be an open subset of $X$. 
+Define $\phi_U:\shom_{\sox}(\se,\sf)|_U\into
+(\hom(\se,\sox) \tensor_{\sox}\sf)|_U$ by 
+$f\mapsto\sum_{i=1}^{n}e_i^{*}\tens f(e_i).$
+Define $\psi_U:
+(\hom(\se,\sox) \tensor_{\sox}\sf)|_U \into 
+\shom_{\sox}(\se,\sf)|_U$ by
+$f\tens a\mapsto(x\mapsto f(x)a)$. 
+For convenience of notation write $\phi=\phi_U$ and
+$\psi=\psi_U$. 
+Let $f\tens a\in (\hom(\se,\sox) \tensor_{\sox}\sf)|_U$.
+Then $\phi\circ\psi(f\tens a)
+=\phi(x\mapsto f(x)a)=\sum_{i=1}^{n} e_i^{*}\tens
+f(e_i)a=\sum_{i=1}^{n}e_i^{*}f(e_i)\tens a
+=f\tens a$. Let $f\in\shom_{\sox}(\se,\sf)$, then
+$\psi\circ\phi(f)=\psi(\sum_{i=1}^{n}e_i^{*}\tens f(e_i))
+=(x\mapsto\sum_{i=1}^{n}e_i^{*}(x)f(e_i))
+=(x\mapsto f(\sum_{i=1}^{n}e_i^{*}(x)e_i))
+=(x\mapsto f(x))$.
+Thus $\phi$ and $\psi$ are inverse bijective 
+homomorphisms, hence ring isomorphisms, and since they
+respect the restriction maps we see that the 
+corresponding sheaves are isomorphic.
+
+(c) On each open set define $\phi|_U:
+\hom_{\sox}(\se\tensor\sf,\sg)\into
+\hom_{\sox}(\sf,\hom_{\sox}(\se,sg))$ by
+$f\mapsto(a\mapsto(e\mapsto f(e\tens a)))$. 
+(For notational convenience we omit the sheaf restrictions.)
+If $\phi(f)=0$ then the map 
+$(a\mapsto(e\mapsto f(e\tens a)))$ is $0$ 
+so $f$ is the zero map, hence $\phi$ is injective.
+Let $f\in \hom_{\sox}(\sf,\hom_{\sox}(\se,sg))$. Define
+$g\in\hom_{\sox}(\se\tensor\sf,\sg)$ by
+$g(a\tens b)=(f(b))(a)$.
+Then $\phi(g)=(a\mapsto (e\mapsto g(e\tens a)))
+=(a\mapsto(e\mapsto(f(a))(e))=(a\mapsto f(a))=f$
+so $\phi$ is surjective. Thus $\phi$ is the
+desired isomorphism which, since $\phi$ evidently
+commutes with the restriction maps, induces an
+isomorphism of sheaves.
+
+(d)
+First we consider the case when
+$\se\isom\soy^n$.
+One one hand, 
+\begin{eqnarray*}
+f_{*}(\sf)\tensor_{\soy}\se
+ &\isom& f_{*}(\sf)\tensor_{\soy}\soy^n \\
+&\isom& \oplus_{i=1}^{n} (f_{*}(\sf)\tensor_{\soy}\soy)\\
+&\isom& \oplus_{i=1}^{n} f_{*}(\sf).\\
+\end{eqnarray*}
+
+On the other hand,
+\begin{eqnarray*}
+\sf\tensor_{\sox}f^{*}\se &=&\sf\tensor_{\sox}f^{*}(\soy^n)\\
+&\isom&\sf\tensor_{\sox}(f^{-1}(\soy^n)\tensor_{f^{-1}\soy}\sox)\\
+&\isom&\sf\tensor_{\sox}((f^{-1}(\soy)^n\tensor_{f^{-1}\soy}\sox)\\
+&\isom&\sf\tensor_{\sox}(\sum_{i=1}^{n}
+f^{-1}\soy\tensor_{f^{-1}\soy}\sox)\\
+&\isom&\sf\tensor_{\sox}(\sox^n)\\
+&\isom&(\sf\tensor_{\sox}\sox)^n=\sf^n
+\end{eqnarray*}
+where $f^{-1}(\soy^n)\isom f^{-1}(\soy)^n$ since
+$f^{-1}$ is a left adjoint functor hence commutes
+with direct sums (which are a right universal
+construction). 
+
+Putting this together we have that
+$$f_{*}(\sf\tensor_{\soy}f^{*}(\se))
+=f_{*}(\sf^n)=f_{*}(\oplus_{i=1}^{n}\sf)
+=\oplus_{i=1}^{n}f_{*}(\sf).$$  
+
+In general, we construct isomorphisms as above
+on an open cover then, since all of the isomorphisms 
+are canonical, the isomorphisms match up on
+the intersections so we can glue to obtain an 
+isomorphism. 
+
+\begin{prob}[II.5.2]
+Let $R$ be a discrete valuation ring with quotient field
+$K$, and let $X=\spec R$. 
+
+(a) To give an $\sox$-module $\sf$ is equivalent to giving
+an $R$-module $M$, a $K$-vector space $L$, and a
+homomorphism $\rho:M\tensor_R K\rightarrow L$. 
+
+(b) That $\sox$-module is quasi-coherent if and only
+if $\rho$ is an isomorphism. 
+\end{prob}
+\proof
+(a) First suppose we are given an $\sox$-module $\sf$. Since $R$
+is a DVR, $X$ has exactly two nonempty open sets,
+$X$ and the set consisting of the generic point, 
+$\{\xi\}$. Let $M=\Gamma(\sf,X)$ and let 
+$L=\Gamma(\sf,\{\xi\})$. 
+Since $\Gamma(\sox,X)=R$ and $\Gamma(\sox,\{\xi\})=K$, $M$ is
+an $R$-module and $L$ is a $K$-vector space. Let
+$g:M\rightarrow L$ be the restriction map. Define
+$\rho$ by $\rho(m\tens\alpha)=\alpha\cdot{}g(m)$. 
+Since $g$ is a homomorphism, so is $\rho$. 
+
+Now suppose we are given an $R$-module $M$, a $K$-vector
+space $L$, and a homomorphism $\rho:M\tensor_R K\rightarrow L$.
+Define an $\sox$-module $\sf$ as follows. Let 
+$\Gamma(\sf,X)=M$ and $\Gamma(\sf,\{\xi\})=L$. Define
+the restriction map $g:M\rightarrow L$ by
+$g(m)=\rho(m\tens 1)$. We just need to check that
+$g$ is a valid restriction map. Let $r\in R, m\in M$,
+then $g$ is a valid restriction map iff
+$r\cdot g(m)=g(rm)$, that is, when
+$r\cdot \rho(m\tens 1)=\rho(rm\tens 1)=\rho(m\tens r)$. 
+So we must verify that the given homomorphism $\rho$ is 
+$R$-linear. But there is absolutely no reason why this should
+be the case! (For example, let $M=L=K$, then 
+$\rho:K\rightarrow K$ and it is easy to construct nontrivial
+homomorphisms of the additive group of a field). 
+I think the problem is imprecisely stated. It 
+should be assumed throughout that $\rho$ is $K$-linear.
+
+(b) First suppose $\sf$ is quasi-coherent. Then 
+$\sf=\tilde{M}$ so
+Proposition 5.1 implies that
+$L=\Gamma(\tilde{M},\{\xi\})=(R-0)^{-1}M\cong
+M\tensor_R K$. Thus $\rho$ must be an isomorphism.
+Conversely, if $\rho$ is an isomorphism, we see that
+$\sf\cong \tilde{M}$ since they are the same on
+each open set and the restriction map is the 
+same. 
+
+\begin{prob}[II.5.3]
+Let $X=\spec A$ be an affine scheme. Show that the functors
+$\tilde{}$ and $\Gamma$ are adjoint, in the
+following sense: for any $A$-module $M$, and for any sheaf
+of $\sox$-modules $\sf$, there is a natural isomorphism
+$$\hom_A(M,\Gamma(X,\sf))\cong\hom_{\sox}(\tilde{M},\sf).$$
+\end{prob}
+\proof
+
+Define a homomorphism $F:\hom_A(M,\Gamma(X,\sf))\into
+\hom_{\sox}(\tilde{M},\sf)$ as follows. Send
+a ring homomorphism $\phi:M\into\Gamma(X,\sf)$
+to the morphism of sheaves $F(\phi):\tilde{M}\into\sf$.
+It suffices to define $F(\phi)$ on distinguished
+open sets (Eisenbud \& Harris, page 13). 
+For $f\in A$ let $F(\phi)_{D(f)}$ be the map
+$${m\over f^n}\mapsto {1\over f^n}
+\cdot\res_{X,D(f)}(\phi(m))$$
+where $\res_{X,D(f)}:\sf(X)\into\sf(D(f))$ 
+is the restriction map of $\sf$. 
+$F(\phi)_{D(f)}$ is a well-defined homomorphism since
+both $\phi$ and $\res_{X,D(f)}$ are homomorphisms and 
+$\phi$ is an $A$-module homomorphism. Next note 
+that $F(\phi)$ commutes with the
+restriction maps since each $\res_{X,D(f)}$ does. 
+To see that $F$ is injective suppose $\phi$ and
+$\psi$ are two homomorphisms $M\into\Gamma(X,\sf)$.
+If $F(\phi)=F(\psi)$ then, in particular,
+$\phi=F(\phi)_{X}=F(\psi)_{X}=\psi$.
+To see that $F$ is surjective, let $\phi\in\hom_{\sox}
+(\tilde{M},\sf)$. Define $\psi:M\into\Gamma(X,\sf)$
+by letting $\psi=\phi_X$, that is, by taking the 
+induced map on global sections. 
+Then, for $f\in A$, 
+$F(\psi)_{D(f)}:\tilde{M}(D(f))\into\sf(D(f))$ is
+the map
+$({m\over f^n}\mapsto {1\over f^n}\res_{X,D(f)}\circ\phi_X(m))$
+which, since $\phi$ is a morphism of sheaves, equals
+$=({m\over f^n}\mapsto {1\over f^n}\phi_{D(f)}(m)
+=\phi_{D(f)}({m\over f^n})=\phi_{D(f)}$.
+(We are just using the fact that $\phi$ commutes with
+the appropriate restriction maps.)
+Thus $F(\psi)$ agrees with $\phi$ on a basis for $X$
+hence $F(\psi)=\phi$. This shows that $F$ is surjective.
+So $F$ is an isomorphism, as required.
+
+\begin{prob}[II.5.4]
+Show that a sheaf of $\sox$-modules $\sf$ on a scheme $X$ 
+is quasi-coherent
+if and only if every point of $X$ has a neighborhood $U$, such
+that $\sf|_{U}$ is isomorphic to a cokernel of a morphism of
+free sheaves on $U$. If $X$ is noetherian, then $\sf$ is coherent
+iff it is locally a cokernel of a morphism of free sheaves
+of finite rank.
+\end{prob}
+\proof
+Suppose first that $\sf$ is quasi-coherent. Let $x\in X$. 
+Then there is an affine open neighborhood
+$U=\spec A$ of $x$ such that $\sf|_U\isom \tilde{M}$,
+$M$ an $A$-module. It suffices to show that $M$ is
+isomorphic to a cokernel of a morphism of finitely
+generated $A$-algebras. Indeed, if 
+$\phi:A^{(I)}\into A^{(J)}$ then 
+$\coker(\tilde{\phi})=\tilde{A^{(J)}}/\phi(A^{(I)})\tilde{}
+=(A^{(J)}/\phi(A^{(I)}))\tilde{}$
+since, for all $f\in A$, 
+$(A^{(J)})_f/\phi(A^{(I)})_f
+=(A^{(J)}/\phi(A^{(I)}))_f$
+so that they agree on a basis. 
+
+Let $A^{|M|}$ be the free $A$-module on the elements
+of $M$. 
+Let $\phi:A^{|M|}\into M$ be the natural map.
+Similiary, let $\psi:A^{|\ker(\phi)|}\into\ker(\phi)
+\subseteq A^{|M|}$ be the natural map.
+Then $\coker(\psi)\isom A^{|M|}/\ker(\phi)\isom M$,
+as required.
+
+Now assume the $\sf$ is coherent. We proceed as above
+but now $M$ is a finitely generated $A$-module,
+generated by $e_1,\ldots,e_n$, say, and we must
+show that $M$ is the cokernel of a morphism of
+free modules of finite rank. Let $\phi:A^n\into M$
+be the map which takes the $i$th generator
+$(0,\ldots,1,\ldots,0)$ of $A^n$ to $e_i\in M$. 
+Then $\ker(\phi)$ is a submodule of $M$ so, since
+$M$ is neotherian (any finitely generated module
+over a noetherian ring is noetherian), $\ker(\phi)$
+is finitely generated. Let $f_1,\ldots,f_m$ be
+a generating set. Let $\psi:A^m\into\ker(\phi)$ be
+the surjection defined by sending the $i$th
+basis element of $A^m$ to $f_i$. Then 
+$\coker(\psi)\isom A^n/\psi(A^m)\isom A^n/\ker(\phi)\isom M$.
+Thus $M$ is isomorphic to a cokernel of a morphism
+of free sheaves of finite rank. 
+ 
+
+
+
+
+\begin{prob}[II.5.5]
+Let $f:X\rightarrow Y$ be a morphism of schemes.
+
+(a) Show by example that if $\sf$ is coherent on $X$, then
+$f_{*}\sf$ need not be coherent on $Y$, even if $X$ and $Y$
+are varieties over a field $k$.
+
+(b) Show that a closed immersion is a finite morphism.
+
+(c) If $f$ is a finite morphism of neotherian schemes, and if 
+$\sf$ is coherent on $X$, then $f_{*}\sf$ is coherent on $Y$.
+\end{prob}
+\proof
+(a) Lex $k$ be a field, let $X=\spec (k[x]_x)$,
+$Y=\spec (k[x])$ and $\sf=\sox$. Then 
+$f_{*}(\sf)(U)=\sf(f^{-1}(U))$, so
+$f_{*}(\sf)=(k[x]_x)^{\tilde{}_Y}$.
+But $(k[x]_x)^{\tilde{}_Y}$ is not a coherent sheaf
+of $\soy$-modules. Indeed, if it were, there would
+be a distinguished neighborhood $D(f)$ of $0$ so that
+$(k[x]_x)^{\tilde{}_Y}|_{D(f)}$ 
+is a finitely generated module over $k[x]$ (here I'm
+using the fact that over open set is distinguished
+in the topology of $\spec(k[x])$). But, 
+$k[x]_f$ is never a finitely generated module over
+$k[x]$ for any $f$ of degree at least $1$. For $k[x]_f$
+contains elements of arbitrarily small degree whereas
+the degrees of elements of $k[x]\{\alpha_1,\ldots,\alpha_n\}$
+are bounded below. ($k[x]\{\alpha_1,\ldots,\alpha_n\}$
+is the $k[x]$-module generated by $\alpha_1,\ldots,\alpha_n$.)
+
+(b) Let $f:Y\into X$ be a closed immersion. Let $U=\spec(A)
+\subseteq X$ and let $W=f^{-1}(U)\subseteq Y$. Then
+$W$ is a a scheme (give it the induced scheme structure as
+an open subset of $Y$). Furthermore, 
+$f(W)=U\cap f(Y)$ is a relatively closed subset of $U$,
+that is, a closed subset of $\spec(A)$. The
+map $\fh:\so_{U}\into\so_{W}$ is surjective since
+$\fh:\sox\into\soy$ is surjective and surjectivety
+is a local property. Thus $W$ is a closed subscheme
+of $\spec(A)$ so, by Corollary 5.10, $W\cong\spec(A/I)$
+for some ideal $I$ of $A$. Since $A/I$ is a finitely
+generated $A$ module (generated by $1+I$), $f$
+is a finite morphism.
+
+(c) Let $U=\spec(A)\subseteq Y$ be an affine open subset
+of $Y$. Then, since $f$ is finite, $f^{-1}(U)=\spec(B)$
+is affine with $B$ is a finitely generated $A$-module. 
+By Proposition 5.4 it suffices to show that 
+$f_{*}(\sf)|_U$ is $\tilde{M}$ for some finitely
+generated $A$-module $M$. Now by Proposition 5.4,
+since $f^{-1}(U)$ is affine and $B$ is noetherian,
+$\sf|_{f^{-1}(U)}=\tilde{M}$ for some finitely
+generated $B$ module $M$. 
+But 
+$f_{*}(\sf)|_U=(f|_{f^{-1}(U)})_{*}\sf|_{f^{-1}(U)}
+=(f|_{f^{-1}(U)})_{*}(\tilde{M})=\tilde{(A^M)}$
+where the last equality follows from Proposition 5.2(d).
+Since $B$ is a finite module over $A$ and $M$
+is a finite module over $B$, it follows that $M$
+is a finite module over $A$ which completes the proof. 
+
+\begin{prob}[II.5.7]
+Let $X$ be a noetherian scheme, and let $sf$ be a coherent sheaf.
+
+(a) If the stalk $\sf_x$ is a free $\sox$-module for some point
+$x\in X$, then there is a neighborhood $U$ of $x$ such that $\sf|_U$ 
+is free. 
+
+(b) $\sf$ is locally free iff its stalks $\sf_x$ are free $\sox$-modules
+for all $x\in X$.
+
+(c) $\sf$ is invertible iff there is a coherent sheaf $\sg$ such
+that $\sf\tensor\sg\isom\sox$. 
+\end{prob}
+\proof
+(a) Let $U=\spec(A)$ be a neighborhood of $x$ so that
+$\sf\ru=\tilde{M}$, $M$ a finitely generated $A$-module.
+Then $\sf_x=M_x$ so we have reduced the problem to
+the following purely algebraic result.
+\begin{prop}
+If $M$ is a finitely generated free $A$ module and there
+is a prime $\wp$ of $A$ such that $M_{\wp}$ is a free
+$A_{\wp}$-module, then there exists $f\in A$ such that
+$f\not\in\wp$ and $M_f$ is a free $A_f$-module. 
+\end{prop}
+
+Once we have proven this we will know that $\sf|_{D_U(f)}$
+is free since Proposition 5.1 asserts that 
+$\tilde{M}(D(f))\cong M_f$.  
+
+\proof (of Proposition) Let $a_1,\ldots,a_n\in M$ be a free
+basis of $M_{\wp}$ over $A_{\wp}$ (we can clear denominators
+so that we may assume all $a_i$ lie in $M$.) Let
+$b_1,\ldots,b_m\in M$ be a generating set for $M$
+over $A$. For each $i$ we can write $b_i$ as
+an $A_{\wp}$-linear combination of the $a_i$. Clearing
+denominators we see that $d_i b_i\in A\{a_1,\ldots,a_n\}$
+for some $d_i\not\in\wp$. Let $f=\prod d_i$, then 
+$f\not\in\wp$ and $a_1,\ldots,a_n$ have 
+$A_f$-span including all of the $b_i$,  and thus
+including $M$, and thus including $M_f$. But
+$a_1,\ldots,a_n$ is free over $A_{\wp}$ hence over
+$A_f$ since $A_f\subseteq A_{\wp}$. [This proposition 
+is in Bourbaki, {\em Commutative Algebra},
+II.5.1, although the proof is more abstract 
+than mine.] 
+
+(b) ($\Longrightarrow$) Let $x\in X$ and let $U=\spec(A)$ be an open
+neighborhood of $x$ such that $\sf\ru=\tilde{M}$
+with $M$ a free $A$ module. Suppose $\wp$ is the
+prime of $A$ corresponding to $x$. Then $\sf_x=M_\wp$
+which is a free $A_{\wp}$-module. Indeed,
+if $e_1,\ldots,e_n$ is a free $A$-basis for $M$,
+then it is also a free $A_{\wp}$-basis for
+$M_{\wp}$. For if 
+${a_1\over b_1}e_1 + \cdots + {a_n\over b_n}e_n=0, 
+b_i\not\in \wp$,
+then 
+$a_1{b\over b_1}e_1+\cdots+a_n{b\over b_n}e_n=0, b=\prod b_i$
+so $b{a_i\over b_i}=0$ for each $i$,
+so ${a_i\over b_i}=0$ in the localization $A_{\wp}$ 
+since $b\not\in\wp$.  
+
+($\Longleftarrow$) By part (a) every point has a neighborhood
+on which $\sf$ is free. Therefore $X$ can be covered by 
+open affines on which $\sf$ is free so $\sf$ is locally free. 
+
+(c) ($\Longrightarrow$)
+Let $\sg=\check{\sf}=\shom(\sf,\sox)$, we will show that 
+$\sf\tensor\sg\isom\sox$. To define a morphism
+$\phi:\sf\tensor\shom(\sf,\sox)\rightarrow\sox$  
+it is enough to define $\phi$ on the presheaf
+$(U\mapsto \sf(U)\tensor_{\sox(U)}\shom(\sf(U),\sox(U))$.
+Define $\phi$ by $a\tens f\mapsto f(a)$. Thus $\phi$ commutes
+with the restrictions so $\phi$ defines a valid morphism
+of sheaves. 
+
+Let $U$ be an open affine subset of $X$ such that $\sf(U)$
+is a free $\sox(U)$-module of rank 1 with basis $e_0$. 
+Then $\shom(\sf(U),\sox(U))$ has basis $e_0^{*}$ where
+$e_0^{*}(e_0)=1$. Thus $\shom(\sf(U),\sox(U))$ is a free
+$\sox(U)$-module of rank 1. Thus every element of
+$\sf(U)\tensor \hom(\sf(U),\sox(U))$ can be written in the
+form $a\tens f$ (as opposed to as a sum of such products). 
+Now $\phi_U(a\tens f)=0$ implies $f(a)=0$ which implies
+$a=0$ or $f=0$ so $a\tens f=0$, so $\phi_U$ is injective.
+Since $\phi_U(ae_0\tens e_0^{*})=a$, $\phi_U$ is surjective.
+Thus $\phi_U$ is an isomorphism.
+
+Use the definition of locally free of rank 1 to cover 
+$X$ by affine open sets $U$ such that $\sf\ru$ is
+a free $\sox\ru$ module of rank 1. Then, by Proposition
+5.1 (c) and an argument like that for (b) above, any
+distinguished open subset of $U$ has a $\sf$-sections 
+free of rank 1. Since $\phi$ is an isomorphism on each
+of these distinguished open sets (use the argument in the
+above paragraph) and these distinguished open sets form
+a basis for the topology on $X$ it follows that $\phi$
+must be an isomorphism. 
+
+($\Longleftarrow$) Because of part (b) above it suffices
+to show that $\sf_x$ is free of rank one for each $x\in X$. 
+Since $\sf_x\tensor_{\so_x}\sg_x
+=(\sf\tensor\sg)_x\isom\so_{X,x}$
+the problem is reduced to the following purely
+algebraic statement.
+
+\begin{prop} Let $M$ and $N$ be finitely generated modules
+over a local ring $(A,m)$ and suppose that 
+$M\tensor_A N\isom A$. Then $M$ is free of rank 1.  
+\end{prop}
+\proof
+Let $k=A/m$. Let $\nu:M\tensor_A N\into A$ be
+the given isomorphism. Then, taking the product
+with the identity, we get an isomorphism
+$\nu\tensor 1_k:(M\tensor_A N)\tensor_A k\into 
+A\tensor_A k\cong k$ (it is obvious that
+$\nu\tensor 1_k$ is surjective, but it is 
+not at all obvious that it is injective,
+for this see the Bourbaki reference below.)
+Thus $k\cong M\tensor_A N\tensor_A k
+=M\tensor_A(k\tensor_A k)\tensor_A N
+=(M\tensor_A k)\tensor_A(N\tensor_A k)
+=(M\tensor_A k)\tensor_k(N\tensor_A k)
+=(M/mM)\tensor_k (N/mN)$
+so, since the $k$-rank of 
+$(M/mM)\tensor_k (N/mN)$
+is $1$ and is the product of
+the ranks of $M/mM$ and $N/mN$, each has
+rank 1. In particular, $M/mM$ is monogeneous (generated
+by one element) as an $A/m$-module and hence as
+an $A$-module so, 
+by Nakayama's lemma, $M$ is monogeneous 
+as an $A$-module. Since
+$\ann_A(M)$ anihilates $M\tensor_A N=A$ as well,
+it is $0$ (any element of $\ann_A(M)$ would have 
+to annihilate the identity of $A$ and hence be $0$). 
+Thus $M$ is a free module of rank one over $A$.  
+[See Bourbaki, {\em Commutative Algebra}, II.5.4, for a
+more general theorem.] 
+
+\begin{prob}[II.5.8]
+Again let $X$ be a noetherian scheme, and $\sf$ a coherent sheaf
+on $X$. We will consider the function
+$$\phi(x)=\dim_{k(x)}\sf_x\tensor_{\sox}k(x)$$
+where $k(x)=\sox/m_x$ is the residue field at the point $x$. Use
+Nakayama's lemma to prove the following results.
+
+(a) The function $\phi$ is upper semi-continuous, i.e., for any 
+$n\in \z$, the set $\{x\in X:\phi(x)\geq n\}$ is closed.
+
+(b) If $\sf$ is locally free, and $X$ is connected, then
+$\phi$ is a constant function. 
+
+(c) Conversely, if $X$ is reduced, and $\phi$ is constant, 
+then $\sf$ is locally free.
+\end{prob} 
+\proof
+ 
+(a) We must show that $\{x:\phi(x)\geq n\}$ is closed.
+A good way to do this is by showing that 
+$\{x:\phi(x)<n\}$ is open. To do this we show that
+if $\phi(x)=m$ then there is an open neighborhood $U$ of
+$x$ so that, for all $y\in U$, $\phi(y)\leq m$. 
+Since we need only look locally, we can assume that
+$X=\spec A$, $\sf=\tilde{M}$, $M$ a finitely generated
+$A$-module. Note that $\sf_x\tensor_{\sox}k(x)=
+M_{\wp}\tensor_{A_{\wp}}A_{\wp}/{\wp A_{\wp}}=
+M_{\wp}/{\wp M_\wp}$.   
+Let $s_1,\ldots,s_m\in M$ be elements whose images
+form a basis for the vector space $M_{\wp}/\wp M_{\wp}$
+over $A_{\wp}/\wp A_{\wp}$ (to do this choose a basis
+for $M_{\wp}/\wp M_{\wp}$ then clear fractions). Note
+that the images of the $s_i$ in fact generate
+$M_{\wp}/{\wp M_{\wp}}$ as an $A_{\wp}$-module. 
+By Nakayama's lemma the $s_i$ generate 
+$M_{\wp}$ as an $A_{\wp}$-module. 
+Let $m_1,\ldots,m_k$ be a generating set for
+$M$ over $A$. Write $m_j=\sum {a_i\over b_i}s_i$,
+$b_i\not\in\wp$, then, if $c_j=\prod b_i$, 
+$c_jm_j$ is in the $A$-span of the $s_i$. Let
+$f=\prod c_j$. Then $\wp\in D(f)$ and if 
+$q\in D(f)$, then $m_1,\ldots,m_k$ all lie
+in the $A_q$-span of $s_1,\ldots,s_m$ (since
+$c_jm_j$ is in the $A$-span of the $s_i$
+and $c_j$ is inverted in $A_q$. Thus $M$ is spanned
+by the $s_i$ over $A_q$, so $M_q$ is spanned by
+the $s_i$ over $A_q$. It follows that 
+$\phi(q)=\dim M_q/qM_q\leq m$ since the images
+of the $s_i$ generate $M_q/qM_q$ as a vector
+space over $A_q/qM_q=k(q)$. Taking $D(f)$ as
+our open neighborhood completes the proof.
+
+(b) Choose $n$ so that some section of $\sf$ 
+has rank $n$. Let $U$ be the union of all open sets $W$
+such that $\sf|_W\isom\sox^n|_W$. Then $U$ is nonempty.
+Let $V$ be the
+union of all open sets $W$ such that
+$\sf|_W\isom\sox^m|_W$, $m\not=n$. Since $\sf$ is
+locally free, $U\cup V=X$. Suppose $x\in U\cap V$, 
+then $\sf_x$ has rank $n$ and rank $m\not=n$ (since
+rank is preserved under localization), a 
+contradiction. Thus $U\cap V=\emptyset$. Since $U$
+is nonempty and open, $X-U=V$ is open and $X$ is 
+connected, thus we conclude that $V=X-U=\emptyset$. Thus
+every point is contained in an open set $W$ such
+that $\sf|_W\isom\sox^n|_W$. 
+
+Let $x\in X$ and let $U=\spec(A)$ be an affine open set
+containing $x$ such that $\sf|_U\isom\tilde{M}$. By the above
+argument, $M$ is a free $A$-module of rank $n$. 
+Thus $\phi(x)=\dim_k M_x\tensor_{A_x}A_x/m_x
+=\dim_k A_x^n\tensor_k A_x/m_x=\dim_k (A_x/m_x)^n
+=\dim_k k^n=n$, as desired.   
+
+(c) Let $x\in X$. By exercise 5.7b it suffices to
+show that the stalk $\sf_x$ is free. Since $\sf$
+is coherent we can find an affine open set 
+$U=\spec(A)$ such that $\sf\ru=\tilde{M}$ for
+some finitely generated $A$-module, $x\in U$,
+and $A_f$ is reduced for each $f\in A$. Let
+$\wp$ be the prime of $A$ corresponding to
+$x$. We must show that $M_{\wp}$ is free over
+$A_{\wp}$. Let $s_1,\ldots,s_n\in M$ be preimages
+of a basis of $M_{\wp}/\wp M_{\wp}$ over
+$k(x)=A_{\wp}/\wp A_{\wp}$ (find these
+as in part (a)). Then, by Nakayama's lemma, the
+$s_i$ generate $M_{\wp}$ over $A_{\wp}$. 
+
+We must show that the $s_i$ are linearly
+independent over $A_{\wp}$. It will then follow
+that $M_{\wp}$ is free of rank $n$ over $A_{\wp}$.
+So suppose 
+$${a_1\over b_1}s_1+\cdots+{a_n\over b_n}s_n=0$$
+in $M_{\wp}$ with ${a_i\over b_i}\in A_{\wp}$.
+Then for each $i$, $b_i\not\in\wp$ and  
+$a_i\in A$. Since the $s_i$ are linearly independent
+over $A_{\wp}/\wp A_{\wp}$, for each $i$ there
+exists $c_i\not\in\wp$ such that ${c_i a_i\over b_i}\in\wp$.
+Thus $c_i a_i\in\wp$ so $a_i\in\wp$. 
+Let $r$ be as in part (a) so that $q\in D(r)$ implies
+the $s_i$ generate at least $M$ over $A_q$. 
+By definition there exists $c\in A$ such that
+$$c(b_2\cdots b_n a_1 s_1+\cdots+b_1\cdots b_{n-1} a_n s_n)=0$$
+in $A$. 
+Let $f=rc\prod b_i$, then if $q\in D(f)$, then 
+$s_1,\ldots,s_n$ generate $M_q/qM_q$ over $A_q$ and, 
+since $M_q/qM_q$ has dimension $n$ 
+(since $\phi$ is constant), 
+the $s_i$ are actually a basis for $M_q/qM_q$ over
+$A_q/qA_q$.
+
+Since $c|f$, $c\not\in q$ so, as above, 
+${a_1\over b_1}s_1+\cdots+{a_n\over b_n}s_n=0$ in
+$M_q$, so, as above, $a_i\in q$ for each $i$.  
+Thus, for all $q\in D(f)$, $a_i\in q$, so
+$a_i$ lies in the nilradical of $A_f$ which, since
+$A_f$ is reduced, means that $a_i=0$ in $A_f$. 
+So $a_i$ maps to $0$ under the map $A_f\into A_{\wp}$. 
+Thus $s_1,\ldots,s_n$ are linearly independent
+over $A_{\wp}$ so $M_{\wp}$ is free of rank $n$
+over $A_{\wp}$. Applying exercise (5.7b) then completes
+the proof.
+ 
+    
+
+
+\end{document}

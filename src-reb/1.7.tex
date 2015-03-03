@@ -1,0 +1,96 @@
+\def\Z{{\bf Z}}
+{\bf Hartshorne, Chapter 1.7}
+Answers to exercises. \hfill REB 1994
+\item{7.1a} The polynomials of degree $m$ in $N+1$ variables 
+restricted to the image of $P^n$ in $P^N$ give
+the polynomials of degree $md$ in $n+1$ variables. Hence
+the Hilbert polynomial of the embedding of $P^n$ in $P^N$
+is $f(dk)$ where $f(k)={k+n\choose n}$ is the Hilbert polynomial 
+of $P^n$ (embedded in itself). So the Hilbert
+polynomial of the $d$-tuple embedding is ${dk+n\choose n}=(dk)^n/n!+\cdots$
+so the degree of the embedding is $d^n$.
+\item{7.1b} Similarly we find that the Hilbert polynomial of
+the Segre embedding of $P^r\times P^s$ is the product of the Hilbert
+polynomials of $P^r$ and $P^s$, which is $${k+r\choose r}{k+s\choose s}
+= (k^r/r!+\cdots)(k^s/s!+\cdots) = {r+s\choose r}k^{r+s}/(r+s)!+\cdots$$
+so the degree of the Segre embedding is ${r+s\choose r}$. 
+\item{7.2a} This follows from the fact that the Hilbert polynomial
+$P_{P^n}(k)={n+k\choose n}$ has constant term 1. 
+\item{7.2bc} By 7.6c, $P_H(k) = {k+n\choose n} -{k-d+n\choose n}$, 
+whose value at 0 is $1-{n-d\choose n}= 1-(-1)^{n} {d-1\choose n}$.
+\item{7.2d} The Hilbert polynomial of this complete intersection is
+$${k+3\choose 3} -{k-a+3\choose 3}-{k-b+3\choose 3} + {k-a-b+3\choose 3}$$
+whose constant term is $1-{3-a\choose 3}-{3-b\choose 3}+{3-a-b\choose 3}$
+which is $1-(ab(a+b-4)/2+1)$. 
+\item{7.2e} The Hilbert polynomial of $Y\times Z$ is the product of
+the Hilbert polynomials of $Y$ and $Z$, from which the result
+follows easily. 
+\item{7.3} We can assume that $P$ is $(0,0)\in A^2$, and we can assume
+that if $f$ if the function defining $Y$ then $f(x,y)=y+$(terms 
+of degree at least 2). By Ex. 5.4 the only line whose intersection
+multiplicity with $Y$ at $P$ is the line $y=0$. 
+In general the mapping takes $(x_0:x_1:x_2)\in Y$ to
+the point $(f_0(x_0,x_1,x_2):f_1(x_0,x_1,x_2):f_2(x_0,x_1,x_2))$
+where $f_i={\partial f\over\partial x_i}$, which is well defined
+as long as one of the 3 numbers $f_i(x_0,x_1,x_2)$ is nonzero,
+i.e., the point $P$ is nonsingular. 
+\item{7.4} By Ex. 5.4, any line not tangent to $Y$ and not passing through
+a singular point meets $Y$ in exactly $d$ distinct points.  As $Y$ has
+only a finite number of singular points, the lines intersection at
+least one of these form a proper closed subset of $P^{2*}$ (in fact a
+union of lines). By 7.3 the lines tangent to $Y$ are also contained in
+a proper closed subset of $P^{2*}$, so there is a nonempty open subset
+$U$ of lines in $P^{2*}$ intersecting $Y$ in exactly $d$ points.
+\item{7.5a} We can assume that any point $P$ of multiplicity 
+at least $d$ is $(0,0)$. But then the equation $f(x,y)$ defining 
+$Y$ has all terms of degree exactly $d$, so it is a product of
+linear factors, which is not possible if $Y$ is irreducible
+of degree greater than 1. 
+\item{7.5b} As in 7.5a we can assume that 
+the equation defining $Y$ is of the form
+$f(x,y)+g(x,y)=0$ where $f$ is homogeneous of degree $d-1$ and $g$ is
+homogeneous of degree $d$. If we make the substitution $t=y/x$
+we find that $y=-f(t,1)/g(t,1)$, $x=yt$ gives 
+an inverse rational map so that $Y$ is birational to $A^1$. 
+\item{7.6} Any linear variety obviously has degree 1
+(by calculating its Hilbert polynomial). Assume that $Y$ has degree 1. 
+Then by 7.6b, $Y$ is irreducible (as all components of $Y$ 
+have the same dimension). By theorem 7.7 if $H$ is any hyperplane
+then $Y\cap H$ also has degree 1 (or $Y\subset H$, in which case 
+$Y$ is linear
+by induction on $n$). Therefore $Y\cap H$ is linear for every hyperplane
+$H$, and therefore for every linear variety $H$. In particular
+if $p,q\in Y$, then the intersection of $Y$ with the line $pq$
+is linear and therefore is the line joining $p$ and $q$. 
+Hence $Y$ contains any line joining two of its points, 
+and is therefore linear. 
+\item{7.7a} We show that $X$ is birational to the cone on $Y$ 
+which will show that $X$ is irreducible and of dimension $r+1$. 
+We choose a hyperplane ``at infinity'' in $P^n$ not containing $P$
+or $Y$, and map $X$ to the cone on $Y$ by taking 
+any line $PQ\backslash$(point at infinity) to the affine 
+line on the cone over $Y$ 
+by taking $Q$ to $Q$, $P$ to the vertex of the cone. We can define a rational 
+inverse in the obvious way.
+\item{7.7b} We prove this when $Y$ is any closed algebraic set,
+not necessarily reducible. If $Y$ has dimension 0 then it
+is a union of $d$ points and $X$ is a union of at most 
+$d-1$ lines, so the result is true in this case. 
+If $Y$ has dimension $>0$ choose a generic hyperplane 
+$H$ containing $P$, which can be chosen to intersect $Y$ transversely
+at generic points of the intersection as $Y$ is nonsingular at $P$.
+ The intersection of $Y$ and $H$ has
+degree at most $d\times \deg(H)=d$ by 7.7. The intersection of $X$
+with $H$ is the union of the set of lines joining
+$P$ and $H\cap Y$ which has degree less than $d$ by induction 
+on $\dim(Y)$. Again by 7.7, the degree of $X$ is equal to the degree
+of $X\cap H$ as all components of $X\cap H$ have multiplicity 
+1 in the intersection (as $H$ is generic). Hence the degree
+of $X$ is less than that of $Y$. (Note that the intersection $X\cap H$
+of an irreducible algebraic set $X$ with a generic hyperplane $H$
+need not be irreducible! But see remark 7.9.1 on p. 245
+of Hartshorne.) 
+\item{7.8} Applying 7.7 to $Y^r$ shows that $Y$ is contained in 
+a degree 1 variety $H$ of dimension $r+1$ in $P^n$, which by 7.6 is a
+linear variety and therefore isomorphic to $P^{r+1}$. 
+\bye

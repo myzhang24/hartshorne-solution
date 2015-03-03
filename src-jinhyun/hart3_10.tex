@@ -1,0 +1,173 @@
+%\documentclass[11pt]{article}          % required in all documents
+\documentclass[11pt]{amsart}          % required in all documents
+\usepackage{epsfig}                     % a package to include PS figures
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\newcommand{\tuborg}{\left\{\begin{array}{ll}}
+\newcommand{\sluttuborg}{\end{array}\right.}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calZ}{\mathcal{Z}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\cal}{\mathcal}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\ord}{{\rm ord}}
+\newcommand{\coker}{{\rm coker}}
+\newcommand{\codim}{{\rm codim}}
+\newcommand{\supp}{{\rm Supp}}
+\newcommand{\rat}{{\rm Rat}}
+\newcommand{\spec}{{\rm Spec}}
+\newcommand{\tor}{{\rm Tor}}
+\newcommand{\stor}{{\underline{\rm Tor}}}
+\newcommand{\p}{\partial}
+\newcommand{\proj}{{\rm Proj}}
+\newcommand{\fr}{{\rm Frac}}
+\newcommand{\ann}{{\rm Ann}}
+\newcommand{\ass}{{\rm Ass}}
+\newcommand{\pic}{{\rm Pic}}
+\newcommand{\ext}{{\rm Ext}}
+\newcommand{\shom}{{\underline{\rm Hom}}}
+\newcommand{\sext}{{\underline{\rm Ext}}}
+\newcommand{\ilim}{{\underset{\longleftarrow}{\lim}}}
+\newcommand{\dlim}{{\underset{\longrightarrow}{\lim}}}
+\newcommand{\sym}{{\rm Sym}}
+\newcommand{\rk}{{\rm rk}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defi}[thm]{Definition} 
+\newtheorem{eg}[thm]{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem*{remark}{Remark}
+\newtheorem{remark2}[thm]{Remark}
+\newtheorem*{phil}{Philosophy}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{metaconj}[thm]{Metaconjecture}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{question}[thm]{Question}
+\newtheorem{application}[thm]{Application}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{thm}.\arabic{equation}}
+\renewcommand{\div}{{\rm div}}
+\renewcommand{\hom}{{\rm Hom}}
+
+\setlength{\textwidth}{6in}             % Space saving measures
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.5in}
+\renewcommand{\baselinestretch}{1}
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+   
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}                                    
+
+\begin{document}
+
+\begin{center}
+\bf
+\large Robin Hartshorne's Algebraic Geometry Solutions
+\end{center}
+\begin{center}
+by Jinhyun Park
+\end{center}
+\vskip0.5cm
+
+\section*{Chapter III Section 10 Smooth morphisms}
+
+\subsection*{10.1}\textbf{Over a nonperfect field, smooth and regular are not equivalent. For example, let $k_0$ be a field of characteristic $p>0$, let $k = k_0 (t)$, and let $X \subset \bbA_k ^2$ be the curve defined by $y^2 = x^p - t$. Show that every local ring of $X$ is a regular local ring, but $X$ is not smooth over $k$.}
+
+\begin{proof} We need to suppose that $\rm{char} (k_0) = p >2$. Let $f = y^2 - x^p + t \in k[x,y]$. Then $\frac{\partial f}{\partial x} = 0$, $\frac{\partial f}{\partial y} = 2y$ so that $\rk \begin{pmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y} \end{pmatrix} = \rk \begin{pmatrix} 0 \\ 2y \end{pmatrix} = 1$ everywhere on $X$ because on $X$ $y \not = 0$. Indeed, if $y=0$, then $x^p = t$ over $k= k_0 (t)$, which is not possible. Hence $X$ is regular everywhere and every local ring of $X$ is a regular local ring.
+
+Let's now prove that $X \to \spec (k)$ is not smooth. Toward contradiction, suppose that it is smooth. Then by base change via $\spec \left( \overline{k} \right) \to \spec \left( k \right)$, the morphism $X _{\overline{k}} \to \spec \left( \overline{k} \right)$ is smooth. But, this is not true: $X_{\overline{k}} \subset \bbA_{\overline{k}} ^2$ is defined by the equation $y^2 = x^p - t = \left( x - t^{\frac{1}{p}} \right)^p$ over $\overline{k}$ and the point $(x,y) = \left( t^{\frac{1}{p}} , 0 \right) $ on $X_{\overline{k}}$ has multiplicity $2$ so that it is not regular at this point. Contradiction. Hence $X \to \spec (k)$ is not smooth.
+\end{proof}
+
+\subsection*{10.2}\textbf{Let $f: X \to Y$ be a proper, flat morphism of varieties over $k$. Suppose for some point $y \in Y$ that the fibre $X_y$ is smooth over $k(y)$. Then show that there is an open neighborhood $U$ of $y$ in $Y$ such that $f: f^{-1} (U) \to U$ is smooth.}
+
+\begin{proof}Let $n$ be the relative dimension of the flat morphism $f: X \to Y$. Since $X_y \to \spec \left( k(y) \right)$ is smooth, $\Omega_{X_y/ k(y)}$ is a locally free coherent sheaf of rank $n$ on $X_y$. That is, for each $x \in X_y$, $\dim _{k(x)} \left( \Omega_{X/Y} \otimes k(x) \right) = \dim _{k(x)} \left( \Omega_{X_y/ k(y)} \otimes k(x) \right) = n$. But, $\Omega_{X/Y} \otimes k(x) = \left( \Omega_{X/Y} \right) _x / \mathfrak{m}_x \left( \Omega_{X/Y} \right)_x$ so that by Nakayama's lemma, there exist sections $s_1, \cdots, s_n$ of $\Omega _{X/Y}$ over a neighborhood $U_x$ of $x$ whose images in $\Omega_{X/Y} \otimes k(x) = \left( \Omega_{X/Y} \right) _x / \mathfrak{m}_x \left( \Omega_{X/Y} \right)_x$ form a $k(x)$-basis and they generate $\Omega_{X/Y}$ over $U_x$. This implies that for all $z \in U_x$, $\dim _{k(z)} \left( \Omega_{X/Y} \otimes k(z) \right) \leq n$. But, by Theorem II-8.6A, $\dim _{k(z)} \left( \Omega_{X/Y} \otimes k(z) \right) \geq n$ so that $\dim _{k(z)} \left( \Omega_{X/Y} \otimes k(z) \right) = n$ for all $z \in U_x$, i.e. $\Omega_{X/Y} |_{U_x}$ is locally free of rank $n$. Since $x \in X_y$ was arbitrary, by collecting all such $U_x$, we see that $\{ U_x \} _{x \in X_y}$ is a cover of $X_y$ such that $\Omega_{X/Y}$ is locally free on $\bigcup_{x \in X_y} U_x$.
+
+The remaining point is to find a kind of tubular neighborhood of $X_y$. Since $f: X \to Y$ is proper, by base change $\spec \left( k(y) \right) \to Y$, $X_y \to \spec \left( k(y) \right)$ is also proper. Thus, in particular, $X_y$ is quasi-compact and there are finitely many points $x_1, \cdots, x_m \in X_y$ such that $U_{x_1}, \cdots, U_{x_m}$ cover $X_y$. Since $f$ is flat, it is an open map so that $f(U_{x_i} \subset Y$ is open containing $y$. Let $U = \bigcap_{i=1} ^m f(U_{x_i})$. This is then an open subset of $Y$ containing $y$. Obviously, $f^{-1} (U) \subset \bigcup _{x \in X_y} U_x$ and thus $\Omega_{X/Y} |_{f^{-1} (U)}$ is locally free on $f^{-1} (U)$. Because flatness is stable under base change, that $\Omega_{X/Y} |_{f^{-1} (U)}$ is locally free of rank $n$ on $f^{-1} (U)$ is equivalent to that $f^{-1} (U) \to U$ is smooth. This finishes the proof.
+\end{proof}
+
+\subsection*{10.3}\textbf{A morphism $f: X \to Y$ of schemes of finite type over $k$ is {\it \'etale} if it is smooth of relative dimension $0$. It is {\it unramified} if for every $x \in X$, letting $y = f(x)$, we have $\mathfrak{m}_y \cdot \calO_x = \mathfrak{m}_x$, and $k(x)$ is a separable algebraic extension of $k(y)$. Show that the following conditions are equivalent:
+\begin{enumerate}
+\item [(i)] $f$ is \'etale;
+\item [(ii)] $f$ is flat, and $\Omega_{X/Y} = 0$;
+\item [(iii)] $f$ is flat and unramified.
+\end{enumerate}}
+
+\begin{proof}(i) $\Leftrightarrow$ (ii) is obvious by definition. (ii) $\Leftrightarrow$(iii) is a direct consequence of Theorem II-8.6A.
+\end{proof}
+
+\subsection*{10.4}\textbf{Show that a morphism $f: X \to Y$ of schemes of finite type over $k$ is \'etale if and only if the following condition is satisfied: for each $x \in X$, let $y  = f(x)$. Let $\widehat{\calO}_x$ and $\widehat{\calO}_y$ be the completions of the local rings at $x$ and $y$. Choose fields of representatives (II, 8.25A) $k(x) \subset \widehat{\calO}_x$ and $k(y) \subset \widehat{\calO}_y$ so that $k(y) \subset k(x)$ via the natural map $\widehat{\calO}_y \to \widehat{\calO}_x$. Then our condition is that for every $x \in X$, $k(x)$ is a separable algebraic extension of $k(y)$, and the natural map
+$$\widehat{\calO}_y \otimes_{k(y)} k(x) \to \widehat{\calO}_x$$ is an isomorphism.}
+
+\begin{proof}By definition, $f : X \to Y$ is unramified if and only if for all $x \in X$ with $y = f(x)$, $k(x)$ is separable over $k(y)$ and $\mathfrak{m}_y \cdot \calO_x = \mathfrak{m}_x$. Also, Ex III-10.3 shows that $f$ is \'etale if and only if $f$ is flat and unramified. Thus, it is enough to show that $f$ is flat if and only if for all $x \in X$ with $ y = f(x)$, $\widehat{\calO}_y \otimes_{k(y)} k(x) \overset{\simeq}{\to} \widehat{\calO}_x.$
+
+Since flatness is a local condition, it follows from the following three statements. (All rings are supposed to be noetherian.)
+
+\begin{claim}[1]$A$ is a ring and $I \subset A$ is an ideal. Then, the $I$-adic completion $A \to \widehat{A}$ is faithfully flat if and only if $I \subset \sqrt{A}$. (It is always flat.)
+\end{claim}
+
+\begin{proof}See SGA 1, IV-Cor 3.2
+\end{proof}
+
+\begin{claim}[2]Let $(A, \mathfrak{m})$, $(B, \mathfrak{n})$ be local rings with a local homomorphism $A \to B$. Then, 
+$$gr B \simeq gr A \otimes_A B \Leftrightarrow \widehat{B} \simeq \widehat{A} \otimes_A B.$$
+\end{claim}
+
+\begin{proof}Easy.
+\end{proof}
+
+\begin{claim}[3]Let $(A,\mathfrak{m}), (B, \mathfrak{n})$, $A \to B$ be as above. Then, $A \to B$ is flat if and only if $\widehat{B} \simeq \widehat{A} \otimes_A B$.
+\end{claim}
+
+\begin{proof}($\Rightarrow$) Since $0 \to \mathfrak{m} ^{r+1} \to \mathfrak{m} ^r \to \mathfrak{m} ^r / \mathfrak{m} ^{r+1} \to 0$ is exact and $A \to B$ is flat, $0 \to \mathfrak{m} ^{r+1} \otimes_A B \to \mathfrak{m} ^r \otimes_A B \to \mathfrak{m} ^r / \mathfrak{m} ^{r+1} \otimes _A B \to 0$ is exact. Since $\mathfrak{m} B = \mathfrak{n}$ and $\mathfrak{m} ^r / \mathfrak{m} ^{r+1} \otimes_A B = \mathfrak{m} ^r B / \mathfrak{m} ^{r+1} B = (\mathfrak{m} B)^r / (\mathfrak{m} B)^{r+1}$, we immediately obtain that $gr B \simeq gr A \otimes_A B$ which implies that $\widehat{B} \simeq \widehat{A} \otimes_A B$ by Claim (2).
+
+($\Leftarrow$) Let $M \to N$ be an injective $A$-module homomorphism. We want to show that $M \otimes_A B \to N \otimes_A B$ is an injection. Since $A \to \widehat{A}$ is flat, $B \otimes_A \widehat{A}$ is also a flat $A$-module. Thus, $M \otimes_A \left( B \otimes_A \widehat{A} \right) \to N \otimes_A \left( B \otimes_A \widehat{A} \right)$ is an injection But, $- \otimes_A \left( B \otimes_A \widehat{A} \right) \simeq \left( - \otimes_A B \right) \otimes_A \widehat{A}$ is an injection and since $A \to \widehat{A}$ is faithfully flat by Claim (1), $M \otimes_A B \to N \otimes_A B$ is injective as desired. This finishes the proof.
+\end{proof}
+
+Thus, taking $A = \calO_y$, $B = \calO_x$ gives the desired result because, when $L = k(y)$, $k = k(x)$, we have $L = B \otimes_A k$ so taht $- \otimes_k L = - \otimes_k k \otimes _A B = - \otimes_A B$.
+\end{proof}
+
+\subsection*{10.5}\textbf{If $x$ is a point of a scheme $X$, we define an {\it \'etale neighborhood} of $x$ to be an \'etale morphism $f: U \to X$, together with a point $x' \in U$ such that $f(x') = x$. As an example of the use of \'etale neighborhoods, prove the following: if $\calF$ is a coherent sheaf on $X$, and if every point of $X$ has an \'etale neighborhood $f: U \to X$ for which $f^* \calF $ is a free $\calO_U$-module, then $\calF$ is locally free on $X$. }
+
+\begin{proof}The question being local, we may suppose that both $U$ and $X$ are affine. Furthermore, by localizing them at $x$ and $x'$, we reduce the problem to show the following:
+
+{\it $A \to B$ is an \'etale local homomorphism of local rings and $M$ is an $A$-module such that $M \otimes_A B \simeq B^n$. Then, $M \simeq A^n$.}
+
+But, this is easy: $M \otimes_A B \simeq B^n \simeq A ^n \otimes_A B$ and since $B \not = 0$ and $B$ is $A$-flat, $B$ is a faithfully flat $A$-module (SGA1 IV-cor 2.2) so that $M \simeq A^n$. This finishes the proof.
+\end{proof}
+\end{document}
+

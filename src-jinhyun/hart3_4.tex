@@ -1,0 +1,137 @@
+%\documentclass[11pt]{article}          % required in all documents
+\documentclass[11pt]{amsart}          % required in all documents
+\usepackage{epsfig}                     % a package to include PS figures
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\newcommand{\tuborg}{\left\{\begin{array}{ll}}
+\newcommand{\sluttuborg}{\end{array}\right.}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calZ}{\mathcal{Z}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\cal}{\mathcal}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\ord}{{\rm ord}}
+\newcommand{\coker}{{\rm coker}}
+\newcommand{\codim}{{\rm codim}}
+\newcommand{\supp}{{\rm Supp}}
+\newcommand{\rat}{{\rm Rat}}
+\newcommand{\spec}{{\rm Spec}}
+\newcommand{\tor}{{\rm Tor}}
+\newcommand{\stor}{{\underline{\rm Tor}}}
+\newcommand{\p}{\partial}
+\newcommand{\proj}{{\rm Proj}}
+\newcommand{\fr}{{\rm Frac}}
+\newcommand{\ann}{{\rm Ann}}
+\newcommand{\ass}{{\rm Ass}}
+\newcommand{\pic}{{\rm Pic}}
+\newcommand{\ext}{{\rm Ext}}
+\newcommand{\shom}{{\underline{\rm Hom}}}
+\newcommand{\sext}{{\underline{\rm Ext}}}
+\newcommand{\ilim}{{\underset{\longleftarrow}{\lim}}}
+\newcommand{\dlim}{{\underset{\longrightarrow}{\lim}}}
+\newcommand{\der}{{\rm Der}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defi}[thm]{Definition} 
+\newtheorem{eg}[thm]{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem*{remark}{Remark}
+\newtheorem{remark2}[thm]{Remark}
+\newtheorem*{phil}{Philosophy}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{metaconj}[thm]{Metaconjecture}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{question}[thm]{Question}
+\newtheorem{application}[thm]{Application}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{thm}.\arabic{equation}}
+\renewcommand{\div}{{\rm div}}
+\renewcommand{\hom}{{\rm Hom}}
+
+\setlength{\textwidth}{6in}             % Space saving measures
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.5in}
+\renewcommand{\baselinestretch}{1}
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+   
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}                                    
+
+\begin{document}
+
+\begin{center}
+\bf
+\large Robin Hartshorne's Algebraic Geometry Solutions
+\end{center}
+\begin{center}
+by Jinhyun Park
+\end{center}
+\vskip0.5cm
+
+\section*{Chapter III Cohomology Section 4 Cohomology of Affine spaces}
+\subsection*{4.1}
+\subsection*{4.2}
+\subsection*{4.3}
+\subsection*{4.4}
+\subsection*{4.5}
+\subsection*{4.6}
+\subsection*{4.7}
+\subsection*{4.8}
+\subsection*{4.9}
+\subsection*{4.10}\textbf{Let $X$ be a nonsingular variety over an algebraically closed field $k$, and let $\calF$ be a coherent sheaf on $X$. Show that there is a one-to-one correspondence between the set of infinitesimal extensions of $X$ by $\calF$ (II, Ex. 8.7) up to isomorphism, and the group $H^1 (X, \calF \otimes \calT)$, where $\calT$ is the tangent sheaf of $X$ (II, \S 8). [\emph{Hint}: Use (II, Ex. 8.6) and (4.5)]}
+\begin{proof} Let $\calU = \{ U_i \} _{i \in I}$ be an affine open cover of $X$. Note that since $X$ is nonsingular, so is each $U_i$. Let $(X', \calO_{X'})$ be an infinitesimal extension of $X$ by $\calF$, that is, there is a scheme $X'$ with an ideal sheaf $\calI \simeq \calF$ as $\calO_X$-modules, such that $\calI^2 = 0$, $(X, \calO_{X'}/ \calI) \simeq (X, \calO_X)$ as ringed spaces, and a short exact sequence of $\calO_X$-modules $$0 \to \calI \to \calO_{X'} \to \calO_X \to 0.$$  
+
+Since each $U_i$ is nonsingular and affine, by Ex.II-8.7, the above short exact sequence restricts to a split exact sequence on $U_i$, where the splitting is given by a lifting $\alpha_i : \calO_X |_{U_i} \to \calO_{X'}|_{U_i}$.
+
+On each $U_{ij}= U_i \cap U_j$, that is affine since $X$ is separated, we have two liftings $\alpha_i |_{U_{ij}}$, $\alpha_j |_{U_{ij}}: \calO_X |_{U_{ij}} \to \calO_{X'} |_{U_{ij}}$, and they differs by a section $\beta_{ij}$ in $\der_k (\calO_X (U_{ij}),\calI (U_{ij}))$ so that on $U_{ij}$ we have $$\alpha_i - \alpha_j = \beta_{ij}.$$ Notice that $\beta_{ij}$ can be seen as a section in $ (\calF \otimes \calT)(U_{ij})$ via isomorphisms
+$$\der_k (\calO_X (U_{ij}), \calI(U_{ij})) \simeq \hom_{\calO_{X/k} (U_{ij})} (\Omega_{X/k} (U_{ij}) , \calI(U_{ij})) \simeq (\calF \otimes \Omega_{X/k} ^* ) (U_{ij}) \simeq (\calF \otimes \calT ) (U_{ij}).$$
+
+Restricting all the above sections onto $U_{ijk} = U_i \cap U_j \cap U_k$, we thus obtain
+$$\beta_{ij} + \beta_{jk} + \beta_{ki} = (\alpha_i - \alpha_j) + (\alpha_j - \alpha_k ) + (\alpha_k - \alpha_i) = 0,$$ and $\{ \beta_{ij} \}$ gives a cocycle of the \v{C}ech complex $\breve{C}^{\bullet} (\calU, \calF \otimes \calT)$ in degree $1$.
+
+For a different choice of liftings $\mu_i : \calO_X |_{U_i} \to \calO_{X'} |_{U_i}$ for each $U_i$, as above we have the corresponding sections $\beta' _{ij}$ of $\der_k (\calO_X (U_{ij}), \calI (U_{ij}))$ with $\mu_i - \mu_j = \beta'_{ij}$ on $U_{ij}$, and with $\beta'_{ij} + \beta'_{jk} + \beta'_{ki} = 0$ on $U_{ijk}$.
+
+Applying the Ex. II-8.6- (a) again to the pair of liftings $\alpha_i$ and $\mu_i$ on $U_i$, we have sections $\xi_i$ of $\der_k (\calO_X (U_i), \calI (U_i))$ for each $U_i$ with $\alpha_i - \mu = \xi_i$, that can also be seen as a section of $\calF \otimes \calT$ on $U_i$. Then, on $U_{ij}$ we have
+$$\beta_{ij} - \beta'_{ij} =  (\alpha_i - \alpha_j)  - (\mu_i - \mu_j) = \xi_i - \xi_j,$$ thus the cocycles $\{ \beta_{ij} \}$ and $\{ \beta' _{ij} \}$ give the same cohomology class in $\breve{H} ^1 (\calU, \calF \otimes \calT)$. This last group is isomorphic to $H^1 (X, \calF \otimes T)$ by (4.5). The converse is easy. This finishes the proof.
+\end{proof}
+
+\subsection*{4.11}
+
+
+\end{document}
+

@@ -1,0 +1,180 @@
+%\documentclass[11pt]{article}          % required in all documents
+\documentclass[11pt]{amsart}          % required in all documents
+\usepackage{epsfig}                     % a package to include PS figures
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\newcommand{\tuborg}{\left\{\begin{array}{ll}}
+\newcommand{\sluttuborg}{\end{array}\right.}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calZ}{\mathcal{Z}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\cal}{\mathcal}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\ord}{{\rm ord}}
+\newcommand{\coker}{{\rm coker}}
+\newcommand{\codim}{{\rm codim}}
+\newcommand{\supp}{{\rm Supp}}
+\newcommand{\rat}{{\rm Rat}}
+\newcommand{\spec}{{\rm Spec}}
+\newcommand{\tor}{{\rm Tor}}
+\newcommand{\stor}{{\underline{\rm Tor}}}
+\newcommand{\p}{\partial}
+\newcommand{\proj}{{\rm Proj}}
+\newcommand{\fr}{{\rm Frac}}
+\newcommand{\ann}{{\rm Ann}}
+\newcommand{\ass}{{\rm Ass}}
+\newcommand{\pic}{{\rm Pic}}
+\newcommand{\ext}{{\rm Ext}}
+\newcommand{\shom}{{\underline{\rm Hom}}}
+\newcommand{\sext}{{\underline{\rm Ext}}}
+\newcommand{\ilim}{{\underset{\longleftarrow}{\lim}}}
+\newcommand{\dlim}{{\underset{\longrightarrow}{\lim}}}
+\newcommand{\sym}{{\rm Sym}}
+\newcommand{\der}{{\rm Der}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defi}[thm]{Definition} 
+\newtheorem{eg}[thm]{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem*{remark}{Remark}
+\newtheorem{remark2}[thm]{Remark}
+\newtheorem*{phil}{Philosophy}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{metaconj}[thm]{Metaconjecture}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{question}[thm]{Question}
+\newtheorem{application}[thm]{Application}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{thm}.\arabic{equation}}
+\renewcommand{\div}{{\rm div}}
+\renewcommand{\hom}{{\rm Hom}}
+
+\setlength{\textwidth}{6in}             % Space saving measures
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.5in}
+\renewcommand{\baselinestretch}{1}
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+   
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}                                    
+
+\begin{document}
+
+\begin{center}
+\bf
+\large Robin Hartshorne's Algebraic Geometry Solutions
+\end{center}
+\begin{center}
+by Jinhyun Park
+\end{center}
+\vskip0.5cm
+
+\section*{Chapter III Section 9 Flat Morphisms}
+
+\subsection*{9.1}
+\subsection*{9.2}
+\subsection*{9.3}
+\subsection*{9.4}
+\subsection*{9.5}
+\subsection*{9.6}
+\subsection*{9.7}
+\subsection*{*9.8}\textbf{Let $A$ be a finitely generated $k$-algebra. Write $A$ as a quotient of a polynomial ring $P$ over $k$, and let $J$ be the kernel:
+$$0 \to J \to P \to A \to 0.$$
+Consider the exact sequence of (II, 8.4A)
+$$J/J^2 \to \Omega_{P/k} \otimes_P A \to \Omega_{A/k} \to 0.$$
+Apply the functor $\hom_A (\cdot, A)$, and let $T^1 (A)$ be the cokernel:
+$$\hom_A (\Omega_{P/k} \otimes A, A) \to \hom_A (J/J^2, A) \to T^1 (A) \to 0.$$
+Now use the construction of (II, Ex. 8.6) to show that $T^1 (A)$ classifies infinitesimal deformations of $A$, i.e., algebras $A'$ flat over $D = k[t]/t^2$, with $A' \otimes_D k \simeq A.$ It follows that $T^1 (A)$ is independent of the given representation of $A$ as a quotient of a polynomial ring $P$. (For more details, see Lichtenbaum and Schlessinger [1].)
+}
+
+\begin{proof} Suppose that $P = k[x_1, \cdots, x_n]$ is a polynomial $k$-algebra of which $A$ is a quotient with the kernel $J$. Let $P_2 := k[x_1, \cdots, x_n, y_1, \cdots, y_n]$. 
+
+For each infinitesimal deformation $A'$ of $A$, we can define a $k$-algebra homomorphism $f: P_2 \to A'$ so that we obtain the following commutative diagram with exact rows and columns:
+$$\xymatrix{ & 0 \ar[d] & 0 \ar[d] & 0 \ar[d] & \\
+0 \ar[r] & J \ar[r]^t \ar[d] & K \ar[r] \ar[d] & J \ar[r] \ar[d] & 0 \\
+0 \ar[r] & P \ar[r] ^t \ar[d] & P_2 \ar[r] \ar[d]^f & P \ar[r] \ar[d] & 0 \\
+0 \ar[r] & A \ar[r] ^t \ar[d] & A' \ar[r] \ar[d] & A \ar[r] \ar[d] & 0 \\
+& 0 & 0 & 0 &
+}$$
+where $K$ is an ideal of $P-2$. 
+
+Notice that to give a $k$-algebra $A'$ with the required properties is equivalent to give an ideal $K$, and the ambiguity is given by the choice of the $k$-algebra homomorphism $f$. Thus, the set of equivalence classes of infinitesimal deformations $A'$ of $A$ is equal to
+$$\frac{\{\mbox{ choices of an ideal } K \}}{\{{\mbox{ choices of } f}\}}.$$ We will identify the numerator and the denominator.
+
+\begin{claim}
+$\{\mbox{ choices of an ideal } K \} \simeq \hom_P (J, A)$ as sets.
+\end{claim}
+Notice that the middle row splits via the natural inclusion $P \to P_2$ of the right hand side $P$. So that as modules, $P_2 = P \oplus tP$.
+
+Suppose an ideal $K$ was chosen. For each $x \in J$, lift it to $\tilde{x} \in K$. Since $P_2 = P \oplus tP \supset K$, $\tilde{x} = x + t(y)$ for some $y \in P$. Two liftings of $x$ differ by an image of $tz$ for some $z \in I$, thus, $y\in P$ is not uniquely determined by $x$, but $\bar{y} \in A$ is uniquely determined. Thus, it defines a map in $\hom_P (J, A)$ that sends $x \mapsto \bar{y}$.
+
+Conversely, suppose that $\phi \in \hom_P (J, A)$. Define an ideal $K$ of $P_2$ by
+$$K = \{ x + t y | x \in J, y \in P \mbox{ such that } \bar{y} = \phi (x) \mbox{ in } A \}.$$ It is easy to see that $K$ is an ideal of $P_2$, and the image of $K$ in $P$ is $J$ so that
+$$0 \to J \to K \to J \to 0$$ is exact. It defines $A':= P_2/K$, and here $f$ is the canonical quotient map. Thus, it shows the claim.
+
+\begin{claim}
+$\{ \mbox{ choices of } f \} \simeq \der_k (P, A)$ as sets.
+\end{claim} A choice of $f: P_2 \to A'$ gives after composing with $t: P \to P_2$, a lifting of $P \to A$ to $P \to A'$. Thus, Ex. II-8.6-(a) shows the assertion. This proves the claim.
+
+Hence, the obvious identities
+$$\hom_P (J, A) \simeq \hom_A (J/J^2, A), \mbox{ and } $$
+$$\der_k (P,A) \simeq \hom_P (\Omega_{P/k}, A)$$ show that the set of isomorphism classes of infinitesimal deformations are in one-to-one correspondence with the $\coker \left(\hom_P (\Omega_{P/k}, A) \to \hom_A (J/J^2 , A) \right)$, which is by definition $T^1 (A)$. This finishes the proof.
+\end{proof}
+
+\begin{remark}{\rm In fact, via a natural map $$T_1 (A) \supset \ext_A ^1 (\Omega_{A/k}, A),$$ where the natural map will be apparent from the following discussion.
+
+For the exact sequence $$J/J^2 \to \Omega_{P/k} \otimes_P A \to \Omega_{A/k} \to 0,$$ let $L $ be the kernel of the second map so that we have a natural projection $J/J^2 \to L$ and a commutative diagram
+$$\xymatrix{ & J/J^2 \ar[d] \ar[dr] & & & \\ 0 \ar[r] & L \ar[r] & \Omega_{P/k} \otimes_P A \ar[r] & \Omega_{A/k} \ar[r] & 0.}$$ Then, it induces a commutative diagram with exact rows
+$$\xymatrix{ \hom_P (\Omega_{P/k} , A) \ar[r] & \hom_P (J/J^2, A) \ar[r] & T^1 (A) \ar[r] & 0 \\
+\hom_P (\Omega_{P/k}, A) \ar[u]^= \ar[r] & \hom_P (L, A) \ar[u] \to & \ext_A ^1 (\Omega_{A/k}, A) \ar[r] & \ext_P ^1 (\Omega_{P/k}, A) }$$  
+
+First of all, since $P$ is smooth over $k$, $\ext_P ^1 (\Omega_{P/k}, A) \simeq 0$, $\Omega_{P/k}$ being projective. Hence, by diagram chasing we can define a map $$\ext_A ^1 (\Omega_{A/k}, A) \to T^1 (A)$$ and furthermore, the diagram implies that it must be injective.
+
+It is known that this map becomes an isomorphism when
+\begin{enumerate}
+\item $k$ is a perfect field, and
+\item $A$ is a reduced $k$-algebra of finite type,
+\end{enumerate} according to Lichtenbaum and Schlessinger.
+}
+\end{remark}
+
+\subsection*{9.9}
+\subsection*{9.10}
+\subsection*{9.11}
+\end{document}
+
