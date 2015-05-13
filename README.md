@@ -9,4 +9,7 @@ Solutions to Algebraic Geometry by Robin Hartshorne
   6. ismail saglam and Chris, http://algebraicgeometry.blogspot.de/, 2008--2009. Chapter 2 and 3, all.
   7. Chris Lomont, http://lomont.org/Math/Solutions.pdf, 1999. Chapters 2 to 4, part.
   8. Jinhyun Park, http://mathsci.kaist.ac.kr/~jinhyun/sol2/hart.html. Chapters 1 to 5, part.
-  9. W Stein, http://wstein.org/AG.html. Chapters 2 and 3, part.
+  9. W Stein, http://wstein.org/AG.html. Chapters 2 and 3, part. 
+  
+To be added
+  10. Brian Osserman, 248A and 248B, https://www.math.ucdavis.edu/~osserman/classes/
